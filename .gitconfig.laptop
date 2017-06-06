@@ -1,0 +1,11 @@
+[core]
+	editor = vim
+[user]
+	name = Noah Biederbeck
+	email = noah.biederbeck@udo.edu
+[pull]
+	rebase = true
+[merge]
+	conflictstyle = diff3
+[credential]
+	helper = cache --timeout=10800

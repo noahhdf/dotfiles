@@ -16,27 +16,22 @@
 if empty(glob("~/.vim/autoload/plug.vim"))
     execute '!curl -fLo ~/.vim/autoload/plug.vim https://raw.github.com/junegunn/vim-plug/master/plug.vim'
 endif
-" set nocompatible
-" filetype off
-" set rtp+=~/.vim/bundle/Vundle.vim/
-" call vundle#begin()
 call plug#begin('~/.vim/plugged')
 
 " PLUGINS HERE
-" Plugin 'VundleVim/Vundle.vim'
 Plug 'arcticicestudio/nord-vim'
-" Plugin 'nvie/vim-flake8'
-Plug 'vim-syntastic/syntastic'
-" Plugin 'scrooloose/nerdtree'
-" Plugin 'scrooloose/nerdcommenter'
+" Plug 'nvie/vim-flake8'
+Plug 'vim-syntastic/syntastic', {'for': 'python'}
+" Plug 'scrooloose/nerdtree'
+" Plug 'scrooloose/nerdcommenter'
 Plug 'vim-airline/vim-airline'
-Plug 'valloric/youcompleteme', { 'do': './install.py', 'for': 'python'}
-Plug 'jalvesaq/Nvim-R'
+Plug 'vim-airline/vim-airline-themes'
+" Plug 'valloric/youcompleteme', { 'do': './install.py', 'for': 'python'}
+Plug 'jalvesaq/Nvim-R', {'for': 'r'}
 Plug 'altercation/vim-colors-solarized'
 
 call plug#end()
-" call vundle#end()
-"                               VUNDLE END
+"                               PLUG END
 " ########################################################################### "
 "
 "
@@ -49,11 +44,10 @@ call plug#end()
 filetype plugin on
 set modelines=0
 
-"syntax on
 set encoding=utf-8
 set fileencoding=utf-8
 
-set nu "Zeilennummern
+set nu "ZEILENNUMMERN
 set relativenumber
 
 " FIND&REPLACE
@@ -88,10 +82,10 @@ vnoremap H 0
 nnoremap L $
 vnoremap L $
 inoremap jj <ESC>
-" inoremap ww <ESC>:w<ENTER>
+" inoremap ww <ESC>:w<CR>
 " nnoremap zz ZZ
 " inoremap zzz <ESC>ZZ
-" nnoremap qq :q<ENTER>
+" nnoremap qq :q<CR>
 nnoremap <TAB> %
 vnoremap <TAB> %
 nnoremap , <leader>
@@ -104,9 +98,10 @@ nnoremap f /
 nnoremap <C-K> b<C-V>U
 nnoremap <C-U> VU
 inoremap <C-U> VU
+vnoremap n <ESC>
 " LOOK AT THIS
-" nnoremap <CTRL><TAB> :tabn<ENTER>
-" nnoremap <CTRL><SHIFT><TAB> :tabN<ENTER>
+" nnoremap <CTRL><TAB> :tabn<CR>
+" nnoremap <CTRL><SHIFT><TAB> :tabN<CR>
 "
 "
 "
@@ -115,21 +110,10 @@ inoremap <C-U> VU
 " ########################################################################### "
 "                               CUSTOM COLOR-SCHEME
 " ########################################################################### "
-colorscheme nord
 syntax enable
+colorscheme nord
 set background=dark
 colorscheme solarized
-" syntax off
-" highlight Comment ctermbg = Black 
-" highlight Comment ctermfg = White 
-" highlight Constant ctermbg = Black
-" highlight Constant ctermfg = White
-" highlight Normal ctermbg = Black
-" highlight Normal ctermfg = White
-" highlight NonText ctermbg = Black
-" highlight Special ctermbg = White
-" highlight Cursor ctermbg = Black
-" SYNTAX ENABLE
 syntax on
 "
 "
@@ -142,17 +126,17 @@ syntax on
 " LATEX SETTINGS
 augroup tex_settings "{
     au BufNewFile,BufRead *.tex set ft=tex 
-    autocmd FileType tex ab beq \begin{equation}<ENTER><ENTER>\end{equation}<UP>
-    autocmd FileType tex ab bal \begin{align}<ENTER><ENTER>\end{align}<UP>
+    autocmd FileType tex ab beq \begin{equation}<CR><CR>\end{equation}<UP>
+    autocmd FileType tex ab bal \begin{align}<CR><CR>\end{align}<UP>
     autocmd FileType tex ab ( \left(\right)<LEFT><LEFT><LEFT><LEFT><LEFT><LEFT><LEFT>
     autocmd FileType tex ab [ \left[\right]<LEFT><LEFT><LEFT><LEFT><LEFT><LEFT><LEFT>
     " ]) 'THIS LINE IS JUST FOR HIGHLIGHTING PURPOSES'
     autocmd FileType tex ab sub \subsection{}<LEFT>
 augroup END "}
-"
+
 " R SETTINGS
 augroup R_settings "{
-    au BufNewFile,BufRead *.R set ft=R
+    au BufNewFile,BufRead *.R set ft=r
     autocmd FileType R inoremap ^_ <-
 augroup END "}
 "
@@ -164,7 +148,7 @@ augroup END "}
 "                               PLUGINS
 " ########################################################################### "
 "
-" NERDCOMMENTER
+" NERDCOMMCR
 " ADD SPACES AFTER COMMENT DELIMITERS BY DEFAULT
 let g:NERDSpaceDelims = 1
 " ADD SPACES AFTER COMMENT DELIMITERS BY DEFAULT
@@ -175,7 +159,7 @@ let g:NERDCommentEmptyLines = 1
 let g:NERDTrimTrailingWhitespace = 1
 " Default mapping: [count]|<Leader>|cc
 " Mapped to: <plug>NERDCommenterComment
-" nnoremap <c-\> <plug>NERDCommenterComment
+" nnoremap <C-\> <plug>NERDCommenterComment
 
 " SYNTASTIC
 set statusline+=%#warningmsg#
@@ -186,10 +170,13 @@ let g:syntastic_always_populate_loc_list = 0
 let g:syntastic_auto_loc_list = 0
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
-" highlight SyntasticErrorLine guibg=#2f0000
-" highlight SyntasticWarningLine guibg=#2f0000
 
 " AIRLINE
 set laststatus=2
 let g:airline_powerline_fonts = 0
-let g:airline_color = 0
+let g:airline_theme = 'solarized'
+"
+"
+"
+"
+"
