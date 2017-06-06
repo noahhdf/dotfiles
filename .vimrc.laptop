@@ -1,0 +1,195 @@
+" PERSONAL VIMRC STYLEGUIDE
+" DELIMITERS END ON COLUMN 79
+" HEADLINES START AT COLUMN 33
+" 5 COMMENTED BLANK LINES AFTER A SECTION
+" UNCOMMENTET BLANK LINES BETWEEN CALLS
+" COMMENTS UPPERCASE
+"
+"
+"
+"
+"
+" ########################################################################### "
+"                               PLUG BEGIN
+" ########################################################################### "
+" LOAD VIM PLUG
+if empty(glob("~/.vim/autoload/plug.vim"))
+    execute '!curl -fLo ~/.vim/autoload/plug.vim https://raw.github.com/junegunn/vim-plug/master/plug.vim'
+endif
+" set nocompatible
+" filetype off
+" set rtp+=~/.vim/bundle/Vundle.vim/
+" call vundle#begin()
+call plug#begin('~/.vim/plugged')
+
+" PLUGINS HERE
+" Plugin 'VundleVim/Vundle.vim'
+Plug 'arcticicestudio/nord-vim'
+" Plugin 'nvie/vim-flake8'
+Plug 'vim-syntastic/syntastic'
+" Plugin 'scrooloose/nerdtree'
+" Plugin 'scrooloose/nerdcommenter'
+Plug 'vim-airline/vim-airline'
+Plug 'valloric/youcompleteme', { 'do': './install.py', 'for': 'python'}
+Plug 'jalvesaq/Nvim-R'
+Plug 'altercation/vim-colors-solarized'
+
+call plug#end()
+" call vundle#end()
+"                               VUNDLE END
+" ########################################################################### "
+"
+"
+"
+"
+"
+" ########################################################################### "
+"                               BASIC VIM STUFF
+" ########################################################################### "
+filetype plugin on
+set modelines=0
+
+"syntax on
+set encoding=utf-8
+set fileencoding=utf-8
+
+set nu "Zeilennummern
+set relativenumber
+
+" FIND&REPLACE
+set ignorecase
+set smartcase
+set gdefault
+set incsearch
+
+" AUTO-EINRÜCKEN
+set autoindent
+set tabstop=4
+set shiftwidth=4
+set softtabstop=4
+set expandtab
+
+set wrap
+set textwidth=79
+set colorcolumn=+1
+set formatoptions=qrn1
+
+" set undofile
+"
+"
+"
+"
+"
+" ########################################################################### "
+"                               KEY-REMAPPING
+" ########################################################################### "
+nnoremap H 0
+vnoremap H 0
+nnoremap L $
+vnoremap L $
+inoremap jj <ESC>
+" inoremap ww <ESC>:w<ENTER>
+" nnoremap zz ZZ
+" inoremap zzz <ESC>ZZ
+" nnoremap qq :q<ENTER>
+nnoremap <TAB> %
+vnoremap <TAB> %
+nnoremap , <leader>
+vnoremap , <leader>
+nnoremap F :%s/
+nnoremap f /
+" inoremap <CTRL><RIGHT> <ESC>wi
+" inoremap <CTRL><LEFT> <ESC>bi
+" inoremap <C-K> <ESC>b<C-V>UA
+nnoremap <C-K> b<C-V>U
+nnoremap <C-U> VU
+inoremap <C-U> VU
+" LOOK AT THIS
+" nnoremap <CTRL><TAB> :tabn<ENTER>
+" nnoremap <CTRL><SHIFT><TAB> :tabN<ENTER>
+"
+"
+"
+"
+"
+" ########################################################################### "
+"                               CUSTOM COLOR-SCHEME
+" ########################################################################### "
+colorscheme nord
+syntax enable
+set background=dark
+colorscheme solarized
+" syntax off
+" highlight Comment ctermbg = Black 
+" highlight Comment ctermfg = White 
+" highlight Constant ctermbg = Black
+" highlight Constant ctermfg = White
+" highlight Normal ctermbg = Black
+" highlight Normal ctermfg = White
+" highlight NonText ctermbg = Black
+" highlight Special ctermbg = White
+" highlight Cursor ctermbg = Black
+" SYNTAX ENABLE
+syntax on
+"
+"
+"
+"
+"
+" ########################################################################### "
+"                               FILE-SPECIFIC ABBREVIATIONS 
+" ########################################################################### "
+" LATEX SETTINGS
+augroup tex_settings "{
+    au BufNewFile,BufRead *.tex set ft=tex 
+    autocmd FileType tex ab beq \begin{equation}<ENTER><ENTER>\end{equation}<UP>
+    autocmd FileType tex ab bal \begin{align}<ENTER><ENTER>\end{align}<UP>
+    autocmd FileType tex ab ( \left(\right)<LEFT><LEFT><LEFT><LEFT><LEFT><LEFT><LEFT>
+    autocmd FileType tex ab [ \left[\right]<LEFT><LEFT><LEFT><LEFT><LEFT><LEFT><LEFT>
+    " ]) 'THIS LINE IS JUST FOR HIGHLIGHTING PURPOSES'
+    autocmd FileType tex ab sub \subsection{}<LEFT>
+augroup END "}
+"
+" R SETTINGS
+augroup R_settings "{
+    au BufNewFile,BufRead *.R set ft=R
+    autocmd FileType R inoremap ^_ <-
+augroup END "}
+"
+"
+"
+"
+"
+" ########################################################################### "
+"                               PLUGINS
+" ########################################################################### "
+"
+" NERDCOMMENTER
+" ADD SPACES AFTER COMMENT DELIMITERS BY DEFAULT
+let g:NERDSpaceDelims = 1
+" ADD SPACES AFTER COMMENT DELIMITERS BY DEFAULT
+let g:NERDSpaceDelims = 1
+" ALLOW COMMENTING AND INVERTING EMPTY LINES (USEFUL WHEN COMMENTING A REGION)
+let g:NERDCommentEmptyLines = 1
+" ENABLE TRIMMING OF TRAILING WHITESPACE WHEN UNCOMMENTING
+let g:NERDTrimTrailingWhitespace = 1
+" Default mapping: [count]|<Leader>|cc
+" Mapped to: <plug>NERDCommenterComment
+" nnoremap <c-\> <plug>NERDCommenterComment
+
+" SYNTASTIC
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 0
+let g:syntastic_auto_loc_list = 0
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+" highlight SyntasticErrorLine guibg=#2f0000
+" highlight SyntasticWarningLine guibg=#2f0000
+
+" AIRLINE
+set laststatus=2
+let g:airline_powerline_fonts = 0
+let g:airline_color = 0
