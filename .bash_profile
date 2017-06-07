@@ -11,7 +11,6 @@ alias 'la'='ls -a'
 alias 'pdfpandoc'='pandoc -r markdown -w latex -o'
 alias 'speedtest'='time seq -f "test %g"'
 alias ':q'='exit'
-alias 'vim'='nvim'
 
 
 # SCP
