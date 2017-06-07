@@ -5,10 +5,13 @@ alias 'mv'='mv -v'
 alias 'cp'='cp -v'
 alias 'mkdir'='mkdir -p'
 alias 'neofetch'='clear && neofetch'
-alias 'ls'='ls -Gh'
+alias 'ls'='ls -h --color="always"'
 alias 'll'='ls -al'
 alias 'la'='ls -a'
 alias 'pdfpandoc'='pandoc -r markdown -w latex -o'
+alias 'speedtest'='time seq -f "test %g"'
+alias ':q'='exit'
+alias 'vim'='nvim'
 
 
 # SCP
