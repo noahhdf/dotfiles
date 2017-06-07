@@ -24,7 +24,7 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'arcticicestudio/nord-vim'
 Plug 'altercation/vim-colors-solarized'
 " Plug 'valloric/youcompleteme', { 'do': './install.py', 'for': 'python'}
-Plug 'jalvesaq/Nvim-R', {'for': 'r'}
+" Plug 'jalvesaq/Nvim-R', {'for': 'r'}
 " Plug 'nvie/vim-flake8'
 Plug 'vim-syntastic/syntastic', {'for': 'python'}
 " Plug 'scrooloose/nerdtree'
