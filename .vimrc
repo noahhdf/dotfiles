@@ -63,7 +63,7 @@ set autoindent
 set tabstop=4
 set shiftwidth=4
 set softtabstop=4
-set expandtab
+" set expandtab
 
 set wrap
 set textwidth=79
@@ -81,8 +81,12 @@ set formatoptions=qrn1
 " ########################################################################### "
 nnoremap H 0
 vnoremap H 0
+nnoremap dH d0
+vnoremap dH d0
 nnoremap L $
 vnoremap L $
+nnoremap dL d$
+vnoremap dL d$
 inoremap jj <ESC>
 " inoremap ww <ESC>:w<CR>
 " nnoremap zz ZZ
@@ -128,12 +132,16 @@ syntax on
 " LATEX SETTINGS
 augroup tex_settings
     au BufNewFile,BufRead *.tex set ft=tex 
-    autocmd FileType tex ab beq \begin{equation}<CR><CR>\end{equation}<UP>
-    autocmd FileType tex ab bal \begin{align}<CR><CR>\end{align}<UP>
-    autocmd FileType tex ab ( \left(\right)<LEFT><LEFT><LEFT><LEFT><LEFT><LEFT><LEFT>
-    autocmd FileType tex ab [ \left[\right]<LEFT><LEFT><LEFT><LEFT><LEFT><LEFT><LEFT>
+    autocmd FileType tex ab eq \begin{equation}jjo\end{equation}jjO
+    autocmd FileType tex ab al \begin{align}jjo\end{align}jjO
+    autocmd FileType tex ab ( \left(\right)jj6hi
     " ]) 'THIS LINE IS JUST FOR HIGHLIGHTING PURPOSES'
-    autocmd FileType tex ab sub \subsection{}<LEFT>
+    autocmd FileType tex ab [ \left[\right]jj6hi
+    autocmd FileType tex ab sub \subsection{}jji
+    autocmd Filetype tex set tabstop=2
+    autocmd Filetype tex set shiftwidth=2
+    autocmd Filetype tex set softtabstop=2
+	autocmd FileType tex set expandtab
 augroup END
 
 " R SETTINGS
