@@ -83,10 +83,14 @@ nnoremap H 0
 vnoremap H 0
 nnoremap dH d0
 vnoremap dH d0
+nnoremap cH c0
+vnoremap cH c0
 nnoremap L $
 vnoremap L $
 nnoremap dL d$
 vnoremap dL d$
+nnoremap cL c$
+vnoremap cL c$
 inoremap jj <ESC>
 " inoremap ww <ESC>:w<CR>
 " nnoremap zz ZZ
