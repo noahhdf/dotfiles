@@ -1,6 +1,6 @@
 # USE OPTIONS OF DEFAULT COMMANDS
 alias '..'='cd ..'
-alias 'rm'='rm -v'
+alias 'rm'='rm -Iv'
 alias 'mv'='mv -v'
 alias 'cp'='cp -v'
 alias 'mkdir'='mkdir -p'
