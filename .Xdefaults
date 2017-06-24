@@ -1,12 +1,4 @@
-! +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-! title      Nord XResources                                    +
-! project    nord-xresources                                    +
-! version    0.1.0                                              +
-! repository https://github.com/arcticicestudio/nord-xresources +
-! author     Arctic Ice Studio                                  +
-! email      development@arcticicestudio.com                    +
-! copyright  Copyright (C) 2016                                 +
-! +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+! ------  DEFINE COLORS  ------ !
 #define nord0  #2E3440
 #define nord1  #3B4252
 #define nord2  #434C5E
@@ -24,15 +16,25 @@
 #define nord14 #A3BE8C
 #define nord15 #B48EAD
 
-URxvt*geometry:        84x24  
-URxvt*font:            xft:mono:medium:size=12
-URxvt*urlLauncher:     /usr/bin/midori  
-! URxvt*scrollBar:       false
-URxvt*scrollBar_right: true
-URxvt*scrollColor:     nord0
-URxvt*letterSpace:     -0
-URxvt*saveLines:       4096
+! -----  EXTENSIONS  ------ !
+URxvt.perl-ext-common:  default,tabbed,font-size,clipboard
+URxvt.tabbed.tabbar-fg: 6
+URxvt.tabbed.tabbar-bg: 0
+URxvt.tabbed.tab-fg:    9
+URxvt.tabbed.tab-bg:    0
 
+! -----  SETTINGS  ----- !
+URxvt.borderless:      true
+URxvt.geometry:        84x24  
+URxvt.font:            xft:mono:medium:size=12
+URxvt.urlLauncher:     /usr/bin/midori  
+! URxvt.scrollBar:       false
+URxvt.scrollBar_right: true
+URxvt.scrollColor:     nord0
+URxvt.letterSpace:     -0
+URxvt.saveLines:       4096
+
+! -----  COLORS  ----- !
 *.foreground:  nord4
 *.background:  nord0
 ! *.background:  rgba:0000/0000/0200/c800
@@ -58,10 +60,3 @@ URxvt*saveLines:       4096
 *.color13: nord15
 *.color14: nord7
 *.color15: nord6
-
-URxvt.perl-ext-common:  tabbed
-URxvt.tabbed.tabbar-fg: 6
-URxvt.tabbed.tabbar-bg: 0
-URxvt.tabbed.tab-fg:    9
-URxvt.tabbed.tab-bg:    0
-URxvt.borderless:       true
