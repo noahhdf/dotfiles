@@ -1,3 +1,9 @@
+if [ -n "$BASH_VERSION" ]; then
+    if [ -f "~/.bashrc" ]; then
+        source "~/.bashrc"
+    fi
+fi
+
 # USE OPTIONS OF DEFAULT COMMANDS
 alias '..'='cd ..'
 alias 'rm'='rm -Iv'
