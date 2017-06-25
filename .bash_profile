@@ -6,7 +6,7 @@ fi
 
 # USE OPTIONS OF DEFAULT COMMANDS
 alias '..'='cd ..'
-alias 'rm'='rm -Iv'
+alias 'rm'='rm -vI'
 alias 'mv'='mv -v'
 alias 'cp'='cp -v'
 alias 'mkdir'='mkdir -p'
