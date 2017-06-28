@@ -23,12 +23,12 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'arcticicestudio/nord-vim'
 Plug 'altercation/vim-colors-solarized'
-" Plug 'valloric/youcompleteme', { 'do': './install.py', 'for': 'python'}
+Plug 'valloric/youcompleteme', { 'do': './install.py' } ", 'for': 'python'}
 " Plug 'jalvesaq/Nvim-R', {'for': 'r'}
 " Plug 'nvie/vim-flake8'
 Plug 'vim-syntastic/syntastic', {'for': 'python'}
 " Plug 'scrooloose/nerdtree'
-" Plug 'scrooloose/nerdcommenter'
+Plug 'scrooloose/nerdcommenter'
 Plug 'tpope/vim-fugitive'
 Plug 'ervandew/supertab'
 
@@ -98,8 +98,8 @@ inoremap jj <ESC>
 " nnoremap qq :q<CR>
 nnoremap <TAB> %
 vnoremap <TAB> %
-nnoremap , <leader>
-vnoremap , <leader>
+nnoremap , <Leader>
+vnoremap , <Leader>
 nnoremap F :%s/
 nnoremap f /
 " inoremap <CTRL><RIGHT> <ESC>wi
@@ -142,6 +142,7 @@ augroup tex_settings
     " ]) 'THIS LINE IS JUST FOR HIGHLIGHTING PURPOSES'
     autocmd FileType tex ab [ \left[\right]jj6hi
     autocmd FileType tex ab sub \subsection{}jji
+    autocmd FileType tex ab table \begin{table}<CR>\centering<CR>\caption{}<CR>\label{tab:}<CR>\sisetup{table-format=1.0}<CR>\begin{tabular}{S S}<CR>\toprule<CR>\midrule<CR>\bottomrule<CR>\end{tabular}<CR>\end{table}jjH8k3wa
     autocmd Filetype tex set tabstop=2
     autocmd Filetype tex set shiftwidth=2
     autocmd Filetype tex set softtabstop=2
@@ -172,7 +173,7 @@ let g:NERDCommentEmptyLines = 1
 let g:NERDTrimTrailingWhitespace = 1
 " Default mapping: [count]|<Leader>|cc
 " Mapped to: <plug>NERDCommenterComment
-" nnoremap <C-\> <plug>NERDCommenterComment
+nnoremap <C-\> <plug>NERDCommenterComment
 
 " SYNTASTIC
 set statusline+=%#warningmsg#
