@@ -23,10 +23,11 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'arcticicestudio/nord-vim'
 Plug 'altercation/vim-colors-solarized'
-Plug 'valloric/youcompleteme', { 'do': './install.py' } ", 'for': 'python'}
+Plug 'valloric/youcompleteme', { 'do': './install.py'} ", 'for': 'python'}
 " Plug 'jalvesaq/Nvim-R', {'for': 'r'}
 " Plug 'nvie/vim-flake8'
-Plug 'vim-syntastic/syntastic', {'for': 'python'}
+Plug 'tell-k/vim-autopep8', {'for': 'python'}
+Plug 'vim-syntastic/syntastic' ", {'for': 'python, tex'}
 " Plug 'scrooloose/nerdtree'
 Plug 'scrooloose/nerdcommenter'
 Plug 'tpope/vim-fugitive'
@@ -189,6 +190,9 @@ let g:syntastic_check_on_wq = 0
 set laststatus=2
 let g:airline_powerline_fonts = 0
 let g:airline_theme = 'nord'
+
+" AUTOPEP8
+autocmd Filetype python noremap <buffer> <F6> :call Autopep8()<CR>
 "
 "
 "
