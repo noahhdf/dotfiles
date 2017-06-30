@@ -22,12 +22,12 @@ call plug#begin('~/.vim/plugged')
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'arcticicestudio/nord-vim'
-Plug 'altercation/vim-colors-solarized'
-Plug 'valloric/youcompleteme', { 'do': './install.py'} ", 'for': 'python'}
+" Plug 'altercation/vim-colors-solarized'
+Plug 'valloric/youcompleteme', { 'do': './install.py', 'for': 'python'}
 " Plug 'jalvesaq/Nvim-R', {'for': 'r'}
 " Plug 'nvie/vim-flake8'
 Plug 'tell-k/vim-autopep8', {'for': 'python'}
-Plug 'vim-syntastic/syntastic' ", {'for': 'python, tex'}
+Plug 'vim-syntastic/syntastic', {'for': 'python'}
 " Plug 'scrooloose/nerdtree'
 Plug 'scrooloose/nerdcommenter'
 Plug 'tpope/vim-fugitive'
@@ -52,12 +52,14 @@ set fileencoding=utf-8
 
 set nu "ZEILENNUMMERN
 set relativenumber
+set scrolloff=2
 
 " FIND&REPLACE
 set ignorecase
 set smartcase
 set gdefault
 set incsearch
+set backspace=indent,eol,start
 
 " AUTO-EINRÜCKEN
 set autoindent
@@ -99,8 +101,8 @@ inoremap jj <ESC>
 " nnoremap qq :q<CR>
 nnoremap <TAB> %
 vnoremap <TAB> %
-nnoremap , <Leader>
-vnoremap , <Leader>
+" nnoremap , <Leader>
+" vnoremap , <Leader>
 nnoremap F :%s/
 nnoremap f /
 " inoremap <CTRL><RIGHT> <ESC>wi
@@ -144,6 +146,7 @@ augroup tex_settings
     autocmd FileType tex ab [ \left[\right]jj6hi
     autocmd FileType tex ab sub \subsection{}jji
     autocmd FileType tex ab table \begin{table}<CR>\centering<CR>\caption{}<CR>\label{tab:}<CR>\sisetup{table-format=1.0}<CR>\begin{tabular}{S S}<CR>\toprule<CR>\midrule<CR>\bottomrule<CR>\end{tabular}<CR>\end{table}jjH8k3wa
+    autocmd FileType tex ab figure \begin{figure}<CR>\centering<CR>\includegraphics[width=0.8\textwidth]{}<CR>\caption{}<CR>\label{fig:}<CR>\end{figure}jj4k3w%la
     autocmd Filetype tex set tabstop=2
     autocmd Filetype tex set shiftwidth=2
     autocmd Filetype tex set softtabstop=2
@@ -174,7 +177,7 @@ let g:NERDCommentEmptyLines = 1
 let g:NERDTrimTrailingWhitespace = 1
 " Default mapping: [count]|<Leader>|cc
 " Mapped to: <plug>NERDCommenterComment
-nnoremap <C-\> <plug>NERDCommenterComment
+" nnoremap <C-\> ,cc
 
 " SYNTASTIC
 set statusline+=%#warningmsg#
