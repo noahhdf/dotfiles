@@ -29,9 +29,12 @@ Plug 'valloric/youcompleteme', { 'do': './install.py', 'for': 'python'}
 Plug 'tell-k/vim-autopep8', {'for': 'python'}
 Plug 'vim-syntastic/syntastic', {'for': 'python'}
 " Plug 'scrooloose/nerdtree'
-Plug 'scrooloose/nerdcommenter'
+" Plug 'scrooloose/nerdcommenter'
 Plug 'tpope/vim-fugitive'
 Plug 'ervandew/supertab'
+Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-commentary'
 
 call plug#end()
 "                               PLUG END
