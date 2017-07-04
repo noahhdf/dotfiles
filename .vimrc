@@ -23,15 +23,19 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'arcticicestudio/nord-vim'
 " Plug 'altercation/vim-colors-solarized'
-Plug 'valloric/youcompleteme', { 'do': './install.py', 'for': 'python'}
-" Plug 'jalvesaq/Nvim-R', {'for': 'r'}
-" Plug 'nvie/vim-flake8'
-Plug 'tell-k/vim-autopep8', {'for': 'python'}
 Plug 'vim-syntastic/syntastic', {'for': 'python'}
-" Plug 'scrooloose/nerdtree'
-" Plug 'scrooloose/nerdcommenter'
+"
+Plug 'valloric/youcompleteme', { 'do': './install.py'} ", 'for': 'python'}
+Plug 'sirver/ultisnips'
+Plug 'honza/vim-snippets'
+" Plug 'ervandew/supertab'
+Plug 'tell-k/vim-autopep8', {'for': 'python'}
+"
+Plug 'scrooloose/nerdtree'
+Plug 'jistr/vim-nerdtree-tabs'
+Plug 'Xuyuanp/nerdtree-git-plugin'
+"
 Plug 'tpope/vim-fugitive'
-Plug 'ervandew/supertab'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
@@ -102,8 +106,8 @@ inoremap jj <ESC>
 " nnoremap zz ZZ
 " inoremap zzz <ESC>ZZ
 " nnoremap qq :q<CR>
-nnoremap <TAB> %
-vnoremap <TAB> %
+" nnoremap <TAB> %
+" vnoremap <TAB> %
 " nnoremap , <Leader>
 " vnoremap , <Leader>
 nnoremap F :%s/
@@ -115,9 +119,15 @@ nnoremap <C-K> b<C-V>U
 nnoremap <C-U> VU
 inoremap <C-U> VU
 vnoremap n <ESC>
+"
+inoremap <C-J> <C-N>
+inoremap <C-K> <C-P>
+nnoremap <C-J> <C-W>j
+nnoremap <C-H> <C-W>h
+nnoremap <C-K> <C-W>k
+nnoremap <C-L> <C-W>l
 " LOOK AT THIS
-" nnoremap <CTRL><TAB> :tabn<CR>
-" nnoremap <CTRL><SHIFT><TAB> :tabN<CR>
+nnoremap <C-W><TAB> :tabn<CR>
 "
 "
 "
@@ -142,14 +152,14 @@ syntax on
 " LATEX SETTINGS
 augroup tex_settings
     au BufNewFile,BufRead *.tex set ft=tex 
-    autocmd FileType tex ab eq \begin{equation}jjo\end{equation}jjO
-    autocmd FileType tex ab al \begin{align}jjo\end{align}jjO
-    autocmd FileType tex ab ( \left(\right)jj6hi
-    " ]) 'THIS LINE IS JUST FOR HIGHLIGHTING PURPOSES'
-    autocmd FileType tex ab [ \left[\right]jj6hi
-    autocmd FileType tex ab sub \subsection{}jji
-    autocmd FileType tex ab table \begin{table}<CR>\centering<CR>\caption{}<CR>\label{tab:}<CR>\sisetup{table-format=1.0}<CR>\begin{tabular}{S S}<CR>\toprule<CR>\midrule<CR>\bottomrule<CR>\end{tabular}<CR>\end{table}jjH8k3wa
-    autocmd FileType tex ab figure \begin{figure}<CR>\centering<CR>\includegraphics[width=0.8\textwidth]{}<CR>\caption{}<CR>\label{fig:}<CR>\end{figure}jj4k3w%la
+    " autocmd FileType tex ab eq \begin{equation}jjo\end{equation}jjO
+    " autocmd FileType tex ab al \begin{align}jjo\end{align}jjO
+    " autocmd FileType tex ab ( \left(\right)jj6hi
+    " " ]) 'THIS LINE IS JUST FOR HIGHLIGHTING PURPOSES'
+    " autocmd FileType tex ab [ \left[\right]jj6hi
+    " autocmd FileType tex ab sub \subsection{}jji
+    " autocmd FileType tex ab table \begin{table}<CR>\centering<CR>\caption{}<CR>\label{tab:}<CR>\sisetup{table-format=1.0}<CR>\begin{tabular}{S S}<CR>\toprule<CR>\midrule<CR>\bottomrule<CR>\end{tabular}<CR>\end{table}jjH8k3wa
+    " autocmd FileType tex ab figure \begin{figure}<CR>\centering<CR>\includegraphics[width=0.8\textwidth]{}<CR>\caption{}<CR>\label{fig:}<CR>\end{figure}jj4k3w%la
     autocmd Filetype tex set tabstop=2
     autocmd Filetype tex set shiftwidth=2
     autocmd Filetype tex set softtabstop=2
@@ -171,20 +181,10 @@ augroup END
 "                               PLUGINS
 " ########################################################################### "
 "
-" NERDCOMMCR
-" ADD SPACES AFTER COMMENT DELIMITERS BY DEFAULT
-let g:NERDSpaceDelims = 1
-" ALLOW COMMENTING AND INVERTING EMPTY LINES (USEFUL WHEN COMMENTING A REGION)
-let g:NERDCommentEmptyLines = 1
-" ENABLE TRIMMING OF TRAILING WHITESPACE WHEN UNCOMMENTING
-let g:NERDTrimTrailingWhitespace = 1
-" Default mapping: [count]|<Leader>|cc
-" Mapped to: <plug>NERDCommenterComment
-" nnoremap <C-\> ,cc
 
 " SYNTASTIC
 set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
+" set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 
 let g:syntastic_always_populate_loc_list = 0
@@ -199,6 +199,19 @@ let g:airline_theme = 'nord'
 
 " AUTOPEP8
 autocmd Filetype python noremap <buffer> <F6> :call Autopep8()<CR>
+
+" MAKE YCM COMPATIBLE WITH ULTISNIPS (USING SUPERTAB)
+let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
+let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
+let g:SuperTabDefaultCompletionType = '<C-n>'
+
+" BETTER KEY BINDINGS FOR ULTISNIPSEXPANDTRIGGER
+let g:UltiSnipsExpandTrigger = "<tab>"
+let g:UltiSnipsJumpForwardTrigger = "<tab>"
+let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
+
+"NERDTREETABS
+map <Leader>\ <plug>NERDTreeTabsToggle<CR>
 "
 "
 "
