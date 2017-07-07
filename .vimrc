@@ -80,6 +80,9 @@ set textwidth=79
 set colorcolumn=+1
 set formatoptions=qrn1
 
+set mouse=  " no mouse use
+
+
 " set undofile
 "
 "
