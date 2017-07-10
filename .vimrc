@@ -25,11 +25,15 @@ Plug 'arcticicestudio/nord-vim'
 " Plug 'altercation/vim-colors-solarized'
 Plug 'vim-syntastic/syntastic', {'for': 'python'}
 "
-Plug 'valloric/youcompleteme', { 'do': './install.py'} ", 'for': 'python'}
+" Plug 'valloric/youcompleteme', { 'do': './install.py'} ", 'for': 'python'}
 Plug 'sirver/ultisnips'
 Plug 'honza/vim-snippets'
-" Plug 'ervandew/supertab'
+Plug 'ervandew/supertab'
 Plug 'tell-k/vim-autopep8', {'for': 'python'}
+Plug 'sheerun/vim-polyglot'
+Plug 'davidhalter/jedi-vim'
+Plug 'w0rp/ale'
+Plug 'nvie/vim-flake8'
 "
 Plug 'scrooloose/nerdtree'
 Plug 'jistr/vim-nerdtree-tabs'
