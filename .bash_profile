@@ -80,3 +80,5 @@ parse_git_branch() {
 export PS1='\[\033[0;32m\]\u@\h: \[\033[0;34m\]\w\n\[\033[0;31m\]$(parse_git_branch)\[\033[1;32m\]\[\033[0m\]-> '
 
 export PATH="$HOME/.cargo/bin:$PATH"
+
+export DISABLE_AUTO_TITLE=true
