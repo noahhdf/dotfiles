@@ -1,11 +1,10 @@
 # Install TMUX
 Without the need to be `root`!
-Keep TMUX up to date using Github.
 
 ## Prerequisites
 We need the packages `libevent` and `ncurses`.
-This little script will download the newest versions from the websites respectively  and install them locally in the folder `~/.local`.
-We will make a temporary folder in which we will download the sources, and delete them later.
+This little script will download the newest versions from the websites respectively  and install them locally in the directory `~/.local`.
+We will make a temporary directory in which we will download the sources, and delete them later.
 ```bash
 cd $HOME
 mkdir -p .local
@@ -16,7 +15,7 @@ cd tmux_temp
 
 ### Libevent Setup
 ```bash
-https://github.com/libevent/libevent/releases/download/release-2.1.8-stable/libevent-2.1.8-stable.tar.gz
+wget https://github.com/libevent/libevent/releases/download/release-2.1.8-stable/libevent-2.1.8-stable.tar.gz
 tar vxfz libevent-2.1.8-stable.tar.gz
 cd libevent-2.1.8-stable
 ./autogen.sh
@@ -51,8 +50,8 @@ cp tmux $HOME/.local/bin
 cd ..
 ```
 
-## Additional steps 
-You now have to add the ld_library_path to your `.bashrc`:
+## Additional Steps 
+You now have to add the LD_LIBRARY_PATH to your `.bashrc`:
 ```bash
 export LD_LIBRARY_PATH="$HOME/tmux_temp/libevent/.libs"
 ```
