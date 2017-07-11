@@ -1,13 +1,6 @@
 # dotfiles
-Files in use:
-```
-.bash_profile
-.git
-# .gitconfig.laptop
-# .git-credentials.laptop
-README.md
-.tmux.conf
-# .tmux.conf.laptop
-.vimrc
-.Xdefaults
-```
+All files are usable, in use and up-to-date!
+
+Check out the installation guide for TMUX without the need to be root.
+
+_maintained by NB_
