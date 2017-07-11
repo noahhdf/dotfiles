@@ -232,7 +232,7 @@ let g:ale_sign_warning = '--'
 highlight clear ALEErrorSign
 highlight clear ALEWarningSign
 let g:airline#extensions#ale#enabled = 1
-let g:ale_lint_on_text_changed = 'never' " or 'normal'
+let g:ale_lint_on_text_changed = 'normal' " or 'never'
 let g:ale_lint_on_enter = 1
 let g:ale_llint_on_save = 1
 "
