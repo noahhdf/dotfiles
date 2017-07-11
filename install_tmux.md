@@ -1,3 +1,5 @@
+- [ ] Write everything in a nice working script.
+
 # Install TMUX
 Without the need to be `root`!
 
