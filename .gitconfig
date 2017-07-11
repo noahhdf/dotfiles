@@ -2,7 +2,7 @@
 	editor = vim
 [user]
 	name = Noah Biederbeck
-	email = noah.biederbeck@udo.edu
+	email = noah.biederbeck@tu-dortmund.de
 [pull]
 	rebase = true
 [merge]
