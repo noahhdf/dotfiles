@@ -30,10 +30,11 @@ Plug 'sirver/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'ervandew/supertab'
 " Plug 'tell-k/vim-autopep8', {'for': 'python'}
-Plug 'sheerun/vim-polyglot'
-Plug 'davidhalter/jedi-vim'
+" Plug 'sheerun/vim-polyglot'
+Plug 'LaTeX-Box-Team/LaTeX-Box', {'for': 'tex'}
+Plug 'davidhalter/jedi-vim', {'for': 'python'}
 Plug 'w0rp/ale'
-Plug 'nvie/vim-flake8'
+Plug 'nvie/vim-flake8', {'for': 'python'}
 "
 Plug 'scrooloose/nerdtree'
 Plug 'jistr/vim-nerdtree-tabs'
@@ -190,14 +191,14 @@ augroup END
 "
 
 " SYNTASTIC
-set statusline+=%#warningmsg#
+" set statusline+=%#warningmsg#
 " set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
+" set statusline+=%*
 
-let g:syntastic_always_populate_loc_list = 0
-let g:syntastic_auto_loc_list = 0
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
+" let g:syntastic_always_populate_loc_list = 0
+" let g:syntastic_auto_loc_list = 0
+" let g:syntastic_check_on_open = 1
+" let g:syntastic_check_on_wq = 0
 
 " AIRLINE
 set laststatus=2
