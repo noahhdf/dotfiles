@@ -218,8 +218,13 @@ let g:UltiSnipsExpandTrigger = "<tab>"
 let g:UltiSnipsJumpForwardTrigger = "<tab>"
 let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
 
-"NERDTREETABS
+" NERDTREETABS
 map <Leader>\ <plug>NERDTreeTabsToggle<CR>
+
+" LATEX-BOX
+let g:LatexBox_build_dir=".build"
+let g:LatexBox_split_type="new"
+autocmd FileType tex noremap <buffer> <F6> :LatexTOCToggle<CR>
 "
 "
 "
