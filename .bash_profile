@@ -1,7 +1,13 @@
+# SOURCE BASHRC
 if [ -n "$BASH_VERSION" ]; then
     if [ -f "~/.bashrc" ]; then
         source "~/.bashrc"
     fi
+fi
+# LINK BASH TO /USR DIRECTORY TO RETAIN PATH IN TMUX
+if ! [ -f "/usr/bin/bash" ]; then
+    echo "Linking /usr/bin/bash -> /bin/bash and need permission:"
+    sudo ln -s /bin/bash /usr/bin/bash
 fi
 
 # USE OPTIONS OF DEFAULT COMMANDS
@@ -64,6 +70,7 @@ alias 'conda2'='/Users/nbiederbeck/anaconda2/bin/conda'
 export PATH="/Users/nbiederbeck/anaconda3/bin:$PATH"
 
 
+# ON MacOsX
 # HQM TEX
 alias 'hqm'='cd /Users/nbiederbeck/Uni/hqm && git pull'
 # FP TEX
@@ -79,6 +86,6 @@ parse_git_branch() {
   }
 export PS1='\[\033[0;32m\]\u@\h: \[\033[0;34m\]\w\n\[\033[0;31m\]$(parse_git_branch)\[\033[1;32m\]\[\033[0m\]-> '
 
-export PATH="$HOME/.cargo/bin:$PATH"
 
+export PATH="$HOME/.cargo/bin:$PATH"
 export DISABLE_AUTO_TITLE=true
