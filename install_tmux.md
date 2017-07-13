@@ -8,7 +8,7 @@ We need the packages `libevent` and `ncurses`.
 This little script will download the newest versions from the websites respectively  and install them locally in the directory `~/.local`.
 We will make a temporary directory in which we will download the sources, and delete them later.
 Change `N` to the number of cores +1.
-_There are special instruction for working on a mac!_
+_There are special instructions for working on a mac!_
 
 ```bash
 cd $HOME
@@ -22,6 +22,7 @@ We need OpenSSL from [homebrew](https://brew.sh/):
 brew install openssl
 brew link openssl --force
 ```
+There happens to be a specific problem with using OpenSSL from Anaconda.
 
 ### Libevent Setup
 ```bash
@@ -30,8 +31,8 @@ tar vxfz libevent-2.1.8-stable.tar.gz
 cd libevent-2.1.8-stable
 ./autogen.sh
 ./configure --prefix=$HOME/.local --disable-shared
-make
-make install
+make -jN
+make install -jN
 cd ..
 ```
 
@@ -42,8 +43,8 @@ tar vxfz libevent-2.1.8-stable.tar.gz
 cd libevent-2.1.8-stable
 ./autogen.sh
 ./configure --prefix=$HOME/.local --disable-shared CFLAGS="-I/usr/local/opt/openssl/include -L/usr/local/opt/openssl/lib" LDFLAGS="-I/usr/local/opt/openssl/include -L/usr/local/opt/openssl/lib"
-make
-make install
+make -jN
+make install -jN
 cd ..
 ```
 
@@ -54,8 +55,8 @@ wget ftp://invisible-island.net/ncurses/ncurses.tar.gz
 tar vxfz ncurses.tar.gz
 cd ncurses-5.9
 ./configure --prefix=$HOME/.local
-make
-make install
+make -jN
+make install -jN
 cd ..
 ```
 
@@ -65,13 +66,13 @@ git clone https://github.com/tmux/tmux
 cd tmux
 ./autogen.sh
 ./configure CFLAGS="-I$HOME/.local/include -I$HOME/.local/include/ncurses" LDFLAGS="-L$HOME/.local/lib -L$HOME/.local/include/ncurses -L$HOME/.local/include"
-CPPFLAGS="-I$HOME/.local/include -I$HOME/.local/include/ncurses" LDFLAGS="-static -L$HOME/.local/include -L$HOME/.local/include/ncurses -L$HOME/.local/lib" make
+CPPFLAGS="-I$HOME/.local/include -I$HOME/.local/include/ncurses" LDFLAGS="-static -L$HOME/.local/include -L$HOME/.local/include/ncurses -L$HOME/.local/lib" make -jN
 cp tmux $HOME/.local/bin
 cd ..
 ```
 
 ## Additional Steps 
-You now have to add the LD_LIBRARY_PATH to your `.bashrc` or `.bash_profile`,
+You now have to add the LD\_LIBRARY\_PATH to your `.bashrc` or `.bash_profile`,
 whatever you prefer, and add the new TMUX to your `$PATH`:
 ```bash
 echo 'export LD_LIBRARY_PATH="$HOME/tmux_temp/libevent/.libs"' >> ~/.bashrc
