@@ -1,4 +1,6 @@
-- [ ] Write everything in a nice working script.
+- [x] Write everything in a nice working script.
+Script is located
+[here](https://github.com/nonator/install_source/blob/master/tmux.sh).
 
 # Install TMUX
 Without the need to be `root`!
