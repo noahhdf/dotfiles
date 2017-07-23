@@ -21,7 +21,7 @@ alias 'll'='ls -al'
 alias 'la'='ls -a'
 alias 'pdfpandoc'='pandoc -r markdown -w latex -o'
 alias 'speedtest'='time seq -f "test %g"'
-# alias 'vim'='nvim'
+alias 'vim'='nvim'
 alias 'scp'='scp -i $HOME/.ssh/id_rsa.phido'
 alias 'copyplots'='rsync -avzuh --progress -e ssh nbiederbeck@vollmond:bachelorArbeit/ggplots/*  ~/Uni/BA/BAthesis/ggplots/'
 alias 'make'='time make'
@@ -52,3 +52,4 @@ export PS1='\[\033[0;32m\]\u@\h: \[\033[0;34m\]\w\n\[\033[0;31m\]$(parse_git_bra
 
 export PATH="$HOME/.cargo/bin:$PATH"
 export DISABLE_AUTO_TITLE=true
+export PATH="$HOME/.source/bin:$PATH"
