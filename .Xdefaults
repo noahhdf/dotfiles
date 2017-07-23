@@ -1,4 +1,4 @@
-! ------  DEFINE COLORS  ------ !
+! -----  define colors  ----- !
 #define nord0  #2E3440  /* almost black */
 #define nord1  #3B4252  /* dark gray  */
 #define nord2  #434C5E  /* lighter gray */
@@ -16,14 +16,14 @@
 #define nord14 #A3BE8C  /* green */
 #define nord15 #B48EAD  /* lila */
 
-! -----  EXTENSIONS  ------ !
+! -----  rxvt extensions  ------ !
 URxvt.perl-ext-common:  default,tabbed
 URxvt.tabbed.tabbar-fg: 6
 URxvt.tabbed.tabbar-bg: 0
 URxvt.tabbed.tab-fg:    14
 URxvt.tabbed.tab-bg:    0
 
-! -----  SETTINGS  ----- !
+! -----  rxvt settings  ----- !
 URxvt.borderless:      true
 URxvt.geometry:        84x24  
 URxvt.font:            xft:mono:medium:size=12
@@ -34,7 +34,7 @@ URxvt.scrollColor:     nord0
 URxvt.letterSpace:     -0
 URxvt.saveLines:       4096
 
-! -----  COLORS  ----- !
+! -----  set colors  ----- !
 *.foreground:  nord4
 *.background:  nord0
 ! *.background:  rgba:0000/0000/0200/c800
