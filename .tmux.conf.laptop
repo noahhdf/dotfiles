@@ -27,6 +27,9 @@ set -g mouse off
 set -g base-index 1
 set-window-option -g pane-base-index 1
 
+# disable window renaming
+set-option -g allow-rename off
+
 # allows for faster key repetition
 set -s escape-time 0
 
