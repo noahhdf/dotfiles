@@ -17,22 +17,25 @@
 #define nord15 #B48EAD  /* lila */
 
 ! -----  rxvt extensions  ------ !
-URxvt.perl-ext-common:  default
+URxvt.perl-ext-common:  default,clipboard
 /* URxvt.tabbed.tabbar-fg: 6 */
 /* URxvt.tabbed.tabbar-bg: 0 */
 /* URxvt.tabbed.tab-fg:    14 */
 /* URxvt.tabbed.tab-bg:    0 */
 
-! -----  rxvt settings  ----- !
+! ----- urxvt settings  ----- !
 URxvt.borderless:      true
 URxvt.geometry:        84x24  
-URxvt.font:            xft:mono:medium:size=12
+URxvt.font:            xft:mono:medium:size=11
 URxvt.urlLauncher:     /home/noah/Downloads/firefox/firefox
-! URxvt.scrollBar:       false
-URxvt.scrollBar_right: true
+URxvt.scrollBar:       false
+URxvt.scrollBar_right: false
+URxvt.scrollStyle:     plain
 URxvt.scrollColor:     nord0
 URxvt.letterSpace:     -0
 URxvt.saveLines:       4096
+URxvt.keysym.Shift-Control-V: perl:clipboard:paste
+URxvt.iso14755: false
 
 ! -----  set colors  ----- !
 *.foreground:  nord4

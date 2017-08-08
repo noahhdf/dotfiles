@@ -98,7 +98,8 @@ set textwidth=79
 set colorcolumn=+1
 set formatoptions=qrn1
 "
-set mouse=  " no mouse use
+set mouse=            " no mouse use
+set clipboard=unnamed " use system clipboard
 "
 " -------------------------     key-remapping     --------------------------- "
 nnoremap H 0
