@@ -31,6 +31,8 @@ call plug#begin('~/.vim/plugged')
     Plug 'junegunn/vim-easy-align'
     Plug 'Raimondi/delimitMate'
     Plug 'terryma/vim-multiple-cursors'
+    Plug 'severin-lemaignan/vim-minimap'
+    Plug 'Yggdroot/indentLine'
     "
     Plug 'tpope/vim-repeat'
     Plug 'tpope/vim-surround'
@@ -70,6 +72,14 @@ let g:ale_lint_on_save = 1
 xmap ga <Plug>(EasyAlign)
 nmap ga <Plug>(EasyAlign)
 "
+" minimap
+let g:minimap_highlight='Visual'
+let g:minimap_toggle='<leader>mm'
+"
+" indentline
+let g:indentLine_char = '|'
+let g:indentLine_enabled = 1
+"
 " -------------------------     basic vim stuff     ------------------------- "
 filetype plugin on
 set modelines=0
@@ -86,6 +96,8 @@ set smartcase
 set gdefault
 set incsearch
 set backspace=indent,eol,start
+set listchars=trail:~
+set list
 "
 set autoindent
 set tabstop=4
