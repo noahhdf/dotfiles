@@ -4,9 +4,9 @@ if empty(glob("~/.vim/autoload/plug.vim"))
     execute '!curl -fLo ~/.vim/autoload/plug.vim https://raw.github.com/junegunn/vim-plug/master/plug.vim'
 endif
 " load nvim-plug
-if empty(glob("~/.config/nvim/autoload/plug.vim"))
-    execute '!curl -fLo ~/.config/nvim/autoload/plug.vim https://raw.github.com/junegunn/vim-plug/master/plug.vim'
-endif
+" if empty(glob("~/.config/nvim/autoload/plug.vim"))
+"     execute '!curl -fLo ~/.config/nvim/autoload/plug.vim https://raw.github.com/junegunn/vim-plug/master/plug.vim'
+" endif
 "
 call plug#begin('~/.vim/plugged')
     Plug 'vim-airline/vim-airline'
@@ -62,7 +62,7 @@ let g:ale_sign_warning = '--'
 highlight clear ALEErrorSign
 highlight clear ALEWarningSign
 let g:airline#extensions#ale#enabled = 1
-let g:ale_lint_on_text_changed = 'never' " or 'normal'
+let g:ale_lint_on_text_changed = 'normal' " or 'never'
 let g:ale_lint_on_enter = 1
 let g:ale_lint_on_save = 1
 "
