@@ -37,6 +37,9 @@ call plug#begin('~/.vim/plugged')
     Plug 'tpope/vim-repeat'
     Plug 'tpope/vim-surround'
     Plug 'tpope/vim-commentary'
+    "
+    " Plug 'tpope/vim-dispatch'
+    " Plug 'KeitaNakamura/tex-conceal.vim', {'for': 'tex'}
 call plug#end()
 "
 " -------------------------     plugins     --------------------------------- "
@@ -96,14 +99,14 @@ set smartcase
 set gdefault
 set incsearch
 set backspace=indent,eol,start
-set listchars=trail:~
-set list
+set listchars=trail:~,tab:>-
 "
 set autoindent
 set tabstop=4
 set shiftwidth=4
 set softtabstop=4
 set expandtab
+set list
 "
 set wrap
 set textwidth=79
