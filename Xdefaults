@@ -26,13 +26,15 @@ URxvt.perl-ext-common:  default,clipboard
 ! ----- urxvt settings  ----- !
 URxvt.borderless:      true
 URxvt.geometry:        84x24  
-URxvt.font:            xft:mono:medium:size=11
+/* URxvt.font:            xft:mono:medium:size=11 */
+URxvt.font:            xft:OfficeCodeProD:regular:size=11
 URxvt.urlLauncher:     /home/noah/Downloads/firefox/firefox
 URxvt.scrollBar:       false
 URxvt.scrollBar_right: false
 URxvt.scrollStyle:     plain
 URxvt.scrollColor:     nord0
-URxvt.letterSpace:     -0
+URxvt.letterSpace:     -0.0
+URxvt.rowSpace:        -1.0
 URxvt.saveLines:       4096
 URxvt.keysym.Shift-Control-V: perl:clipboard:paste
 URxvt.iso14755: false
