@@ -32,6 +32,7 @@ alias 'hqm'='cd /Users/nbiederbeck/Uni/hqm && git pull'
 alias 'fp'='cd /Users/nbiederbeck/Uni/fp && git pull'
 alias 'bot'='cd /Users/nbiederbeck/Git/HPkU4hwcvr_bot && git pull'
 alias "pip"="pip --no-cache-dir"
+alias 'vollmondnotebook'='ssh -f -N vollmondtunnel'
 # alias 'low'='$HOME/shellScripts/low.sh'
 # alias 'high'='$HOME/shellScripts/high.sh'
 # alias 'lowest'='$HOME/shellScripts/lowest.sh'
