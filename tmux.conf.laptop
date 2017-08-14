@@ -1,3 +1,5 @@
+set -g lock-after-time 300
+set -g lock-command "/home/noah/Git/pipes.sh/pipes.sh -p2 -t0 -s15 -f42 -R -r0"
 # set default shell to retain $path
 set -g default-shell /usr/bin/bash
 set -g default-command /usr/bin/bash
