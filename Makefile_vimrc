@@ -1,0 +1,23 @@
+# put into vim directory!
+
+both = \
+    keybindings.vim \
+    file-specific.vim
+
+laptop = \
+    laptop_plugins.vim
+    
+desktop = \
+    desktop_plugins.vim
+
+vimrc: $(both) $(desktop)
+    cat plugins.vim > vimrc
+    cat keybindings.vim >> vimrc
+    cat file-specific.vim >> vimrc
+
+vimrc.laptop: $(both) $(laptop)
+    cat blablabla
+
+# pre commit git hook ?
+# new git repository ?
+# vim directory in dot files?
