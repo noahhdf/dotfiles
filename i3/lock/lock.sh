@@ -29,7 +29,7 @@ G='#A3BE8Cff'  # verifying (green)
 --blur 7              \
 --clock               \
 --indicator           \
---timestr="%H:%M:%S"  \
+--timestr="%H:%M"  \
 --datestr="%d.%m.%Y" \
 --timefont=OfficeCodeProD \
 --datefont=OfficeCodeProD \
