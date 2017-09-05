@@ -267,6 +267,19 @@ assign [class="Telegram"] $workspace7
 # gaps global
 gaps inner 13
 smart_gaps on
+mode "gaps" {
+    # use default gaps
+    bindsym y gaps inner all set 13
+    # no gaps at all
+    bindsym n gaps inner all set 0
+    # bigger / smaller gaps
+    # bindsym Plus gaps inner all plus 2
+    # bindsym - gaps inner all minus 2
+    # back to normal: Enter or Escape
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+bindsym $mod+g mode "gaps"
 # gaps outer 13
 # set gaps commands with following command
 # gaps inner|outer current|all set|plus|minus <px>
