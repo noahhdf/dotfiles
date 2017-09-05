@@ -1,4 +1,4 @@
-# vim: ft=xdefaults
+! vim: ft=xdefaults
 ! -----  define colors  ----- !
 #define nord0  #2E3440  /* almost black */
 #define nord1  #3B4252  /* dark gray  */
