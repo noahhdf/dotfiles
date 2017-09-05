@@ -171,6 +171,9 @@ bindsym $mod+r mode "resize"
 
 
 #  -- made by Noah --  #
+
+bindsym $mod+i exec inverter.sh # write inverter to invert colors from light to dark, for example solarized
+
 exec ~/Telegram/Telegram
 bindsym $mod+shift+t exec ~/Telegram/Telegram
 # hide borders when fullscreen
