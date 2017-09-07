@@ -6,6 +6,7 @@ set -g default-command /usr/bin/bash
 unbind C-b
 set-option -g prefix C-a
 bind-key C-a send-prefix
+bind C-a last-window
 
 # split panes using | and - keys
 bind \ split-window -h
