@@ -55,11 +55,11 @@ set $ws1 "1: "
 set $ws2 "2: "
 set $ws3 "3: "
 set $ws4 "4: "
-set $ws5 "5: "
-set $ws6 "6: "
+set $ws5 "5: 5"
+set $ws6 "6: 6"
 set $ws7 "7: "
-set $ws8 "8: "
-set $ws9 "9: "
+set $ws8 "8: 8"
+set $ws9 "9: 9"
 set $ws10 "10: "
 
 # switch to workspace
@@ -113,34 +113,20 @@ bindsym $mod+r mode "resize"
 bindsym $mod+i exec inverter.sh
 
 #  -- autostart --  #
-exec ~/Telegram/Telegram
+exec ~/.autostart.sh
 # set background
 exec ~/.fehbg
-exec always ~/.fehbg
+exec_always ~/.fehbg
 
 bindsym $mod+shift+t exec ~/Telegram/Telegram
 
 # hide borders when fullscreen
 hide_edge_borders smart # none, vertical, horizontal, both, smart
-# screenlock
+# screen lock
 bindsym $mod+Delete exec ~/.config/i3/lock.sh
 
 bindsym $mod+Tab workspace back_and_forth
 
-mode "border" {
-    # use window title, but no border
-    bindsym t border normal 0
-    # use window title with 1 pixel border
-    bindsym a border normal 1
-    # use only border
-    bindsym b border pixel 1
-    # use neither window title nor border
-    bindsym n border none
-    # back to normal: Enter or Escape
-    bindsym Return mode "default"
-    bindsym Escape mode "default"
-}
-bindsym $mod+b mode "border"
 
 #  -- colorscheme --  #
 set $almost_black    #2E3440ff
@@ -207,45 +193,49 @@ bar                     {
 #     position bottom  # top, bottom
 # }
 
-# default borders and stuff
+#  -- default borders and stuff --  #
 for_window [class=".*"] border pixel 1
-for_window [class="mupdf"] border normal 1
-assign [class='MuPDF'] $ws4
-# urxvt floating
-# for_window [class="URxvt"] floating toggle
-assign [class="URxvt"] $ws3
+for_window [class="MuPDF"] floating enable
 
-# # display workspace 10 through hdmi or whatever
+bindsym $mod+b mode "border"
+mode "border" {
+    # use window title, but no border
+    bindsym t border normal 0
+    # use window title with 1 pixel border
+    bindsym a border normal 1
+    # use only border
+    bindsym b border pixel 1
+    # use neither window title nor border
+    bindsym n border none
+    # back to normal: Enter or Escape
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+
+# display workspaces through outputs
 # workspace $ws10 output HDMI1
 
-# bind programs to workspaces
+#  -- bind programs to workspaces --  #
 # run `xprop`, click on program and find `WM_CLASS(STRING)`, second value
 assign [class="Alacritty"] $ws1
 assign [class="Firefox-esr"] $ws2
+assign [class="URxvt"] $ws3
+assign [class="Evince"] $ws4
 assign [class="Telegram"] $ws7
-for_window [class="Telegram"] floating enable
 
-# gaps global
+#  -- gaps --  #
+# gaps inner|outer current|all set|plus|minus <px>
+# workspace <ws> gaps inner|outer <px>
 gaps inner 13
 smart_gaps on
+
+bindsym $mod+g mode "gaps"
 mode "gaps" {
     # use default gaps
     bindsym y gaps inner all set 13
     # no gaps at all
     bindsym n gaps inner all set 0
-    # bigger / smaller gaps
-    # bindsym Plus gaps inner all plus 2
-    # bindsym - gaps inner all minus 2
     # back to normal: Enter or Escape
     bindsym Return mode "default"
     bindsym Escape mode "default"
 }
-bindsym $mod+g mode "gaps"
-# gaps outer 13
-# set gaps commands with following command
-# gaps inner|outer current|all set|plus|minus <px>
-# set workspaces accordingly
-# workspace <ws> gaps inner|outer <px>
-# workspace $ws7 gaps outer 13
-# workspace $ws7 smart_gaps
-# for_workspace $ws7 smart_gaps on
