@@ -11,6 +11,7 @@ help:
 	@echo '- i3status'
 	@echo '- alacritty terminal emulator'
 	@echo '- rofi'
+	@echo '- git'
 	@echo ' '
 	@echo '`make usage`'
 
@@ -39,6 +40,7 @@ clean:
 	@rm -f ~/.config/i3status/config
 	@rm -f ~/.config/alacritty/alacritty.yml
 	@rm -f ~/.config/rofi/config
+	@rm -f ~/.gitconfig
 	@echo 'files deleted'
 
 laptop: clean
@@ -52,6 +54,7 @@ laptop: clean
 	@ln -s $d/i3/status/config ~/.config/i3status/config
 	@ln -s $d/terminals/alacritty/alacritty.yml ~/.config/alacritty/alacritty.yml
 	@ln -s $d/rofi/config ~/.config/rofi/config
+	@ln -s $d/gitconfig ~/.gitconfig
 	@echo 'files symlinked'
 
 mac: clean
