@@ -5,4 +5,3 @@ colorscheme nord
 syntax on
 let g:airline_theme = 'nord'
 "
-

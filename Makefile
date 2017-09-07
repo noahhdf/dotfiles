@@ -41,7 +41,6 @@ clean:
 	@rm -f ~/.config/alacritty/alacritty.yml
 	@rm -f ~/.config/rofi/config
 	@rm -f ~/.gitconfig
-	@echo 'files deleted'
 
 laptop: clean
 	@ln -s $d/bash/bash_profile.laptop ~/.bash_profile
@@ -55,17 +54,17 @@ laptop: clean
 	@ln -s $d/terminals/alacritty/alacritty.yml ~/.config/alacritty/alacritty.yml
 	@ln -s $d/rofi/config ~/.config/rofi/config
 	@ln -s $d/git/gitconfig ~/.gitconfig
-	@echo 'files symlinked'
+	@echo 'Files symlinked.'
 
 mac: clean
 	@ln -s $d/bash/bash_profile ~/.bash_profile
 	@ln -s $d/vim/vimrc ~/.vimrc
 	@ln -s $d/terminals/tmux/tmux.conf.mac ~/.tmux.conf
 	@ln -s $d/colors/nord_Xresources ~/.Xresources
-	@echo 'files symlinked'
+	@echo 'Files symlinked.'
 
 vollmond: clean
-	@ln -s $d/bash/bash_profile ~/.bash_profile
+	@ln -s $d/bash/bash_profile.vollmond ~/.bash_profile
 	@ln -s $d/vim/vimrc ~/.vimrc
 	@ln -s $d/terminals/tmux/tmux.conf.vollmond ~/.tmux.conf
-	@echo 'files symlinked'
+	@echo 'Files symlinked.'

@@ -1,11 +1,8 @@
-# set default shell to retain $path
-# set -g default-shell /usr/bin/bash
-# set -g default-command /usr/bin/bash
-
 # remap prefix from 'c-b' to 'c-a'
 unbind C-b
 set-option -g prefix C-a
 bind-key C-a send-prefix
+bind C-a last-window
 
 # split panes using | and - keys
 bind \ split-window -h

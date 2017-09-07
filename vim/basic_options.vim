@@ -31,4 +31,4 @@ set mouse=  " no mouse use
 "
 set spelllang=de,en
 set spell
-
+"

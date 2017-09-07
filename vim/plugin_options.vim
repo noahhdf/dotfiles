@@ -30,4 +30,3 @@ let g:ale_lint_on_save = 1
 xmap ga <Plug>(EasyAlign)
 nmap ga <Plug>(EasyAlign)
 "
-
