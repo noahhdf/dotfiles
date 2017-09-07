@@ -223,6 +223,7 @@ assign [class="URxvt"] $ws3
 assign [class="Alacritty"] $ws1
 assign [class="Firefox-esr"] $ws2
 assign [class="Telegram"] $ws7
+for_window [class="Telegram"] floating enable
 
 # gaps global
 gaps inner 13
@@ -245,6 +246,6 @@ bindsym $mod+g mode "gaps"
 # gaps inner|outer current|all set|plus|minus <px>
 # set workspaces accordingly
 # workspace <ws> gaps inner|outer <px>
-workspace $ws7 gaps outer 13
+# workspace $ws7 gaps outer 13
 # workspace $ws7 smart_gaps
 # for_workspace $ws7 smart_gaps on
