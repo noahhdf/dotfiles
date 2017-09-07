@@ -44,7 +44,6 @@ call plug#end()
 " airline
 set laststatus=2
 let g:airline_powerline_fonts = 0
-let g:airline_theme = 'nord'
 "
 " make ycm compatible with ultisnips (using supertab)
 let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
@@ -79,6 +78,7 @@ syntax enable
 set background=dark
 colorscheme nord
 syntax on
+let g:airline_theme = 'nord'
 "
 
 " -------------------------     basic vim stuff     ------------------------- "
@@ -112,6 +112,8 @@ set formatoptions=qrn1
 "
 set mouse=  " no mouse use
 "
+set spelllang=de,en
+set spell
 
 " -------------------------     key-remapping     --------------------------- "
 nnoremap H 0
@@ -142,14 +144,22 @@ nnoremap <C-W><S-TAB> :tabN<CR>
 
 " -------------------------     filetype specific     ----------------------- "
 " latex
-autocmd Filetype tex set tabstop=2 | set shiftwidth=2 | set softtabstop=2 | set expandtab | set textwidth=99
+autocmd Filetype tex
+    \ set tabstop=2 |
+    \ set shiftwidth=2 |
+    \ set softtabstop=2 |
+    \ set expandtab |
+    \ set textwidth=99
 "
 " r
 augroup R_settings
     au BufNewFile,BufRead *.R set ft=r
-    autocmd FileType r inoremap _ <-| inoremap __ _
+    autocmd FileType r
+        \ inoremap _ <-|
+        \ inoremap __ _
 augroup END
 "
 " python
-autocmd Filetype python let b:delimitMate_quotes = "'"
-autocmd Filetype python noremap <buffer> <F6> :call Autopep8()<CR>
+autocmd Filetype python
+    \ let b:delimitMate_quotes = "'"
+    \ noremap <buffer> <F6> :call Autopep8()<CR>

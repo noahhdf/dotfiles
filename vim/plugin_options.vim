@@ -2,7 +2,6 @@
 " airline
 set laststatus=2
 let g:airline_powerline_fonts = 0
-let g:airline_theme = 'nord'
 "
 " make ycm compatible with ultisnips (using supertab)
 let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
