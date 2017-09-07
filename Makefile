@@ -54,7 +54,7 @@ laptop: clean
 	@ln -s $d/i3/status/config ~/.config/i3status/config
 	@ln -s $d/terminals/alacritty/alacritty.yml ~/.config/alacritty/alacritty.yml
 	@ln -s $d/rofi/config ~/.config/rofi/config
-	@ln -s $d/gitconfig ~/.gitconfig
+	@ln -s $d/git/gitconfig ~/.gitconfig
 	@echo 'files symlinked'
 
 mac: clean
