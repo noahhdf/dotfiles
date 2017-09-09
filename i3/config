@@ -1,6 +1,7 @@
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
 
 set $mod Mod1
+
 set $alt Mod1
 set $win Mod4
 
@@ -14,6 +15,7 @@ floating_modifier $mod
 bindsym $mod+Return exec alacritty
 # start a webbrowser
 bindsym $mod+w exec firefox
+bindsym $mod+shift+w exec midori
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -51,16 +53,16 @@ bindsym $mod+f fullscreen toggle
 # toggle tiling / floating
 bindsym $mod+Shift+space floating toggle
 
-set $ws1 "1: "
-set $ws2 "2: "
-set $ws3 "3: "
-set $ws4 "4: "
-set $ws5 "5: 5"
-set $ws6 "6: 6"
-set $ws7 "7: "
-set $ws8 "8: 8"
-set $ws9 "9: 9"
-set $ws10 "10: "
+set $ws1  "1:  Terminals"
+set $ws2  "2:  Internet"
+set $ws3  "3:  Vollmond"
+set $ws4  "4:  PDFs"
+set $ws5  "5: 5 nicht zugewiesen"
+set $ws6  "6: 6 nicht zugewiesen"
+set $ws7  "7:  Chat"
+set $ws8  "8: 8 nicht zugewiesen"
+set $ws9  "9: 9 nicht zugewiesen"
+set $ws10 "10: Beamer"
 
 # switch to workspace
 bindsym $mod+1 workspace $ws1
@@ -121,7 +123,7 @@ exec_always ~/.fehbg
 bindsym $mod+shift+t exec ~/Telegram/Telegram
 
 # hide borders when fullscreen
-hide_edge_borders smart # none, vertical, horizontal, both, smart
+hide_edge_borders none # none, vertical, horizontal, both, smart
 # screen lock
 bindsym $mod+Delete exec ~/.config/i3/lock.sh
 
@@ -236,6 +238,11 @@ mode "gaps" {
     bindsym y gaps inner all set 13
     # no gaps at all
     bindsym n gaps inner all set 0
+    bindsym p gaps inner all plus 2
+    bindsym m gaps inner all minus 2
+    bindsym o gaps outer all plus 2
+    bindsym i gaps outer all minus 2
+
     # back to normal: Enter or Escape
     bindsym Return mode "default"
     bindsym Escape mode "default"
