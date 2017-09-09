@@ -1,4 +1,4 @@
-! vim: ft=xdefaults
+! vim: ft=xdefaults commentstring=!%s
 ! -----  define colors  ----- !
 #define nord0  #2E3440  /* almost black */
 #define nord1  #3B4252  /* dark gray  */
@@ -19,15 +19,15 @@
 
 ! -----  rxvt extensions  ------ !
 URxvt.perl-ext-common:  default,clipboard
-/* URxvt.tabbed.tabbar-fg: 6 */
-/* URxvt.tabbed.tabbar-bg: 0 */
-/* URxvt.tabbed.tab-fg:    14 */
-/* URxvt.tabbed.tab-bg:    0 */
+! URxvt.tabbed.tabbar-fg: 6
+! URxvt.tabbed.tabbar-bg: 0
+! URxvt.tabbed.tab-fg:    14
+! URxvt.tabbed.tab-bg:    0
 
 ! ----- urxvt settings  ----- !
 URxvt.borderless:      true
 URxvt.geometry:        84x24  
-/* URxvt.font:            xft:mono:medium:size=11 */
+! URxvt.font:            xft:mono:medium:size=11
 URxvt.font:            xft:OfficeCodeProD:regular:size=11,xft:FontAwesome:size=11
 URxvt.urlLauncher:     /home/noah/Downloads/firefox/firefox
 URxvt.scrollBar:       false
@@ -48,8 +48,8 @@ URxvt.iso14755: false
 *.cursorColor: nord4
 ! *.fading:      42
 ! *.fadeColor:   nord3
-*.fadeColor:   rgba:0000/0000/0200/c800
-URxvt.transparency: true
+! *.fadeColor:   rgba:0000/0000/0200/c800
+! URxvt.transparency: true
 
 *.color0:  nord1
 *.color1:  nord11
