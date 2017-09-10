@@ -197,7 +197,7 @@ bar                     {
 
 #  -- default borders and stuff --  #
 for_window [class=".*"] border pixel 1
-for_window [class="MuPDF"] floating enable
+for_window [workspace=$ws7 class="MuPDF"] floating enable, border pixel 1
 
 bindsym $mod+b mode "border"
 mode "border" {
@@ -221,7 +221,7 @@ mode "border" {
 # run `xprop`, click on program and find `WM_CLASS(STRING)`, second value
 assign [class="Alacritty"] $ws1
 assign [class="Firefox-esr"] $ws2
-assign [ class="Midori"] $ws2
+assign [class="Midori"] $ws2
 assign [class="URxvt"] $ws3
 assign [class="Evince"] $ws4
 assign [class="Telegram"] $ws7
@@ -243,6 +243,17 @@ mode "gaps" {
     bindsym o gaps outer all plus 2
     bindsym i gaps outer all minus 2
 
+    # back to normal: Enter or Escape
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+
+bindsym $mod+shift+b mode "brightness"
+mode "brightness" {
+    bindsym 1 exec ~/shellScripts/high.sh
+    bindsym 2 exec ~/shellScripts/normal.sh
+    bindsym 3 exec ~/shellScripts/low.sh
+    bindsym 0 exec ~/shellScripts/lowest.sh
     # back to normal: Enter or Escape
     bindsym Return mode "default"
     bindsym Escape mode "default"
