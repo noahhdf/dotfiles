@@ -37,6 +37,9 @@ call plug#begin('~/.vim/plugged')
     Plug 'tpope/vim-repeat'
     Plug 'tpope/vim-surround'
     Plug 'tpope/vim-commentary'
+    "
+    Plug 'junegunn/goyo.vim'
+    Plug 'junegunn/limelight.vim'
 call plug#end()
 "
 " -------------------------     plugins     --------------------------------- "
@@ -68,15 +71,22 @@ let g:ale_lint_on_enter = 1
 let g:ale_lint_on_save = 1
 "
 " easyalign
-xmap ga <Plug>(EasyAlign)
 nmap ga <Plug>(EasyAlign)
+xmap ga <Plug>(EasyAlign)
 "
+" goyo and limelight
+nmap <Leader>l <Plug>(Limelight)
+xmap <Leader>l <Plug>(Limelight)
+let g:goyo_width = 80
+let g:goyo_height = 85
 " -------------------------     color scheme     ---------------------------- "
 syntax enable
 set background=dark
 colorscheme nord
 syntax on
 let g:airline_theme = 'nord'
+let g:limelight_conceal_ctermfg = '8'
+" let g:limelight_conceal_guifg = '#4C566A' 
 "
 " -------------------------     basic vim stuff     ------------------------- "
 filetype plugin on

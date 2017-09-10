@@ -27,5 +27,8 @@ call plug#begin('~/.vim/plugged')
     Plug 'tpope/vim-repeat'
     Plug 'tpope/vim-surround'
     Plug 'tpope/vim-commentary'
+    "
+    Plug 'junegunn/goyo.vim'
+    Plug 'junegunn/limelight.vim'
 call plug#end()
 "
