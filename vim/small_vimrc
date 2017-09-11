@@ -92,7 +92,7 @@ colorscheme nord
 syntax on
 let g:airline_theme = 'nord'
 let g:limelight_conceal_ctermfg = '8'
-" let g:limelight_conceal_guifg = '#4C566A' 
+" let g:limelight_conceal_guifg = '#4C566A'
 
 " -------------------------     basic vim stuff     ------------------------- "
 filetype plugin on
@@ -111,6 +111,8 @@ set smartcase
 set gdefault
 set incsearch
 set backspace=indent,eol,start
+set list
+set listchars=tab:>-,trail:~
 "
 set autoindent
 set tabstop=4
@@ -162,6 +164,7 @@ autocmd Filetype tex
     \ set softtabstop=2 |
     \ set expandtab |
     \ set textwidth=120 |
+    \ set conceallevel=0 |
     \ set spelllang=de |
     \ set spell
 "
