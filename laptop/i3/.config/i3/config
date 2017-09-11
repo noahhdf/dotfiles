@@ -287,3 +287,13 @@ mode "brightness" {
     bindsym Return mode "default"
     bindsym Escape mode "default"
 }
+
+bindsym $mod+shift+s mode "screen"
+mode "screen" {
+    bindsym h exec ~/.screenlayout/with_hdmi.sh, mode "default"
+    bindsym n exec ~/.screenlayout/no_hdmi.sh, mode "default"
+    bindsym c exec ~/.screenlayout/copy_screen_hdmi.sh, mode "default"
+    # back to normal: Enter or Escape
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
