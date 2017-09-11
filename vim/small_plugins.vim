@@ -1,3 +1,4 @@
+" -------------------------     plug     ------------------------------------ "
 call plug#begin('~/.vim/plugged')
     Plug 'vim-airline/vim-airline'
     Plug 'vim-airline/vim-airline-themes'
@@ -30,5 +31,7 @@ call plug#begin('~/.vim/plugged')
     "
     Plug 'junegunn/goyo.vim'
     Plug 'junegunn/limelight.vim'
+    "
+    Plug 'ntpeters/vim-better-whitespace'
 call plug#end()
 

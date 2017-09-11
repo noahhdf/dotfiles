@@ -6,7 +6,9 @@ autocmd Filetype tex
     \ set shiftwidth=2 |
     \ set softtabstop=2 |
     \ set expandtab |
-    \ set textwidth=99
+    \ set textwidth=120 |
+    \ set spelllang=de |
+    \ set spell
 "
 " r
 " augroup R_settings
@@ -20,4 +22,8 @@ autocmd FileType r
 autocmd Filetype python
     \ let b:delimitMate_quotes = "'" |
     \ noremap <buffer> <F6> :call Autopep8()<CR>
-
+"
+" git commit message
+autocmd Filetype gitcommit
+    \ set spelllang=en |
+    \ set spell
