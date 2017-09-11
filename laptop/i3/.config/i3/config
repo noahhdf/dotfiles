@@ -127,7 +127,7 @@ exec ~/.autostart.sh
 exec ~/.fehbg
 exec_always ~/.fehbg
 
-bindsym $mod+shift+t exec ~/Telegram/Telegram
+bindsym $mod+t exec ~/Telegram/Telegram, workspace $ws7
 
 # hide borders when fullscreen
 hide_edge_borders none # none, vertical, horizontal, both, smart
