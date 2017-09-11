@@ -1,70 +1,56 @@
-d = $(shell pwd)
 help:
-	@echo 'This file will overwrite the configs of:'
-	@echo '- bash_profile'
-	@echo '- vim'
-	@echo '  - nvim'
-	@echo '- tmux'
-	@echo '- Xresources'
-	@echo '- i3'
-	@echo '- i3lock and configs'
-	@echo '- i3status'
-	@echo '- alacritty terminal emulator'
-	@echo '- rofi'
-	@echo '- git'
-	@echo ' '
-	@echo '`make usage`'
+	@printf 'Specify which user.\nSupported users:\n- noah\n- mac\n'
 
-usage:
-	@echo 'make clean:'
-	@echo '- removes all old files forever'
-	@echo ' '
-	@echo 'make laptop:'
-	@echo '- symlinks all files usable by laptop including i3 and rofi'
-	@echo ' '
-	@echo 'make vollmond:'
-	@echo '- symlinks only bash, tmux and vim'
-	@echo ' '
-	@echo 'make mac:'
-	@echo '- symlinks mac-specific files'
+files = bash colors git i3 rofi terminals vim
 
-clean:
-	@echo 'Caution!'
-	@rm -f ~/.bash_profile
-	@rm -f ~/.vimrc
-	@rm -f ~/.tmux.conf
-	@rm -f ~/.Xresources
-	@rm -f ~/.config/i3/config
-	@rm -f ~/.config/i3/i3lock
-	@rm -f ~/.config/i3/lock.sh
-	@rm -f ~/.config/i3status/config
-	@rm -f ~/.config/alacritty/alacritty.yml
-	@rm -f ~/.config/rofi/config
-	@rm -f ~/.gitconfig
+laptop:
+	stow -d laptop -t ~ -S $(files)
 
-laptop: clean
-	@ln -s $d/bash/bash_profile.laptop ~/.bash_profile
-	@ln -s $d/vim/small_vimrc ~/.vimrc
-	@ln -s $d/terminals/tmux/tmux.conf.laptop ~/.tmux.conf
-	@ln -s $d/colors/nord_Xresources ~/.Xresources
-	@ln -s $d/i3/config ~/.config/i3/config
-	@ln -s $d/i3/lock/i3lock ~/.config/i3/i3lock
-	@ln -s $d/i3/lock/lock.sh ~/.config/i3/lock.sh
-	@ln -s $d/i3/status/config ~/.config/i3status/config
-	@ln -s $d/terminals/alacritty/alacritty.yml ~/.config/alacritty/alacritty.yml
-	@ln -s $d/rofi/config ~/.config/rofi/config
-	@ln -s $d/git/gitconfig ~/.gitconfig
-	@echo 'Files symlinked.'
+mac:
+	stow -d mac -t ~ -S $(files)
 
-mac: clean
-	@ln -s $d/bash/bash_profile ~/.bash_profile
-	@ln -s $d/vim/vimrc ~/.vimrc
-	@ln -s $d/terminals/tmux/tmux.conf.mac ~/.tmux.conf
-	@ln -s $d/colors/nord_Xresources ~/.Xresources
-	@echo 'Files symlinked.'
+vollmond:
+	stow -d vollmond -t ~ -S $(files)
 
-vollmond: clean
-	@ln -s $d/bash/bash_profile.vollmond ~/.bash_profile
-	@ln -s $d/vim/vimrc ~/.vimrc
-	@ln -s $d/terminals/tmux/tmux.conf.vollmond ~/.tmux.conf
-	@echo 'Files symlinked.'
+laptopclean:
+	stow -d laptop -t ~ -D $(files)
+
+macclean:
+	stow -d mac -t ~ -D $(files)
+
+vollmondclean:
+	stow -d vollmond -t ~ -D $(files)
+
+.PHONY: mac laptop vollmond laptopclean macclean vollmondclean
+# maybe check whether noah and guest should be phony or not
+# if the time is checked correctly, it would only stow if newer files are
+# present
+# otherwise it would jsut check the time of the directory
+
+# This should bring me very far:
+# stow -d DIR -t TARGET -S files
+# Example:
+# stow -d noah -t $HOME -S vim bash i3
+
+# Now very important is that the directory structure is the same as it should
+# be in HOME-directory!
+# That means i.e.:
+# i3/
+# - .config/
+#   - i3/
+#     - config
+#   - i3status/
+#     - config
+#   - i3lock/
+#     - i3lock
+#     - lock.sh
+# bash/
+# - .bashrc
+# - .bash_profile
+# - .bash_alias
+# vim/
+# - .vimrc
+# rofi/
+# - .config/
+#   - rofi/
+#     - config

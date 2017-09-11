@@ -1,0 +1,277 @@
+# Please see http://i3wm.org/docs/userguide.html for a complete reference!
+
+set $mod Mod1
+
+set $alt Mod1
+set $win Mod4
+
+# font pango:DejaVu Sans Mono 8
+font pango:System San Francisco Display 8
+
+# Use Mouse+$mod to drag floating windows to their wanted position
+floating_modifier $mod
+
+# start a terminal
+bindsym $mod+Return exec alacritty
+# start a webbrowser
+bindsym $mod+w mode "web"
+mode "web" {
+    bindsym f exec firefox, mode default
+    bindsym m exec midori, mode default
+    bindsym t exec thunderbird, mode default
+    # back to normal: Enter or Escape
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+
+# kill focused window
+bindsym $mod+Shift+q kill
+
+# start .desktop applications
+bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
+# start rofi
+bindsym $mod+space exec rofi -show run
+
+# change focus
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
+
+# move focused window
+bindsym $mod+Shift+h move left
+bindsym $mod+Shift+j move down
+bindsym $mod+Shift+k move up
+bindsym $mod+Shift+l move right
+
+# split horizontal
+bindsym $mod+Shift+v split v
+# split vertical
+bindsym $mod+v split h
+
+# enter fullscreen mode for the focused container
+bindsym $mod+f fullscreen toggle
+
+# change container layout (stacked, tabbed, toggle split)
+# bindsym $mod+s layout stacking
+# bindsym $mod+w layout tabbed
+# bindsym $mod+e layout toggle split
+
+# toggle tiling / floating
+bindsym $mod+Shift+space floating toggle
+
+set $ws1  "1:  Terminals"
+set $ws2  "2:  Internet"
+set $ws3  "3:  Vollmond"
+set $ws4  "4:  PDFs"
+set $ws5  "5: 5 nicht zugewiesen"
+set $ws6  "6: 6 nicht zugewiesen"
+set $ws7  "7:  Chat"
+set $ws8  "8: 8 nicht zugewiesen"
+set $ws9  "9: 9 nicht zugewiesen"
+set $ws10 "10: Beamer"
+
+# switch to workspace
+bindsym $mod+1 workspace $ws1
+bindsym $mod+2 workspace $ws2
+bindsym $mod+3 workspace $ws3
+bindsym $mod+4 workspace $ws4
+bindsym $mod+5 workspace $ws5
+bindsym $mod+6 workspace $ws6
+bindsym $mod+7 workspace $ws7
+bindsym $mod+8 workspace $ws8
+bindsym $mod+9 workspace $ws9
+bindsym $mod+0 workspace $ws10
+
+# move focused container to workspace
+bindsym $mod+Shift+1 move container to workspace $ws1
+bindsym $mod+Shift+2 move container to workspace $ws2
+bindsym $mod+Shift+3 move container to workspace $ws3
+bindsym $mod+Shift+4 move container to workspace $ws4
+bindsym $mod+Shift+5 move container to workspace $ws5
+bindsym $mod+Shift+6 move container to workspace $ws6
+bindsym $mod+Shift+7 move container to workspace $ws7
+bindsym $mod+Shift+8 move container to workspace $ws8
+bindsym $mod+Shift+9 move container to workspace $ws9
+bindsym $mod+Shift+0 move container to workspace $ws10
+
+# reload the configuration file
+bindsym $mod+Shift+c reload
+# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+bindsym $mod+Shift+r restart
+# exit i3 (logs you out of your X session)
+bindsym $mod+Shift+Delete exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+
+# resize windows
+mode "resize" {
+        bindsym h resize shrink width 10 px or 10 ppt
+        bindsym j resize grow height 10 px or 10 ppt
+        bindsym k resize shrink height 10 px or 10 ppt
+        bindsym l resize grow width 10 px or 10 ppt
+        # back to normal: Enter or Escape
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+bindsym $mod+r mode "resize"
+
+
+
+#  -- made by Noah --  #
+
+# inverts colors in vim, terminals, rofi
+bindsym $mod+i exec inverter.sh
+
+#  -- autostart --  #
+exec ~/.autostart.sh
+# set background
+exec ~/.fehbg
+exec_always ~/.fehbg
+
+bindsym $mod+shift+t exec ~/Telegram/Telegram
+
+# hide borders when fullscreen
+hide_edge_borders none # none, vertical, horizontal, both, smart
+# screen lock
+bindsym $mod+Delete exec ~/.config/i3lock/lock.sh
+
+bindsym $mod+Tab workspace back_and_forth
+
+
+#  -- colorscheme --  #
+set $almost_black    #2E3440ff
+set $dark_gray       #3B4252ff
+set $lighter_gray    #434C5Eff
+set $dark_gray_blue  #4C566Aff
+set $darkest_white   #D8DEE9ff
+set $dark_white      #E5E9F0ff
+set $light_white     #ECEFF4ff
+set $turquoise       #8FBCBBff
+set $cyan            #88C0D0ff
+set $light_gray_blue #81A1C1ff
+set $dark_blue       #5E81ACff
+set $red             #BF616Aff
+set $orange          #D08770ff
+set $yellow          #EBCB8Bff
+set $green           #A3BE8Cff
+set $lila            #B48EADff
+set $black           #000000ff
+
+#  -- color windows --  #
+#                       #border        #background    #text          #indicator
+client.focused          $darkest_white $darkest_white $almost_black  $orange
+client.unfocused        $lighter_gray  $lighter_gray  $light_white   $orange
+client.focused_inactive $lighter_gray  $lighter_gray  $light_white   $orange
+client.urgent           $red           $red           $almost_black  $orange
+
+#  -- i3status --  #
+bar                     {
+    status_command      i3status -t # -c ~/.config/i3status/config
+    font                pango:OfficeCodeProD 8
+    colors              {
+        background      $almost_black
+        separator       $lighter_gray
+        #                  #border       #background   #text
+        focused_workspace  $lighter_gray $green        $almost_black
+        inactive_workspace $lighter_gray $almost_black $light_white
+        urgent_workspace   $lighter_gray $red          $black
+    }
+    mode dock  # dock, hide, invisible
+    hidden_state hide  # hide, show
+    modifier $win
+    strip_workspace_numbers yes  # yes, no
+    separator_symbol ">-<"
+    position top  # top, bottom
+}
+#  -- polybar --  #
+# bar                     {
+#     status_command      polybar example # -c ~/.config/i3status/config
+#     font                pango:OfficeCodeProD 8
+#     colors              {
+#         background      $black
+#         separator       $lighter_gray
+#         #                  #border #background #text
+#         focused_workspace  $green  $green      $black
+#         inactive_workspace $black  $black      $light_white
+#         urgent_workspace   $red    $red        $black
+#     }
+#     mode dock  # dock, hide, invisible
+#     hidden_state hide  # hide, show
+#     modifier $win
+#     strip_workspace_numbers yes  # yes, no
+#     separator_symbol ">-<"
+#     position bottom  # top, bottom
+# }
+
+#  -- default borders and stuff --  #
+for_window [class=".*"] border pixel 1
+for_window [workspace=$ws7 class="MuPDF"] floating enable, border pixel 1
+
+bindsym $mod+b mode "border"
+mode "border" {
+    # use window title, but no border
+    bindsym t border normal 0
+    # use window title with 1 pixel border
+    bindsym a border normal 1
+    # use only border
+    bindsym b border pixel 1
+    # use neither window title nor border
+    bindsym n border none
+    # back to normal: Enter or Escape
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+
+# display workspaces through outputs
+workspace $ws1 output eDP-1
+workspace $ws2 output eDP-1
+workspace $ws3 output eDP-1
+workspace $ws4 output eDP-1
+workspace $ws5 output eDP-1
+workspace $ws6 output eDP-1
+workspace $ws7 output eDP-1
+workspace $ws8 output eDP-1
+workspace $ws9 output eDP-1
+workspace $ws10 output HDMI-1
+
+#  -- bind programs to workspaces --  #
+# run `xprop`, click on program and find `WM_CLASS(STRING)`, second value
+assign [class="Alacritty"] $ws1
+assign [class="Firefox-esr"] $ws2
+assign [class="Midori"] $ws2
+assign [class="URxvt"] $ws3
+assign [class="Evince"] $ws4
+assign [class="Telegram"] $ws7
+assign [class="Thunderbird"] $ws7
+
+#  -- gaps --  #
+# gaps inner|outer current|all set|plus|minus <px>
+# workspace <ws> gaps inner|outer <px>
+gaps inner 13
+smart_gaps on
+
+bindsym $mod+g mode "gaps"
+mode "gaps" {
+    # use default gaps
+    bindsym y gaps inner all set 13
+    # no gaps at all
+    bindsym n gaps inner all set 0
+    bindsym p gaps inner all plus 2
+    bindsym m gaps inner all minus 2
+    bindsym o gaps outer all plus 2
+    bindsym i gaps outer all minus 2
+
+    # back to normal: Enter or Escape
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+
+bindsym $mod+shift+b mode "brightness"
+mode "brightness" {
+    bindsym 1 exec ~/shellScripts/high.sh
+    bindsym 2 exec ~/shellScripts/normal.sh
+    bindsym 3 exec ~/shellScripts/low.sh
+    bindsym 0 exec ~/shellScripts/lowest.sh
+    # back to normal: Enter or Escape
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
