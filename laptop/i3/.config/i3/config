@@ -61,14 +61,14 @@ bindsym $mod+f fullscreen toggle
 bindsym $mod+Shift+space floating toggle
 
 set $ws1  "1:  Terminals"
-set $ws2  "2:  Internet"
+set $ws2  "2:  Web"
 set $ws3  "3:  Vollmond"
 set $ws4  "4:  PDFs"
-set $ws5  "5: 5 nicht zugewiesen"
-set $ws6  "6: 6 nicht zugewiesen"
+set $ws5  "5: 5 n/a"
+set $ws6  "6: 6 n/a"
 set $ws7  "7:  Chat"
-set $ws8  "8: 8 nicht zugewiesen"
-set $ws9  "9: 9 nicht zugewiesen"
+set $ws8  "8: 8 n/a"
+set $ws9  "9: 9 n/a"
 set $ws10 "10: Beamer"
 
 # switch to workspace
@@ -94,6 +94,18 @@ bindsym $mod+Shift+7 move container to workspace $ws7
 bindsym $mod+Shift+8 move container to workspace $ws8
 bindsym $mod+Shift+9 move container to workspace $ws9
 bindsym $mod+Shift+0 move container to workspace $ws10
+
+# move focused container to workspace and switch to that workspace
+bindsym $mod+Shift+Ctrl+1 move container to workspace $ws1, workspace $ws1
+bindsym $mod+Shift+Ctrl+2 move container to workspace $ws2, workspace $ws2
+bindsym $mod+Shift+Ctrl+3 move container to workspace $ws3, workspace $ws3
+bindsym $mod+Shift+Ctrl+4 move container to workspace $ws4, workspace $ws4
+bindsym $mod+Shift+Ctrl+5 move container to workspace $ws5, workspace $ws5
+bindsym $mod+Shift+Ctrl+6 move container to workspace $ws6, workspace $ws6
+bindsym $mod+Shift+Ctrl+7 move container to workspace $ws7, workspace $ws7
+bindsym $mod+Shift+Ctrl+8 move container to workspace $ws8, workspace $ws8
+bindsym $mod+Shift+Ctrl+9 move container to workspace $ws9, workspace $ws9
+bindsym $mod+Shift+Ctrl+0 move container to workspace $ws10, workspace $ws10
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
