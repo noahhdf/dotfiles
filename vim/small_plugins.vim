@@ -31,4 +31,4 @@ call plug#begin('~/.vim/plugged')
     Plug 'junegunn/goyo.vim'
     Plug 'junegunn/limelight.vim'
 call plug#end()
-"
+

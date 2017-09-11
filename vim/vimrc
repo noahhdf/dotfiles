@@ -7,7 +7,7 @@ endif
 " if empty(glob("~/.vim/autoload/plug.vim"))
 "     execute '!curl -fLo ~/.vim/autoload/plug.vim https://raw.github.com/junegunn/vim-plug/master/plug.vim'
 " endif
-"
+
 call plug#begin('~/.vim/plugged')
     Plug 'vim-airline/vim-airline'
     Plug 'vim-airline/vim-airline-themes'
@@ -41,7 +41,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'junegunn/goyo.vim'
     Plug 'junegunn/limelight.vim'
 call plug#end()
-"
+
 " -------------------------     plugins     --------------------------------- "
 " airline
 set laststatus=2
@@ -75,10 +75,13 @@ nmap ga <Plug>(EasyAlign)
 xmap ga <Plug>(EasyAlign)
 "
 " goyo and limelight
-nmap <Leader>l <Plug>(Limelight)
-xmap <Leader>l <Plug>(Limelight)
 let g:goyo_width = 120
 let g:goyo_height = 85
+nmap gl <ESC>:Limelight!!<CR>
+xmap gl <ESC>:Limelight!!<CR>
+nmap go <ESC>:Goyo<CR>
+xmap go <ESC>:Goyo<CR>
+
 " -------------------------     color scheme     ---------------------------- "
 syntax enable
 set background=dark
@@ -87,7 +90,7 @@ syntax on
 let g:airline_theme = 'nord'
 let g:limelight_conceal_ctermfg = '8'
 " let g:limelight_conceal_guifg = '#4C566A' 
-"
+
 " -------------------------     basic vim stuff     ------------------------- "
 filetype plugin on
 set modeline
@@ -122,6 +125,8 @@ set mouse=  " no mouse use
 set spelllang=de,en
 set spell
 "
+set cole=0
+
 " -------------------------     key-remapping     --------------------------- "
 nnoremap H 0
 vnoremap H 0
@@ -147,7 +152,7 @@ nnoremap <C-K> <C-W>k
 nnoremap <C-L> <C-W>l
 nnoremap <C-W><TAB> :tabn<CR>
 nnoremap <C-W><S-TAB> :tabN<CR>
-"
+
 " -------------------------     filetype specific     ----------------------- "
 " latex
 au BufNewFile,BufRead *.tex set ft=tex
@@ -168,6 +173,6 @@ autocmd FileType r
 "
 " python
 autocmd Filetype python
-    \ let b:delimitMate_quotes = "'"
+    \ let b:delimitMate_quotes = "'" |
     \ noremap <buffer> <F6> :call Autopep8()<CR>
-"
+

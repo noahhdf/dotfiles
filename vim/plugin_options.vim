@@ -31,7 +31,10 @@ nmap ga <Plug>(EasyAlign)
 xmap ga <Plug>(EasyAlign)
 "
 " goyo and limelight
-nmap <Leader>l <Plug>(Limelight)
-xmap <Leader>l <Plug>(Limelight)
 let g:goyo_width = 120
 let g:goyo_height = 85
+nmap gl <ESC>:Limelight!!<CR>
+xmap gl <ESC>:Limelight!!<CR>
+nmap go <ESC>:Goyo<CR>
+xmap go <ESC>:Goyo<CR>
+

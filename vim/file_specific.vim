@@ -18,6 +18,6 @@ autocmd FileType r
 "
 " python
 autocmd Filetype python
-    \ let b:delimitMate_quotes = "'"
+    \ let b:delimitMate_quotes = "'" |
     \ noremap <buffer> <F6> :call Autopep8()<CR>
-"
+

@@ -23,4 +23,4 @@ nnoremap <C-K> <C-W>k
 nnoremap <C-L> <C-W>l
 nnoremap <C-W><TAB> :tabn<CR>
 nnoremap <C-W><S-TAB> :tabN<CR>
-"
+

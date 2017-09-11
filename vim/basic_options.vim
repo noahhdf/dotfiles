@@ -32,3 +32,5 @@ set mouse=  " no mouse use
 set spelllang=de,en
 set spell
 "
+set cole=0
+
