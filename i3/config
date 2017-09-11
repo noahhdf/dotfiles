@@ -14,8 +14,15 @@ floating_modifier $mod
 # start a terminal
 bindsym $mod+Return exec alacritty
 # start a webbrowser
-bindsym $mod+w exec firefox
-bindsym $mod+shift+w exec midori
+bindsym $mod+w mode "web"
+mode "web" {
+    bindsym f exec firefox, mode default
+    bindsym m exec midori, mode default
+    bindsym t exec thunderbird, mode default
+    # back to normal: Enter or Escape
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -215,7 +222,16 @@ mode "border" {
 }
 
 # display workspaces through outputs
-# workspace $ws10 output HDMI1
+workspace $ws1 output eDP-1
+workspace $ws2 output eDP-1
+workspace $ws3 output eDP-1
+workspace $ws4 output eDP-1
+workspace $ws5 output eDP-1
+workspace $ws6 output eDP-1
+workspace $ws7 output eDP-1
+workspace $ws8 output eDP-1
+workspace $ws9 output eDP-1
+workspace $ws10 output HDMI-1
 
 #  -- bind programs to workspaces --  #
 # run `xprop`, click on program and find `WM_CLASS(STRING)`, second value
@@ -225,6 +241,7 @@ assign [class="Midori"] $ws2
 assign [class="URxvt"] $ws3
 assign [class="Evince"] $ws4
 assign [class="Telegram"] $ws7
+assign [class="Thunderbird"] $ws7
 
 #  -- gaps --  #
 # gaps inner|outer current|all set|plus|minus <px>
