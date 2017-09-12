@@ -33,11 +33,12 @@ call plug#begin('~/.vim/plugged')
     Plug 'Raimondi/delimitMate'
     Plug 'terryma/vim-multiple-cursors'
     Plug 'severin-lemaignan/vim-minimap'
-    Plug 'Yggdroot/indentLine'
+    " Plug 'Yggdroot/indentLine'
     "
     Plug 'tpope/vim-repeat'
     Plug 'tpope/vim-surround'
     Plug 'tpope/vim-commentary'
+    Plug 'tpope/vim-dispatch'
     "
     Plug 'junegunn/goyo.vim'
     Plug 'junegunn/limelight.vim'
