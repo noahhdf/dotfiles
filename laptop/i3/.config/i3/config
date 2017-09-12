@@ -14,11 +14,14 @@ floating_modifier $mod
 # start a terminal
 bindsym $mod+Return exec alacritty
 # start a webbrowser
-bindsym $mod+w mode "web"
+bindsym $mod+shift+w mode "web"
 mode "web" {
     bindsym f exec firefox, mode default
+    bindsym shift+f exec firefox, workspace $ws2, mode default
     bindsym m exec midori, mode default
+    bindsym shift+m exec midori, workspace $ws2, mode default
     bindsym t exec thunderbird, mode default
+    bindsym shift+t exec thunderbird, workspace $ws7, mode default
     # back to normal: Enter or Escape
     bindsym Return mode "default"
     bindsym Escape mode "default"
@@ -54,22 +57,25 @@ bindsym $mod+f fullscreen toggle
 
 # change container layout (stacked, tabbed, toggle split)
 # bindsym $mod+s layout stacking
-# bindsym $mod+w layout tabbed
-# bindsym $mod+e layout toggle split
+bindsym $mod+shift+t layout tabbed
+bindsym $mod+s layout toggle split
+for_window [workspace=$ws7] layout tabbed
+for_window [workspace=$ws2] layout tabbed
+for_window [workspace=$ws4] layout tabbed
 
 # toggle tiling / floating
 bindsym $mod+Shift+space floating toggle
 
 set $ws1  "1:  Terminals"
-set $ws2  "2:  Web"
+set $ws2  "2:  Browser"
 set $ws3  "3:  Vollmond"
-set $ws4  "4:  PDFs"
-set $ws5  "5: 5 n/a"
-set $ws6  "6: 6 n/a"
-set $ws7  "7:  Chat"
-set $ws8  "8: 8 n/a"
-set $ws9  "9: 9 n/a"
-set $ws10 "10: Beamer"
+set $ws4  "4:  Viewer"
+set $ws5  "5:  Uni"
+set $ws6  "6:  Games"
+set $ws7  "7:  Kommunikation"
+set $ws8  "8: 8 "
+set $ws9  "9: 9 "
+set $ws10 "10: Beamer"
 
 # switch to workspace
 bindsym $mod+1 workspace $ws1
@@ -216,7 +222,7 @@ bar                     {
 
 #  -- default borders and stuff --  #
 for_window [class=".*"] border pixel 1
-for_window [workspace=$ws7 class="MuPDF"] floating enable, border pixel 1
+for_window [workspace=$ws7 class="MuPDF"] floating enable, border normal 1
 
 bindsym $mod+b mode "border"
 mode "border" {
@@ -264,14 +270,14 @@ smart_gaps on
 bindsym $mod+g mode "gaps"
 mode "gaps" {
     # use default gaps
-    bindsym y gaps inner all set 13
+    bindsym y gaps inner all set 13, gaps outer all set 0, mode "default"
     # no gaps at all
-    bindsym n gaps inner all set 0
+    bindsym n gaps inner all set 0, gaps outer all set 0, mode "default"
+    # change size of gaps
     bindsym p gaps inner all plus 2
     bindsym m gaps inner all minus 2
     bindsym o gaps outer all plus 2
     bindsym i gaps outer all minus 2
-
     # back to normal: Enter or Escape
     bindsym Return mode "default"
     bindsym Escape mode "default"
@@ -279,10 +285,10 @@ mode "gaps" {
 
 bindsym $mod+shift+b mode "brightness"
 mode "brightness" {
-    bindsym 1 exec ~/shellScripts/high.sh
-    bindsym 2 exec ~/shellScripts/normal.sh
-    bindsym 3 exec ~/shellScripts/low.sh
-    bindsym 0 exec ~/shellScripts/lowest.sh
+    bindsym 1 exec ~/shellScripts/high.sh, mode "default"
+    bindsym 2 exec ~/shellScripts/normal.sh, mode "default"
+    bindsym 3 exec ~/shellScripts/low.sh, mode "default"
+    bindsym 0 exec ~/shellScripts/lowest.sh, mode "default"
     # back to normal: Enter or Escape
     bindsym Return mode "default"
     bindsym Escape mode "default"
