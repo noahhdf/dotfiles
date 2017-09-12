@@ -264,7 +264,7 @@ assign [class="Thunderbird"] $ws7
 #  -- gaps --  #
 # gaps inner|outer current|all set|plus|minus <px>
 # workspace <ws> gaps inner|outer <px>
-gaps inner 13
+# gaps inner 13
 smart_gaps on
 
 bindsym $mod+g mode "gaps"
