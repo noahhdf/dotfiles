@@ -57,7 +57,7 @@ bindsym $mod+f fullscreen toggle
 
 # change container layout (stacked, tabbed, toggle split)
 # bindsym $mod+s layout stacking
-bindsym $mod+shift+t layout tabbed
+bindsym $mod+t layout tabbed
 bindsym $mod+s layout toggle split
 for_window [workspace=$ws7] layout tabbed
 for_window [workspace=$ws2] layout tabbed
@@ -145,7 +145,7 @@ exec ~/.autostart.sh
 exec ~/.fehbg
 exec_always ~/.fehbg
 
-bindsym $mod+t exec ~/Telegram/Telegram, workspace $ws7
+bindsym $mod+shift+t exec ~/Telegram/Telegram, workspace $ws7
 
 # hide borders when fullscreen
 hide_edge_borders none # none, vertical, horizontal, both, smart
