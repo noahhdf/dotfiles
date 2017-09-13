@@ -303,3 +303,11 @@ mode "screen" {
     bindsym Return mode "default"
     bindsym Escape mode "default"
 }
+
+bindsym $mod+shift+o mode "redshift"
+mode "redshift" {
+    bindsym 1 exec redshift -O 6500, mode "default"
+    bindsym 2 exec redshift -O 5500, mode "default"
+    bindsym 3 exec redshift -O 3500, mode "default"
+    bindsym 4 exec redshift -O 2500, mode "default"
+}
