@@ -27,4 +27,4 @@ alias 'vollmondnotebook'='ssh -f -N vollmondtunnel'
 # alias 'high'='$HOME/shellScripts/high.sh'
 # alias 'lowest'='$HOME/shellScripts/lowest.sh'
 # alias 'normal'='$HOME/shellScripts/normal.sh'
-
+alias 'ping'='ping -c10'
