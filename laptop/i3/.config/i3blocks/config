@@ -1,0 +1,62 @@
+# i3blocks config file
+# Please see man i3blocks for a complete reference!
+#
+# List of valid properties:
+# align, color, background, border, command, full_text, instance, interval, label, min_width, name, separator, separator_block_width, short_text, signal, urgent
+#
+# Global properties
+command=~/.config/i3blocks/scripts/$BLOCK_NAME
+separator_block_width="|"
+markup=none
+color=#D8DEE9
+# green = #D8DEE9
+# yellow = #EBCB8B
+# red = #BF616A
+# white = #D8DEE9
+
+[traffic]
+label=
+interval=300
+full_text=Traffic
+
+[brightness]
+label=
+interval=once
+
+[memory]
+label=
+interval=5
+separator=false
+
+[load_average]
+# label=
+interval=10
+separator=false
+
+[disk]
+interval=30
+
+[connection]
+label=
+color=#A3BE8C
+interval=10
+full_text=Internet
+
+[lastup]
+label=last
+command=cat ~/.lastup | grep up | sed s/minutes/min/
+interval=once
+separator=false
+
+[uptime]
+label=
+color=#EBCB8B
+command=uptime -p | sed s/minutes/min/
+interval=60
+separator=false
+
+[time]
+# command=date '+%A, %d. %B %Y, %H:%M:%S'
+command=date '+%d.%m.%Y, %H:%M:%S'
+interval=1
+

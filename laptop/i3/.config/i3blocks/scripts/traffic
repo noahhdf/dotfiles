@@ -1,0 +1,8 @@
+#!/bin/sh
+# vim: ft=sh
+# traffic=
+curl gateway.engel/traffic.php | grep "bleiben noch....: [0-9]* MegaBytes" -o | sed s/MegaBytes/MB/ | grep "[0-9]* MB" -o
+
+# if $traffic < 1000; then
+# echo #rot
+# fi
