@@ -30,5 +30,6 @@ export DISABLE_AUTO_TITLE=true
 export PATH="$HOME/.source/bin:$PATH"
 # path to alacritty github
 export PATH="$HOME/Git/alacritty/target/release:$PATH"
+export PATH="$HOME/Git/i3wm/polybar:$PATH"
 
 source ~/.bash_alias
