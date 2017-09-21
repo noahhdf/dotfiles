@@ -1,3 +1,16 @@
-#!/bin/sh
+#!/bin/bash
 # vim: ft=sh
-nmcli | grep connected | sed s/[a-z0-9]*:\ connected\ to\ // | sed ":a;N;s/\n/\, /g"
+nmcli | grep connected | sed s/[0-9a-z]*:\ disconnected/disconnected/ | sed s/[a-z0-9]*:\ connected\ to\ // | sed ":a;N;s/\n/\, /g"
+
+# --- test ab hier ---
+# notconnected=$(nmcli | grep 'disconnected' | sed '/[0-9a-zA-Z]*:\ //')
+
+# echo $notconnected
+
+# if [[ "$hours" > "4" ]]; then
+#     echo "<span foreground='#BF616A'> $hours:$minutes</span>"
+# elif [[ "$hours" > "2" ]]; then
+#     echo "<span foreground='#EBCB8B'> $hours:$minutes</span>"
+# else
+#     echo "<span foreground='#A3BE8C'> $hours:$minutes</span>"
+# fi

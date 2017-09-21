@@ -1,0 +1,21 @@
+#!/bin/bash
+# vim: ft=sh
+# uptime -p | grep up | sed s/up\ // | sed s/\ hours/h/ | sed s/\ hour/h/ | sed s/\ minutes/m/ | sed s/\ minute// | sed s/,\ /:/
+
+minutes=$(uptime -p | grep '[0-9]*\ minute[s]*' -o | grep '[0-9]*' -o)
+m="$minutes"m
+hours=$(uptime -p | grep '[0-9]*\ hour[s]*' -o | grep '[0-9]*' -o)
+h="$hours"h
+
+# echo $minutes
+# echo $hours
+
+if [[ "$hours" > "4" ]]; then
+    echo "<span foreground='#BF616A'> $h:$m</span>"
+elif [[ "$hours" > "2" ]]; then
+    echo "<span foreground='#EBCB8B'> $h:$m</span>"
+elif [[ "$hours" < "1" ]]; then
+    echo "<span foreground='#A3BE8C'> $m</span>"
+else
+    echo "<span foreground='#A3BE8C'> $h:$m</span>"
+fi

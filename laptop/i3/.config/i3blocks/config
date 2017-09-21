@@ -7,15 +7,26 @@
 # Global properties
 command=~/.config/i3blocks/scripts/$BLOCK_NAME
 separator_block_width="|"
-markup=none
+markup=pango
 color=#D8DEE9
-# green = #D8DEE9
+# green = #A3BE8C
 # yellow = #EBCB8B
 # red = #BF616A
 # white = #D8DEE9
+# separator = #434C5E
+
+[redshift]
+label=r
+full_text=redshift
+short_text=rs
+interval=1800
+
+[github]
+label=
+full_text= github
 
 [traffic]
-label=
+# label=
 interval=300
 full_text=Traffic
 
@@ -43,15 +54,17 @@ interval=10
 full_text=Internet
 
 [lastup]
-label=last
-command=cat ~/.lastup | grep up | sed s/minutes/min/
+# label=
+# command=cat ~/.lastup | grep up | sed s/minutes/min/
+command=cat ~/.lastup | grep up | sed s/up\ // | sed s/\ hour[s]/h/ | sed s/\ minute[s]/m/ | sed s/,\ /:/
 interval=once
+color=#656E6F
 separator=false
 
 [uptime]
-label=
-color=#EBCB8B
-command=uptime -p | sed s/minutes/min/
+# label=
+# color=#EBCB8B
+# command=uptime -p | grep up | sed s/up\ // | sed s/\ hours/h/ | sed s/\ hour/h/ | sed s/\ minutes/m/ | sed s/\ minute// | sed s/,\ /:/
 interval=60
 separator=false
 
@@ -60,3 +73,6 @@ separator=false
 command=date '+%d.%m.%Y, %H:%M:%S'
 interval=1
 
+[shutdown_menu]
+full_text=
+command=~/.config/i3blocks/scripts/shutdown_menu -c;echo 
