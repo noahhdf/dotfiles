@@ -164,8 +164,10 @@ autocmd Filetype tex
     \ set shiftwidth=2 |
     \ set softtabstop=2 |
     \ set expandtab |
-    \ set textwidth=120 |
+    \ set textwidth=80 |
     \ set conceallevel=0 |
+    \ set fo=want |
+    \ ab zb zum Beispiel|
     \ set spelllang=de |
     \ set spell
 "
