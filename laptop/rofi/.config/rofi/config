@@ -1,10 +1,10 @@
 ! vim: ft=xdefaults commentstring=!%s
 ! rofi.modi:                           run,ssh,window
-rofi.modi:                           run,ssh
+rofi.modi:                           run,ssh,window
 rofi.width:                          42
-rofi.lines:                          3
+rofi.lines:                          5
 rofi.columns:                        1
-rofi.font:                           OfficeCodeProD 14
+rofi.font:                           OfficeCodeProD 12
 
 rofi.color-enabled: true
 rofi.color-window: #2e3440, #bf616a , #3b4252
@@ -31,7 +31,7 @@ rofi.ssh-command:                    urxvt -e {ssh-client} {host}
 ! "Run command to execute" Set from: Default
 ! rofi.run-command:                    {cmd}
 ! "Command to get extra run targets" Set from: Default
-! rofi.run-list-command:               
+! rofi.run-list-command:
 ! "Run command to execute that runs in shell" Set from: Default
 ! rofi.run-shell-command:              {terminal} -e {cmd}
 ! "Command executed on accep-entry-custom for window modus" Set from: Default
@@ -67,7 +67,7 @@ rofi.ssh-command:                    urxvt -e {ssh-client} {host}
 ! "Padding within rows" Set from: Default
 ! rofi.line-padding:                   1
 ! "Pre-set filter" Set from: Default
-! rofi.filter:                         
+! rofi.filter:
 ! "Separator style (none, dash, solid)" Set from: Default
 rofi.separator-style:                dash
 ! "Hide scroll-bar" Set from: Default
@@ -203,14 +203,14 @@ rofi.kb-row-down:                    Down,Control+n,J
 ! "Custom Keybinding 19" Set from: Default
 ! rofi.kb-custom-19:                   Alt+parenleft
 ! "The display name of this browser" Set from: Default
-! rofi.display-ssh:                    
+! rofi.display-ssh:
 ! "The display name of this browser" Set from: Default
-! rofi.display-run:                    
+! rofi.display-run:
 ! "The display name of this browser" Set from: Default
-! rofi.display-drun:                   
+! rofi.display-drun:
 ! "The display name of this browser" Set from: Default
-! rofi.display-window:                 
+! rofi.display-window:
 ! "The display name of this browser" Set from: Default
-! rofi.display-windowcd:               
+! rofi.display-windowcd:
 ! "The display name of this browser" Set from: Default
-! rofi.display-combi:                  
+! rofi.display-combi:
