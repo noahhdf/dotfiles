@@ -14,11 +14,14 @@ color=#D8DEE9
 # red = #BF616A
 # white = #D8DEE9
 # separator = #434C5E
+[apt-upgrade]
+interval=3600
+label=
 
 [redshift]
 label=r
-full_text=redshift
-short_text=rs
+# full_text=redshift
+# short_text=rs
 interval=1800
 
 [github]
@@ -76,3 +79,4 @@ interval=1
 [shutdown_menu]
 full_text=
 command=~/.config/i3blocks/scripts/shutdown_menu -c;echo 
+
