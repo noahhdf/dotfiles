@@ -186,4 +186,6 @@ autocmd Filetype python
 " git commit message
 autocmd Filetype gitcommit
     \ set spelllang=en |
-    \ set spell
+    \ set spell |
+    \ set tw=50 |
+    \ set fo=want
