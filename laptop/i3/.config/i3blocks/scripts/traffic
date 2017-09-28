@@ -3,7 +3,7 @@
 traffic=$(curl gateway.engel/traffic.php | grep "bleiben noch....: [0-9]* MegaBytes" -o | sed s/MegaBytes/MB/ | grep "[0-9]*" -o)
 
 if [[ "$traffic" > "6000" ]]; then
-    echo "<span foreground='#A3BE8Cff'> $traffic MB</span>"
+    echo "<span foreground='#A3BE8C'> $traffic MB</span>"
 elif [[ "$traffic" > "2000" ]]; then
     echo "<span foreground='#EBCB8B'> $traffic MB</span>"
 else

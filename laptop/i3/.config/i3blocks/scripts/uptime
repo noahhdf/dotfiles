@@ -11,11 +11,11 @@ h="$hours"h
 # echo $hours
 
 if [[ "$hours" > "4" ]]; then
-    echo "<span foreground='#BF616A'> $h:$m</span>"
+    echo "<span foreground='#BF616A'>$h:$m</span>"
 elif [[ "$hours" > "2" ]]; then
-    echo "<span foreground='#EBCB8B'> $h:$m</span>"
+    echo "<span foreground='#EBCB8B'>$h:$m</span>"
 elif [[ "$hours" < "1" ]]; then
-    echo "<span foreground='#A3BE8C'> $m</span>"
+    echo "<span foreground='#A3BE8C'>$m</span>"
 else
-    echo "<span foreground='#A3BE8C'> $h:$m</span>"
+    echo "<span foreground='#A3BE8C'>$h:$m</span>"
 fi

@@ -1,0 +1,10 @@
+#!/bin/bash
+# vim: ft=sh
+red="#BF616A"
+yellow="#EBCB8B"
+green="#A3BE8C"
+white="#D8DEE9"
+
+text="<span foreground=''></span>"
+
+echo "<span foreground='$white'>$white</span><span foreground='$red'>$red</span><span foreground='$yellow'>$yellow</span><span foreground='$green'>$green</span>"

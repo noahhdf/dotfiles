@@ -9,11 +9,22 @@ command=~/.config/i3blocks/scripts/$BLOCK_NAME
 separator_block_width="|"
 markup=pango
 color=#D8DEE9
+signal=11
 # green = #A3BE8C
 # yellow = #EBCB8B
 # red = #BF616A
 # white = #D8DEE9
 # separator = #434C5E
+
+[colors]
+interval=once
+
+# [bitcoin]
+# interval=10
+# min_width=hallo
+# # full_text=B
+# label=B
+# # command=python ~/.config/i3blocks/scripts/bitcoin
 
 # [apt-upgrade]
 # interval=3600
@@ -25,31 +36,31 @@ color=#D8DEE9
 # # short_text=rs
 # interval=1800
 
-# [github]
-# label=
-# full_text= github
+[github]
+label=
+full_text= github
 
-# [traffic]
-# # label=
-# interval=300
-# full_text=Traffic
+[traffic]
+# label=
+interval=300
+full_text=Traffic
 
-# [brightness]
-# label=
-# interval=once
+[brightness]
+label=
+interval=once
 
-# [memory]
-# label=
-# interval=5
-# separator=false
+[memory]
+label=
+interval=5
+separator=false
 
-# [load_average]
-# # label=
-# interval=10
-# separator=false
+[load_average]
+# label=
+interval=10
+separator=false
 
-# [disk]
-# interval=30
+[disk]
+interval=30
 
 [connection]
 label=
@@ -60,10 +71,9 @@ full_text=Internet
 # [lastup]
 # # label=
 # # command=cat ~/.lastup | grep up | sed s/minutes/min/
-# command=cat ~/.lastup | grep up | sed s/up\ // | sed s/\ hour[s]/h/ | sed s/\ minute[s]/m/ | sed s/,\ /:/
+# command=cat ~/.lastup | grep up | sed s/up\ // | sed s/\ hour[s]*/h/ | sed s/\ minute[s]*/m/ | sed s/,\ /:/
 # interval=once
 # color=#656E6F
-# separator=false
 
 [uptime]
 label=
@@ -75,9 +85,13 @@ interval=60
 [time]
 # command=date '+%A, %d. %B %Y, %H:%M:%S'
 command=date '+%d.%m.%Y, %H:%M:%S'
-interval=1
+interval=once
 
 [shutdown_menu]
 full_text=
 command=~/.config/i3blocks/scripts/shutdown_menu -c;echo 
 
+# [python]
+# interval=once
+# label=Python:
+# min_width=Python: 0.00

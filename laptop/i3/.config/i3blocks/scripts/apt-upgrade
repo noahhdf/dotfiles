@@ -3,7 +3,7 @@
 packages=$(apt-get upgrade -sq | grep '^[0-9]*\ upgraded' -o | grep '[0-9]*' -o)
 
 if [[ "$packages" > 20 ]]; then
-    echo "<span foreground='#ee1111'>$packages</span>"
+    echo "<span foreground='#BF616A'>$packages</span>"
 else
-    echo "<span foreground='#11ee11'>$packages</span>"
+    echo "<span foreground='#A3BE8Cff'>$packages</span>"
 fi
