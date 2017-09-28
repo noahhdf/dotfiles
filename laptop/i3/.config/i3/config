@@ -304,20 +304,21 @@ mode "redshift" {
 bindsym $win+r exec exec pkill -SIGRTMIN+11 i3blocks
 bar {
     status_command i3blocks -c ~/.config/i3blocks/config_alt
-    font                pango:OfficeCodeProD 9
+    font                pango:OfficeCodeProD 7
     colors              {
         background      $almost_black
         separator       $lighter_gray
         #                  #border       #background   #text
         focused_workspace  $lighter_gray $green        $almost_black
         inactive_workspace $lighter_gray $almost_black $light_white
-        urgent_workspace   $lighter_gray $red          $black
+        urgent_workspace   $almost_black $almost_black $almost_black
     }
-    mode hide  # dock, hide, invisible
+    mode dock  # dock, hide, invisible
     hidden_state hide  # hide, show
     modifier $win
     strip_workspace_numbers yes  # yes, no
     separator_symbol "|"
-    position top  # top, bottom
-    workspace_buttons yes  # yes, no
+    position bottom  # top, bottom
+    workspace_buttons no  # yes, no
+    # modes no
 }
