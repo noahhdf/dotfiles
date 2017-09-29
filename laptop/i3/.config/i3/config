@@ -122,7 +122,7 @@ bindsym $mod+Shift+r restart
 bindsym $mod+Ctrl+Delete exec ~/.config/i3blocks/scripts/shutdown_menu -c
 
 # resize windows
-mode "resize" {
+mode "" {
         bindsym h resize shrink width 10 px or 10 ppt
         bindsym j resize grow height 10 px or 10 ppt
         bindsym k resize shrink height 10 px or 10 ppt
@@ -131,7 +131,8 @@ mode "resize" {
         bindsym Return mode "default"
         bindsym Escape mode "default"
 }
-bindsym $mod+r mode "resize"
+bindsym $mod+r mode ""
+
 
 
 
@@ -209,8 +210,8 @@ for_window [class=".*"] border pixel 1
 for_window [workspace=$ws7 class="MuPDF"] floating enable, border normal 1
 for_window [class="Tk"] floating enable, border normal 1
 
-bindsym $mod+b mode "border"
-mode "border" {
+bindsym $mod+b mode ""
+mode "" {
     # use window title, but no border
     bindsym t border normal 0
     # use window title with 1 pixel border
@@ -253,8 +254,8 @@ assign [class="Thunderbird"] $ws7
 # gaps inner 13
 smart_gaps on
 
-bindsym $mod+g mode "gaps"
-mode "gaps" {
+bindsym $mod+g mode ""
+mode "" {
     # use default gaps
     bindsym y gaps inner all set 13, gaps outer all set 0, mode "default"
     # no gaps at all
@@ -269,8 +270,8 @@ mode "gaps" {
     bindsym Escape mode "default"
 }
 
-bindsym $mod+shift+b mode "brightness"
-mode "brightness" {
+bindsym $mod+shift+b mode ""
+mode "" {
     bindsym 1 exec ~/shellScripts/high.sh, mode "default"
     bindsym 2 exec ~/shellScripts/normal.sh, mode "default"
     bindsym 3 exec ~/shellScripts/low.sh, mode "default"
@@ -280,8 +281,8 @@ mode "brightness" {
     bindsym Escape mode "default"
 }
 
-bindsym $mod+shift+s mode "screen"
-mode "screen" {
+bindsym $mod+shift+s mode ""
+mode "" {
     bindsym h exec ~/.screenlayout/with_hdmi.sh, mode "default"
     bindsym n exec ~/.screenlayout/no_hdmi.sh, mode "default"
     bindsym c exec ~/.screenlayout/copy_screen_hdmi.sh, mode "default"
@@ -290,8 +291,8 @@ mode "screen" {
     bindsym Escape mode "default"
 }
 
-bindsym $mod+shift+o mode "redshift"
-mode "redshift" {
+bindsym $mod+shift+o mode ""
+mode "" {
     bindsym 1 exec redshift -O 6500, mode "default"
     bindsym 2 exec redshift -O 5500, mode "default"
     bindsym 3 exec redshift -O 3500, mode "default"
