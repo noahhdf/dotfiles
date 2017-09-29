@@ -52,7 +52,7 @@ color=#D8DEE9
 # interval=30
 
 [connection]
-label=
+label=
 # color=#A3BE8C
 interval=10
 full_text=Internet

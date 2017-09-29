@@ -25,12 +25,12 @@ G='#A3BE8Cff'  # verifying (green)
 --keyhlcolor=$G       \
 --bshlcolor=$W        \
 \
---screen 0            \
---blur 7              \
+--screen 1            \
+--blur 0              \
 --clock               \
 --indicator           \
 --timestr="%H:%M"  \
---datestr="%d.%m.%Y" \
+--datestr="%a, %d.%m.%Y" \
 --timefont=OfficeCodeProD \
 --datefont=OfficeCodeProD \
 --textsize=20 \
