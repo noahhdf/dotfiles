@@ -14,4 +14,3 @@
     l = log --graph
     hist = log --pretty=format:\"(%ad) [%an] %s%d\" --graph --date=short
     co = commit -m
-    fire = commit -a -m 'fire'
