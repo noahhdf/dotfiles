@@ -69,13 +69,13 @@ bindsym $mod+Shift+space floating toggle
 set $ws1  "1:"
 set $ws2  "2:"
 set $ws3  "3:"
-set $ws4  "4:"
-set $ws5  "5:"
-set $ws6  "6:"
+set $ws4  "4:IV"
+set $ws5  "5:V"
+set $ws6  "6:VI"
 set $ws7  "7:"
 set $ws8  "8:VIII"
 set $ws9  "9:IX"
-set $ws10 "10:"
+set $ws10 "10:X"
 
 # switch to workspace
 bindsym $mod+1 workspace $ws1
@@ -239,12 +239,11 @@ workspace $ws10 output HDMI-1
 
 #  -- bind programs to workspaces --  #
 # run `xprop`, click on program and find `WM_CLASS(STRING)`, second value
-assign [class="Alacritty"] $ws1
 assign [class="Firefox-esr"] $ws2
 assign [class="Midori"] $ws2
 assign [class="URxvt"] $ws3
-assign [class="Evince"] $ws4
-assign [class="Eog"] $ws4
+# assign [class="Evince"] $ws4
+# assign [class="Eog"] $ws4
 assign [class="Telegram"] $ws7
 assign [class="Thunderbird"] $ws7
 
