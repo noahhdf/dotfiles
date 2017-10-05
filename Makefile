@@ -1,5 +1,4 @@
-help:
-	@printf 'Specify which user.\nSupported users:\n- noah\n- mac\n'
+all: laptop
 
 files = bash colors git i3 rofi terminals vim
 
@@ -21,7 +20,10 @@ macclean:
 vollmondclean:
 	stow -d vollmond -t ~ -D $(files)
 
-.PHONY: mac laptop vollmond laptopclean macclean vollmondclean
+.PHONY: mac laptop vollmond laptopclean macclean vollmondclean all
+
+
+
 # maybe check whether noah and guest should be phony or not
 # if the time is checked correctly, it would only stow if newer files are
 # present
