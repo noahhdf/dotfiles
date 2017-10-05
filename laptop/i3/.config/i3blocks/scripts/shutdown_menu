@@ -50,7 +50,7 @@ ZENITY_OPTIONS=(--column= --hide-header)
 #######################################################################
 
 # Whether to ask for user's confirmation
-enable_confirmation=true
+enable_confirmation=false
 
 # Preferred launcher if both are available
 preferred_launcher="rofi"
@@ -115,9 +115,9 @@ typeset -A menu
 menu=(
   [Shutdown]="systemctl poweroff"
   [Reboot]="systemctl reboot"
-  [Hibernate]="systemctl hibernate"
-  [Suspend]="systemctl suspend"
-  [Halt]="systemctl halt"
+  # [Hibernate]="systemctl hibernate"
+  # [Suspend]="systemctl suspend"
+  # [Halt]="systemctl halt"
   [Lock]="${LOCKSCRIPT:-i3lock --color=${BG_COLOR#"#"}}"
   [Logout]="i3-msg exit"
   [Cancel]=""
