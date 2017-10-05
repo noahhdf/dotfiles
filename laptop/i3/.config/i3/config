@@ -1,3 +1,4 @@
+workspace_layout tabbed
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
 
 set $mod Mod1
@@ -47,6 +48,12 @@ bindsym $mod+Shift+j move down
 bindsym $mod+Shift+k move up
 bindsym $mod+Shift+l move right
 
+# change parent focus
+bindsym $mod+ctrl+h focus parent, focus left
+bindsym $mod+ctrl+j focus parent, focus down
+bindsym $mod+ctrl+k focus parent, focus up
+bindsym $mod+ctrl+l focus parent, focus right
+
 # split horizontal
 bindsym $mod+Shift+v split v
 # split vertical
@@ -54,6 +61,10 @@ bindsym $mod+v split h
 
 # enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen toggle
+
+# focus parent container
+bindsym $mod+a focus parent
+bindsym $mod+shift+a focus child
 
 # change container layout (stacked, tabbed, toggle split)
 # bindsym $mod+s layout stacking
