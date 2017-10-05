@@ -6,9 +6,9 @@ Check out the [installationguide](https://github.com/nonator/dotfiles/blob/maste
 ## usage
 The Makefile uses `stow`.
 The directories `laptop`, `mac`, `vollmond` only differ in a few configs, but
-This will be changed any time.
 are mostly the same.
+This will be changed any time.
 Old dotfiles have to be deleted or backed up.
-For me it is enaugh to `make` in a terminal.
+For me it is enough to `make` in a terminal.
 
 _maintained by NB_
