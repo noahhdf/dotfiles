@@ -329,7 +329,7 @@ bar {
         inactive_workspace $lighter_gray $almost_black $light_white
         urgent_workspace   $almost_black $almost_black $almost_black
     }
-    mode dock  # dock, hide, invisible
+    mode hide  # dock, hide, invisible
     hidden_state hide  # hide, show
     modifier $win
     strip_workspace_numbers yes  # yes, no
