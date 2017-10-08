@@ -15,6 +15,10 @@ color=#D8DEE9
 # white = #D8DEE9
 # separator = #434C5E
 
+# [ping]
+# label=
+# interval=10
+
 # [apt-upgrade]
 # interval=3600
 # label=
@@ -43,9 +47,9 @@ color=#D8DEE9
 # interval=5
 # separator=false
 
-# [load_average]
-# # label=
-# interval=10
+[load_average]
+label=
+interval=10
 # separator=false
 
 # [disk]
