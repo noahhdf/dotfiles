@@ -17,7 +17,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'ervandew/supertab'
     Plug 'sirver/ultisnips'
     Plug 'honza/vim-snippets'
-    " Plug 'w0rp/ale'
+    Plug 'w0rp/ale'
     "
     " Plug 'LaTeX-Box-Team/LaTeX-Box', {'for': 'tex'}
     Plug 'tell-k/vim-autopep8', {'for': 'python'}
@@ -44,6 +44,8 @@ call plug#begin('~/.vim/plugged')
     Plug 'junegunn/limelight.vim'
     "
     Plug 'ntpeters/vim-better-whitespace'
+    "
+    Plug 'kshenoy/vim-signature'
 call plug#end()
 
 " -------------------------     plugins     --------------------------------- "
@@ -67,12 +69,16 @@ map <Leader>\ <plug>NERDTreeTabsToggle<CR>
 " ale
 let g:ale_sign_error = '>>'
 let g:ale_sign_warning = '--'
-highlight clear ALEErrorSign
-highlight clear ALEWarningSign
+" highlight clear ALEErrorSign
+" highlight clear ALEWarningSign
 let g:airline#extensions#ale#enabled = 1
-let g:ale_lint_on_text_changed = 'normal' " or 'never'
+let g:ale_lint_on_text_changed = 'normal' " 'normal'/'never'
 let g:ale_lint_on_enter = 1
 let g:ale_lint_on_save = 1
+nmap ]a <ESC>:ALENext<CR>
+nmap [a <ESC>:ALEPrevious<CR>
+xmap ]a <ESC>:ALENext<CR>
+xmap [a <ESC>:ALEPrevious<CR>
 "
 " easyalign
 nmap ga <Plug>(EasyAlign)
