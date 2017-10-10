@@ -1,6 +1,6 @@
 all: laptop
 
-files = bash colors git i3 rofi terminals vim
+files = bash colors git i3 rofi terminals vim nvim
 
 laptop:
 	stow -d laptop -t ~ -S $(files)
