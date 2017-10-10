@@ -12,5 +12,6 @@
 	helper = cache --timeout=10800
 [alias]
     l = log --graph
-    hist = log --pretty=format:\"(%ad) [%an] %s%d\" --graph --date=short
+    hist = log --color --pretty=format:\"%Cgreen%ad%Creset %C(yellow)%an%Creset %s%Cred%d%Creset\" --graph --date=short
     co = commit -m
+    s = status
