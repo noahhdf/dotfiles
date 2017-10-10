@@ -1,12 +1,12 @@
 " -------------------------     autoload    --------------------------------- "
 " load vim-plug
 if empty(glob("~/.vim/autoload/plug.vim"))
-    execute '!curl -fLo ~/.vim/autoload/plug.vim https://raw.github.com/junegunn/vim-plug/master/plug.vim'
+    execute '!curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.github.com/junegunn/vim-plug/master/plug.vim'
 endif
 " load nvim-plug
-" if empty(glob("~/.vim/autoload/plug.vim"))
-"     execute '!curl -fLo ~/.vim/autoload/plug.vim https://raw.github.com/junegunn/vim-plug/master/plug.vim'
-" endif
+if empty(glob("~/.vim/autoload/plug.vim"))
+    execute '!curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.github.com/junegunn/vim-plug/master/plug.vim'
+endif
 
 " -------------------------     plug     ------------------------------------ "
 call plug#begin('~/.vim/plugged')
