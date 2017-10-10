@@ -6,10 +6,16 @@ T='#D8DEE9ff'  # text (white)
 W='#BF616Aff'  # wrong (red)
 G='#A3BE8Cff'  # verifying (green)
 
+temp=/tmp/screen.png
+
+scrot $temp && convert $temp -scale 5% -scale 2020% $temp
+
 ~/.config/i3lock/i3lock   \
+-i $temp \
+-e \
 \
 --insidevercolor=$B   \
---ringvercolor=$G     \
+--ringvercolor=$T     \
 \
 --insidewrongcolor=$B \
 --ringwrongcolor=$W   \
@@ -22,11 +28,10 @@ G='#A3BE8Cff'  # verifying (green)
 --textcolor=$T        \
 --timecolor=$T        \
 --datecolor=$T        \
---keyhlcolor=$G       \
+--keyhlcolor=$T       \
 --bshlcolor=$W        \
 \
 --screen 1            \
---blur 0              \
 --clock               \
 --indicator           \
 --timestr="%H:%M"  \
@@ -34,8 +39,9 @@ G='#A3BE8Cff'  # verifying (green)
 --timefont=OfficeCodeProD \
 --datefont=OfficeCodeProD \
 --textsize=20 \
+\
+--wrongtext="" \
+--veriftext="" \
+--textsize=30
 
-# --vertext="Drinking verification can..." \
-# --wrongtext="Nope!" \
-# --textsize=20
-# --modsize=10
+rm $temp
