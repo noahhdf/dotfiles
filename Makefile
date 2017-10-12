@@ -1,28 +1,27 @@
-all: laptop
+laptop_files = \
+	i3 rofi bash terminals
 
-files = bash colors git i3 rofi terminals vim nvim
+same_files = \
+	colors git vim nvim
 
-laptop:
-	stow -d laptop -t ~ -S $(files)
-
-mac:
-	stow -d mac -t ~ -S $(files)
+all:
+	stow $(laptop_files) $(same_files)
 
 vollmond:
-	stow -d vollmond -t ~ -S $(files)
+	stow vollmond $(same_files)
 
-laptopclean:
-	stow -d laptop -t ~ -D $(files)
+clean:
+	stow -D $(laptop_files) $(same_files)
 
-macclean:
-	stow -d mac -t ~ -D $(files)
+superclean:
+	rm -rf ~/.bashrc ~/.bash_alias ~/.bash_profile \
+		~/.vimrc ~/.config/nvim/ \
+		~/.config/rofi/ \
+		~/.config/i3blocks/ ~/.config/i3lock/ ~/.config/i3/ ~/.config/i3status \
+		~/.Xresources ~/.gitconfig \
+		~/.tmux.conf ~/.config/alacritty/
 
-vollmondclean:
-	stow -d vollmond -t ~ -D $(files)
-
-.PHONY: mac laptop vollmond laptopclean macclean vollmondclean all
-
-
+.PHONY: all vollmond clean superclean
 
 # maybe check whether noah and guest should be phony or not
 # if the time is checked correctly, it would only stow if newer files are
