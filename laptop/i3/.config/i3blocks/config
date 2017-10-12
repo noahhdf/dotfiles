@@ -53,6 +53,12 @@ interval=10
 # separator=false
 
 [disk]
+label=
+interval=30
+separator=false
+
+[sd]
+label=
 interval=30
 
 [connection]
