@@ -26,7 +26,7 @@ URxvt.perl-ext-common:  default,clipboard
 
 ! ----- urxvt settings  ----- !
 URxvt.borderless:      true
-URxvt.geometry:        84x24  
+URxvt.geometry:        84x24
 ! URxvt.font:            xft:mono:medium:size=11
 URxvt.font:            xft:OfficeCodeProD:regular:size=11,xft:FontAwesome:size=11
 URxvt.urlLauncher:     /home/noah/Downloads/firefox/firefox
