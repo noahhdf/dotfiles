@@ -203,7 +203,8 @@ client.urgent           $red           $red           $almost_black  $orange
 #  -- i3blocks --  #
 bar {
     status_command i3blocks
-    output edp-1
+    # output edp-1
+    # output hmdi-1
     tray_output edp-1
     tray_padding 3
     font                pango:OfficeCodeProD 9
