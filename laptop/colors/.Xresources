@@ -30,8 +30,8 @@ URxvt.geometry:        84x24
 ! URxvt.font:            xft:mono:medium:size=11
 URxvt.font:            xft:OfficeCodeProD:regular:size=11,xft:FontAwesome:size=11
 URxvt.urlLauncher:     /home/noah/Downloads/firefox/firefox
-URxvt.scrollBar:       false
-URxvt.scrollBar_right: false
+URxvt.scrollBar:       true
+URxvt.scrollBar_right: true
 URxvt.scrollStyle:     plain
 URxvt.scrollColor:     nord0
 URxvt.letterSpace:     -0.0
@@ -51,22 +51,59 @@ URxvt.iso14755: false
 ! *.fadeColor:   rgba:0000/0000/0200/c800
 ! URxvt.transparency: true
 
-*.color0:  nord1
-*.color1:  nord11
-*.color2:  nord14
-*.color3:  nord13
-*.color4:  nord9
-*.color5:  nord15
-*.color6:  nord8
-*.color7:  nord5
-*.color8:  nord3
-*.color9:  nord11
-*.color10: nord14
-*.color11: nord13
-*.color12: nord9
-*.color13: nord15
-*.color14: nord7
-*.color15: nord6
+! black
+*.color0:  #3B4252
+*.color8:  #4C566A
+! red
+*.color1:  #BF616A
+*.color9:  #BF616A
+! green
+*.color2:  #A3BE8C
+*.color10: #A3BE8C
+! yellow
+*.color3:  #EBCB8B
+*.color11: #EBCB8B
+! blue
+*.color4:  #81A1C1
+*.color12: #81A1C1
+! magenta
+*.color5:  #B48EAD
+*.color13: #B48EAD
+! cyan
+*.color6:  #88C0D0
+*.color14: #8FBCBB
+! white
+*.color7:  #E5E9F0
+*.color15: #ECEFF4
 
-#include "/home/noah/dark_color"
-#include "/home/noah/solarized"
+! #include "/home/noah/dark_color"
+! #include "/home/noah/solarized"
+
+! ! special
+! *.foreground: #cfcfc2
+! *.background: #232629
+! *.cursorColor: #cfcfc2
+! ! black
+! *.color0: #2a2e32
+! *.color8: #31363b
+! ! red
+! *.color1: #c0392b
+! *.color9: #f44f4f
+! ! green
+! *.color2: #218058
+! *.color10: #27ae60
+! ! yellow
+! *.color3: #fdbc4b
+! *.color11: #fdbc4b
+! ! blue
+! *.color4: #2980b9
+! *.color12: #0099ff
+! ! magenta
+! *.color5: #8e44ad
+! *.color13: #af81ff
+! ! cyan
+! *.color6: #27aeae
+! *.color14: #31dddd
+! ! white
+! *.color7: #acada1
+! *.color15: #cfd0c2
