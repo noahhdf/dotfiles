@@ -12,9 +12,9 @@ if ! [ -f "/usr/bin/bash" ]; then
 fi
 
 # added by anaconda2 4.3.1 installer
-export PATH="/Users/nbiederbeck/anaconda2/bin:$PATH"
+export PATH="$HOME/anaconda2/bin:$PATH"
 # added by anaconda3 4.3.1 installer
-export PATH="/Users/nbiederbeck/anaconda3/bin:$PATH"
+export PATH="$HOME/anaconda3/bin:$PATH"
 # additional python2 behaviour
 alias 'python2'='/Users/nbiederbeck/anaconda2/bin/python'
 alias 'virtualenv2'='/Users/nbiederbeck/anaconda2/bin/virtualenv'
@@ -28,8 +28,16 @@ export PS1='\[\033[0;32m\]\u@\h: \[\033[0;31m\]$(parse_git_branch) \[\033[0;34m\
 export PATH="$HOME/.cargo/bin:$PATH"
 export DISABLE_AUTO_TITLE=true
 export PATH="$HOME/.source/bin:$PATH"
+
 # path to alacritty github
 export PATH="$HOME/Git/alacritty/target/release:$PATH"
 export PATH="$HOME/Git/i3wm/polybar:$PATH"
+export PATH="$HOME/shellScripts:$PATH"
+
+# tex
+export PATH="$(echo ~/.local/texlive/*/bin/*):$PATH"
+
+# sd card variable
+export SD="/media/noah/23c4ddbc-85fa-4cea-b96b-edae0bb138c9"
 
 source ~/.bash_alias
