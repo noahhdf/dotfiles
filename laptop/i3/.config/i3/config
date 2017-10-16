@@ -14,6 +14,7 @@ floating_modifier $mod
 
 # start a terminal
 bindsym $mod+Return exec alacritty
+bindsym $mod+Shift+Return exec urxvt
 # start a webbrowser
 bindsym $mod+shift+w mode "web"
 mode "web" {
@@ -265,8 +266,8 @@ workspace $ws10 output HDMI-1
 # run `xprop`, click on program and find `WM_CLASS(STRING)`, second value
 assign [class="Firefox-esr"] $ws2
 assign [class="Midori"] $ws2
-assign [class="URxvt"] $ws3
-for_window [class="URxvt"] workspace $ws3
+assign [title="ssh"] $ws3
+for_window [title="ssh"] workspace $ws3
 # assign [class="Evince"] $ws4
 # assign [class="Eog"] $ws4
 assign [class="Telegram"] $ws7
@@ -348,3 +349,5 @@ mode "redshift" {
 #     workspace_buttons no  # yes, no
 #     # modes no
 # }
+
+bindsym $mod+win+shift+space exec xmodmap ~/.Xmodmap
