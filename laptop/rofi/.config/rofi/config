@@ -24,7 +24,7 @@ rofi.color-urgent: #3b4252, #bf616a, #3b4252, #bf616a, #3b4252
 ! "Always show number of lines" Set from: Default
 ! rofi.fixed-num-lines:                true
 ! "Terminal to use" Set from: Default
-rofi.terminal:                       alacritty
+rofi.terminal:                       urxvt
 ! "Ssh client to use" Set from: Default
 ! rofi.ssh-client:                     ssh
 ! "Ssh command to execute" Set from: Default
