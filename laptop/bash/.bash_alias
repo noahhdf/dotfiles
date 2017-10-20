@@ -1,7 +1,7 @@
 # vim: ft=sh
 alias 'htop'='htop -u $USER'
 alias '..'='cd ..'
-alias 'rm'='rm -vI'
+# alias 'rm'='rm -vI'
 # alias 'mv'='mv -v'
 # alias 'cp'='cp -v'
 # alias 'mkdir'='mkdir -p'
@@ -33,3 +33,4 @@ alias ':q'='echo "trapped in vim? go to bed!" && sleep 3 && exit'
 alias 'gits'='git status -s'
 alias 'gitfire'='git checkout -b fire && git commit -a -m "fire" && git push -u origin fire'
 alias 'open'='xdg-open'
+alias 'backmeup'='borg create --stats --progress --compression lz4 ::{user}-{now} --exclude anaconda3/ --exclude .cache/ --exclude .local/textlive/ .'

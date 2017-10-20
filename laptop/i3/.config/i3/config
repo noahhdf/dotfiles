@@ -1,5 +1,5 @@
 # get colours from .Xresource
-set $fullblack #000000ff
+set $fullblack #000000
 set_from_resource $black .color0
 set_from_resource $brightblack .color8
 set_from_resource $red .color1
@@ -25,8 +25,9 @@ set $mod Mod1
 set $alt Mod1
 set $win Mod4
 
+font pango:OfficeCodeProD 8
 # font pango:DejaVu Sans Mono 8
-font pango:System San Francisco Display 8
+# font pango:System San Francisco Display 8
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -52,7 +53,9 @@ mode "web" {
 bindsym $mod+Shift+q kill
 
 # start .desktop applications
-bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
+# bindsym $mod+d exec --no-startup-id i3-dmenu-desktop #-nb "$fullblack" -nf "$brightblack" -sb "$black" -sf "$white"
+bindsym $mod+d exec --no-startup-id dmenu_run -nb "$fullblack" -nf "$brightblack" -sb "$black" -sf "$white"
+
 # start rofi
 bindsym $mod+space exec rofi -show run
 
@@ -93,6 +96,7 @@ bindsym $mod+s layout toggle split
 for_window [workspace=$ws7] layout tabbed
 for_window [workspace=$ws2] layout tabbed
 for_window [workspace=$ws4] layout tabbed
+# for_window [class="URxvt"] floating enable
 
 # toggle tiling / floating
 bindsym $mod+Shift+space floating toggle
@@ -175,13 +179,13 @@ bindsym $mod+r mode "resize"
 #  -- made by Noah --  #
 
 # inverts colors in vim, terminals, rofi
-bindsym $mod+i exec inverter.sh
+bindsym $mod+i exec wal -i ~/Pictures/landscape_green.png -q
 
 #  -- autostart --  #
 exec ~/.autostart.sh
 # set background
-exec ~/.fehbg
-exec_always ~/.fehbg
+# exec ~/.fehbg
+# exec_always ~/.fehbg
 
 bindsym $mod+shift+t exec ~/Telegram/Telegram, workspace $ws7
 
@@ -213,10 +217,17 @@ set $lila            #B48EADff
 
 #  -- color windows --  #
 #                       #border        #background    #text          #indicator
-client.focused          $green         $green         $black  $orange
-client.unfocused        $dark_gray     $dark_gray     $light_white   $orange
-client.focused_inactive $dark_gray     $dark_gray     $light_white   $orange
-client.urgent           $red           $red           $black  $orange
+# client.focused          $green         $green         $black  $orange
+# client.unfocused        $dark_gray     $dark_gray     $light_white   $orange
+# client.focused_inactive $dark_gray     $dark_gray     $light_white   $orange
+# client.urgent           $red           $red           $black  $orange
+#
+#  -- color windows --  #
+#                       #border        #background    #text          #indicator
+client.focused          $green         $green         $black  $red
+client.unfocused        $black     $black     $white   $red
+client.focused_inactive $black     $black     $white   $red
+client.urgent           $red           $red           $black  $red
 
 
 #  -- i3blocks --  #
@@ -229,12 +240,12 @@ bar {
     font                pango:OfficeCodeProD 9
     colors              {
         background      $fullblack
-        statusline      $light_white
-        separator       $lighter_gray
+        statusline      $brightwhite
+        separator       $white
         #                  #border       #background   #text
-        focused_workspace  $fullblack $fullblack $light_white
-        active_workspace   $fullblack $fullblack $lighter_gray
-        inactive_workspace $fullblack $fullblack $lighter_gray
+        focused_workspace  $fullblack $fullblack $brightwhite
+        active_workspace   $fullblack $fullblack $white
+        inactive_workspace $fullblack $fullblack $black
         urgent_workspace   $fullblack $fullblack $red
         binding_mode       $fullblack $fullblack $red
     }
@@ -294,7 +305,7 @@ assign [class="Thunderbird"] $ws7
 #  -- gaps --  #
 # gaps inner|outer current|all set|plus|minus <px>
 # workspace <ws> gaps inner|outer <px>
-# gaps inner 13
+gaps inner 13
 smart_gaps on
 
 bindsym $mod+g mode "gaps"
@@ -368,4 +379,4 @@ mode "redshift" {
 #     # modes no
 # }
 
-bindsym $mod+win+shift+space exec xmodmap ~/.Xmodmap
+# bindsym $mod+win+shift+space exec xmodmap ~/.Xmodmap

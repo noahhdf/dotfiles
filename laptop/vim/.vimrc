@@ -13,6 +13,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'vim-airline/vim-airline'
     Plug 'vim-airline/vim-airline-themes'
     Plug 'arcticicestudio/nord-vim'
+    Plug 'dylanaraps/wal.vim'
     "
     Plug 'ervandew/supertab'
     Plug 'sirver/ultisnips'
@@ -20,7 +21,8 @@ call plug#begin('~/.vim/plugged')
     Plug 'w0rp/ale'
     "
     " Plug 'LaTeX-Box-Team/LaTeX-Box', {'for': 'tex'}
-    Plug 'tell-k/vim-autopep8', {'for': 'python'}
+    Plug 'lervag/vimtex', {'for': 'tex'}
+    " Plug 'tell-k/vim-autopep8', {'for': 'python'}
     " Plug 'davidhalter/jedi-vim', {'for': 'python'}
     " Plug 'nvie/vim-flake8', {'for': 'python'}
     "
@@ -79,6 +81,14 @@ nmap ]a <ESC>:ALENext<CR>
 nmap [a <ESC>:ALEPrevious<CR>
 xmap ]a <ESC>:ALENext<CR>
 xmap [a <ESC>:ALEPrevious<CR>
+let g:ale_lint_delay=200
+let g:ale_fixers = {
+\ 'python': ['autopep8'],
+\}
+let g:ale_linters = {
+\ 'python': ['pycodestyle'],
+\}
+" let g:ale_fix_on_save=1
 "
 " easyalign
 nmap ga <Plug>(EasyAlign)
@@ -95,9 +105,9 @@ xmap go <ESC>:Goyo<CR>
 " -------------------------     color scheme     ---------------------------- "
 syntax enable
 set background=dark
-colorscheme nord
+colorscheme wal
 syntax on
-let g:airline_theme = 'nord'
+" let g:airline_theme = 'nord'
 let g:limelight_conceal_ctermfg = '8'
 " let g:limelight_conceal_guifg = '#4C566A'
 
@@ -187,7 +197,8 @@ autocmd FileType r
 " python
 autocmd Filetype python
     \ let b:delimitMate_quotes = "'" |
-    \ noremap <buffer> <F6> :call Autopep8()<CR>
+    \ noremap <buffer> <F6> :call Autopep8()<CR> |
+    \ autocmd BufEnter <buffer> EnableStripWhitespaceOnSave
 "
 " git commit message
 autocmd Filetype gitcommit

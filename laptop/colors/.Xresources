@@ -33,7 +33,7 @@ URxvt.urlLauncher:     /home/noah/Downloads/firefox/firefox
 URxvt.scrollBar:       true
 URxvt.scrollBar_right: true
 URxvt.scrollStyle:     plain
-URxvt.scrollColor:     nord0
+URxvt.scrollColor:     #232323
 URxvt.letterSpace:     -0.0
 URxvt.rowSpace:        -1.0
 URxvt.saveLines:       4096
@@ -41,15 +41,20 @@ URxvt.keysym.Shift-Control-V: perl:clipboard:paste
 URxvt.iso14755: false
 
 ! -----  set colors  ----- !
-*.foreground:  nord4
-*.background:  nord0
-! *.background:  rgba:0000/0000/0200/c800
-*.depth:       32
-*.cursorColor: nord4
+! *.foreground:  nord4
+! *.background:  nord0
+! *.cursorColor: nord4
 ! *.fading:      42
 ! *.fadeColor:   nord3
-! *.fadeColor:   rgba:0000/0000/0200/c800
-! URxvt.transparency: true
+! *.fadeColor:   rgba:0000/0000/0000/0000
+URxvt.transparent: true
+URxvt.shading: 20
+URxvt.depth: 32
+
+rofi.color-window: #2e3440, #a3be8c , #3b4252
+rofi.color-normal: #3b4252, #d8dee9, #3b4252, #d8dee9, #3b4252
+rofi.color-active: #3b4252, #5e81ac, #3b4252, #5e81ac, #3b4252
+rofi.color-urgent: #3b4252, #bf616a, #3b4252, #bf616a, #3b4252
 
 ! black
 *.color0:  #3B4252

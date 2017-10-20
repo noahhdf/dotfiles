@@ -7,11 +7,11 @@ rofi.columns:                        1
 rofi.font:                           OfficeCodeProD 12
 
 rofi.color-enabled: true
-! rofi.color-window: #2e3440, #bf616a , #3b4252
-rofi.color-window: #2e3440, #a3be8c , #3b4252
-rofi.color-normal: #3b4252, #d8dee9, #3b4252, #d8dee9, #3b4252
-rofi.color-active: #3b4252, #5e81ac, #3b4252, #5e81ac, #3b4252
-rofi.color-urgent: #3b4252, #bf616a, #3b4252, #bf616a, #3b4252
+! ! rofi.color-window: #2e3440, #bf616a , #3b4252
+! rofi.color-window: #2e3440, #a3be8c , #3b4252
+! rofi.color-normal: #3b4252, #d8dee9, #3b4252, #d8dee9, #3b4252
+! rofi.color-active: #3b4252, #5e81ac, #3b4252, #5e81ac, #3b4252
+! rofi.color-urgent: #3b4252, #bf616a, #3b4252, #bf616a, #3b4252
 
 ! rofi.bw:                             0
 ! rofi.location:                       0

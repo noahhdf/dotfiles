@@ -15,6 +15,7 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 source $HOME/.config/i3blocks/scripts/colors
+source $HOME/.cache/wal/colors.sh
 
 DIR="${BLOCK_INSTANCE:-$HOME}"
 ALERT_LOW="${1:-10}" # color will turn red under this value (default: 10%)
@@ -38,6 +39,7 @@ END {
 	if (100 - use < alert_low) {
 		# color
 		print "#BF616A"
+		# print "$color1"
 	}
 }
 '

@@ -1,9 +1,12 @@
 #!/bin/sh
 
-B='#00000000'  # background (transparent)
+source $HOME/.cache/wal/colors.sh
+
+B='#00000066'  # background (transparent)
 D='#4C566Aff'  # default (dark grayish blue)
 T='#D8DEE9ff'  # text (white)
 W='#BF616Aff'  # wrong (red)
+W='#FF0000FF'  # wrong (red)
 G='#A3BE8Cff'  # verifying (green)
 
 temp=/tmp/screen.png
@@ -15,21 +18,21 @@ scrot $temp && convert $temp -scale 5% -scale 2020% $temp
 -e \
 \
 --insidevercolor=$B   \
---ringvercolor=$T     \
+--ringvercolor=$color7"ff"     \
 \
 --insidewrongcolor=$B \
 --ringwrongcolor=$W   \
 \
 --insidecolor=$B      \
---ringcolor=$D        \
+--ringcolor=$color8"ff"        \
 --linecolor=$B        \
---separatorcolor=$D   \
+--separatorcolor=$color8"ff"   \
 \
---textcolor=$T        \
---timecolor=$T        \
---datecolor=$T        \
---keyhlcolor=$T       \
---bshlcolor=$W        \
+--textcolor=$color7"ff"        \
+--timecolor=$color7"ff"        \
+--datecolor=$color7"ff"        \
+--keyhlcolor=$color7"ff"       \
+--bshlcolor=$color1"ff"        \
 \
 --screen 1            \
 --clock               \
