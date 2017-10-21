@@ -48,7 +48,7 @@ URxvt.iso14755: false
 ! *.fadeColor:   nord3
 ! *.fadeColor:   rgba:0000/0000/0000/0000
 URxvt.transparent: true
-URxvt.shading: 20
+URxvt.shading: 10
 URxvt.depth: 32
 
 rofi.color-window: #2e3440, #a3be8c , #3b4252
