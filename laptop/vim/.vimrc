@@ -197,7 +197,7 @@ autocmd FileType r
 " python
 autocmd Filetype python
     \ let b:delimitMate_quotes = "'" |
-    \ noremap <buffer> <F6> :call Autopep8()<CR> |
+    \ noremap <buffer> <F6> :ALEFix<CR> |
     \ autocmd BufEnter <buffer> EnableStripWhitespaceOnSave
 "
 " git commit message
