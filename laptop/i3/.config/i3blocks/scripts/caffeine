@@ -1,0 +1,8 @@
+#!/bin/bash
+# vim: ft=sh
+
+caffeine="no"
+
+if [[ "$caffeine" == "no" ]]; then
+    xautolock -toggle
+    caffeine="yes"
