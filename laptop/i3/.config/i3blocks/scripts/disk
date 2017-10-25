@@ -38,7 +38,7 @@ END {
 	gsub(/%$/,"",use)
 	if (100 - use < alert_low) {
 		# color
-		print "#BF616A"
+		print "#c0392b"
 		# print "$color1"
 	}
 }
