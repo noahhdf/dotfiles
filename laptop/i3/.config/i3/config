@@ -183,8 +183,9 @@ bindsym $mod+i exec wal -i ~/Pictures/landscape_green.png -q
 
 #  -- autostart --  #
 exec ~/.autostart.sh
+# exec_always ~/.autostart.sh
 # set background
-# exec ~/.fehbg
+exec wal -f ~/.dark_palette.json
 # exec_always ~/.fehbg
 
 bindsym $mod+shift+t exec ~/Telegram/Telegram, workspace $ws7
