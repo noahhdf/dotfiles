@@ -1,0 +1,12 @@
+#!/bin/bash
+# vim: ft=sh
+source ~/.cache/wal/colors.sh
+d=$(dropbox status)
+
+if [[ "$d" == "Dropbox isn't running!" ]]; then
+    echo "<span foreground='$color1'>$d</span>"
+elif [[ "$d" == "Up to date" ]]; then
+    echo "<span foreground='$color2'>$d</span>"
+else
+    echo "<span foreground='$color3'>$d</span>"
+fi
