@@ -16,6 +16,14 @@ markup=pango
 # white = #D8DEE9
 # separator = #434C5E
 
+[free]
+label=&#xf205;
+interval=1
+
+[dropbox]
+label=&#xf16b;
+interval=10
+
 # [ping]
 # label=
 # interval=10
@@ -50,17 +58,17 @@ markup=pango
 
 [load_average]
 label=
-interval=10
+interval=1
 # separator=false
 
 [disk]
 label=
-interval=30
-separator=false
+interval=60
+# separator=false
 
 [sd]
 label=
-interval=30
+interval=60
 
 [connection]
 label=
