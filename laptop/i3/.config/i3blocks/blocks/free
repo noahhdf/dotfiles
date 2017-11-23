@@ -1,7 +1,7 @@
 #!/bin/bash
 # vim: ft=sh
 FREE=$(free --mega | grep 'Mem:\ *[[:digit:]]*\ *[[:digit:]]*' -o | grep '[[:digit:]]*' -o)
-RELATIVE=$(echo "$FREE" | sed ':a;N;s/\n/\^(-1)\*100\*/g' | bc -l| grep '.\{3\}' -o)
 ABSOLUTE=$(echo "$FREE" | sed ':a;N;s/\n/ /g' | grep '[[:digit:]]\{1,4\}$' -o)
+RELATIVE=$(echo "$FREE" | sed ':a;N;s/\n/\^(-1)\*100\*/g' | bc -l | grep '[[:digit:]]*\.[[:digit:]]\{1\}' -o)
 
 echo "$ABSOLUTE $RELATIVE"

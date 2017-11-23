@@ -17,7 +17,7 @@ set_from_resource $brightcyan .color14
 set_from_resource $white .color7
 set_from_resource $brightwhite .color15
 
-workspace_layout tabbed
+# workspace_layout tabbed
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
 
 set $mod Mod1
@@ -25,7 +25,11 @@ set $mod Mod1
 set $alt Mod1
 set $win Mod4
 
-font pango:OfficeCodeProD 8
+set $fontsize 7
+set $bordersize 1
+set $gapsize 10
+
+font pango:OfficeCodeProD $fontsize
 # font pango:DejaVu Sans Mono 8
 # font pango:System San Francisco Display 8
 
@@ -159,7 +163,8 @@ bindsym $mod+Shift+c reload
 bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
 # bindsym $mod+Shift+Delete exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
-bindsym $mod+Ctrl+Delete exec ~/.config/i3blocks/scripts/shutdown_menu -c
+bindsym $mod+Ctrl+Delete exec ~/.config/i3blocks/blocks/shutdown_menu -c
+bindsym $mod+Ctrl+Escape exec ~/.config/i3blocks/blocks/shutdown_menu -c
 
 # resize windows
 mode "resize" {
@@ -182,10 +187,10 @@ bindsym $mod+r mode "resize"
 bindsym $mod+i exec wal -i ~/Pictures/landscape_green.png -q
 
 #  -- autostart --  #
-exec ~/.autostart.sh
+# exec ~/.autostart.sh
 # exec_always ~/.autostart.sh
 # set background
-exec wal -f ~/.dark_palette.json
+# exec wal -f ~/.dark_palette.json
 # exec_always ~/.fehbg
 
 bindsym $mod+shift+t exec ~/Telegram/Telegram, workspace $ws7
@@ -193,7 +198,7 @@ bindsym $mod+shift+t exec ~/Telegram/Telegram, workspace $ws7
 # hide borders when fullscreen
 hide_edge_borders smart # none, vertical, horizontal, both, smart
 # screen lock
-bindsym $mod+Delete exec ~/.config/i3lock/lock.sh
+bindsym $mod+Delete exec xautolock -locknow
 
 bindsym $mod+Tab workspace back_and_forth
 
@@ -224,11 +229,11 @@ set $lila            #B48EADff
 # client.urgent           $red           $red           $black  $orange
 #
 #  -- color windows --  #
-#                       #border #background #text  #indicator
-client.focused          $white  $white      $black $red
-client.unfocused        $black  $black      $white $red
-client.focused_inactive $black  $black      $white $red
-client.urgent           $red    $red        $black $red
+#                       #border      #background  #text        #indicator
+client.focused          $brightwhite $brightwhite $fullblack   $red
+client.unfocused        $black       $black       $brightwhite $red
+client.focused_inactive $black       $black       $brightwhite $red
+client.urgent           $red         $red         $fullblack   $red
 
 
 #  -- i3blocks --  #
@@ -238,42 +243,42 @@ bar {
     # output hmdi-1
     tray_output edp-1
     tray_padding 3
-    font                pango:OfficeCodeProD 9
+    font                pango:OfficeCodeProD,FontAwesome $fontsize
     colors              {
         background      $fullblack
         statusline      $brightwhite
         separator       $white
-        #                  #border       #background   #text
-        focused_workspace  $fullblack $fullblack $brightwhite
-        active_workspace   $fullblack $fullblack $white
-        inactive_workspace $fullblack $fullblack $black
-        urgent_workspace   $fullblack $fullblack $red
-        binding_mode       $fullblack $fullblack $red
+        #                  #border    #background #text
+        focused_workspace  $brightwhite $brightwhite  $fullblack
+        active_workspace   $fullblack $fullblack  $white
+        inactive_workspace $fullblack $fullblack  $black
+        urgent_workspace   $fullblack $fullblack  $red
+        binding_mode       $fullblack $fullblack  $red
     }
     mode dock  # dock, hide, invisible
     hidden_state hide  # hide, show
     modifier $win
     strip_workspace_numbers yes  # yes, no
     separator_symbol "|"
-    position top  # top, bottom
+    position bottom  # top, bottom
     workspace_buttons yes
 }
 
 
 #  -- default borders and stuff --  #
-for_window [class=".*"] border pixel 1
-for_window [workspace=$ws7 class="MuPDF"] floating enable, border normal 1
-for_window [class="Tk"] floating enable, border normal 1
-for_window [class="Matplotlib"] floating enable, border normal 1
+for_window [class=".*"] border pixel $bordersize
+for_window [workspace=$ws7 class="MuPDF"] floating enable, border normal $bordersize
+for_window [class="Tk"] floating enable, border normal $bordersize
+for_window [class="Matplotlib"] floating enable, border normal $bordersize
 
 bindsym $mod+b mode "borders"
 mode "borders" {
     # use window title, but no border
     bindsym t border normal 0
-    # use window title with 1 pixel border
-    bindsym a border normal 1
+    # use window title with $bordersize pixel border
+    bindsym a border normal $bordersize
     # use only border
-    bindsym b border pixel 1
+    bindsym b border pixel $bordersize
     # use neither window title nor border
     bindsym n border none
     # back to normal: Enter or Escape
@@ -283,8 +288,9 @@ mode "borders" {
 
 # display workspaces through outputs
 workspace $ws1 output eDP-1
+# workspace $ws1 output HDMI-1
 workspace $ws2 output HDMI-1
-workspace $ws3 output eDP-1
+# workspace $ws3 output eDP-1
 # workspace $ws4 output eDP-1
 # workspace $ws5 output eDP-1
 # workspace $ws6 output eDP-1
@@ -296,6 +302,7 @@ workspace $ws10 output HDMI-1
 #  -- bind programs to workspaces --  #
 # run `xprop`, click on program and find `WM_CLASS(STRING)`, second value
 assign [class="Firefox-esr"] $ws2
+assign [class="Firefox"] $ws2
 assign [class="Midori"] $ws2
 assign [title="ssh"] $ws3
 for_window [title="ssh"] workspace $ws3
@@ -307,13 +314,13 @@ assign [class="Thunderbird"] $ws7
 #  -- gaps --  #
 # gaps inner|outer current|all set|plus|minus <px>
 # workspace <ws> gaps inner|outer <px>
-gaps inner 13
+gaps inner $gapsize
 smart_gaps on
 
 bindsym $mod+g mode "gaps"
 mode "gaps" {
     # use default gaps
-    bindsym y gaps inner all set 13, gaps outer all set 0, mode "default"
+    bindsym y gaps inner all set $gapsize, gaps outer all set 0, mode "default"
     # no gaps at all
     bindsym n gaps inner all set 0, gaps outer all set 0, mode "default"
     # change size of gaps
@@ -359,7 +366,7 @@ mode "redshift" {
     bindsym Escape mode "default"
 }
 
-# bindsym $win+r exec exec pkill -SIGRTMIN+11 i3blocks
+# # bindsym $win+r exec exec pkill -SIGRTMIN+11 i3blocks
 # bar {
 #     status_command i3blocks -c ~/.config/i3blocks/config_alt
 #     font                pango:OfficeCodeProD 7
@@ -382,3 +389,6 @@ mode "redshift" {
 # }
 
 # bindsym $mod+win+shift+space exec xmodmap ~/.Xmodmap
+
+exec ~/.config/polybar/launch.sh
+exec_always ~/.config/polybar/launch.sh

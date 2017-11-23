@@ -38,7 +38,7 @@ BORDER_COLOR="#222222"
 
 # Options not related to colors
 ROFI_TEXT="?"
-ROFI_OPTIONS=(-width -11 -location 3 -hide-scrollbar -bw 2)
+ROFI_OPTIONS=(-width -11 -location 1 -hide-scrollbar -bw 1)
 
 # Zenity options
 ZENITY_TITLE="Menu"

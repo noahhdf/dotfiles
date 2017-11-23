@@ -24,6 +24,7 @@ alias 'conda2'='/Users/nbiederbeck/anaconda2/bin/conda'
 parse_git_branch() {
   git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
   }
+source ~/Git/bash_colors/bash_colors.sh
 export PS1='\[\033[0;32m\]\u@\h: \[\033[0;31m\]$(parse_git_branch) \[\033[0;34m\]\w\n\[\033[1;32m\]\[\033[0m\]$ '
 
 export PATH="$HOME/.cargo/bin:$PATH"
@@ -34,6 +35,8 @@ export PATH="$HOME/.source/bin:$PATH"
 export PATH="$HOME/Git/alacritty/target/release:$PATH"
 export PATH="$HOME/Git/i3wm/polybar:$PATH"
 export PATH="$HOME/shellScripts:$PATH"
+# firefox
+export PATH="$HOME/Downloads/firefox-57.0/firefox:$PATH"
 
 # tex
 export PATH="$(echo ~/.local/texlive/*/bin/*):$PATH"
@@ -41,4 +44,4 @@ export PATH="$(echo ~/.local/texlive/*/bin/*):$PATH"
 # sd card variable
 export SD="/media/noah/23c4ddbc-85fa-4cea-b96b-edae0bb138c9"
 
-xmodmap ~/.Xmodmap
+# xmodmap ~/.Xmodmap

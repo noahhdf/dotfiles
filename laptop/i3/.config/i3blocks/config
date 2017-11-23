@@ -5,7 +5,7 @@
 # align, color, background, border, command, full_text, instance, interval, label, min_width, name, separator, separator_block_width, short_text, signal, urgent
 #
 # Global properties
-command=~/.config/i3blocks/scripts/$BLOCK_NAME
+command=~/.config/i3blocks/blocks/$BLOCK_NAME
 separator_block_width="|"
 markup=pango
 # color=#FF00FF
@@ -15,6 +15,18 @@ markup=pango
 # red = #BF616A
 # white = #D8DEE9
 # separator = #434C5E
+
+[traffic]
+label=
+interval=60
+
+[xlock]
+# label=&#xf023;
+interval=once
+
+# [rust]
+# command=~/projects/hello_world/main
+# interval=1
 
 [free]
 label=&#xf205;
@@ -96,8 +108,8 @@ interval=60
 command=date '+%a %d.%m.%Y, %H:%M:%S'
 interval=1
 
-[shutdown_menu]
-full_text=
-command=~/.config/i3blocks/scripts/shutdown_menu -c;echo 
-separator=true
+# [shutdown_menu]
+# full_text=
+# command=~/.config/i3blocks/scripts/shutdown_menu -c;echo 
+# separator=true
 

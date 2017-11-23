@@ -13,7 +13,7 @@ URxvt.scrollBar_right:        true
 URxvt.scrollStyle:            plain
 URxvt.scrollColor:            #232323
 URxvt.letterSpace:            -0.0
-URxvt.rowSpace:               -1.0
+URxvt.rowSpace:               -2.0
 URxvt.saveLines:              2048
 ! URxvt.iso14755:               false
 ! URxvt.iso14755_52:            false
@@ -25,8 +25,8 @@ URxvt.scrollTtyOutput:        true
 URxvt.scrollWithBuffer:       true
 URxvt.scrolTtyKeypress:       true
 ! URxvt.cursorBlink:            false
-URxvt.transparent:            true
-URxvt.shading:                10
+! URxvt.transparent:            true
+! URxvt.shading:                10
 URxvt.depth:                  32
 
 ! COLORS

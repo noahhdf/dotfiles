@@ -111,6 +111,8 @@ if ! shopt -oq posix; then
     . /etc/bash_completion
   fi
 fi
-setxkbmap us
+# setxkbmap us
 
 . ~/.bash_profile
+
+exec fish

@@ -10,3 +10,8 @@ elif [[ "$d" == "Up to date" ]]; then
 else
     echo "<span foreground='$color3'>$d</span>"
 fi
+
+case $BLOCK_BUTTON in
+    1) dropbox start;;
+    3) dropbox stop;;
+esac

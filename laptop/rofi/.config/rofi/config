@@ -6,13 +6,13 @@ rofi.columns:                        1
 rofi.font:                           OfficeCodeProD 11
 
 rofi.color-enabled: true
-rofi.color-window: #2a2e32, #cfcfc2, #232629
-rofi.color-normal: #232629, #cfcfc2, #232629, #cfcfc2, #232629
-rofi.color-active: #232629, #218058, #232629, #218058, #232629
-rofi.color-urgent: #232629, #c0392b, #232629, #c0392b, #232629
+! rofi.color-window: #2a2e32, #cfcfc2, #232629
+! rofi.color-normal: #232629, #cfcfc2, #232629, #cfcfc2, #232629
+! rofi.color-active: #232629, #218058, #232629, #218058, #232629
+! rofi.color-urgent: #232629, #c0392b, #232629, #c0392b, #232629
 
 ! rofi.bw:                             0
-! rofi.location:                       0
+! rofi.location:                       5
 ! rofi.padding:                        5
 ! rofi.yoffset:                        0
 ! rofi.xoffset:                        0

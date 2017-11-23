@@ -48,6 +48,9 @@ call plug#begin('~/.vim/plugged')
     Plug 'ntpeters/vim-better-whitespace'
     "
     Plug 'kshenoy/vim-signature'
+    "
+    Plug 'rust-lang/rust.vim'
+    Plug 'cespare/vim-toml'
 call plug#end()
 
 " -------------------------     plugins     --------------------------------- "
@@ -173,6 +176,8 @@ nnoremap <C-W><TAB> :tabn<CR>
 nnoremap <C-W><S-TAB> :tabN<CR>
 nnoremap tt :tabn<CR>
 nnoremap TT :tabN<CR>
+nnoremap <SPACE> @q
+let @q=''
 
 " -------------------------     filetype specific     ----------------------- "
 " latex
@@ -183,7 +188,7 @@ autocmd Filetype tex
     \ set softtabstop=2 |
     \ set expandtab |
     \ set conceallevel=0 |
-    \ ab zb zum Beispiel|
+    \ ab zb zum Beispiel |
     \ ab vll vielleicht |
     \ set spelllang=de |
     \ set spell

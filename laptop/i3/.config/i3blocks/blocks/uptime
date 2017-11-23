@@ -1,6 +1,6 @@
 #!/bin/bash
 # vim: ft=sh
-source $HOME/.config/i3blocks/scripts/colors
+source $HOME/.config/i3blocks/blocks/colors
 source $HOME/.cache/wal/colors.sh
 
 minutes=$(uptime -p | grep '[0-9]*\ minute[s]*' -o | grep '[0-9]*' -o)

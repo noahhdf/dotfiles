@@ -1,6 +1,6 @@
 #!/bin/bash
 # vim: ft=sh
-source $HOME/.config/i3blocks/scripts/colors
+source $HOME/.config/i3blocks/blocks/colors
 source $HOME/.cache/wal/colors.sh
 connection=$(nmcli | grep 'connected' | sed 's/[0-9a-z]*:\ disconnected/disconnected/' | sed 's/[a-z0-9]*:\ connected\ to\ //' | sed ':a;N;s/\n/\, /g')
 
