@@ -178,6 +178,8 @@ nnoremap tt :tabn<CR>
 nnoremap TT :tabN<CR>
 nnoremap <SPACE> @q
 let @q=''
+vnoremap <C-y> "+y
+nnoremap <C-y> "+y
 
 " -------------------------     filetype specific     ----------------------- "
 " latex
