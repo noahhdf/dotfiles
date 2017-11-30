@@ -1,9 +1,9 @@
 ! vim: ft=xdefaults commentstring=!%s
 rofi.modi:                           run,ssh,window
-rofi.width:                          42
+! rofi.width:                          42
 rofi.lines:                          5
 rofi.columns:                        1
-rofi.font:                           OfficeCodeProD 11
+rofi.font:                           OfficeCodeProD 12
 
 rofi.color-enabled: true
 ! rofi.color-window: #2a2e32, #cfcfc2, #232629
@@ -58,7 +58,7 @@ rofi.separator-style:                dash
 ! "Hide scroll-bar" Set from: Default
 rofi.hide-scrollbar:                 true
 ! "Fullscreen" Set from: Default
-! rofi.fullscreen:                     false
+rofi.fullscreen:                     false
 ! "Fake transparency" Set from: Default
 rofi.fake-transparency:              false
 ! "DPI" Set from: Default
