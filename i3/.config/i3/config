@@ -1,4 +1,6 @@
-# get colours from .Xresource
+# Please see http://i3wm.org/docs/userguide.html for a complete reference!
+
+# -- .Xresources colors -- #
 set $fullblack #000000
 set_from_resource $black .color0
 set_from_resource $brightblack .color8
@@ -17,9 +19,9 @@ set_from_resource $brightcyan .color14
 set_from_resource $white .color7
 set_from_resource $brightwhite .color15
 
-# workspace_layout tabbed
-# Please see http://i3wm.org/docs/userguide.html for a complete reference!
+workspace_layout default # default|stacking|tabbed
 
+# -- variables -- #
 set $mod Mod1
 
 set $alt Mod1
@@ -37,8 +39,9 @@ font pango:OfficeCodeProD $fontsize
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec urxvt
-bindsym $mod+Shift+Return exec alacritty
+bindsym $mod+Return exec urxvt -cd "`xcwd`"
+bindsym $mod+Shift+Return exec urxvt
+
 # start a webbrowser
 bindsym $mod+shift+w mode "web"
 mode "web" {
@@ -81,10 +84,8 @@ bindsym $mod+ctrl+j focus parent, focus down
 bindsym $mod+ctrl+k focus parent, focus up
 bindsym $mod+ctrl+l focus parent, focus right
 
-# split horizontal
-bindsym $mod+Shift+v split v
-# split vertical
-bindsym $mod+v split h
+# split toggle
+bindsym $mod+v split toggle
 
 # enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen toggle
@@ -178,56 +179,16 @@ mode "resize" {
 }
 bindsym $mod+r mode "resize"
 
-
-
-
-#  -- made by Noah --  #
-
-# inverts colors in vim, terminals, rofi
-bindsym $mod+i exec wal -i ~/Pictures/landscape_green.png -q
-
-#  -- autostart --  #
-# exec ~/.autostart.sh
-# exec_always ~/.autostart.sh
-# set background
-# exec wal -f ~/.dark_palette.json
-# exec_always ~/.fehbg
-
 bindsym $mod+shift+t exec ~/Telegram/Telegram, workspace $ws7
 
 # hide borders when fullscreen
-hide_edge_borders smart # none, vertical, horizontal, both, smart
+hide_edge_borders smart # none|vertical|horizontal|both|smart
+
 # screen lock
 bindsym $mod+Delete exec xautolock -locknow
 
 bindsym $mod+Tab workspace back_and_forth
 
-
-#  -- colorscheme --  #
-# set $almost_black    #2E3440ff
-set $dark_gray       #3B4252ff
-set $lighter_gray    #434C5Eff
-set $dark_gray_blue  #4C566Aff
-set $darkest_white   #D8DEE9ff
-set $dark_white      #E5E9F0ff
-set $light_white     #ECEFF4ff
-set $turquoise       #8FBCBBff
-set $cyan            #88C0D0ff
-set $light_gray_blue #81A1C1ff
-set $dark_blue       #5E81ACff
-# set $red             #BF616Aff
-set $orange          #D08770ff
-# set $yellow          #EBCB8Bff
-# set $green           #A3BE8Cff
-set $lila            #B48EADff
-
-#  -- color windows --  #
-#                       #border        #background    #text          #indicator
-# client.focused          $green         $green         $black  $orange
-# client.unfocused        $dark_gray     $dark_gray     $light_white   $orange
-# client.focused_inactive $dark_gray     $dark_gray     $light_white   $orange
-# client.urgent           $red           $red           $black  $orange
-#
 #  -- color windows --  #
 #                       #border      #background  #text        #indicator
 client.focused          $brightwhite $brightwhite $fullblack   $red
@@ -242,30 +203,31 @@ bar {
     # output edp-1
     # output hmdi-1
     tray_output edp-1
-    tray_padding 3
+    tray_padding 0
     font                pango:OfficeCodeProD,FontAwesome $fontsize
-    colors              {
-        background      $fullblack
-        statusline      $brightwhite
-        separator       $white
-        #                  #border    #background #text
-        focused_workspace  $brightwhite $brightwhite  $fullblack
-        active_workspace   $fullblack $fullblack  $white
-        inactive_workspace $fullblack $fullblack  $black
-        urgent_workspace   $fullblack $fullblack  $red
-        binding_mode       $fullblack $fullblack  $red
+    colors {
+        #                  #color
+        background         $fullblack
+        statusline         $brightwhite
+        separator          $white
+        #                  #border      #background  #text
+        focused_workspace  $brightwhite $brightwhite $fullblack
+        active_workspace   $fullblack   $fullblack   $white
+        inactive_workspace $fullblack   $fullblack   $black
+        urgent_workspace   $fullblack   $fullblack   $red
+        binding_mode       $fullblack   $fullblack   $red
     }
-    mode dock  # dock, hide, invisible
-    hidden_state hide  # hide, show
-    modifier $win
-    strip_workspace_numbers yes  # yes, no
-    separator_symbol "|"
-    position bottom  # top, bottom
-    workspace_buttons yes
+    mode dock                    # dock|hide|invisible
+    hidden_state hide            # hide|show
+    modifier $win                # modifier
+    strip_workspace_numbers yes  # yes|no
+    separator_symbol "|"         # any symbol
+    position bottom              # top|bottom
+    workspace_buttons yes        # yes|no
 }
 
 
-#  -- default borders and stuff --  #
+# -- default borders -- #
 for_window [class=".*"] border pixel $bordersize
 for_window [workspace=$ws7 class="MuPDF"] floating enable, border normal $bordersize
 for_window [class="Tk"] floating enable, border normal $bordersize
@@ -286,32 +248,26 @@ mode "borders" {
     bindsym Escape mode "default"
 }
 
-# display workspaces through outputs
-workspace $ws1 output eDP-1
-# workspace $ws1 output HDMI-1
-workspace $ws2 output HDMI-1
-# workspace $ws3 output eDP-1
-# workspace $ws4 output eDP-1
-# workspace $ws5 output eDP-1
-# workspace $ws6 output eDP-1
-workspace $ws7 output eDP-1
-# workspace $ws8 output eDP-1
-# workspace $ws9 output eDP-1
-workspace $ws10 output HDMI-1
+# -- display workspaces through outputs -- #
+workspace $ws1 output eDP-1   # default working screen laptop
+workspace $ws2 output HDMI-1  # default web borwser on big screen
+workspace $ws7 output eDP-1   # private chatting no one should see
+workspace $ws10 output HDMI-1 # default presentations on beamer
 
 #  -- bind programs to workspaces --  #
-# run `xprop`, click on program and find `WM_CLASS(STRING)`, second value
+# 1) run `xprop`
+# 2) click on program of choice
+# 3) find `WM_CLASS(STRING)`
+# 4) use second value to assign
 assign [class="Firefox-esr"] $ws2
 assign [class="Firefox"] $ws2
 assign [class="Midori"] $ws2
 assign [title="ssh"] $ws3
 for_window [title="ssh"] workspace $ws3
-# assign [class="Evince"] $ws4
-# assign [class="Eog"] $ws4
 assign [class="Telegram"] $ws7
 assign [class="Thunderbird"] $ws7
 
-#  -- gaps --  #
+# -- gaps -- #
 # gaps inner|outer current|all set|plus|minus <px>
 # workspace <ws> gaps inner|outer <px>
 gaps inner $gapsize
@@ -365,30 +321,3 @@ mode "redshift" {
     bindsym Return mode "default"
     bindsym Escape mode "default"
 }
-
-# # bindsym $win+r exec exec pkill -SIGRTMIN+11 i3blocks
-# bar {
-#     status_command i3blocks -c ~/.config/i3blocks/config_alt
-#     font                pango:OfficeCodeProD 7
-#     colors              {
-#         background      $black
-#         separator       $lighter_gray
-#         #                  #border       #background   #text
-#         focused_workspace  $lighter_gray $green        $black
-#         inactive_workspace $lighter_gray $black $light_white
-#         urgent_workspace   $black $black $red
-#     }
-#     mode hide  # dock, hide, invisible
-#     hidden_state hide  # hide, show
-#     modifier $win
-#     strip_workspace_numbers yes  # yes, no
-#     separator_symbol "|"
-#     position bottom  # top, bottom
-#     workspace_buttons no  # yes, no
-#     # modes no
-# }
-
-# bindsym $mod+win+shift+space exec xmodmap ~/.Xmodmap
-
-exec ~/.config/polybar/launch.sh
-exec_always ~/.config/polybar/launch.sh
