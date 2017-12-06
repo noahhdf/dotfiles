@@ -20,6 +20,7 @@ set_from_resource $white .color7
 set_from_resource $brightwhite .color15
 
 workspace_layout default # default|stacking|tabbed
+focus_follows_mouse false # true|false
 
 # -- variables -- #
 set $mod Mod1
