@@ -148,7 +148,10 @@ set formatoptions=qrn1
 set mouse=  " no mouse use
 "
 set cole=0
-
+"
+set cursorline
+highlight CursorLine cterm=underline ctermbg=NONE ctermfg=NONE
+highlight SpellBad ctermfg=red cterm=underline ctermbg=NONE
 " -------------------------     key-remapping     --------------------------- "
 nnoremap H 0
 vnoremap H 0
