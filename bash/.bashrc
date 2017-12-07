@@ -115,4 +115,4 @@ fi
 
 . ~/.bash_profile
 
-exec fish
+# exec fish
