@@ -26,7 +26,7 @@ URxvt.scrollTtyOutput:        true
 URxvt.scrollWithBuffer:       true
 URxvt.scrollTtyKeypress:      true
 ! URxvt.cursorBlink:            false
-URxvt.transparent:            true
+! URxvt.transparent:            true
 URxvt.shading:                12
 URxvt.depth:                  80
 
