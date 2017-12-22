@@ -108,9 +108,9 @@ xmap go <ESC>:Goyo<CR>
 " -------------------------     color scheme     ---------------------------- "
 syntax enable
 set background=dark
-colorscheme nord
+colorscheme wal
 syntax on
-" let g:airline_theme = 'nord'
+let g:airline_theme = 'wal'
 let g:limelight_conceal_ctermfg = '8'
 " let g:limelight_conceal_guifg = '#4C566A'
 
@@ -150,8 +150,10 @@ set mouse=  " no mouse use
 set cole=0
 "
 set cursorline
-highlight CursorLine cterm=underline ctermbg=NONE ctermfg=NONE
+highlight CursorLine cterm=bold ctermbg=NONE ctermfg=NONE
 highlight SpellBad ctermfg=red cterm=underline ctermbg=NONE
+highlight CursorLineNr cterm=bold
+highlight Visual cterm=bold
 " -------------------------     key-remapping     --------------------------- "
 nnoremap H 0
 vnoremap H 0
