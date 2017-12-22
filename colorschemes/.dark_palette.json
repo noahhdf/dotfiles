@@ -1,28 +1,28 @@
 {
-    "wallpaper": "/home/noah/Pictures/moon.jpg",
+    "wallpaper": "",
 
     "special": {
         "foreground": "#cfcfc2",
         "background": "#232629",
-        "cursor": "#cfcfc2"
+        "cursor":     "#cfcfc2"
     },
 
     "colors": {
-        "color0": "#2a2e32",
-        "color8": "#31363b",
-        "color1": "#c0392b",
-        "color9": "#f44f4f",
-        "color2": "#218058",
+        "color0":  "#2a2e32",
+        "color8":  "#31363b",
+        "color1":  "#c0392b",
+        "color9":  "#f44f4f",
+        "color2":  "#218058",
         "color10": "#27ae60",
-        "color3": "#fdbc4b",
+        "color3":  "#fdbc4b",
         "color11": "#fdbc4b",
-        "color4": "#2980b9",
+        "color4":  "#2980b9",
         "color12": "#0099ff",
-        "color5": "#8e44ad",
+        "color5":  "#8e44ad",
         "color13": "#af81ff",
-        "color6": "#27aeae",
+        "color6":  "#27aeae",
         "color14": "#31dddd",
-        "color7": "#acada1",
+        "color7":  "#acada1",
         "color15": "#cfd0c2"
     }
 }
