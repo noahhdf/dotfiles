@@ -9,4 +9,5 @@ all:
 		nvim/ \
 		rofi/ \
 		tmux/ \
-		vim/
+		vim/ \
+		X/ 
