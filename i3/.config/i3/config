@@ -3,21 +3,21 @@
 # -- .Xresources colors -- #
 set $fullblack #000000
 set_from_resource $black .color0
-set_from_resource $brightblack .color8
+set_from_resource $boldblack .color8
 set_from_resource $red .color1
-set_from_resource $brightred .color9
+set_from_resource $boldred .color9
 set_from_resource $green .color2
-set_from_resource $brightgreen .color10
+set_from_resource $boldgreen .color10
 set_from_resource $yellow .color3
-set_from_resource $brightyellow .color11
+set_from_resource $boldyellow .color11
 set_from_resource $blue .color4
-set_from_resource $brightblue .color12
+set_from_resource $boldblue .color12
 set_from_resource $magenta .color5
-set_from_resource $brightmagenta .color13
+set_from_resource $boldmagenta .color13
 set_from_resource $cyan .color6
-set_from_resource $brightcyan .color14
+set_from_resource $boldcyan .color14
 set_from_resource $white .color7
-set_from_resource $brightwhite .color15
+set_from_resource $boldwhite .color15
 
 workspace_layout default # default|stacking|tabbed
 focus_follows_mouse false # true|false
@@ -61,8 +61,8 @@ mode "web" {
 bindsym $mod+Shift+q kill
 
 # start .desktop applications
-# bindsym $mod+d exec --no-startup-id i3-dmenu-desktop #-nb "$fullblack" -nf "$brightblack" -sb "$black" -sf "$white"
-bindsym $mod+d exec --no-startup-id dmenu_run -nb "$fullblack" -nf "$brightblack" -sb "$black" -sf "$white"
+# bindsym $mod+d exec --no-startup-id i3-dmenu-desktop #-nb "$fullblack" -nf "$boldblack" -sb "$black" -sf "$white"
+bindsym $mod+d exec --no-startup-id dmenu_run -nb "$fullblack" -nf "$boldblack" -sb "$black" -sf "$white"
 
 # start rofi
 bindsym $mod+space exec rofi -show run
@@ -191,11 +191,11 @@ bindsym $mod+Delete exec xautolock -locknow
 bindsym $mod+Tab workspace back_and_forth
 
 #  -- color windows --  #
-#                       #border      #background  #text        #indicator
-client.focused          $brightwhite $brightwhite $fullblack   $red
-client.unfocused        $black       $black       $brightwhite $red
-client.focused_inactive $black       $black       $brightwhite $red
-client.urgent           $red         $red         $fullblack   $red
+#                       #border    #background #text      #indicator
+client.focused          $boldwhite $boldwhite  $fullblack $red
+client.unfocused        $black     $black      $boldwhite $red
+client.focused_inactive $black     $black      $boldwhite $red
+client.urgent           $red       $red        $fullblack $red
 
 
 #  -- i3blocks --  #
@@ -209,14 +209,14 @@ bar {
     colors {
         #                  #color
         background         $fullblack
-        statusline         $brightwhite
+        statusline         $boldwhite
         separator          $white
-        #                  #border      #background  #text
-        focused_workspace  $brightwhite $brightwhite $fullblack
-        active_workspace   $fullblack   $fullblack   $white
-        inactive_workspace $fullblack   $fullblack   $black
-        urgent_workspace   $fullblack   $fullblack   $red
-        binding_mode       $fullblack   $fullblack   $red
+        #                  #border    #background #text
+        focused_workspace  $boldwhite $boldwhite  $fullblack
+        active_workspace   $fullblack $fullblack  $white
+        inactive_workspace $fullblack $fullblack  $black
+        urgent_workspace   $fullblack $fullblack  $red
+        binding_mode       $fullblack $fullblack  $red
     }
     mode dock                    # dock|hide|invisible
     hidden_state hide            # hide|show
