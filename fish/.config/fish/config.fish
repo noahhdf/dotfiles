@@ -4,3 +4,5 @@ set fish_greeting
 
 set -x TERM "xterm"
 set -x EDITOR "nvim"
+
+cat ~/.cache/wal/sequences
