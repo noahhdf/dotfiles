@@ -150,10 +150,9 @@ set mouse=  " no mouse use
 set cole=0
 "
 set cursorline
-highlight CursorLine cterm=bold ctermbg=NONE ctermfg=NONE
-highlight SpellBad ctermfg=red cterm=underline ctermbg=NONE
-highlight CursorLineNr cterm=bold
-highlight Visual cterm=bold
+highlight CursorLine cterm=underline ctermbg=NONE ctermfg=NONE
+highlight SpellBad ctermfg=red cterm=bold ctermbg=NONE
+highlight Visual cterm=underline
 " -------------------------     key-remapping     --------------------------- "
 nnoremap H 0
 vnoremap H 0
