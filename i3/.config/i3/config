@@ -192,10 +192,10 @@ bindsym $mod+Tab workspace back_and_forth
 
 #  -- color windows --  #
 #                       #border    #background #text      #indicator
-client.focused          $boldwhite $boldwhite  $fullblack $red
+client.focused          $boldwhite $boldwhite  $black     $red
 client.unfocused        $black     $black      $boldwhite $red
 client.focused_inactive $black     $black      $boldwhite $red
-client.urgent           $red       $red        $fullblack $red
+client.urgent           $red       $red        $black     $red
 
 
 #  -- i3blocks --  #
@@ -208,15 +208,15 @@ bar {
     font                pango:OfficeCodeProD,FontAwesome $fontsize
     colors {
         #                  #color
-        background         $fullblack
+        background         $black
         statusline         $boldwhite
         separator          $white
         #                  #border    #background #text
-        focused_workspace  $boldwhite $boldwhite  $fullblack
-        active_workspace   $fullblack $fullblack  $white
-        inactive_workspace $fullblack $fullblack  $black
-        urgent_workspace   $fullblack $fullblack  $red
-        binding_mode       $fullblack $fullblack  $red
+        focused_workspace  $boldwhite $boldwhite  $black
+        active_workspace   $black     $black      $white
+        inactive_workspace $black     $black      $bold_black
+        urgent_workspace   $black     $black      $red
+        binding_mode       $black     $black      $red
     }
     mode dock                    # dock|hide|invisible
     hidden_state hide            # hide|show
