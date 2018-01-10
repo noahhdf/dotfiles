@@ -10,4 +10,5 @@ all:
 		rofi/ \
 		tmux/ \
 		vim/ \
-		X/ 
+		wal \
+		X/
