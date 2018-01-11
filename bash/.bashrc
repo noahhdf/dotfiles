@@ -116,3 +116,8 @@ fi
 . ~/.bash_profile
 
 # exec fish
+
+# added by Miniconda3 installer
+# export PATH="/home/noah/miniconda3/bin:$PATH"
+
+cat ~/.cache/wal/sequences
