@@ -16,25 +16,25 @@ call plug#begin('~/.vim/plugged')
     Plug 'dylanaraps/wal.vim'
     "
     Plug 'ervandew/supertab'
-    Plug 'sirver/ultisnips'
-    Plug 'honza/vim-snippets'
-    Plug 'w0rp/ale'
+    " Plug 'sirver/ultisnips'
+    " Plug 'honza/vim-snippets'
+    " Plug 'w0rp/ale'
     "
     " Plug 'LaTeX-Box-Team/LaTeX-Box', {'for': 'tex'}
-    Plug 'lervag/vimtex', {'for': 'tex'}
+    " Plug 'lervag/vimtex', {'for': 'tex'}
     " Plug 'tell-k/vim-autopep8', {'for': 'python'}
     " Plug 'davidhalter/jedi-vim', {'for': 'python'}
     " Plug 'nvie/vim-flake8', {'for': 'python'}
     "
-    Plug 'scrooloose/nerdtree'
-    Plug 'jistr/vim-nerdtree-tabs'
-    Plug 'Xuyuanp/nerdtree-git-plugin'
-    Plug 'tpope/vim-fugitive'
+    " Plug 'scrooloose/nerdtree'
+    " Plug 'jistr/vim-nerdtree-tabs'
+    " Plug 'Xuyuanp/nerdtree-git-plugin'
+    " Plug 'tpope/vim-fugitive'
     "
     Plug 'junegunn/vim-easy-align'
     Plug 'Raimondi/delimitMate'
     Plug 'terryma/vim-multiple-cursors'
-    Plug 'severin-lemaignan/vim-minimap'
+    " Plug 'severin-lemaignan/vim-minimap'
     " Plug 'Yggdroot/indentLine'
     "
     Plug 'tpope/vim-repeat'
@@ -42,15 +42,15 @@ call plug#begin('~/.vim/plugged')
     Plug 'tpope/vim-commentary'
     Plug 'tpope/vim-dispatch'
     "
-    Plug 'junegunn/goyo.vim'
-    Plug 'junegunn/limelight.vim'
+    " Plug 'junegunn/goyo.vim'
+    " Plug 'junegunn/limelight.vim'
     "
     Plug 'ntpeters/vim-better-whitespace'
     "
-    Plug 'kshenoy/vim-signature'
+    " Plug 'kshenoy/vim-signature'
     "
-    Plug 'rust-lang/rust.vim'
-    Plug 'cespare/vim-toml'
+    " Plug 'rust-lang/rust.vim'
+    " Plug 'cespare/vim-toml'
 call plug#end()
 
 " -------------------------     plugins     --------------------------------- "
