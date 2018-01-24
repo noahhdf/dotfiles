@@ -3,12 +3,12 @@
 period=$(redshift -pov -l 51.44:7.45 | grep 'Period' | sed 's/Period:\ //')
 
 if [[ "$period" == "Daytime" ]]; then
-    if [[ "diff ~/.light_palette.json ~/.cache/wal/colors.json" == "" ]]; then
+    if [[ "diff ~/.light_palette.json ~/.cache/wal/colors.json" != "" ]]; then
         /home/noah/miniconda3/bin/wal -f ~/.light_palette.json -q
     fi
     echo ""
 else # period==Night
-    if [[ "diff ~/.dark_palette.json ~/.cache/wal/colors.json" == "" ]]; then
+    if [[ "diff ~/.dark_palette.json ~/.cache/wal/colors.json" != "" ]]; then
         /home/noah/miniconda3/bin/wal -f ~/.dark_palette.json -q
     fi
     echo ""
