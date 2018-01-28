@@ -5,7 +5,7 @@ if [ -n "$BASH_VERSION" ]; then
         source "~/.bashrc"
     fi
 fi
-source ~/.bash_alias
+source ~/.aliases
 # link bash to /usr directory to retain path in tmux
 # if ! [ -f "/usr/bin/bash" ]; then
     # echo "Linking /usr/bin/bash -> /bin/bash and need permission:"
@@ -45,3 +45,5 @@ export PS1='\[\033[0;32m\]\u@\h: \[\033[0;31m\]$(parse_git_branch) \[\033[0;34m\
 # export SD="/media/noah/23c4ddbc-85fa-4cea-b96b-edae0bb138c9"
 
 # xmodmap ~/.Xmodmap
+
+export PATH="$HOME/.cargo/bin:$PATH"

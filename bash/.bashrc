@@ -120,4 +120,5 @@ fi
 # added by Miniconda3 installer
 # export PATH="/home/noah/miniconda3/bin:$PATH"
 
+. ~/miniconda3/etc/profile.d/conda.sh
 cat ~/.cache/wal/sequences
