@@ -13,11 +13,12 @@ call plug#begin('~/.vim/plugged')
     Plug 'vim-airline/vim-airline'
     Plug 'vim-airline/vim-airline-themes'
     Plug 'arcticicestudio/nord-vim'
+    Plug 'altercation/vim-colors-solarized'
     Plug 'dylanaraps/wal.vim'
     "
     Plug 'ervandew/supertab'
-    Plug 'sirver/ultisnips'
-    Plug 'honza/vim-snippets'
+    " Plug 'sirver/ultisnips'
+    " Plug 'honza/vim-snippets'
     Plug 'w0rp/ale'
     "
     " Plug 'LaTeX-Box-Team/LaTeX-Box', {'for': 'tex'}
@@ -108,9 +109,9 @@ xmap go <ESC>:Goyo<CR>
 " -------------------------     color scheme     ---------------------------- "
 syntax enable
 set background=dark
-colorscheme nord
+colorscheme solarized
 syntax on
-let g:airline_theme = 'nord'
+let g:airline_theme = 'solarized'
 let g:limelight_conceal_ctermfg = '8'
 " let g:limelight_conceal_guifg = '#4C566A'
 
