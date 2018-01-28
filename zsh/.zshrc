@@ -1,8 +1,8 @@
 # If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
+export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-  export ZSH=/home/noah/.oh-my-zsh
+export ZSH=/home/noah/.oh-my-zsh
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
@@ -99,3 +99,8 @@ source ~/miniconda3/etc/profile.d/conda.sh
 
 # Wal
 cat ~/.cache/wal/sequences
+
+# TexLive2017
+export PATH=$HOME/.local/texlive/2017/bin/x86_64-linux:$PATH
+export MANPATH="$HOME/.local/texlive/2017/texmf-dist/doc/man:$MANPATH"
+export INFOPATH="$HOME/.local/texlive/2017/texmf-dist/doc/info:$INFOPATH"
