@@ -41,13 +41,17 @@ floating_modifier $mod
 
 # start a terminal
 bindsym $mod+Return exec urxvt -cd "`xcwd`"
-bindsym $mod+Shift+Return exec urxvt
+# bindsym $mod+Return exec alacritty
+bindsym $mod+Shift+Return exec alacritty
+# bindsym $mod+Shift+Return exec urxvt
 
 # start a webbrowser
 bindsym $mod+shift+w mode "web"
 mode "web" {
     bindsym f exec firefox, mode default
     bindsym shift+f exec firefox, workspace $ws2, mode default
+    bindsym q exec qutebrowser, mode default
+    bindsym shift+q exec qutebrowser, workspace $ws2, mode default
     bindsym m exec midori, mode default
     bindsym shift+m exec midori, workspace $ws2, mode default
     bindsym t exec thunderbird, mode default
@@ -263,6 +267,7 @@ workspace $ws10 output HDMI-1 # default presentations on beamer
 assign [class="Firefox-esr"] $ws2
 assign [class="Firefox"] $ws2
 assign [class="Midori"] $ws2
+assign [class="qutebrowser"] $ws2
 assign [title="ssh"] $ws3
 for_window [title="ssh"] workspace $ws3
 assign [class="Telegram"] $ws7
