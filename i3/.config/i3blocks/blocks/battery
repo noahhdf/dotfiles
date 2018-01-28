@@ -1,0 +1,16 @@
+#!/bin/bash
+source $HOME/.cache/wal/colors.sh
+power_supply=$(cat /sys/class/power_supply/BATC/uevent)
+capacity_percent=$(echo $power_supply | grep "_CAPACITY=[0-9]*" -o | grep "[0-9]*" -o)
+
+if [[ "$capacity_percent" > "75" ]]; then
+    battery_status="<span foreground='$color2'> $capacity_percent%</span>"
+elif [[ "$capacity_percent" > "50" ]]; then
+    battery_status="<span foreground='$color2'> $capacity_percent%</span>"
+elif [[ "$capacity_percent" > "25" ]]; then
+    battery_status="<span foreground='$color3'> $capacity_percent%</span>"
+else
+    battery_status="<span foreground='$color1'> $capacity_percent%</span>"
+fi
+
+echo $battery_status
