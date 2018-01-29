@@ -1,16 +1,21 @@
 #!/bin/bash
 source $HOME/.cache/wal/colors.sh
-power_supply=$(cat /sys/class/power_supply/BATC/uevent)
-capacity_percent=$(echo $power_supply | grep "_CAPACITY=[0-9]*" -o | grep "[0-9]*" -o)
+POWER_SUPPLY=$(cat /sys/class/power_supply/BATC/uevent)
+POWER_SUPPLY_CAPACITY=$(echo $POWER_SUPPLY | grep "POWER_SUPPLY_CAPACITY=[0-9]*" -o | grep "[0-9]*" -o)
+POWER_SUPPLY_STATUS=$(echo $POWER_SUPPLY | grep "POWER_SUPPLY_STATUS=[[:alnum:]]*" -o | sed 's/POWER_SUPPLY_STATUS\=//g')
 
-if [[ "$capacity_percent" > "75" ]]; then
-    battery_status="<span foreground='$color2'> $capacity_percent%</span>"
-elif [[ "$capacity_percent" > "50" ]]; then
-    battery_status="<span foreground='$color2'> $capacity_percent%</span>"
-elif [[ "$capacity_percent" > "25" ]]; then
-    battery_status="<span foreground='$color3'> $capacity_percent%</span>"
+if [[ "$POWER_SUPPLY_STATUS" == "Charging" ]]; then
+    BATTERY_STATUS="<span foreground='$color2'>! $POWER_SUPPLY_CAPACITY%</span>"
 else
-    battery_status="<span foreground='$color1'> $capacity_percent%</span>"
+    if [[ "$POWER_SUPPLY_CAPACITY" > "75" ]]; then
+        BATTERY_STATUS="<span foreground='$color2'> $POWER_SUPPLY_CAPACITY%</span>"
+    elif [[ "$POWER_SUPPLY_CAPACITY" > "50" ]]; then
+        BATTERY_STATUS="<span foreground='$color2'> $POWER_SUPPLY_CAPACITY%</span>"
+    elif [[ "$POWER_SUPPLY_CAPACITY" > "25" ]]; then
+        BATTERY_STATUS="<span foreground='$color3'> $POWER_SUPPLY_CAPACITY%</span>"
+    else
+        BATTERY_STATUS="<span foreground='$color1'> $POWER_SUPPLY_CAPACITY%</span>"
+    fi
 fi
 
-echo $battery_status
+echo $BATTERY_STATUS
