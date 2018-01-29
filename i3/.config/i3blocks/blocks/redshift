@@ -3,15 +3,17 @@
 period=$(redshift -pov -l 51.44:7.45 | grep 'Period' | sed 's/Period:\ //')
 
 if [[ "$period" == "Daytime" ]]; then
-    if [[ "diff ~/.solarized_light.json ~/.cache/wal/colors.json" != "" ]]; then
+    result=$(diff ~/.solarized_light.json ~/.cache/wal/colors.json)
+    if [[ $result ]]; then
         /home/noah/miniconda3/bin/wal -f ~/.solarized_light.json -q
-        echo "set light"
+        echo "set "  # verbose settings
     fi
     echo ""
-else # period==Night
-    if [[ "diff ~/.solarized_dark.json ~/.cache/wal/colors.json" != "" ]]; then
+else  # period==Night
+    result=$(diff ~/.solarized_dark.json ~/.cache/wal/colors.json)
+    if [[ $result ]]; then
         /home/noah/miniconda3/bin/wal -f ~/.solarized_dark.json -q
-        echo "set dark"
+        echo "set "  # verbose settings
     fi
     echo ""
 fi
