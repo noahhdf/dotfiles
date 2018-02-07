@@ -1,0 +1,10 @@
+#!/bin/sh
+# vim:ft=sh
+case $1 in
+    period-changed)
+        if [[ "$3" == "night" ]]; then
+            ~/miniconda3/bin/wal -R -q
+        elif [[  "$3" == "daytime" ]]; then
+            ~/miniconda3/bin/wal -R -q -l
+        fi
+esac
