@@ -101,9 +101,9 @@ full_text=Internet
 interval=10
 
 
-[redshift]
-interval=600
-separator=false
+# [redshift]
+# interval=600
+# separator=false
 
 [time]
 # command=date '+%A, %d. %B %Y, %H:%M:%S'
