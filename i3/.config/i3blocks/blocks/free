@@ -1,7 +1,11 @@
 #!/bin/bash
 # vim: ft=sh
-FREE=$(free --mega | grep 'Mem:\ *[[:digit:]]*\ *[[:digit:]]*' -o | grep '[[:digit:]]*' -o)
-ABSOLUTE=$(echo "$FREE" | sed ':a;N;s/\n/ /g' | grep '[[:digit:]]\{1,4\}$' -o)
-RELATIVE=$(echo "$FREE" | sed ':a;N;s/\n/\^(-1)\*100\*/g' | bc -l | grep '[[:digit:]]*\.[[:digit:]]\{1\}' -o)
+FREEMEM=$(free --mega | grep 'Mem:\ *[[:digit:]]*\ *[[:digit:]]*' -o | grep '[[:digit:]]*' -o)
+ABSOLUTEMEM=$(echo "$FREEMEM" | sed ':a;N;s/\n/ /g' | grep '[[:digit:]]\{1,4\}$' -o)
+RELATIVEMEM=$(echo "$FREEMEM" | sed ':a;N;s/\n/\^(-1)\*100\*/g' | bc -l | grep '[[:digit:]]*\.[[:digit:]]\{1\}' -o)
 
-echo "$ABSOLUTE $RELATIVE"
+FREESWP=$(free --mega | grep 'Swap:\ *[[:digit:]]*\ *[[:digit:]]*' -o | grep '[[:digit:]]*' -o)
+ABSOLUTESWP=$(echo "$FREESWP" | sed ':a;N;s/\n/ /g' | grep '[[:digit:]]\{1,4\}$' -o)
+RELATIVESWP=$(echo "$FREESWP" | sed ':a;N;s/\n/\^(-1)\*100\*/g' | bc -l | grep '[[:digit:]]*\.[[:digit:]]\{1\}' -o)
+
+echo "Mem: $ABSOLUTEMEM $RELATIVEMEM%, Swp: $ABSOLUTESWP $RELATIVESWP%"
