@@ -1,40 +1,57 @@
 # vim: ft=sh
+
+# Useful abbreviations
+alias 'gits'='git status -s'
+alias 'open'='xdg-open'
+alias 'xclip'='xclip -selection c'
+alias 'cower'='cower --target ~/AUR/gits'
 alias 'htop'='htop -u $USER'
 alias '..'='cd ..'
+alias '...'='cd ../..'
+alias '....'='cd ../../..'
+
+# Useful optional arguments for commonly used commands
 # alias 'rm'='rm -vI'
 # alias 'mv'='mv -v'
 # alias 'cp'='cp -v'
 # alias 'mkdir'='mkdir -p'
-# alias 'neofetch'='clear && neofetch'
 alias 'ls'='ls -h --color="always"'
 alias 'll'='ls -al'
 alias 'la'='ls -a'
-# alias 'pdfpandoc'='pandoc -r markdown -w latex -o'
-alias 'speedtest'='time seq -f "test %g"'
-# alias 'scp'='scp -i $HOME/.ssh/id_rsa.phido'
-# alias 'copyplots'='rsync -avzuh --progress -e ssh nbiederbeck@vollmond:bachelorArbeit/*  /media/noah/23c4ddbc-85fa-4cea-b96b-edae0bb138c9/bachelorArbeit_fromVollmond/'
 # alias 'make'='time make'
 # alias 'python'='time python'
+
+# Python commands
 # alias 'notebook'='jupyter notebook' # && nbconvert *.ipynb'
 # alias 'nbconvert'='time jupyter nbconvert --to python'
+# alias 'pip'='pip --no-cache-dir'
+alias 'pip-upgrade'='echo "pip install -U \$(pip freeze | sed \"s/==.*//\")" && pip install -U $(pip freeze | sed "s/==.*//")'
+alias 'pip-freeze'='pip freeze | sed "s/==.*//"'
+alias 'conda-freeze'='conda list | sed "s/\ .*//"'
+# alias 'conda2'='source ~/miniconda2/etc/profile.d/conda.sh'
+# alias 'conda3'='source ~/miniconda3/etc/profile.d/conda.sh'
+
+# # Work with servers (particularly Vollmond)
+# alias 'copyplots'='rsync -avzuh --progress -e ssh nbiederbeck@vollmond:bachelorArbeit/*  /media/noah/23c4ddbc-85fa-4cea-b96b-edae0bb138c9/bachelorArbeit_fromVollmond/'
+# alias 'vollmondnotebook'='ssh -f -N vollmondtunnel'
+# alias 'scp'='scp -i $HOME/.ssh/id_rsa.phido'
+
+# # Change into gits and pull
 # alias 'hqm'='cd /Users/nbiederbeck/Uni/hqm && git pull'
 # alias 'fp'='cd /Users/nbiederbeck/Uni/fp && git pull'
 # alias 'bot'='cd /Users/nbiederbeck/Git/HPkU4hwcvr_bot && git pull'
-alias 'pip'='pip --no-cache-dir'
-# alias 'pipenv'='~/miniconda3/bin/pipenv'
-# alias 'pew'='~/miniconda3/bin/pew'
-# alias 'vollmondnotebook'='ssh -f -N vollmondtunnel'
+
+# # Led brightness scripts
 # alias 'low'='$HOME/shellScripts/low.sh'
 # alias 'high'='$HOME/shellScripts/high.sh'
 # alias 'lowest'='$HOME/shellScripts/lowest.sh'
 # alias 'normal'='$HOME/shellScripts/normal.sh'
 
+# Correct wrong typed commands on the fly
 alias 'vim'='echo "using nvim..." && nvim'
 alias 'gut'='echo "being an idiot?" && git'
 alias ':q'='echo "trapped in vim? go to bed!" && sleep 3 && exit'
-alias 'gits'='git status -s'
-# alias 'gitfire'='git checkout -b fire && git commit -a -m "fire" && git push -u origin fire'
-alias 'open'='xdg-open'
-# alias 'backmeup'='borg create --stats --progress --compression lz4 ::{user}-{now} --exclude anaconda3/ --exclude .cache/ --exclude .local/textlive/ .'
 
-alias 'xclip'='xclip -selection c'
+# Misc
+# alias 'pdfpandoc'='pandoc -r markdown -w latex -o'
+alias 'speedtest'='time seq -f "test %g"'
