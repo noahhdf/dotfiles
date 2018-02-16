@@ -3,8 +3,8 @@
 case $1 in
     period-changed)
         if [[ "$3" == "night" ]]; then
-            ~/miniconda3/bin/wal -R -q
+            ~/miniconda3/bin/wal -f ~/.google_dark.json -q
         elif [[  "$3" == "daytime" ]]; then
-            ~/miniconda3/bin/wal -R -q -l
+            ~/miniconda3/bin/wal -f ~/.google_light.json -q
         fi
 esac
