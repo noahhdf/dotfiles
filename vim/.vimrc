@@ -19,6 +19,8 @@ call plug#begin('~/.vim/plugged')
     Plug 'ervandew/supertab'
     " Plug 'sirver/ultisnips'
     " Plug 'honza/vim-snippets'
+    Plug 'Shougo/deoplete.nvim', {'do': ':UpdateRemotePlugins'}
+    " Plug 'zchee/deoplete-jedi', {'for': 'python'}
     Plug 'w0rp/ale'
     "
     " Plug 'LaTeX-Box-Team/LaTeX-Box', {'for': 'tex'}
@@ -50,14 +52,18 @@ call plug#begin('~/.vim/plugged')
     "
     Plug 'kshenoy/vim-signature'
     "
-    Plug 'rust-lang/rust.vim'
-    Plug 'cespare/vim-toml'
+    Plug 'rust-lang/rust.vim', {'for': 'rust'}
+    Plug 'cespare/vim-toml', {'for': 'toml'}
 call plug#end()
 
 " -------------------------     plugins     --------------------------------- "
+"  Python3 support
+let g:python3_host_prog = '/home/noah/miniconda3/bin/python'
+" Deoplete
+let g:deoplete#enable_at_startup = 1
 " airline
 set laststatus=2
-let g:airline_powerline_fonts = 0
+let g:airline_powerline_fonts = 1
 "
 " make ycm compatible with ultisnips (using supertab)
 let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
@@ -109,7 +115,7 @@ xmap go <ESC>:Goyo<CR>
 " -------------------------     color scheme     ---------------------------- "
 syntax enable
 set background=dark
-colorscheme wal
+colorscheme nord
 syntax on
 let g:airline_theme = 'wal'
 let g:limelight_conceal_ctermfg = '8'
@@ -168,6 +174,7 @@ vnoremap dL d$
 nnoremap cL c$
 vnoremap cL c$
 inoremap jj <ESC>
+inoremap jk <ESC>:w<CR>
 nnoremap F :%s/
 nnoremap f /
 vnoremap n <ESC>
@@ -220,3 +227,9 @@ autocmd Filetype gitcommit
     \ set spell |
     \ set tw=50 |
     \ set fo=want
+"
+" markdown
+au BufNewFile,BufRead *.md set ft=md
+autocmd Filetype md
+    \ nnoremap U1 yypVr= |
+    \ nnoremap U2 yypVr-
