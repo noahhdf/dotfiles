@@ -9,12 +9,14 @@ W='#BF616Aff'  # wrong (red)
 W='#FF0000FF'  # wrong (red)
 G='#A3BE8Cff'  # verifying (green)
 
-temp=/tmp/screen.png
+# pic=/tmp/screen.png
+pic=$(cat ~/.cache/wal/wal)
 
-scrot $temp && convert $temp -scale 5% -scale 2020% $temp
 
-~/.config/i3lock/i3lock   \
--i $temp \
+# scrot $pic && convert $pic -scale 5% -scale 2020% $pic
+
+i3lock   \
+-i $pic \
 -e \
 \
 --insidevercolor=$B   \
@@ -47,4 +49,4 @@ scrot $temp && convert $temp -scale 5% -scale 2020% $temp
 --veriftext="" \
 --textsize=30
 
-rm $temp
+# rm $pic

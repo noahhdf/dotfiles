@@ -167,6 +167,8 @@ bindsym $mod+Ctrl+0 move container to workspace $ws10, workspace $ws10
 bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
+# lock i3
+bindsym $mod+Shift+e exec betterlockscreen -l dim
 # exit i3 (logs you out of your X session)
 # bindsym $mod+Shift+Delete exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 bindsym $mod+Ctrl+Delete exec ~/.config/i3blocks/blocks/shutdown_menu -c
@@ -184,7 +186,7 @@ mode "resize" {
 }
 bindsym $mod+r mode "resize"
 
-bindsym $mod+shift+t exec ~/Telegram/Telegram, workspace $ws7
+bindsym $mod+shift+t exec telegram-desktop, workspace $ws7
 
 # hide borders when fullscreen
 hide_edge_borders smart # none|vertical|horizontal|both|smart

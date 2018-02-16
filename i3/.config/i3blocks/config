@@ -32,9 +32,9 @@ interval=once
 label=&#xf205;
 interval=1
 
-[dropbox]
-label=&#xf16b;
-interval=10
+# [dropbox]
+# label=&#xf16b;
+# interval=10
 
 # [ping]
 # label=

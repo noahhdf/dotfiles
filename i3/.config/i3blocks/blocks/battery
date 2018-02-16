@@ -4,6 +4,10 @@ POWER_SUPPLY=$(cat /sys/class/power_supply/BATC/uevent)
 POWER_SUPPLY_CAPACITY=$(echo $POWER_SUPPLY | grep "POWER_SUPPLY_CAPACITY=[0-9]*" -o | grep "[0-9]*" -o)
 POWER_SUPPLY_STATUS=$(echo $POWER_SUPPLY | grep "POWER_SUPPLY_STATUS=[[:alnum:]]*" -o | sed 's/POWER_SUPPLY_STATUS\=//g')
 
+if [[ "$POWER_SUPPLY_CAPACITY" < "10" ]]; then
+    notify-send 'BATTERY LOW' -u critical
+fi
+
 if [[ "$POWER_SUPPLY_STATUS" == "Charging" ]]; then
     BATTERY_STATUS="<span foreground='$color2'>! $POWER_SUPPLY_CAPACITY%</span>"
 else
