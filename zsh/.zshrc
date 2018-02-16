@@ -36,7 +36,7 @@ ZSH_THEME="nonator"
 # DISABLE_AUTO_TITLE="true"
 
 # Uncomment the following line to enable command auto-correction.
-# ENABLE_CORRECTION="true"
+ENABLE_CORRECTION="true"
 
 # Uncomment the following line to display red dots whilst waiting for completion.
 # COMPLETION_WAITING_DOTS="true"
@@ -104,3 +104,7 @@ cat ~/.cache/wal/sequences
 export PATH=$HOME/.local/texlive/2017/bin/x86_64-linux:$PATH
 export MANPATH="$HOME/.local/texlive/2017/texmf-dist/doc/man:$MANPATH"
 export INFOPATH="$HOME/.local/texlive/2017/texmf-dist/doc/info:$INFOPATH"
+
+# Stuffs
+export EDITOR=nvim
+export BETTER_EXCEPTIONS=1
