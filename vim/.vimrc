@@ -10,79 +10,105 @@ endif
 
 " -------------------------     plug     ------------------------------------ "
 call plug#begin('~/.vim/plugged')
-    Plug 'vim-airline/vim-airline'
-    Plug 'vim-airline/vim-airline-themes'
+    " Plug 'vim-airline/vim-airline'
+    " Plug 'vim-airline/vim-airline-themes'
+    Plug 'itchyny/lightline.vim'
+    Plug 'maximbaz/lightline-ale'
     Plug 'arcticicestudio/nord-vim'
     Plug 'altercation/vim-colors-solarized'
     Plug 'dylanaraps/wal.vim'
-    "
+
     Plug 'ervandew/supertab'
     " Plug 'sirver/ultisnips'
     " Plug 'honza/vim-snippets'
     Plug 'Shougo/deoplete.nvim', {'do': ':UpdateRemotePlugins'}
     " Plug 'zchee/deoplete-jedi', {'for': 'python'}
     Plug 'w0rp/ale'
-    "
-    " Plug 'LaTeX-Box-Team/LaTeX-Box', {'for': 'tex'}
+
     Plug 'lervag/vimtex', {'for': 'tex'}
-    " Plug 'tell-k/vim-autopep8', {'for': 'python'}
-    " Plug 'davidhalter/jedi-vim', {'for': 'python'}
-    " Plug 'nvie/vim-flake8', {'for': 'python'}
-    "
+
     Plug 'scrooloose/nerdtree'
     Plug 'jistr/vim-nerdtree-tabs'
     Plug 'Xuyuanp/nerdtree-git-plugin'
     Plug 'tpope/vim-fugitive'
-    "
+
+    Plug 'godlygeek/tabular'
     Plug 'junegunn/vim-easy-align'
     Plug 'Raimondi/delimitMate'
     Plug 'terryma/vim-multiple-cursors'
-    Plug 'severin-lemaignan/vim-minimap'
-    " Plug 'Yggdroot/indentLine'
-    "
+    " Plug 'severin-lemaignan/vim-minimap'
+
     Plug 'tpope/vim-repeat'
     Plug 'tpope/vim-surround'
     Plug 'tpope/vim-commentary'
     Plug 'tpope/vim-dispatch'
-    "
-    Plug 'junegunn/goyo.vim'
-    Plug 'junegunn/limelight.vim'
-    "
+
+    " Plug 'junegunn/goyo.vim'
+    " Plug 'junegunn/limelight.vim'
+
     Plug 'ntpeters/vim-better-whitespace'
-    "
+
     Plug 'kshenoy/vim-signature'
-    "
+
     Plug 'rust-lang/rust.vim', {'for': 'rust'}
     Plug 'cespare/vim-toml', {'for': 'toml'}
 call plug#end()
 
+
 " -------------------------     plugins     --------------------------------- "
+
 "  Python3 support
 let g:python3_host_prog = '/home/noah/miniconda3/bin/python'
+
 " Deoplete
 let g:deoplete#enable_at_startup = 1
-" airline
+
+" lightline / airline
 set laststatus=2
+set noshowmode
+let g:lightline = {
+\   'colorscheme': 'nord',
+\   'active': {
+    \   'left': [['mode', 'paste'],
+    \            ['gitbranch'],
+    \            ['readonly', 'filename', 'modified'],
+    \           ],
+    \   'right': [['linter_checking', 'linter_errors', 'linter_warnings'],
+    \             ['lineinfo'],
+    \             ['percent'],
+    \             ['fileencoding', 'filetype'],
+    \            ],
+    \},
+\}
+let g:lightline.component_expand = {
+\   'gitbranch': 'fugitive#head',
+\   'linter_checking': 'lightline#ale#checking',
+\   'linter_warnings': 'lightline#ale#warnings',
+\   'linter_errors': 'lightline#ale#errors',
+\}
+let g:lightline.component_type = {
+\   'linter_checking': 'warning',
+\   'linter_warnings': 'warning',
+\   'linter_errors': 'error',
+\}
 let g:airline_powerline_fonts = 1
-"
+
 " make ycm compatible with ultisnips (using supertab)
-let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
-let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
+" let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
+" let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
 let g:SuperTabDefaultCompletionType = '<C-n>'
-"
+
 " better key bindings for ultisnipsexpandtrigger
 let g:UltiSnipsExpandTrigger = "<tab>"
 let g:UltiSnipsJumpForwardTrigger = "<tab>"
 let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
-"
+
 " nerdtreetabs
 map <Leader>\ <plug>NERDTreeTabsToggle<CR>
-"
+
 " ale
 let g:ale_sign_error = '>>'
 let g:ale_sign_warning = '--'
-" highlight clear ALEErrorSign
-" highlight clear ALEWarningSign
 let g:airline#extensions#ale#enabled = 1
 let g:ale_lint_on_text_changed = 'normal' " 'normal'/'never'
 let g:ale_lint_on_enter = 1
@@ -93,17 +119,17 @@ xmap ]a <ESC>:ALENext<CR>
 xmap [a <ESC>:ALEPrevious<CR>
 let g:ale_lint_delay=200
 let g:ale_fixers = {
-\ 'python': ['autopep8'],
-\}
+\       'python': ['autopep8'],
+\   }
 let g:ale_linters = {
-\ 'python': ['pycodestyle'],
-\}
+\       'python': ['pycodestyle'],
+\   }
 " let g:ale_fix_on_save=1
-"
+
 " easyalign
 nmap ga <Plug>(EasyAlign)
 xmap ga <Plug>(EasyAlign)
-"
+
 " goyo and limelight
 let g:goyo_width = 120
 let g:goyo_height = 85
@@ -112,27 +138,29 @@ xmap gl <ESC>:Limelight!!<CR>
 nmap go <ESC>:Goyo<CR>
 xmap go <ESC>:Goyo<CR>
 
+
 " -------------------------     color scheme     ---------------------------- "
+
 syntax enable
 set background=dark
 colorscheme nord
 syntax on
-let g:airline_theme = 'wal'
 let g:limelight_conceal_ctermfg = '8'
-" let g:limelight_conceal_guifg = '#4C566A'
+
 
 " -------------------------     basic vim stuff     ------------------------- "
+
 filetype plugin on
 set modeline
 set modelines=1
-"
+
 set encoding=utf-8
 set fileencoding=utf-8
-"
+
 set nu
 set relativenumber
 set scrolloff=3
-"
+
 set ignorecase
 set smartcase
 set gdefault
@@ -140,27 +168,30 @@ set incsearch
 set backspace=indent,eol,start
 set list
 set listchars=tab:>-,trail:~
-"
+
 set autoindent
 set tabstop=4
 set shiftwidth=4
 set softtabstop=4
 set expandtab
-"
-set wrap
+
 set textwidth=79
-set colorcolumn=+1
+set nowrap
+" set colorcolumn=+1
 set formatoptions=qrn1
-"
+
 set mouse=  " no mouse use
-"
+
 set cole=0
-"
+
 set cursorline
 highlight CursorLine cterm=underline ctermbg=NONE ctermfg=NONE
-highlight SpellBad ctermfg=red cterm=bold ctermbg=NONE
-highlight Visual cterm=underline
+highlight SpellBad ctermfg=red cterm=BOLD ctermbg=NONE
+highlight Visual cterm=NONE
+
+
 " -------------------------     key-remapping     --------------------------- "
+
 nnoremap H 0
 vnoremap H 0
 nnoremap dH d0
@@ -193,43 +224,42 @@ let @q=''
 vnoremap <C-y> "+y
 nnoremap <C-y> "+y
 
+
 " -------------------------     filetype specific     ----------------------- "
+
 " latex
 au BufNewFile,BufRead *.tex set ft=tex
 autocmd Filetype tex
-    \ set tabstop=2 |
-    \ set shiftwidth=2 |
-    \ set softtabstop=2 |
-    \ set expandtab |
-    \ set conceallevel=0 |
-    \ ab zb zum Beispiel |
-    \ ab vll vielleicht |
-    \ set spelllang=de |
-    \ set spell
-"
+\   set tabstop=2      |
+\   set shiftwidth=2   |
+\   set softtabstop=2  |
+\   set expandtab      |
+\   set conceallevel=0 |
+\   ab zb zum Beispiel |
+\   ab vll vielleicht  |
+\   set spelllang=de   |
+\   set spell
+
 " r
-" augroup R_settings
 au BufNewFile,BufRead *.R set ft=r
 autocmd FileType r
-    \ inoremap _ <- |
-    \ inoremap __ _
-" augroup END
-"
+\   inoremap _ <- |
+\   inoremap __ _
+
 " python
 autocmd Filetype python
-    \ let b:delimitMate_quotes = "'" |
-    \ noremap <buffer> <F6> :ALEFix<CR> |
-    \ autocmd BufEnter <buffer> EnableStripWhitespaceOnSave
-"
+\   let b:delimitMate_quotes = "'"    |
+\   noremap <buffer> <F6> :ALEFix<CR> |
+\   autocmd BufEnter <buffer> EnableStripWhitespaceOnSave
+
 " git commit message
 autocmd Filetype gitcommit
-    \ set spelllang=en |
-    \ set spell |
-    \ set tw=50 |
-    \ set fo=want
-"
+\   set spelllang=en |
+\   set spell        |
+\   set tw=50        |
+\   set fo=want
+
 " markdown
-au BufNewFile,BufRead *.md set ft=md
-autocmd Filetype md
-    \ nnoremap U1 yypVr= |
-    \ nnoremap U2 yypVr-
+autocmd Filetype markdown
+\   nnoremap U1 yypVr= |
+\   nnoremap U2 yypVr-
