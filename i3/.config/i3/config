@@ -106,26 +106,21 @@ bindsym $mod+s layout toggle split
 for_window [workspace=$ws7] layout tabbed
 for_window [workspace=$ws2] layout tabbed
 for_window [workspace=$ws4] layout tabbed
-# for_window [class="URxvt"] floating enable
+for_window [class="URxvt"] floating enable
 
 # toggle tiling / floating
 bindsym $mod+Shift+space floating toggle
 
 set $ws1  "1:I"
-#
-set $ws2  "2:"
-set $ws3  "3:"
+set $ws2  "2:II"
+set $ws3  "3:III"
 set $ws4  "4:IV"
-#
 set $ws5  "5:V"
-#
 set $ws6  "6:VI"
-#
-set $ws7  "7:"
+set $ws7  "7:VII"
 set $ws8  "8:VIII"
 set $ws9  "9:IX"
 set $ws10 "10:X"
-#
 
 # switch to workspace
 bindsym $mod+1 workspace $ws1
@@ -192,7 +187,7 @@ bindsym $mod+shift+t exec telegram-desktop, workspace $ws7
 hide_edge_borders smart # none|vertical|horizontal|both|smart
 
 # screen lock
-bindsym $mod+Delete exec xautolock -locknow
+# bindsym $mod+Delete exec xautolock -locknow
 
 bindsym $mod+Tab workspace back_and_forth
 
@@ -224,13 +219,13 @@ bar {
         urgent_workspace   $black     $black      $red
         binding_mode       $black     $black      $red
     }
-    mode dock                    # dock|hide|invisible
-    hidden_state hide            # hide|show
-    modifier $win                # modifier
-    strip_workspace_numbers yes  # yes|no
-    separator_symbol "|"         # any symbol
-    position bottom              # top|bottom
-    workspace_buttons yes        # yes|no
+    mode dock                   # dock|hide|invisible
+    hidden_state hide           # hide|show
+    modifier $win               # modifier
+    strip_workspace_numbers yes # yes|no
+    separator_symbol "|"        # any symbol
+    position bottom             # top|bottom
+    workspace_buttons yes       # yes|no
 }
 
 
@@ -239,6 +234,7 @@ for_window [class=".*"] border pixel $bordersize
 for_window [workspace=$ws7 class="MuPDF"] floating enable, border normal $bordersize
 for_window [class="Tk"] floating enable, border normal $bordersize
 for_window [class="Matplotlib"] floating enable, border normal $bordersize
+for_window [class=" "] floating enable, border pixel $bordersize
 
 bindsym $mod+b mode "borders"
 mode "borders" {
@@ -270,8 +266,6 @@ assign [class="Firefox-esr"] $ws2
 assign [class="Firefox"] $ws2
 assign [class="Midori"] $ws2
 assign [class="qutebrowser"] $ws2
-assign [title="ssh"] $ws3
-for_window [title="ssh"] workspace $ws3
 assign [class="Telegram"] $ws7
 assign [class="Thunderbird"] $ws7
 
@@ -297,35 +291,35 @@ mode "gaps" {
     bindsym Escape mode "default"
 }
 
-bindsym $mod+shift+b mode "brightness"
-mode "brightness" {
-    bindsym 1 exec ~/shellScripts/high.sh, mode "default"
-    bindsym 2 exec ~/shellScripts/normal.sh, mode "default"
-    bindsym 3 exec ~/shellScripts/default.sh, mode "default"
-    bindsym 4 exec ~/shellScripts/low.sh, mode "default"
-    bindsym 0 exec ~/shellScripts/lowest.sh, mode "default"
-    # back to normal: Enter or Escape
-    bindsym Return mode "default"
-    bindsym Escape mode "default"
-}
+# bindsym $mod+shift+b mode "brightness"
+# mode "brightness" {
+#     bindsym 1 exec ~/shellScripts/high.sh, mode "default"
+#     bindsym 2 exec ~/shellScripts/normal.sh, mode "default"
+#     bindsym 3 exec ~/shellScripts/default.sh, mode "default"
+#     bindsym 4 exec ~/shellScripts/low.sh, mode "default"
+#     bindsym 0 exec ~/shellScripts/lowest.sh, mode "default"
+#     # back to normal: Enter or Escape
+#     bindsym Return mode "default"
+#     bindsym Escape mode "default"
+# }
 
-bindsym $mod+shift+s mode "screens"
-mode "screens" {
-    bindsym h exec ~/.screenlayout/with_hdmi.sh, mode "default"
-    bindsym n exec ~/.screenlayout/no_hdmi.sh, mode "default"
-    bindsym c exec ~/.screenlayout/copy_screen_hdmi.sh, mode "default"
-    # back to normal: Enter or Escape
-    bindsym Return mode "default"
-    bindsym Escape mode "default"
-}
+# bindsym $mod+shift+s mode "screens"
+# mode "screens" {
+#     bindsym h exec ~/.screenlayout/with_hdmi.sh, mode "default"
+#     bindsym n exec ~/.screenlayout/no_hdmi.sh, mode "default"
+#     bindsym c exec ~/.screenlayout/copy_screen_hdmi.sh, mode "default"
+#     # back to normal: Enter or Escape
+#     bindsym Return mode "default"
+#     bindsym Escape mode "default"
+# }
 
-bindsym $mod+shift+o mode "redshift"
-mode "redshift" {
-    bindsym 1 exec redshift -O 6500, mode "default"
-    bindsym 2 exec redshift -O 5500, mode "default"
-    bindsym 3 exec redshift -O 3500, mode "default"
-    bindsym 4 exec redshift -O 2500, mode "default"
-    # back to normal: Enter or Escape
-    bindsym Return mode "default"
-    bindsym Escape mode "default"
-}
+# bindsym $mod+shift+o mode "redshift"
+# mode "redshift" {
+#     bindsym 1 exec redshift -O 6500, mode "default"
+#     bindsym 2 exec redshift -O 5500, mode "default"
+#     bindsym 3 exec redshift -O 3500, mode "default"
+#     bindsym 4 exec redshift -O 2500, mode "default"
+#     # back to normal: Enter or Escape
+#     bindsym Return mode "default"
+#     bindsym Escape mode "default"
+# }
