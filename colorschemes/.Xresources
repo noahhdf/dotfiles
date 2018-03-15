@@ -4,7 +4,7 @@
 URxvt.perl-ext-common:        default,clipboard,matcher,resize-font,url-select
 URxvt.borderless:             true
 URxvt.geometry:               84x24
-URxvt.font:                   xft:OfficeCodeProD:regular:size=11
+URxvt.font:                   xft:SourceCodePro:regular:size=11
 URxvt.url-launcher:           /usr/bin/xdg-open
 URxvt.url-select.launcher:    /usr/bin/xdg-open
 URxvt.url-select.underline:   true

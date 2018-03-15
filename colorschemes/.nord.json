@@ -1,12 +1,11 @@
 {
-    "wallpaper": "/home/noah/Pictures/moon.jpg",
+    "wallpaper": "/home/noah/Pictures/amazing-abstract-hd-wallpapers-30.png",
 
     "special": {
-        "background": "#2E3440",
         "foreground": "#D8DEE9",
+        "background": "#2E3440",
         "cursor": "#D8DEE9"
     },
-
     "colors": {
         "color0": "#3B4252",
         "color8": "#4C566A",
