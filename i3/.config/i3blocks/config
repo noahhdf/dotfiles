@@ -3,115 +3,41 @@
 #
 # List of valid properties:
 # align, color, background, border, command, full_text, instance, interval, label, min_width, name, separator, separator_block_width, short_text, signal, urgent
-#
+
 # Global properties
 command=~/.config/i3blocks/blocks/$BLOCK_NAME
 separator_block_width="|"
 markup=pango
-# color=#FF00FF
-# color=#D8DEE9
-# green = #A3BE8C
-# yellow = #EBCB8B
-# red = #BF616A
-# white = #D8DEE9
-# separator = #434C5E
 
 [traffic]
-label=
 interval=60
-
-[xlock]
-# label=&#xf023;
-interval=once
-
-# [rust]
-# command=~/projects/hello_world/main
-# interval=1
-
-[free]
-label=&#xf205;
-interval=1
 
 # [dropbox]
-# label=&#xf16b;
 # interval=10
 
-# [ping]
-# label=
-# interval=10
+[free]
+interval=1
 
-# [apt-upgrade]
-# interval=3600
-# label=
-
-# [github]
-# label=
-# full_text= github
-
-# [traffic]
-# # label=
-# interval=300
-# full_text=Traffic
-
-# [brightness]
-# label=
-# interval=once
-
-# [memory]
-# label=
-# interval=5
-# separator=false
+[cpu_usage]
+label=CPU
+interval=1
 
 [load_average]
-label=
+label=LOAD
 interval=1
-# separator=false
 
 [disk]
-label=
-interval=60
-# separator=false
-
-[sd]
-label=
+label=~
 interval=60
 
 [connection]
-label=
-# color=#A3BE8C
 interval=10
 full_text=Internet
 
-# [lastup]
-# # label=
-# # command=cat ~/.lastup | grep up | sed s/minutes/min/
-# command=cat ~/.lastup | grep up | sed s/up\ // | sed s/\ hour[s]/h/ | sed s/\ minute[s]/m/ | sed s/,\ /:/
-# interval=once
-# color=#656E6F
-# separator=false
-
-# [uptime]
-# label=
-# # color=#EBCB8B
-# # command=uptime -p | grep up | sed s/up\ // | sed s/\ hours/h/ | sed s/\ hour/h/ | sed s/\ minutes/m/ | sed s/\ minute// | sed s/,\ /:/
-# interval=60
-# # separator=false
-
 [battery]
-interval=10
-
-
-# [redshift]
-# interval=600
-# separator=false
+interval=1
 
 [time]
 # command=date '+%A, %d. %B %Y, %H:%M:%S'
 command=date '+%a %d.%m.%Y, %H:%M:%S'
 interval=1
-
-# [shutdown_menu]
-# full_text=
-# command=~/.config/i3blocks/scripts/shutdown_menu -c;echo 
-# separator=true
-

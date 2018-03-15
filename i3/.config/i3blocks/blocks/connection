@@ -1,23 +1,29 @@
 #!/bin/bash
 # vim: ft=sh
-source $HOME/.config/i3blocks/blocks/colors
-source $HOME/.cache/wal/colors.sh
-connection=$(nmcli | grep 'connected' | sed 's/[0-9a-z]*:\ disconnected/disconnected/' | sed 's/[a-z0-9]*:\ connected\ to\ //' | sed ':a;N;s/\n/\, /g')
+#source $HOME/.config/i3blocks/blocks/colors
+#source $HOME/.cache/wal/colors.sh
+#connection=$(nmcli | grep 'connected' | sed 's/[0-9a-z]*:\ disconnected/disconnected/' | sed 's/[a-z0-9]*:\ connected\ to\ //' | sed ':a;N;s/\n/\, /g')
 
-disconnected=$(echo $connection | grep 'disconnected')
+#disconnected=$(echo $connection | grep 'disconnected')
 
-# if [[ "$disconnected" == "disconnected" ]]; then
-#     echo "<span foreground='$red'>$connection</span>"
-# elif [[ "$disconnected" == "$connection" ]]; then
-#     echo "<span foreground='$yellow'>$connection</span>"
-# else
-#     echo "<span foreground='$green'>$connection</span>"
-# fi
+## if [[ "$disconnected" == "disconnected" ]]; then
+##     echo "<span foreground='$red'>$connection</span>"
+## elif [[ "$disconnected" == "$connection" ]]; then
+##     echo "<span foreground='$yellow'>$connection</span>"
+## else
+##     echo "<span foreground='$green'>$connection</span>"
+## fi
 
-if [[ "$disconnected" == "disconnected" ]]; then
-    echo "<span foreground='$color1'>$connection</span>"
-elif [[ "$disconnected" == "$connection" ]]; then
-    echo "<span foreground='$color3'>$connection</span>"
-else
-    echo "<span foreground='$color2'>$connection</span>"
-fi
+#if [[ "$disconnected" == "disconnected" ]]; then
+#    echo "<span foreground='$color1'>$connection</span>"
+#elif [[ "$disconnected" == "$connection" ]]; then
+#    echo "<span foreground='$color3'>$connection</span>"
+#else
+#    echo "<span foreground='$color2'>$connection</span>"
+#fi
+
+nmcli | awk '/connected/ {printf $4}; /connecting/ {printf $2"..."}'
+# nmcli connection show | awk '
+#     NR!=1 && $4!="--"
+#     {printf $3": "$1}
+# '

@@ -1,0 +1,2 @@
+#!/bin/bash
+mpstat -P ALL | awk '$3==int($3) && $4>20 {printf $3": "$4" "}'
