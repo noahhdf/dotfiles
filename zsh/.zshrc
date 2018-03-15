@@ -108,3 +108,12 @@ export INFOPATH="$HOME/.local/texlive/2017/texmf-dist/doc/info:$INFOPATH"
 # Stuffs
 export EDITOR=nvim
 export BETTER_EXCEPTIONS=1
+
+# Cargo
+export PATH=$HOME/.cargo/bin:$PATH
+
+# Ruby
+export PATH=$(ruby -e "puts Gem.user_dir")/bin:$PATH
+
+# Vega & Vega-lite
+export PATH=$HOME/Git/vega/bin:$HOME/Git/vega-lite/bin:$PATH
