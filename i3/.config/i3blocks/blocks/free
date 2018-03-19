@@ -11,7 +11,7 @@ ABSSWP=$(echo "$FREESWP" | awk '{print $1}')
 RELSWP=$(echo "$FREESWP" | awk '{print $1 "/" $2 "*100"}' | bc -l | grep -E '.*\..' -o)
 
 if [[ "$ABSSWP" == 0 ]]; then
-    echo "$ABSMEM $RELMEM%"
+    echo "Mem: $ABSMEM $RELMEM%"
 else
     echo "Mem: $ABSMEM $RELMEM%, Swp: $ABSSWP $RELSWP%"
 fi

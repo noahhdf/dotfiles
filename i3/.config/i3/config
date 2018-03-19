@@ -32,7 +32,7 @@ set $fontsize 7
 set $bordersize 1
 set $gapsize 10
 
-font pango:OfficeCodeProD $fontsize
+font pango:SourceCodePro $fontsize
 # font pango:DejaVu Sans Mono 8
 # font pango:System San Francisco Display 8
 
@@ -206,7 +206,7 @@ bar {
     # output hmdi-1
     tray_output edp-1
     tray_padding 0
-    font                pango:OfficeCodeProD,FontAwesome $fontsize
+    font                pango:SourceCodePro,FontAwesome $fontsize
     colors {
         #                  #color
         background         $black
