@@ -1,0 +1,2 @@
+#!/bin/sh
+cower -u | awk '/./ {print "AUR Updates available"}'
