@@ -29,6 +29,7 @@ alias 'pip-upgrade'='echo "pip install -U \$(pip freeze | sed \"s/==.*//\")" && 
 alias 'pip-freeze'='pip freeze | sed "s/==.*//"'
 alias 'conda-freeze'='conda list | sed "s/\ .*//"'
 alias 'wal'='~/miniconda3/bin/wal'
+alias 'lab'='jupyter lab'
 # alias 'conda2'='source ~/miniconda2/etc/profile.d/conda.sh'
 # alias 'conda3'='source ~/miniconda3/etc/profile.d/conda.sh'
 
@@ -49,7 +50,8 @@ alias 'wal'='~/miniconda3/bin/wal'
 # alias 'normal'='$HOME/shellScripts/normal.sh'
 
 # Correct wrong typed commands on the fly
-alias 'vim'='echo "using nvim..." && nvim'
+# alias 'vim'='echo "using nvim..." && nvim'
+alias 'vim'='nvim'
 alias 'gut'='echo "being an idiot?" && git'
 alias ':q'='echo "trapped in vim? go to bed!" && sleep 3 && exit'
 
