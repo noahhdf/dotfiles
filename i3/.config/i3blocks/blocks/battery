@@ -1,11 +1,33 @@
 #!/bin/bash
-# source $HOME/.cache/wal/colors.sh
+source $HOME/.cache/wal/colors.sh
 
 BATSTAT=$(acpi | sed 's/,//g; s/Charging/chr/; s/Discharging/dis/; s/:[0-9]* / /g' | awk '{print $4" "$3" ("$5")"}')
 STAT=$(echo $BATSTAT | awk '{print $2}')
 PERC=$(echo $BATSTAT | grep '^[0-9]*' -o)
-if [[ "$PERC" < 20 && "$STAT" == "dis" ]]; then
-    echo ! $BATSTAT ! | awk '{print toupper($0)}'
-else
-    echo $BATSTAT
-fi
+
+# if [[ $PERC < 20 && "$STAT" == "dis" ]]; then
+#     echo "<span bgcolor='red' color='black'>$BATSTAT</span>"
+# else
+#     echo $BATSTAT
+# fi
+
+case $PERC in
+    9[0-9])
+        echo "<span color='$color2'>$BATSTAT</span>"
+        ;;
+    2[0-5])
+        echo "<span color='$color3'>$BATSTAT</span>"
+        ;;
+    1[0-9])
+        echo "<span color='$color1'>$BATSTAT</span>"
+        ;;
+    0[0-9])
+        if [[ "$STAT" == "dis" ]]; then
+            echo "<span bgcolor='red' color='black'>$BATSTAT</span>"
+        else
+            echo "<span color='$color1'>$BATSTAT</span>"
+        fi
+        ;;
+    *)
+        echo $BATSTAT
+esac
