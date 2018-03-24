@@ -12,6 +12,9 @@ markup=pango
 [traffic]
 interval=60
 
+[updates]
+interval=3600
+
 # [dropbox]
 # interval=10
 
