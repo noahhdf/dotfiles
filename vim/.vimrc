@@ -15,12 +15,12 @@ call plug#begin('~/.vim/plugged')
     Plug 'itchyny/lightline.vim'
     Plug 'maximbaz/lightline-ale'
     Plug 'arcticicestudio/nord-vim'
-    Plug 'altercation/vim-colors-solarized'
     Plug 'dylanaraps/wal.vim'
+    Plug 'chriskempson/tomorrow-theme'
 
     Plug 'ervandew/supertab'
-    " Plug 'sirver/ultisnips'
-    " Plug 'honza/vim-snippets'
+    Plug 'sirver/ultisnips'
+    Plug 'honza/vim-snippets'
     Plug 'Shougo/deoplete.nvim', {'do': ':UpdateRemotePlugins'}
     " Plug 'zchee/deoplete-jedi', {'for': 'python'}
     Plug 'w0rp/ale'
@@ -29,14 +29,11 @@ call plug#begin('~/.vim/plugged')
 
     Plug 'scrooloose/nerdtree'
     Plug 'jistr/vim-nerdtree-tabs'
-    Plug 'Xuyuanp/nerdtree-git-plugin'
     Plug 'tpope/vim-fugitive'
 
-    Plug 'godlygeek/tabular'
     Plug 'junegunn/vim-easy-align'
     Plug 'Raimondi/delimitMate'
     Plug 'terryma/vim-multiple-cursors'
-    " Plug 'severin-lemaignan/vim-minimap'
 
     Plug 'tpope/vim-repeat'
     Plug 'tpope/vim-surround'
@@ -49,19 +46,40 @@ call plug#begin('~/.vim/plugged')
     Plug 'ntpeters/vim-better-whitespace'
 
     Plug 'kshenoy/vim-signature'
+    Plug 'airblade/vim-gitgutter'
 
     Plug 'rust-lang/rust.vim', {'for': 'rust'}
     Plug 'cespare/vim-toml', {'for': 'toml'}
+
+" Vim-markdown
+function! BuildComposer(info)
+  if a:info.status != 'unchanged' || a:info.force
+    if has('nvim')
+      !cargo build --release
+    else
+      !cargo build --release --no-default-features --features json-rpc
+    endif
+  endif
+endfunction
+
+    Plug 'euclio/vim-markdown-composer', {'do': function('BuildComposer')}
 call plug#end()
 
 
 " -------------------------     plugins     --------------------------------- "
 
-"  Python3 support
+"  Python support
 let g:python3_host_prog = '/home/noah/miniconda3/bin/python'
+let g:python_host_prog = '/home/noah/miniconda3/envs/Python2/bin/python'
 
 " Deoplete
 let g:deoplete#enable_at_startup = 1
+
+" vimtex
+let g:vimtex_compiler_latexmk = {'build_dir': 'build'}
+" let g:vimtex_compiler_latexrun = {'options': ['--bibtex-cmd biber']}
+let g:vimtex_fold_enabled = 1
+let g:vimtex_view_automatic = 1
 
 " lightline / airline
 set laststatus=2
@@ -93,12 +111,9 @@ let g:lightline.component_type = {
 \}
 let g:airline_powerline_fonts = 1
 
-" make ycm compatible with ultisnips (using supertab)
-" let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
-" let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
-let g:SuperTabDefaultCompletionType = '<C-n>'
 
-" better key bindings for ultisnipsexpandtrigger
+" ultisnips and supertab
+let g:SuperTabDefaultCompletionType = '<C-n>'
 let g:UltiSnipsExpandTrigger = "<tab>"
 let g:UltiSnipsJumpForwardTrigger = "<tab>"
 let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
@@ -108,7 +123,7 @@ map <Leader>\ <plug>NERDTreeTabsToggle<CR>
 
 " ale
 let g:ale_sign_error = '>>'
-let g:ale_sign_warning = '--'
+let g:ale_sign_warning = '>>'
 let g:airline#extensions#ale#enabled = 1
 let g:ale_lint_on_text_changed = 'normal' " 'normal'/'never'
 let g:ale_lint_on_enter = 1
@@ -117,14 +132,9 @@ nmap ]a <ESC>:ALENext<CR>
 nmap [a <ESC>:ALEPrevious<CR>
 xmap ]a <ESC>:ALENext<CR>
 xmap [a <ESC>:ALEPrevious<CR>
-let g:ale_lint_delay=200
-let g:ale_fixers = {
-\       'python': ['autopep8'],
-\   }
 let g:ale_linters = {
-\       'python': ['pycodestyle'],
-\   }
-" let g:ale_fix_on_save=1
+\    'python': ['pycodestyle'],
+\}
 
 " easyalign
 nmap ga <Plug>(EasyAlign)
@@ -138,6 +148,13 @@ xmap gl <ESC>:Limelight!!<CR>
 nmap go <ESC>:Goyo<CR>
 xmap go <ESC>:Goyo<CR>
 
+" gitgutter
+set signcolumn=yes
+
+" markdown composer
+let g:markdown_composer_browser = '/usr/bin/qutebrowser'
+let g:markdown_composer_autostart = 0
+
 
 " -------------------------     color scheme     ---------------------------- "
 
@@ -146,6 +163,7 @@ set background=dark
 colorscheme nord
 syntax on
 let g:limelight_conceal_ctermfg = '8'
+" highlight Pmenu guibg=#606060 ctermbg=8
 
 
 " -------------------------     basic vim stuff     ------------------------- "
@@ -192,18 +210,6 @@ highlight Visual cterm=NONE
 
 " -------------------------     key-remapping     --------------------------- "
 
-nnoremap H 0
-vnoremap H 0
-nnoremap dH d0
-vnoremap dH d0
-nnoremap cH c0
-vnoremap cH c0
-nnoremap L $
-vnoremap L $
-nnoremap dL d$
-vnoremap dL d$
-nnoremap cL c$
-vnoremap cL c$
 inoremap jj <ESC>
 inoremap jk <ESC>:w<CR>
 nnoremap F :%s/
@@ -215,8 +221,6 @@ nnoremap <C-J> <C-W>j
 nnoremap <C-H> <C-W>h
 nnoremap <C-K> <C-W>k
 nnoremap <C-L> <C-W>l
-nnoremap <C-W><TAB> :tabn<CR>
-nnoremap <C-W><S-TAB> :tabN<CR>
 nnoremap tt :tabn<CR>
 nnoremap TT :tabN<CR>
 nnoremap <SPACE> @q
@@ -230,14 +234,19 @@ nnoremap <C-y> "+y
 " latex
 au BufNewFile,BufRead *.tex set ft=tex
 autocmd Filetype tex
-\   set tabstop=2      |
-\   set shiftwidth=2   |
-\   set softtabstop=2  |
-\   set expandtab      |
-\   set conceallevel=0 |
-\   ab zb zum Beispiel |
-\   ab vll vielleicht  |
-\   set spelllang=de   |
+\   if !exists('g:deoplete#omni#input_patterns')                      |
+\       let g:deoplete#omni#input_patterns = {}                       |
+\   endif                                                             |
+\       let g:deoplete#omni#input_patterns.tex = g:vimtex#re#deoplete |
+\   noremap <buffer> <F5> \ll                                         |
+\   set tabstop=2                                                     |
+\   set shiftwidth=2                                                  |
+\   set softtabstop=2                                                 |
+\   set expandtab                                                     |
+\   set conceallevel=0                                                |
+\   ab zb zum Beispiel                                                |
+\   ab vll vielleicht                                                 |
+\   set spelllang=de                                                  |
 \   set spell
 
 " r
@@ -248,8 +257,9 @@ autocmd FileType r
 
 " python
 autocmd Filetype python
-\   let b:delimitMate_quotes = "'"    |
-\   noremap <buffer> <F6> :ALEFix<CR> |
+\   let b:delimitMate_quotes = "'"                        |
+\   noremap <buffer> <F5> :!python %<CR>                  |
+\   noremap <buffer> <F6> :!white %<CR>                   |
 \   autocmd BufEnter <buffer> EnableStripWhitespaceOnSave
 
 " git commit message
@@ -261,5 +271,6 @@ autocmd Filetype gitcommit
 
 " markdown
 autocmd Filetype markdown
-\   nnoremap U1 yypVr= |
-\   nnoremap U2 yypVr-
+\   nnoremap U1 yypVr=                       |
+\   nnoremap U2 yypVr-                       |
+\   noremap <buffer> <F5> :ComposerStart<CR>
