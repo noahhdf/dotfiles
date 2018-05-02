@@ -10,10 +10,6 @@ _fishy_collapsed_wd() {
 ')
 }
 
-_free() {
-  echo $(~/.config/i3blocks/blocks/free)
-}
-
 _dir() {
   echo $(pwd | sed 's/\/home\/noah/~/g')
 }
@@ -25,7 +21,8 @@ PROMPT='%{$fg[$user_color]%}$(whoami) %{$reset_color%}in %{$fg[$dir_color]%}$(_d
 PROMPT2='%{$fg[red]%}\ %{$reset_color%}'
 
 local return_status="%{$fg_bold[red]%}%(?..%?)%{$reset_color%}"
-RPROMPT='${return_status}%{$fg_bold[black]%}$(git_prompt_info)$(git_prompt_status)%{$reset_color%}'
+# RPROMPT='${return_status}%{$fg_bold[black]%}$(git_prompt_info)$(git_prompt_status)%{$reset_color%}'
+RPROMPT='${return_status}%{$fg_bold[black]%}$(git_prompt_info)%{$reset_color%}'
 
 ZSH_THEME_GIT_PROMPT_PREFIX=" "
 ZSH_THEME_GIT_PROMPT_SUFFIX=""
