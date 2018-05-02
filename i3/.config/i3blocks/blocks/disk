@@ -20,10 +20,10 @@ source $HOME/.cache/wal/colors.sh
 DIR="${BLOCK_INSTANCE:-$HOME}"
 ALERT_LOW="${1:-10}" # color will turn red under this value (default: 10%)
 
-df -h -P -l "$DIR" | awk -v alert_low=$ALERT_LOW '
+df -h -P -l "$DIR" | awk -v alert_low=$ALERT_LOW -v color=$color1 '
 /\/.*/ {
 	# full text
-	print $4
+	print $4, $5
 
 	# short text
 	print $4
@@ -38,8 +38,7 @@ END {
 	gsub(/%$/,"",use)
 	if (100 - use < alert_low) {
 		# color
-		print "#c0392b"
-		# print "$color1"
+		print color
 	}
 }
 '
