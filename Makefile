@@ -8,6 +8,7 @@ all:
 		i3/ \
 		nvim/ \
 		rofi/ \
+		ranger/ \
 		redshift/ \
 		tmux/ \
 		vim/ \
