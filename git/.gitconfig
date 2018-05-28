@@ -1,6 +1,6 @@
 # vim: ft=gitconfig commentstring=#%s
 [core]
-	editor = nvim
+	editor = "vim"
 [user]
 	name = Noah Biederbeck
 	email = noah.biederbeck@udo.edu
@@ -24,3 +24,5 @@
     s = status
 [log]
     date = default-local
+[mergetool]
+    tool = "vimdiff"

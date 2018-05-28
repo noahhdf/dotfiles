@@ -22,7 +22,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'sirver/ultisnips'
     Plug 'honza/vim-snippets'
     Plug 'Shougo/deoplete.nvim', {'do': ':UpdateRemotePlugins'}
-    " Plug 'zchee/deoplete-jedi', {'for': 'python'}
+    Plug 'zchee/deoplete-jedi', {'for': 'python'}
     Plug 'w0rp/ale'
 
     Plug 'lervag/vimtex', {'for': 'tex'}
@@ -68,9 +68,8 @@ call plug#end()
 
 " -------------------------     plugins     --------------------------------- "
 
-"  Python support
-let g:python3_host_prog = '/home/noah/miniconda3/bin/python'
-let g:python_host_prog = '/home/noah/miniconda3/envs/Python2/bin/python'
+"  Python3 support
+let g:python3_host_prog = '/home/nbiederbeck/miniconda3/bin/python'
 
 " Deoplete
 let g:deoplete#enable_at_startup = 1
@@ -165,7 +164,6 @@ syntax on
 let g:limelight_conceal_ctermfg = '8'
 highlight Pmenu guibg=#FFFFFF ctermbg=7 guifg=#000000 ctermfg=0
 
-
 " -------------------------     basic vim stuff     ------------------------- "
 
 filetype plugin on
@@ -203,13 +201,25 @@ set mouse=  " no mouse use
 set cole=0
 
 set cursorline
-highlight CursorLine cterm=underline ctermbg=NONE ctermfg=NONE
-highlight SpellBad ctermfg=red cterm=BOLD ctermbg=NONE
-highlight Visual cterm=NONE
+highlight CursorLine cterm=none ctermbg=none ctermfg=none
+highlight SpellBad ctermfg=red cterm=bold ctermbg=none
+highlight Visual ctermbg=8 cterm=bold
 
 
 " -------------------------     key-remapping     --------------------------- "
 
+" nnoremap H 0
+" vnoremap H 0
+" nnoremap dH d0
+" vnoremap dH d0
+" nnoremap cH c0
+" vnoremap cH c0
+" nnoremap L $
+" vnoremap L $
+" nnoremap dL d$
+" vnoremap dL d$
+" nnoremap cL c$
+" vnoremap cL c$
 inoremap jj <ESC>
 inoremap jk <ESC>:w<CR>
 nnoremap F :%s/
@@ -273,3 +283,7 @@ autocmd Filetype markdown
 \   nnoremap U1 yypVr=                       |
 \   nnoremap U2 yypVr-                       |
 \   noremap <buffer> <F5> :ComposerStart<CR>
+
+" C++
+autocmd FileType cpp
+\   set commentstring=//%s

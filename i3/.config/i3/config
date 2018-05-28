@@ -106,9 +106,6 @@ bindsym $mod+shift+a focus child
 # bindsym $mod+s layout stacking
 bindsym $mod+t layout tabbed
 bindsym $mod+s layout toggle split
-for_window [workspace=$ws7] layout tabbed
-for_window [workspace=$ws2] layout tabbed
-for_window [workspace=$ws4] layout tabbed
 # for_window [class="URxvt"] floating enable
 
 # toggle tiling / floating
@@ -136,6 +133,10 @@ bindsym $mod+7 workspace $ws7
 bindsym $mod+8 workspace $ws8
 bindsym $mod+9 workspace $ws9
 bindsym $mod+0 workspace $ws10
+
+for_window [workspace=$ws7] layout tabbed
+for_window [workspace=$ws2] layout tabbed
+for_window [workspace=$ws4] layout tabbed
 
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace $ws1
@@ -166,7 +167,9 @@ bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
 # lock i3
-bindsym $mod+Shift+e exec betterlockscreen -l dim
+# bindsym $mod+Shift+e exec betterlockscreen -l dimblur
+# bindsym $mod+Shift+e exec i3lock -u -e -f -c 606060
+bindsym $mod+Shift+e exec ~/.local/bin/lock
 # exit i3 (logs you out of your X session)
 # bindsym $mod+Shift+Delete exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 bindsym $mod+Ctrl+Delete exec ~/.config/i3blocks/blocks/shutdown_menu -c
@@ -255,11 +258,6 @@ mode "borders" {
     bindsym Escape mode "default"
 }
 
-# # -- display workspaces through outputs -- #
-# workspace $ws1 output eDP-1   # default working screen laptop
-# workspace $ws2 output HDMI-1  # default web borwser on big screen
-# workspace $ws7 output eDP-1   # private chatting no one should see
-# workspace $ws10 output HDMI-1 # default presentations on beamer
 # -- even workspaces on hdmi -- #
 workspace $ws1 output eDP1
 workspace $ws3 output eDP1
@@ -339,3 +337,5 @@ mode "gaps" {
 #     bindsym Return mode "default"
 #     bindsym Escape mode "default"
 # }
+
+exec_always ~/first_steps.sh

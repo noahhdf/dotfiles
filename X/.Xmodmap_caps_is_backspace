@@ -3,7 +3,7 @@ clear lock
 keycode  22 = BackSpace BackSpace BackSpace BackSpace
 keycode  50 = Shift_L NoSymbol Shift_L NoSymbol
 keycode  62 = Mode_switch Mode_switch NoSymbol NoSymbol
-keycode  66 = BackSpace Caps_Lock BackSpace Caps_Lock
+keycode  66 = Mode_switch Caps_Lock BackSpace Caps_Lock
 !
 !
 keycode   8 =
