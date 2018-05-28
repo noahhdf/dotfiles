@@ -1,6 +1,6 @@
 # vim: ft=gitconfig commentstring=#%s
 [core]
-	editor = "vim"
+	editor = "nvim"
 [user]
 	name = Noah Biederbeck
 	email = noah.biederbeck@udo.edu
