@@ -19,7 +19,7 @@ set_from_resource $boldcyan .color14
 set_from_resource $white .color7
 set_from_resource $boldwhite .color15
 
-workspace_layout default # default|stacking|tabbed
+workspace_layout tabbed # default|stacking|tabbed
 focus_follows_mouse false # true|false
 
 # -- variables -- #
@@ -41,6 +41,7 @@ floating_modifier $mod
 
 # start a terminal
 bindsym $mod+Return exec urxvt
+bindsym $mod+Shift+Return exec ranger
 # bindsym $mod+Return exec alacritty
 # bindsym $mod+Shift+Return exec alacritty
 # bindsym $mod+Shift+Return exec urxvt
@@ -54,6 +55,8 @@ mode "web" {
     bindsym shift+q exec qutebrowser, workspace $ws2, mode default
     bindsym m exec midori, mode default
     bindsym shift+m exec midori, workspace $ws2, mode default
+    bindsym s exec surf, mode default
+    bindsym shift+s exec surf, workspace $ws2, mode default
     bindsym t exec thunderbird, mode default
     bindsym shift+t exec thunderbird, workspace $ws7, mode default
     # back to normal: Enter or Escape
@@ -252,11 +255,22 @@ mode "borders" {
     bindsym Escape mode "default"
 }
 
-# -- display workspaces through outputs -- #
-workspace $ws1 output eDP-1   # default working screen laptop
-workspace $ws2 output HDMI-1  # default web borwser on big screen
-workspace $ws7 output eDP-1   # private chatting no one should see
-workspace $ws10 output HDMI-1 # default presentations on beamer
+# # -- display workspaces through outputs -- #
+# workspace $ws1 output eDP-1   # default working screen laptop
+# workspace $ws2 output HDMI-1  # default web borwser on big screen
+# workspace $ws7 output eDP-1   # private chatting no one should see
+# workspace $ws10 output HDMI-1 # default presentations on beamer
+# -- even workspaces on hdmi -- #
+workspace $ws1 output eDP1
+workspace $ws3 output eDP1
+workspace $ws5 output eDP1
+workspace $ws7 output eDP1
+workspace $ws9 output eDP1
+workspace $ws2 output HDMI1
+workspace $ws4 output HDMI1
+workspace $ws6 output HDMI1
+workspace $ws8 output HDMI1
+workspace $ws10 output HDMI1
 
 #  -- bind programs to workspaces --  #
 # 1) run `xprop`
@@ -266,6 +280,7 @@ workspace $ws10 output HDMI-1 # default presentations on beamer
 assign [class="Firefox-esr"] $ws2
 assign [class="Firefox"] $ws2
 assign [class="Midori"] $ws2
+assign [class="Surf"] $ws2
 assign [class="qutebrowser"] $ws2
 assign [class="Telegram"] $ws7
 assign [class="Thunderbird"] $ws7

@@ -1,4 +1,4 @@
-; vim: ft=gitconfig
+# vim: ft=gitconfig commentstring=#%s
 [core]
 	editor = nvim
 [user]
@@ -11,7 +11,16 @@
 [credential]
 	helper = cache --timeout=10800
 [alias]
-    l = log --graph
+    # log
+    l = log --color --graph --pretty=format:'%C(blue)%ad %C(cyan)(%ar) %C(green)%cn %C(yellow)%d %C(reset)%n %s %n  %b'
+    # long log
     ll = log --color --graph --date=short --pretty=format:\"%Cblue%ad %Cgreen%an %C(yellow)%h %Creset%s %Cred%d %n%Creset%b\"
-    co = commit -m
+    # oneline log
+    ol = log --oneline
+    last = log -1 HEAD
+    c = commit
+    co = checkout
+    br = branch
     s = status
+[log]
+    date = default-local

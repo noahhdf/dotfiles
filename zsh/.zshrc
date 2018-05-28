@@ -118,3 +118,6 @@ export PATH=$(ruby -e "puts Gem.user_dir")/bin:$PATH
 
 # Vega & Vega-lite
 export PATH=$HOME/Git/vega/bin:$HOME/Git/vega-lite/bin:$PATH
+
+unsetopt share_history
+fpath+=~/.zfunc

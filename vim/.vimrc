@@ -163,7 +163,7 @@ set background=dark
 colorscheme nord
 syntax on
 let g:limelight_conceal_ctermfg = '8'
-" highlight Pmenu guibg=#606060 ctermbg=8
+highlight Pmenu guibg=#FFFFFF ctermbg=7 guifg=#000000 ctermfg=0
 
 
 " -------------------------     basic vim stuff     ------------------------- "
@@ -194,7 +194,7 @@ set softtabstop=4
 set expandtab
 
 set textwidth=79
-set nowrap
+set wrap
 " set colorcolumn=+1
 set formatoptions=qrn1
 
@@ -257,7 +257,6 @@ autocmd FileType r
 
 " python
 autocmd Filetype python
-\   let b:delimitMate_quotes = "'"                        |
 \   noremap <buffer> <F5> :!python %<CR>                  |
 \   noremap <buffer> <F6> :!white %<CR>                   |
 \   autocmd BufEnter <buffer> EnableStripWhitespaceOnSave
