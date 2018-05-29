@@ -210,9 +210,9 @@ set mouse=  " no mouse use
 set cole=0
 
 set cursorline
-highlight CursorLine cterm=underline ctermbg=NONE ctermfg=NONE
-highlight SpellBad ctermfg=red cterm=BOLD ctermbg=NONE
-highlight Visual cterm=NONE
+" highlight CursorLine cterm=underline ctermbg=none ctermfg=none
+highlight SpellBad ctermfg=red cterm=bold ctermbg=none
+highlight Visual cterm=bold
 
 
 " -------------------------     key-remapping     --------------------------- "
