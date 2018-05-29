@@ -24,6 +24,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'Shougo/deoplete.nvim', {'do': ':UpdateRemotePlugins'}
     " Plug 'zchee/deoplete-jedi', {'for': 'python'}
     Plug 'w0rp/ale'
+    Plug 'ambv/black'
 
     Plug 'lervag/vimtex', {'for': 'tex'}
 
@@ -67,6 +68,12 @@ call plug#end()
 
 
 " -------------------------     plugins     --------------------------------- "
+
+" Black
+let g:black_fast = 0  " default 0
+let g:black_linelength = 79  " default 88
+" Run black on save
+autocmd BufWritePost *.py execute ':Black'
 
 "  Python support
 let g:python3_host_prog = '/home/noah/miniconda3/bin/python'
