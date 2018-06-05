@@ -16,13 +16,16 @@ _dir() {
 
 user_color='yellow'
 dir_color='green'
+git_color='yellow'
 
-PROMPT='%{$fg[$user_color]%}$(whoami) %{$reset_color%}in %{$fg[$dir_color]%}$(_dir) %{$reset_color%}$ '
+# PROMPT='%{$fg[$user_color]%}$(whoami) %{$reset_color%}in %{$fg[$dir_color]%}$(_dir)%{$fg_bold[$git_color]%}$(git_prompt_info) %{$reset_color%}$ '
+PROMPT='%{$fg[$dir_color]%}$(_dir)%{$fg_bold[$git_color]%}$(git_prompt_info) %{$reset_color%}$ '
 PROMPT2='%{$fg[red]%}\ %{$reset_color%}'
 
 local return_status="%{$fg_bold[red]%}%(?..%?)%{$reset_color%}"
 # RPROMPT='${return_status}%{$fg_bold[black]%}$(git_prompt_info)$(git_prompt_status)%{$reset_color%}'
-RPROMPT='${return_status}%{$fg_bold[black]%}$(git_prompt_info)%{$reset_color%}'
+# RPROMPT='${return_status}%{$fg_bold[black]%}$(git_prompt_info)%{$reset_color%}'
+RPROMPT='${return_status}'
 
 ZSH_THEME_GIT_PROMPT_PREFIX=" "
 ZSH_THEME_GIT_PROMPT_SUFFIX=""
