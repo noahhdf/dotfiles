@@ -73,11 +73,11 @@ call plug#end()
 let g:black_fast = 0  " default 0
 let g:black_linelength = 79  " default 88
 " Run black on save
-autocmd BufWritePost *.py execute ':Black'
+autocmd BufWritePost *.py silent execute ':Black'
 
 "  Python support
-let g:python3_host_prog = '/home/noah/miniconda3/bin/python'
-let g:python_host_prog = '/home/noah/miniconda3/envs/Python2/bin/python'
+let g:python3_host_prog = '/home/nbiederbeck/miniconda3/bin/python'
+let g:python_host_prog = '/home/nbiederbeck/miniconda3/envs/Python2/bin/python'
 
 " Deoplete
 let g:deoplete#enable_at_startup = 1

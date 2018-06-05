@@ -22,6 +22,8 @@
     co = checkout
     br = branch
     s = status
+    p = push
+    pp = pull
 [log]
     date = default-local
 [mergetool]
