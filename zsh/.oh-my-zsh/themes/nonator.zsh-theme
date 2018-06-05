@@ -11,7 +11,7 @@ _fishy_collapsed_wd() {
 }
 
 _dir() {
-  echo $(pwd | sed 's/\/home\/noah/~/g')
+  echo $(pwd | sed 's/\/home\/[a-zA-Z0-9]*/~/g')
 }
 
 user_color='yellow'
