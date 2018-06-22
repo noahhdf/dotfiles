@@ -2,8 +2,6 @@
 export PATH=$HOME/bin:/usr/local/bin:$PATH
 export PATH=$HOME/.local/bin:$PATH
 
-# Path to your oh-my-zsh installation.
-export ZSH=/home/noah/.oh-my-zsh
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
@@ -60,9 +58,13 @@ ENABLE_CORRECTION="true"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
-  git
+git
+zsh-autosuggestions
+colored-manpages
 )
 
+# Path to your oh-my-zsh installation.
+export ZSH=/home/noah/.oh-my-zsh
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
@@ -129,3 +131,18 @@ fi
 if [[ "$SSH_AGENT_PID" == "" ]]; then
     eval "$(<~/.ssh-agent-thing)"
 fi
+
+# Activate conda automatically
+function _conda_auto_activate() {
+    if [[ $(pwd) =~ ".*(cp2018|masterpraktikum).*" ]]; then
+        ENV="base"
+        if [[ $(which python) =~ ".*conda.*" ]]; then
+        else
+            echo "Activating conda($ENV) ..."
+            conda activate $ENV
+        fi
+    fi
+}
+function chpwd() {
+    _conda_auto_activate
+}
