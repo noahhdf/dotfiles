@@ -1,10 +1,14 @@
 # vim: ft=sh
 
 # Arch, Pacman
-alias 'mirrorupdate'='echo "reflector -n 20 -p https -l 10 -c Germany --sort rate --score 5 | sudo tee /etc/pacman.d/mirrorlist" && reflector -n 20 -p https -l 10 -c Germany --sort rate --score 5 | sudo tee /etc/pacman.d/mirrorlist'
+alias 'mirrorupdate'='echo "reflector -n 20 -p https -l 10 -c Germany --sort rate --score 5 | sudo tee /etc/pacman.d/mirrorlist" && reflector -n 20 -p https -l 10 -c Germany --sort rate --score 5 | sudo -k tee /etc/pacman.d/mirrorlist'
+alias 'syu'='trizen -Syu'
+alias 'syyu'='trizen -Syyu'
 
 # Useful abbreviations
 alias 'gits'='git status -s'
+alias 'pull'='echo "git pull --all --verbose --progress" && git pull --all --verbose --progress'
+alias 'push'='echo "git push --verbose --progress" && git push --verbose --progress'
 alias 'open'='xdg-open'
 alias 'xclip'='xclip -selection c'
 alias 'cower'='cower --target ~/AUR/gits'
