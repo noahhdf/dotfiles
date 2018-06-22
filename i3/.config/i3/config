@@ -41,7 +41,7 @@ floating_modifier $mod
 
 # start a terminal
 bindsym $mod+Return exec urxvt
-bindsym $mod+Shift+Return exec ranger
+bindsym $mod+Shift+Return exec urxvt -e ranger
 # bindsym $mod+Return exec alacritty
 # bindsym $mod+Shift+Return exec alacritty
 # bindsym $mod+Shift+Return exec urxvt
@@ -55,8 +55,6 @@ mode "web" {
     bindsym shift+q exec qutebrowser, workspace $ws2, mode default
     bindsym m exec midori, mode default
     bindsym shift+m exec midori, workspace $ws2, mode default
-    bindsym s exec surf, mode default
-    bindsym shift+s exec surf, workspace $ws2, mode default
     bindsym t exec thunderbird, mode default
     bindsym shift+t exec thunderbird, workspace $ws7, mode default
     # back to normal: Enter or Escape
@@ -236,6 +234,7 @@ bar {
 # -- default borders -- #
 for_window [class=".*"] border pixel $bordersize
 for_window [workspace=$ws7 class="MuPDF"] floating enable, border normal $bordersize
+for_window [class="Surf"] border normal $bordersize
 for_window [class="Tk"] floating enable, border normal $bordersize
 for_window [class="Matplotlib"] floating enable, border normal $bordersize
 for_window [class=" "] floating enable, border pixel $bordersize
@@ -280,7 +279,6 @@ workspace $ws10 output HDMI1
 assign [class="Firefox-esr"] $ws2
 assign [class="Firefox"] $ws2
 assign [class="Midori"] $ws2
-assign [class="Surf"] $ws2
 assign [class="qutebrowser"] $ws2
 assign [class="Telegram"] $ws7
 assign [class="Thunderbird"] $ws7
@@ -339,3 +337,4 @@ mode "gaps" {
 #     bindsym Return mode "default"
 #     bindsym Escape mode "default"
 # }
+exec_always ~/miniconda3/bin/wal -f ~/.nord.json
