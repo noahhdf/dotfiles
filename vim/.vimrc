@@ -16,7 +16,6 @@ call plug#begin('~/.vim/plugged')
     Plug 'maximbaz/lightline-ale'
     Plug 'arcticicestudio/nord-vim'
     Plug 'dylanaraps/wal.vim'
-    Plug 'chriskempson/tomorrow-theme'
 
     Plug 'ervandew/supertab'
     Plug 'sirver/ultisnips'
@@ -73,7 +72,7 @@ call plug#end()
 let g:black_fast = 0  " default 0
 let g:black_linelength = 79  " default 88
 " Run black on save
-autocmd BufWritePost *.py execute ':Black'
+autocmd BufWritePost *.py silent execute ':Black'
 
 "  Python support
 let g:python3_host_prog = '/home/noah/miniconda3/bin/python'
@@ -159,8 +158,14 @@ xmap go <ESC>:Goyo<CR>
 set signcolumn=yes
 
 " markdown composer
-let g:markdown_composer_browser = '/usr/bin/qutebrowser'
+let g:markdown_composer_browser = '/usr/bin/surf'
 let g:markdown_composer_autostart = 0
+
+" better whitespace
+let g:strip_whitespace_on_save = 1
+let g:better_whitespace_enabled = 1
+let g:strip_whitelines_at_eof = 1
+let g:show_spaces_that_precede_tabs = 1
 
 
 " -------------------------     color scheme     ---------------------------- "
@@ -202,6 +207,9 @@ set expandtab
 
 set textwidth=79
 set wrap
+let &showbreak=">"
+set linebreak
+set breakindent
 " set colorcolumn=+1
 set formatoptions=qrn1
 
@@ -217,6 +225,10 @@ highlight Visual cterm=bold
 
 " -------------------------     key-remapping     --------------------------- "
 
+nnoremap <LEADER>m :Dispatch<CR>
+nnoremap <LEADER>M :Make -j<CR>
+nnoremap j gj
+nnoremap k gk
 inoremap jj <ESC>
 inoremap jk <ESC>:w<CR>
 nnoremap F :%s/
@@ -251,10 +263,13 @@ autocmd Filetype tex
 \   set softtabstop=2                                                 |
 \   set expandtab                                                     |
 \   set conceallevel=0                                                |
-\   ab zb zum Beispiel                                                |
-\   ab vll vielleicht                                                 |
+\   ab zb zum Beispiel|
+\   ab vll vielleicht|
+\   ab ** \cdot|
 \   set spelllang=de                                                  |
-\   set spell
+\   set spell |
+\   set textwidth=99 |
+\   set fo=nt1
 
 " r
 au BufNewFile,BufRead *.R set ft=r
@@ -265,7 +280,8 @@ autocmd FileType r
 " python
 autocmd Filetype python
 \   noremap <buffer> <F5> :!python %<CR>                  |
-\   noremap <buffer> <F6> :!white %<CR>                   |
+\   noremap <buffer> <F6> :Black %<CR>                   |
+\   let b:dispatch = 'python %'|
 \   autocmd BufEnter <buffer> EnableStripWhitespaceOnSave
 
 " git commit message
@@ -279,4 +295,5 @@ autocmd Filetype gitcommit
 autocmd Filetype markdown
 \   nnoremap U1 yypVr=                       |
 \   nnoremap U2 yypVr-                       |
-\   noremap <buffer> <F5> :ComposerStart<CR>
+\   noremap <buffer> <F5> :ComposerStart<CR> |
+\   set textwidth=99
