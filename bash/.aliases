@@ -2,8 +2,9 @@
 
 # Arch, Pacman
 alias 'mirrorupdate'='echo "reflector -n 20 -p https -l 10 -c Germany --sort rate --score 5 | sudo tee /etc/pacman.d/mirrorlist" && reflector -n 20 -p https -l 10 -c Germany --sort rate --score 5 | sudo -k tee /etc/pacman.d/mirrorlist'
-alias 'syu'='trizen -Syu'
-alias 'syyu'='trizen -Syyu'
+alias 'syu'='sudo -k pacman -Syu'
+alias 'ayu'='aurman -Syu'
+alias 'pbget'='pbget --dir ~/AUR/gits/ --pull'
 
 # Useful abbreviations
 alias 'gits'='git status -s'
@@ -37,6 +38,7 @@ alias 'pip-freeze'='pip freeze | sed "s/==.*//"'
 alias 'conda-freeze'='conda list | sed "s/\ .*//"'
 alias 'wal'='~/miniconda3/bin/wal'
 alias 'lab'='jupyter lab'
+alias 'black'='black -l 79'
 # alias 'conda2'='source ~/miniconda2/etc/profile.d/conda.sh'
 # alias 'conda3'='source ~/miniconda3/etc/profile.d/conda.sh'
 
@@ -65,3 +67,4 @@ alias ':q'='echo "trapped in vim? go to bed!" && sleep 3 && exit'
 # Misc
 # alias 'pdfpandoc'='pandoc -r markdown -w latex -o'
 alias 'speedtest'='time seq -f "test %g"'
+alias 'rustbook'='surf ~/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/share/doc/rust/html/book/second-edition/index.html &'

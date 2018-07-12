@@ -13,4 +13,4 @@
 
 # echo $traffic" MB"
 
-curl -s gateway.engel/traffic.php | awk '/bleiben noch/ {print $42" MB"}'
+curl -s gateway.engel/traffic.php | awk '/bleiben noch/ {print $36" MB"}'

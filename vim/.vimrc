@@ -23,7 +23,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'Shougo/deoplete.nvim', {'do': ':UpdateRemotePlugins'}
     " Plug 'zchee/deoplete-jedi', {'for': 'python'}
     Plug 'w0rp/ale'
-    Plug 'ambv/black'
+    Plug 'ambv/black', {'for': 'python'}
 
     Plug 'lervag/vimtex', {'for': 'tex'}
 
@@ -72,7 +72,7 @@ call plug#end()
 let g:black_fast = 0  " default 0
 let g:black_linelength = 79  " default 88
 " Run black on save
-autocmd BufWritePost *.py silent execute ':Black'
+" autocmd BufWritePost *.py silent execute ':Black'
 
 "  Python support
 let g:python3_host_prog = '/home/noah/miniconda3/bin/python'
@@ -280,9 +280,8 @@ autocmd FileType r
 " python
 autocmd Filetype python
 \   noremap <buffer> <F5> :!python %<CR>                  |
-\   noremap <buffer> <F6> :Black %<CR>                   |
-\   let b:dispatch = 'python %'|
-\   autocmd BufEnter <buffer> EnableStripWhitespaceOnSave
+\   noremap <buffer> <F6> :silent !black %<CR>                   |
+\   let b:dispatch = 'python %'
 
 " git commit message
 autocmd Filetype gitcommit
@@ -297,3 +296,7 @@ autocmd Filetype markdown
 \   nnoremap U2 yypVr-                       |
 \   noremap <buffer> <F5> :ComposerStart<CR> |
 \   set textwidth=99
+
+" rust
+autocmd Filetype rust
+\   let b:dispatch = 'cargo run'

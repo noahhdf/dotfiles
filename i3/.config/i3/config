@@ -40,7 +40,8 @@ font pango:SourceCodePro $fontsize
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec urxvt
+bindsym $mod+Return exec urxvt -e tmux
+bindsym $mod+Ctrl+Return exec urxvt -e "tmux a"
 bindsym $mod+Shift+Return exec urxvt -e ranger
 # bindsym $mod+Return exec alacritty
 # bindsym $mod+Shift+Return exec alacritty
