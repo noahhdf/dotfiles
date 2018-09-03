@@ -20,7 +20,7 @@ set_from_resource $white .color7
 set_from_resource $boldwhite .color15
 
 workspace_layout tabbed # default|stacking|tabbed
-focus_follows_mouse false # true|false
+focus_follows_mouse true # true|false
 
 # -- variables -- #
 set $mod Mod1
@@ -39,13 +39,18 @@ font pango:SourceCodePro $fontsize
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
+# save eyes
+bindsym $mod+Ctrl+r exec redshift -o
+bindsym $mod+c exec autorandr -c && feh --bg-fill ~/Pictures/background
+
 # start a terminal
-bindsym $mod+Return exec urxvt -e tmux
-bindsym $mod+Ctrl+Return exec urxvt -e "tmux a"
-bindsym $mod+Shift+Return exec urxvt -e ranger
-# bindsym $mod+Return exec alacritty
-# bindsym $mod+Shift+Return exec alacritty
-# bindsym $mod+Shift+Return exec urxvt
+
+# bindsym $mod+Return exec urxvt -e tmux
+# bindsym $mod+Ctrl+Return exec urxvt -e "tmux a"
+# bindsym $mod+Shift+Return exec urxvt -e nnn
+
+bindsym $mod+Return exec alacritty
+bindsym $mod+Shift+Return exec urxvt -e nnn
 
 # start a webbrowser
 bindsym $mod+shift+w mode "web"
@@ -56,6 +61,8 @@ mode "web" {
     bindsym shift+q exec qutebrowser, workspace $ws2, mode default
     bindsym m exec midori, mode default
     bindsym shift+m exec midori, workspace $ws2, mode default
+    bindsym s exec surf -i ddg.gg/lite, mode default
+    bindsym shift+s exec surf -i ddg.gg/lite, workspace $ws2, mode default
     bindsym t exec thunderbird, mode default
     bindsym shift+t exec thunderbird, workspace $ws7, mode default
     # back to normal: Enter or Escape
@@ -339,3 +346,4 @@ mode "gaps" {
 #     bindsym Escape mode "default"
 # }
 exec_always ~/miniconda3/bin/wal -f ~/.nord.json
+exec_always unclutter --jitter 6 --timeout 3 --ignore-scrolling -b

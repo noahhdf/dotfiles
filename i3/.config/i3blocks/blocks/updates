@@ -1,10 +1,10 @@
-#!/bin/sh
+#!/bin/bash
 AUR_UPDATES=$(cower -u | awk 'END {print NR}')
 ARCH_UPDATES=$(checkupdates | awk 'END {print NR}')
 
 UPDATES=$(echo $ARCH_UPDATES+$AUR_UPDATES | bc)
 
 case $UPDATES in
-    0) ;;
-    *) echo "Updates: $ARCH_UPDATES ARCH, $AUR_UPDATES AUR"
+    [5-9][0-9]) echo " $ARCH_UPDATES+$AUR_UPDATES" ;;
+    *) ;;
 esac

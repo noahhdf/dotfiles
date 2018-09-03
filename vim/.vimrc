@@ -16,6 +16,8 @@ call plug#begin('~/.vim/plugged')
     Plug 'maximbaz/lightline-ale'
     Plug 'arcticicestudio/nord-vim'
     Plug 'dylanaraps/wal.vim'
+    Plug 'morhetz/gruvbox'
+    Plug 'kien/rainbow_parentheses.vim'
 
     Plug 'ervandew/supertab'
     Plug 'sirver/ultisnips'
@@ -51,6 +53,10 @@ call plug#begin('~/.vim/plugged')
     Plug 'rust-lang/rust.vim', {'for': 'rust'}
     Plug 'cespare/vim-toml', {'for': 'toml'}
 
+    Plug 'plasticboy/vim-markdown'
+
+    " Plug 'szymonmaszke/vimpyter'
+
 " Vim-markdown
 function! BuildComposer(info)
   if a:info.status != 'unchanged' || a:info.force
@@ -67,6 +73,12 @@ call plug#end()
 
 
 " -------------------------     plugins     --------------------------------- "
+
+" RainbowParantheses
+au VimEnter * RainbowParenthesesToggle
+au Syntax * RainbowParenthesesLoadRound
+au Syntax * RainbowParenthesesLoadSquare
+au Syntax * RainbowParenthesesLoadBraces
 
 " Black
 let g:black_fast = 0  " default 0
@@ -129,18 +141,29 @@ map <Leader>\ <plug>NERDTreeTabsToggle<CR>
 
 " ale
 let g:ale_sign_error = '>>'
-let g:ale_sign_warning = '>>'
+let g:ale_sign_warning = '--'
+let g:ale_sign_column_always = 1
 let g:airline#extensions#ale#enabled = 1
 let g:ale_lint_on_text_changed = 'normal' " 'normal'/'never'
 let g:ale_lint_on_enter = 1
 let g:ale_lint_on_save = 1
-nmap ]a <ESC>:ALENext<CR>
-nmap [a <ESC>:ALEPrevious<CR>
-xmap ]a <ESC>:ALENext<CR>
-xmap [a <ESC>:ALEPrevious<CR>
+let g:ale_fix_on_save = 1
+nmap ]a <ESC>:ALENextWrap<CR>
+nmap [a <ESC>:ALEPreviousWrap<CR>
+xmap ]a <ESC>:ALENextWrap<CR>
+xmap [a <ESC>:ALEPreviousWrap<CR>
 let g:ale_linters = {
-\    'python': ['pycodestyle'],
+\    'python': ['flake8'],
 \}
+let g:ale_python_flake8_options = '--select=N,F,H,D,R, --ignore=D100'
+let g:ale_fixers = {'python': ['black']}
+let g:ale_linters_explicit = 1
+let g:ale_set_loclist = 1
+let g:ale_set_quickfix = 0
+let g:ale_echo_msg_info_str = "I"
+let g:ale_echo_msg_warning_str = "W"
+let g:ale_echo_msg_error_str = "E"
+let g:ale_echo_msg_format = '[%linter%, %severity%] %s'
 
 " easyalign
 nmap ga <Plug>(EasyAlign)
@@ -223,14 +246,24 @@ highlight SpellBad ctermfg=red cterm=bold ctermbg=none
 highlight Visual cterm=bold
 
 
+" -------------------------  advanced vim stuff     ------------------------- "
+function! ReMake()
+  if &mod == 1
+    :w
+    :Dispatch
+  else
+    :Dispatch
+  endif
+endfunction
+
+
 " -------------------------     key-remapping     --------------------------- "
 
-nnoremap <LEADER>m :Dispatch<CR>
-nnoremap <LEADER>M :Make -j<CR>
+nnoremap <LEADER>m :call ReMake()<CR>
 nnoremap j gj
 nnoremap k gk
-inoremap jj <ESC>
-inoremap jk <ESC>:w<CR>
+inoremap jk <ESC>
+inoremap jjk <ESC>:w<CR>
 nnoremap F :%s/
 nnoremap f /
 vnoremap n <ESC>

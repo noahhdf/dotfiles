@@ -146,3 +146,5 @@ function _conda_auto_activate() {
 function chpwd() {
     _conda_auto_activate
 }
+source "$HOME/.vim/plugged/gruvbox/gruvbox_256palette.sh"
+cat ~/.cache/wal/sequences
