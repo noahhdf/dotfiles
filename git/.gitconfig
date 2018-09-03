@@ -2,8 +2,8 @@
 [core]
 	editor = nvim
 [user]
-	name = Noah Biederbeck
-	email = noah.biederbeck@udo.edu
+	name = "Noah Biederbeck"
+	email = "n.biederbeck@protonmail.ch"
 [pull]
 	rebase = true
 [merge]
