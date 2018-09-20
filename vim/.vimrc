@@ -75,8 +75,8 @@ let g:black_linelength = 79  " default 88
 " autocmd BufWritePost *.py silent execute ':Black'
 
 "  Python support
-let g:python3_host_prog = '/home/noah/miniconda3/bin/python'
-let g:python_host_prog = '/home/noah/miniconda3/envs/Python2/bin/python'
+" let g:python3_host_prog = '/home/noah/miniconda3/bin/python'
+" let g:python_host_prog = '/home/noah/miniconda3/envs/Python2/bin/python'
 
 " Deoplete
 let g:deoplete#enable_at_startup = 1

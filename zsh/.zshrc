@@ -6,7 +6,7 @@ export PATH=$HOME/.local/bin:$PATH
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="nonator"
+# ZSH_THEME="nonator"
 
 # Set list of themes to load
 # Setting this variable when ZSH_THEME=random
@@ -58,14 +58,14 @@ ENABLE_CORRECTION="true"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
-git
-zsh-autosuggestions
-colored-manpages
+    git
+    zsh-autosuggestions
+    colored-manpages
 )
 
 # Path to your oh-my-zsh installation.
-export ZSH=/home/noah/.oh-my-zsh
-source $ZSH/oh-my-zsh.sh
+# export ZSH=/home/noah/.oh-my-zsh
+# source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
@@ -98,7 +98,7 @@ source $ZSH/oh-my-zsh.sh
 source ~/.aliases
 
 # Conda
-source ~/miniconda3/etc/profile.d/conda.sh
+# source ~/miniconda3/etc/profile.d/conda.sh
 
 # Wal
 cat ~/.cache/wal/sequences
@@ -146,3 +146,16 @@ function _conda_auto_activate() {
 function chpwd() {
     _conda_auto_activate
 }
+
+parse_git_branch() {
+    git branch 2> /dev/null | awk '/^\*/ {print " "$2}'
+}
+
+parse_git_modified_number() {
+    git status --short 2> /dev/null | awk 'END {print ": "NR}' | sed 's/: 0//'
+}
+
+PROMPT="$(pwd)$(parse_git_branch)$(parse_git_modified_number)
+$ "
+PROMPT2=''
+RPROMPT=''

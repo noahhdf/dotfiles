@@ -68,3 +68,5 @@ alias ':q'='echo "trapped in vim? go to bed!" && sleep 3 && exit'
 # alias 'pdfpandoc'='pandoc -r markdown -w latex -o'
 alias 'speedtest'='time seq -f "test %g"'
 alias 'rustbook'='surf ~/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/share/doc/rust/html/book/second-edition/index.html &'
+
+alias 'base'='source ~/venv/base/bin/activate'
