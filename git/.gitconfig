@@ -24,3 +24,5 @@
     s = status
 [log]
     date = default-local
+[diff]
+	tool = vimdiff
