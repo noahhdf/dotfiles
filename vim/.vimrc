@@ -333,3 +333,7 @@ autocmd Filetype markdown
 " rust
 autocmd Filetype rust
 \   let b:dispatch = 'cargo run'
+
+" html
+autocmd Filetype html
+\ set shiftwidth=2
