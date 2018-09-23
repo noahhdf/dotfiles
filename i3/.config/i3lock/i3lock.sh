@@ -6,5 +6,5 @@ xidlehook \
                 'locking in 5s'" \
     --canceller "notify-send --urgency=low --expire-time=5000 \
                 'lock cancelled'" \
-    --timer "betterlockscreen -l dimblur" \
-    --time 2
+    --timer "slock" \
+    --time 1
