@@ -1,0 +1,27 @@
+set folder    = "imaps://imap.gmx.net/"
+set imap_user = "n.biederbeck@gmx.de"
+set spoolfile = +INBOX
+mailboxes     = +INBOX
+
+set header_cache   = ~/.cache/mutt
+set postponed      = +[GMX]/Drafts
+unset imap_passive
+set imap_keepalive = 300
+set mail_check     = 120
+
+set record = +Sent
+
+set my_name       = "Noah Biederbeck"
+set sendmail      = /usr/bin/msmtp
+set use_from      = yes
+set realname      = "Noah Biederbeck"
+set from          = "n.biederbeck@gmx.de"
+set envelope_from = yes
+
+set smtp_pass
+set smtp_url      = "smtps://$imap_user:$smtp_pass@mail.gmx.net"
+set ssl_force_tls = yes
+set ssl_starttls  = yes
+
+# bind browser G imap-fetch-mail
+# set browser=w3m
