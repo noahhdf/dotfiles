@@ -26,8 +26,6 @@ alias '....'='cd ../../..'
 alias 'ls'='ls -h --color="always"'
 alias 'll'='ls -al'
 alias 'la'='ls -a'
-alias 'ls'='exa'
-alias 'll'='exa -l'
 # alias 'make'='time make'
 # alias 'python'='time python'
 
@@ -73,3 +71,4 @@ alias 'rustbook'='surf ~/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/shar
 
 alias 'mem'='ps -eo cmd,%mem,%cpu --sort=-%mem | head'
 alias 'cpu'='ps -eo cmd,%mem,%cpu --sort=-%cpu | head'
+alias "shutdown"="bash ~/backuplist.sh && shutdown now"
