@@ -10,8 +10,6 @@ endif
 
 " -------------------------     plug     ------------------------------------ "
 call plug#begin('~/.vim/plugged')
-    " Plug 'vim-airline/vim-airline'
-    " Plug 'vim-airline/vim-airline-themes'
     Plug 'itchyny/lightline.vim'
     Plug 'maximbaz/lightline-ale'
     Plug 'arcticicestudio/nord-vim'
@@ -21,9 +19,8 @@ call plug#begin('~/.vim/plugged')
     Plug 'sirver/ultisnips'
     Plug 'honza/vim-snippets'
     Plug 'Shougo/deoplete.nvim', {'do': ':UpdateRemotePlugins'}
-    " Plug 'zchee/deoplete-jedi', {'for': 'python'}
+    Plug 'zchee/deoplete-jedi', {'for': 'python'}
     Plug 'w0rp/ale'
-    Plug 'ambv/black', {'for': 'python'}
 
     Plug 'lervag/vimtex', {'for': 'tex'}
 
@@ -40,9 +37,6 @@ call plug#begin('~/.vim/plugged')
     Plug 'tpope/vim-commentary'
     Plug 'tpope/vim-dispatch'
 
-    " Plug 'junegunn/goyo.vim'
-    " Plug 'junegunn/limelight.vim'
-
     Plug 'ntpeters/vim-better-whitespace'
 
     Plug 'kshenoy/vim-signature'
@@ -50,29 +44,10 @@ call plug#begin('~/.vim/plugged')
 
     Plug 'rust-lang/rust.vim', {'for': 'rust'}
     Plug 'cespare/vim-toml', {'for': 'toml'}
-
-" Vim-markdown
-function! BuildComposer(info)
-  if a:info.status != 'unchanged' || a:info.force
-    if has('nvim')
-      !cargo build --release
-    else
-      !cargo build --release --no-default-features --features json-rpc
-    endif
-  endif
-endfunction
-
-    Plug 'euclio/vim-markdown-composer', {'do': function('BuildComposer')}
 call plug#end()
 
 
 " -------------------------     plugins     --------------------------------- "
-
-" Black
-let g:black_fast = 0  " default 0
-let g:black_linelength = 79  " default 88
-" Run black on save
-" autocmd BufWritePost *.py silent execute ':Black'
 
 "  Python support
 " let g:python3_host_prog = '/home/noah/miniconda3/bin/python'
