@@ -14,6 +14,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'maximbaz/lightline-ale'
     Plug 'arcticicestudio/nord-vim'
     Plug 'dylanaraps/wal.vim'
+    Plug 'kien/rainbow_parentheses.vim'
 
     Plug 'ervandew/supertab'
     Plug 'sirver/ultisnips'
@@ -48,6 +49,13 @@ call plug#end()
 
 
 " -------------------------     plugins     --------------------------------- "
+
+
+" RainbowParantheses
+au VimEnter * RainbowParenthesesToggle
+au Syntax * RainbowParenthesesLoadRound
+au Syntax * RainbowParenthesesLoadSquare
+au Syntax * RainbowParenthesesLoadBraces
 
 "  Python support
 " let g:python3_host_prog = '/home/noah/miniconda3/bin/python'
@@ -104,18 +112,29 @@ map <Leader>\ <plug>NERDTreeTabsToggle<CR>
 
 " ale
 let g:ale_sign_error = '>>'
-let g:ale_sign_warning = '>>'
+let g:ale_sign_warning = '--'
+let g:ale_sign_column_always = 1
 let g:airline#extensions#ale#enabled = 1
 let g:ale_lint_on_text_changed = 'normal' " 'normal'/'never'
 let g:ale_lint_on_enter = 1
 let g:ale_lint_on_save = 1
-nmap ]a <ESC>:ALENext<CR>
-nmap [a <ESC>:ALEPrevious<CR>
-xmap ]a <ESC>:ALENext<CR>
-xmap [a <ESC>:ALEPrevious<CR>
+let g:ale_fix_on_save = 1
+nmap ]a <ESC>:ALENextWrap<CR>
+nmap [a <ESC>:ALEPreviousWrap<CR>
+xmap ]a <ESC>:ALENextWrap<CR>
+xmap [a <ESC>:ALEPreviousWrap<CR>
 let g:ale_linters = {
-\    'python': ['pycodestyle'],
+\    'python': ['flake8'],
 \}
+let g:ale_python_flake8_options = '--select=N,F,H,D,R, --ignore=D100'
+let g:ale_fixers = {'python': ['black']}
+let g:ale_linters_explicit = 1
+let g:ale_set_loclist = 1
+let g:ale_set_quickfix = 0
+let g:ale_echo_msg_info_str = "I"
+let g:ale_echo_msg_warning_str = "W"
+let g:ale_echo_msg_error_str = "E"
+let g:ale_echo_msg_format = '[%linter%, %severity%] %s'
 
 " easyalign
 nmap ga <Plug>(EasyAlign)
@@ -198,14 +217,24 @@ highlight SpellBad ctermfg=red cterm=bold ctermbg=none
 highlight Visual cterm=bold
 
 
+" -------------------------  advanced vim stuff     ------------------------- "
+function! ReMake()
+  if &mod == 1
+    :w
+    :Dispatch
+  else
+    :Dispatch
+  endif
+endfunction
+
+
 " -------------------------     key-remapping     --------------------------- "
 
-nnoremap <LEADER>m :Dispatch<CR>
-nnoremap <LEADER>M :Make -j<CR>
+nnoremap <LEADER>m :call ReMake()<CR>
 nnoremap j gj
 nnoremap k gk
-inoremap jj <ESC>
-inoremap jk <ESC>:w<CR>
+inoremap jk <ESC>
+inoremap jjk <ESC>:w<CR>
 nnoremap F :%s/
 nnoremap f /
 vnoremap n <ESC>
@@ -275,3 +304,7 @@ autocmd Filetype markdown
 " rust
 autocmd Filetype rust
 \   let b:dispatch = 'cargo run'
+
+" html
+autocmd Filetype html
+\ set shiftwidth=2
