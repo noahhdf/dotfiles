@@ -1,6 +1,6 @@
 #!/bin/bash
 # vim: ft=sh
-DRPBX_CMD="dropbox-cli"
+DRPBX_CMD="dropbox"
 source ~/.cache/wal/colors.sh
 d=$("$DRPBX_CMD" status)
 
