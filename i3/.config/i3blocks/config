@@ -9,6 +9,10 @@ command=~/.config/i3blocks/blocks/$BLOCK_NAME
 separator_block_width="|"
 markup=pango
 
+[backlight]
+command=xbacklight
+interval=1
+
 [traffic]
 interval=60
 
@@ -19,7 +23,7 @@ interval=3600
 # command=dropbox-cli status
 interval=10
 
-[free]
+[memory]
 interval=1
 
 [cpu_usage]
@@ -38,7 +42,7 @@ interval=60
 interval=10
 full_text=No Connection
 
-[battery]
+[unused/battery]
 interval=1
 
 [time]
