@@ -78,7 +78,7 @@ font:
     # style: Italic
 
   # Point size of the font
-  size: 11.0
+  size: 8.0
 
   # Offset is the extra space around each character. offset.y can be thought of
   # as modifying the linespacing, and offset.x as modifying the letter spacing.
@@ -214,7 +214,7 @@ mouse:
   # scrolling for applications like `man`.
   #
   # To disable this completely, set `faux_scrollback_lines` to 0.
-  faux_scrollback_lines: 1
+  faux_scrolling_lines: 1
 
 selection:
   semantic_escape_chars: ",│`|:\"' ()[]{}<>"
