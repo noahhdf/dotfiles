@@ -70,3 +70,5 @@ alias 'speedtest'='time seq -f "test %g"'
 alias 'rustbook'='surf ~/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/share/doc/rust/html/book/second-edition/index.html &'
 
 alias 'base'='source ~/venv/base/bin/activate'
+
+alias "listgit"="fd '\.git$' -HI -t d -E .vim -E .cache -E .oh-my-zsh -E .cargo"
