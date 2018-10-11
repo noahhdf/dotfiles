@@ -1,10 +1,17 @@
 #!/bin/sh
-AUR_UPDATES=$(cower -u | awk 'END {print NR}')
-ARCH_UPDATES=$(checkupdates | awk 'END {print NR}')
+#AUR_UPDATES=$(cower -u | awk 'END {print NR}')
+#ARCH_UPDATES=$(checkupdates | awk 'END {print NR}')
 
-UPDATES=$(echo $ARCH_UPDATES+$AUR_UPDATES | bc)
+#UPDATES=$(echo $ARCH_UPDATES+$AUR_UPDATES | bc)
 
-case $UPDATES in
+#case $UPDATES in
+#    0) ;;
+#    *) echo "Updates: $ARCH_UPDATES ARCH, $AUR_UPDATES AUR"
+#esac
+
+UPD=$(yay -Qu | wc -l)
+case $UPD in
     0) ;;
-    *) echo "Updates: $ARCH_UPDATES ARCH, $AUR_UPDATES AUR"
+    [0-9]*) echo "$UPD Updates" ;;
+    *) echo "can't connect to arch mirrors"
 esac
