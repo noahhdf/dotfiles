@@ -40,12 +40,11 @@ font pango:SourceCodePro $fontsize
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec urxvt -e tmux
-bindsym $mod+Ctrl+Return exec urxvt -e "tmux a"
-bindsym $mod+Shift+Return exec urxvt -e ranger
-# bindsym $mod+Return exec alacritty
-# bindsym $mod+Shift+Return exec alacritty
-# bindsym $mod+Shift+Return exec urxvt
+# bindsym $mod+Return exec urxvt -e tmux
+# bindsym $mod+Ctrl+Return exec urxvt -e "tmux a"
+# bindsym $mod+Shift+Return exec urxvt -e ranger
+bindsym $mod+Return exec alacritty
+bindsym $mod+Shift+Return exec alacritty
 
 # start a webbrowser
 bindsym $mod+shift+w mode "web"
@@ -194,6 +193,15 @@ hide_edge_borders smart # none|vertical|horizontal|both|smart
 
 bindsym $mod+Tab workspace back_and_forth
 
+# MultiMediaKeys
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5%
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5%
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle
+
+# Screen Brightness
+bindsym XF86MonBrightnessUp exec xbacklight -inc 10
+bindsym XF86MonBrightnessDown exec xbacklight -dec 10
+
 #  -- color windows --  #
 #                       #border    #background #text      #indicator
 client.focused          $boldwhite $boldwhite  $black     $red
@@ -338,4 +346,4 @@ mode "gaps" {
 #     bindsym Return mode "default"
 #     bindsym Escape mode "default"
 # }
-exec_always ~/miniconda3/bin/wal -f ~/.nord.json
+exec_always ~/*conda3/bin/wal -f ~/.nord.json
