@@ -1,19 +1,22 @@
 # If you come from bash you might have to change your $PATH.
 export PATH=$HOME/bin:/usr/local/bin:$PATH
 export PATH=$HOME/.local/bin:$PATH
+#
+# Path to your oh-my-zsh installation.
+export ZSH="/home/noah/.oh-my-zsh"
 
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-# ZSH_THEME="nonator"
+ZSH_THEME="agnoster"
 
 # Set list of themes to load
 # Setting this variable when ZSH_THEME=random
 # cause zsh load theme from this variable instead of
 # looking in ~/.oh-my-zsh/themes/
 # An empty array have no effect
-# ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
+ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -63,9 +66,7 @@ plugins=(
     colored-manpages
 )
 
-# Path to your oh-my-zsh installation.
-# export ZSH=/home/noah/.oh-my-zsh
-# source $ZSH/oh-my-zsh.sh
+source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
@@ -98,7 +99,7 @@ plugins=(
 source ~/.aliases
 
 # Conda
-# source ~/miniconda3/etc/profile.d/conda.sh
+source ~/*conda3/etc/profile.d/conda.sh
 
 # Wal
 cat ~/.cache/wal/sequences
@@ -116,7 +117,7 @@ export BETTER_EXCEPTIONS=1
 export PATH=$HOME/.cargo/bin:$PATH
 
 # Ruby
-export PATH=$(ruby -e "puts Gem.user_dir")/bin:$PATH
+# export PATH=$(ruby -e "puts Gem.user_dir")/bin:$PATH
 
 # Vega & Vega-lite
 export PATH=$HOME/Git/vega/bin:$HOME/Git/vega-lite/bin:$PATH
@@ -129,7 +130,7 @@ if ! pgrep -u "$USER" ssh-agent > /dev/null; then
     ssh-agent > ~/.ssh-agent-thing
 fi
 if [[ "$SSH_AGENT_PID" == "" ]]; then
-    eval "$(<~/.ssh-agent-thing)"
+    eval "$(<~/.ssh-agent-thing)" > /dev/null
 fi
 
 # Activate conda automatically
@@ -147,15 +148,16 @@ function chpwd() {
     _conda_auto_activate
 }
 
-parse_git_branch() {
-    git branch 2> /dev/null | awk '/^\*/ {print " "$2}'
-}
+# parse_git_branch() {
+#     git branch 2> /dev/null | awk '/^\*/ {print " "$2}'
+# }
 
-parse_git_modified_number() {
-    git status --short 2> /dev/null | awk 'END {print ": "NR}' | sed 's/: 0//'
-}
+# parse_git_modified_number() {
+#     git status --short 2> /dev/null | awk 'END {print ": "NR}' | sed 's/: 0//'
+# }
 
-PROMPT="$(pwd)$(parse_git_branch)$(parse_git_modified_number)
-$ "
-PROMPT2=''
-RPROMPT=''
+# PROMPT="$(pwd)$(parse_git_branch)$(parse_git_modified_number)
+# $ "
+# PROMPT2=''
+# RPROMPT=''
+DEFAULT_USER="noah"
