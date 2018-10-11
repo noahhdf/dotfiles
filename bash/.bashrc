@@ -119,7 +119,7 @@ fi
 
 . ~/.bash_profile
 
-. ~/miniconda3/etc/profile.d/conda.sh
+. ~/anaconda3/etc/profile.d/conda.sh
 cat ~/.cache/wal/sequences
 
 export PATH="/home/linuxbrew/.linuxbrew/bin:$PATH"
