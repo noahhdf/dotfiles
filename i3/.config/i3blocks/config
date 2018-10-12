@@ -42,7 +42,7 @@ interval=60
 interval=10
 full_text=No Connection
 
-[unused/battery]
+[battery]
 interval=1
 
 [time]
