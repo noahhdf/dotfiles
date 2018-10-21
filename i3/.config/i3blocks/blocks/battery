@@ -1,7 +1,7 @@
 #!/bin/bash
 source $HOME/.cache/wal/colors.sh
 
-BATSTAT=$(acpi | sed 's/,//g; s/Charging/chr/; s/Discharging/dis/; s/Unknown//; s/:[0-9]* / /g' | awk '{print $4" "$3" ("$5")"}')
+BATSTAT=$(acpi | sed 's/,//g; s/Charging/++/; s/Discharging/dis/; s/Unknown//; s/:[0-9]* / /g' | awk '{print $4" "$3" ("$5")"}')
 STAT=$(echo $BATSTAT | awk '{print $2}')
 PERC=$(echo $BATSTAT | grep '^[0-9]*' -o)
 
