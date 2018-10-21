@@ -19,9 +19,9 @@ interval=60
 [updates]
 interval=3600
 
-[dropbox]
-# command=dropbox-cli status
-interval=10
+# [dropbox]
+# # command=dropbox-cli status
+# interval=10
 
 [memory]
 interval=1
