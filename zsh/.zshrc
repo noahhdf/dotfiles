@@ -135,11 +135,13 @@ fi
 
 # Activate conda automatically
 function _conda_auto_activate() {
-    if [[ $(pwd) =~ ".*(cp2018|masterpraktikum).*" ]]; then
-        ENV="base"
-        if [[ $(which python) =~ ".*conda.*" ]]; then
-        else
-            echo "Activating conda($ENV) ..."
+    case $(pwd) in
+        *praktikum*) ENV="base" ;;
+        *thesis*)    ENV="cta"  ;;
+        *)           ENV="none" ;;
+    esac
+    if [[ $ENV != "none" ]]; then
+        if ! [[ $(which python) =~ ".*conda.*" ]]; then
             conda activate $ENV
         fi
     fi
@@ -148,16 +150,4 @@ function chpwd() {
     _conda_auto_activate
 }
 
-# parse_git_branch() {
-#     git branch 2> /dev/null | awk '/^\*/ {print " "$2}'
-# }
-
-# parse_git_modified_number() {
-#     git status --short 2> /dev/null | awk 'END {print ": "NR}' | sed 's/: 0//'
-# }
-
-# PROMPT="$(pwd)$(parse_git_branch)$(parse_git_modified_number)
-# $ "
-# PROMPT2=''
-# RPROMPT=''
 DEFAULT_USER="noah"
