@@ -24,6 +24,10 @@ call plug#begin('~/.vim/plugged')
     Plug 'w0rp/ale'
 
     Plug 'lervag/vimtex', {'for': 'tex'}
+    Plug '907th/vim-auto-save'
+        let g:auto_save_events = ['InsertLeave', 'TextChanged']
+        autocmd Filetype tex let g:auto_save = 1
+        autocmd Filetype tex let g:auto_save_silent = 1
 
     Plug 'scrooloose/nerdtree'
     Plug 'jistr/vim-nerdtree-tabs'
@@ -65,10 +69,13 @@ au Syntax * RainbowParenthesesLoadBraces
 let g:deoplete#enable_at_startup = 1
 
 " vimtex
+let g:vimtex_view_mode='zathura'
 let g:vimtex_compiler_latexmk = {'build_dir': 'build'}
 " let g:vimtex_compiler_latexrun = {'options': ['--bibtex-cmd biber']}
-let g:vimtex_fold_enabled = 1
+let g:vimtex_fold_enabled = 0
 let g:vimtex_view_automatic = 1
+let g:tex_flavor='latex'
+let g:vimtex_quickfix_mode=0
 
 " lightline / airline
 set laststatus=2
@@ -272,8 +279,9 @@ autocmd Filetype tex
 \   ab ** \cdot|
 \   set spelllang=de                                                  |
 \   set spell |
-\   set textwidth=99 |
-\   set fo=nt1
+\   set fo=nt1|
+\   let g:tex_conceal="amg"|
+\   set cole=2
 
 " r
 au BufNewFile,BufRead *.R set ft=r
