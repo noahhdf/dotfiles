@@ -3,13 +3,14 @@ rofi.modi:                           run,ssh,window
 ! rofi.width:                          42
 rofi.lines:                          5
 rofi.columns:                        1
-rofi.font:                           SourceCodeProD 12
+rofi.font:                           SourceCodePro 12
+
 
 rofi.color-enabled: true
-! rofi.color-window: #2a2e32, #cfcfc2, #232629
-! rofi.color-normal: #232629, #cfcfc2, #232629, #cfcfc2, #232629
-! rofi.color-active: #232629, #218058, #232629, #218058, #232629
-! rofi.color-urgent: #232629, #c0392b, #232629, #c0392b, #232629
+rofi.color-window: #2a2e32, #cfcfc2, #232629
+rofi.color-normal: #232629, #cfcfc2, #232629, #cfcfc2, #232629
+rofi.color-active: #232629, #218058, #232629, #218058, #232629
+rofi.color-urgent: #232629, #c0392b, #232629, #c0392b, #232629
 
 ! rofi.bw:                             0
 ! rofi.location:                       5
