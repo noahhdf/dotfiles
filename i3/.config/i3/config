@@ -38,6 +38,8 @@ font pango:SourceCodePro $fontsize
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
+floating_minimum_size 24x80
+floating_maximum_size -1x-1
 
 # start a terminal
 # bindsym $mod+Return exec urxvt -e tmux
@@ -71,6 +73,7 @@ bindsym $mod+d exec --no-startup-id dmenu_run -nb "$fullblack" -nf "$boldblack" 
 
 # start rofi
 bindsym $mod+space exec rofi -show run
+bindsym $mod+Shift+Tab exec rofi -show window
 
 # change focus
 bindsym $mod+h focus left
@@ -164,7 +167,8 @@ bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
 # lock i3
-bindsym $mod+Shift+e exec betterlockscreen -l dim
+# bindsym $mod+Shift+e exec betterlockscreen -l dim
+bindsym $mod+Shift+e exec bash ~/.config/i3lock/locking.sh
 # exit i3 (logs you out of your X session)
 # bindsym $mod+Shift+Delete exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 bindsym $mod+Ctrl+Delete exec ~/.config/i3blocks/blocks/shutdown_menu -c
@@ -202,6 +206,9 @@ bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle
 bindsym XF86MonBrightnessUp exec xbacklight -inc 10
 bindsym XF86MonBrightnessDown exec xbacklight -dec 10
 
+# Display / Beamer Settings
+bindsym XF86Display exec xbacklight -set $(cat ~/.cache/xbacklight/xbacklight) & autorandr --change && feh --bg-fill ~/Pictures/background
+
 #  -- color windows --  #
 #                       #border    #background #text      #indicator
 client.focused          $boldwhite $boldwhite  $black     $red
@@ -215,7 +222,7 @@ bar {
     status_command i3blocks
     # output edp-1
     # output hmdi-1
-    tray_output edp-1
+    tray_output eDP1
     tray_padding 0
     font                pango:SourceCodePro $fontsize
     colors {
@@ -274,11 +281,11 @@ workspace $ws3 output eDP1
 workspace $ws5 output eDP1
 workspace $ws7 output eDP1
 workspace $ws9 output eDP1
-workspace $ws2 output HDMI1
-workspace $ws4 output HDMI1
-workspace $ws6 output HDMI1
-workspace $ws8 output HDMI1
-workspace $ws10 output HDMI1
+workspace $ws2 output DP1
+workspace $ws4 output DP1
+workspace $ws6 output DP1
+workspace $ws8 output DP1
+workspace $ws10 output DP1
 
 #  -- bind programs to workspaces --  #
 # 1) run `xprop`
