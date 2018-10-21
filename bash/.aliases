@@ -36,7 +36,8 @@ alias 'la'='ls -a'
 alias 'pip-upgrade'='echo "pip install -U pip && pip install -U \$(pip freeze | sed \"s/==.*//\")" && pip install -U pip && pip install -U $(pip freeze | sed "s/==.*//")'
 alias 'pip-freeze'='pip freeze | sed "s/==.*//"'
 alias 'conda-freeze'='conda list | sed "s/\ .*//"'
-alias 'wal'='~/miniconda3/bin/wal'
+alias 'deactivate'='conda deactivate'
+alias 'wal'='~/*conda3/bin/wal'
 alias 'lab'='jupyter lab'
 alias 'black'='black -l 79'
 # alias 'conda2'='source ~/miniconda2/etc/profile.d/conda.sh'
@@ -72,3 +73,5 @@ alias 'rustbook'='surf ~/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/shar
 alias 'base'='source ~/venv/base/bin/activate'
 
 alias "listgit"="fd '\.git$' -HI -t d -E .vim -E .cache -E .oh-my-zsh -E .cargo"
+
+alias "cpu"="ps -e --user noah --format 'cmd pid %mem %cpu' --sort -%cpu,-%mem | head"
