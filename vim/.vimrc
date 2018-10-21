@@ -222,6 +222,7 @@ set cursorline
 " highlight CursorLine cterm=underline ctermbg=none ctermfg=none
 highlight SpellBad ctermfg=red cterm=bold ctermbg=none
 highlight Visual cterm=bold
+highlight Conceal cterm=none ctermbg=none ctermfg=none
 
 
 " -------------------------  advanced vim stuff     ------------------------- "
@@ -234,6 +235,10 @@ function! ReMake()
   endif
 endfunction
 
+function! NewFile()
+  set fo+=a
+endfunction
+
 
 " -------------------------     key-remapping     --------------------------- "
 
@@ -242,6 +247,7 @@ nnoremap j gj
 nnoremap k gk
 inoremap jk <ESC>
 inoremap jjk <ESC>:w<CR>
+nnoremap ;w :w<CR>
 nnoremap F :%s/
 nnoremap f /
 vnoremap n <ESC>
@@ -306,8 +312,7 @@ autocmd Filetype gitcommit
 autocmd Filetype markdown
 \   nnoremap U1 yypVr=                       |
 \   nnoremap U2 yypVr-                       |
-\   noremap <buffer> <F5> :ComposerStart<CR> |
-\   set textwidth=99
+\   noremap <buffer> <F5> :ComposerStart<CR>
 
 " rust
 autocmd Filetype rust
