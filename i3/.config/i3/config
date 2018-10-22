@@ -252,7 +252,7 @@ for_window [class=".*"] border pixel $bordersize
 for_window [workspace=$ws7 class="MuPDF"] floating enable, border normal $bordersize
 for_window [class="Surf"] border normal $bordersize
 for_window [class="Tk"] floating enable, border normal $bordersize
-for_window [class="Matplotlib"] floating enable, border normal $bordersize
+for_window [class="matplotlib"] floating enable, border normal $bordersize
 for_window [class=" "] floating enable, border pixel $bordersize
 
 bindsym $mod+b mode "borders"
