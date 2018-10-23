@@ -191,8 +191,8 @@ endfunction
 " -------------------------     key-remapping     --------------------------- "
 
 nnoremap <LEADER>m :call ReMake()<CR>
-nnoremap j gj
-nnoremap k gk
+" nnoremap j gj
+" nnoremap k gk
 inoremap jk <ESC>
 inoremap jjk <ESC>:w<CR>
 nnoremap ;w :w<CR>
@@ -205,12 +205,12 @@ nnoremap <C-J> <C-W>j
 nnoremap <C-H> <C-W>h
 nnoremap <C-K> <C-W>k
 nnoremap <C-L> <C-W>l
-nnoremap tt :tabn<CR>
-nnoremap TT :tabN<CR>
+nnoremap <TAB> gt
 nnoremap <SPACE> @q
 let @q=''
 vnoremap <C-y> "+y
 nnoremap <C-y> "+y
+nnoremap <C-p> "+p
 
 
 " -------------------------     filetype specific     ----------------------- "
