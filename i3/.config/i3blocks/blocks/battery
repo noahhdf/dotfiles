@@ -24,14 +24,14 @@ bat0_perc=$(echo "100 * ${bat0_energy_now} / ${bat0_energy_full}" | bc)
 bat1_perc=$(echo "100 * ${bat1_energy_now} / ${bat1_energy_full}" | bc)
 
 # Time to full/empty
-if [[ ${bat0_status} == "Charging" ]]; then
+if [[ ${bat0_status} == "++" ]]; then
     bat0_time=$(echo "60 * (${bat0_energy_full} - ${bat0_energy_now}) / ${bat0_power_now}" | bc)
-else  # [[ ${bat0_status} == "Discharging" ]]
+else  # [[ ${bat0_status} == "--" ]]
     bat0_time=$(echo "60 * ${bat0_energy_now} / ${bat0_power_now}" | bc)
 fi
-if [[ ${bat1_status} == "Charging" ]]; then
+if [[ ${bat1_status} == "++" ]]; then
     bat1_time=$(echo "60 * (${bat1_energy_full} - ${bat1_energy_now}) / ${bat1_power_now}" | bc)
-else  # [[ ${bat0_status} == "Discharging" ]]
+else  # [[ ${bat0_status} == "--" ]]
     bat1_time=$(echo "60 * ${bat1_energy_now} / ${bat1_power_now}" | bc)
 fi
 
