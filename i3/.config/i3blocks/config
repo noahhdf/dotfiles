@@ -43,7 +43,7 @@ interval=10
 full_text=No Connection
 
 [battery]
-interval=1
+interval=10
 
 [time]
 # command=date '+%A, %d. %B %Y, %H:%M:%S'
