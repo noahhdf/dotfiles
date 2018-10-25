@@ -8,6 +8,7 @@
 	rebase = true
 [merge]
 	conflictstyle = diff3
+	tool = nvim
 [credential]
 	helper = cache --timeout=10800
 [alias]
@@ -25,3 +26,7 @@
     a = add
 [log]
     date = default-local
+[color "status"]
+	header = white bold
+[mergetool "nvim"]
+	cmd = nvim -d
