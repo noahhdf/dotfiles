@@ -70,10 +70,10 @@ pre_expand "add_row(snip)"
 snippet "tr(\d+)" "Add table row of dimension ..." r
 endsnippet
 
-snippet table "Table environment" b
-\begin{table}[${1:htpb}]
+snippet table "Table environment" bA
+\begin{table}[ht]
 	\centering
-	\caption{${2:caption}}
+	\caption{${2:caption}}%
 	\label{tab:${3:label}}
 	\begin{${4:t}${4/(t)$|(a)$|(.*)/(?1:abular)(?2:rray)/}}{${5:c}}
 	$0${5/(?<=.)(c|l|r)|./(?1: & )/g}
@@ -81,12 +81,12 @@ snippet table "Table environment" b
 \end{table}
 endsnippet
 
-snippet fig "Figure environment" b
-\begin{figure}[${2:htpb}]
+snippet fig "Figure environment" bA
+\begin{figure}[ht]
 	\centering
-	\includegraphics[width=${3:0.8}\linewidth]{${4:name.ext}}
-	\caption{${4/(\w+)\.\w+/\u$1/}$0}
-	\label{fig:${4/(\w+)\.\w+/$1/}}
+	\includegraphics[width=${4:0.8}\linewidth]{${3:name.ext}}
+	\caption{${3/(\w+)\.\w+/\u$1/}$0}%
+	\label{fig:${3/(\w+)\.\w+/$1/}}
 \end{figure}
 endsnippet
 
