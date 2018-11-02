@@ -353,4 +353,4 @@ mode "gaps" {
 #     bindsym Return mode "default"
 #     bindsym Escape mode "default"
 # }
-exec_always ~/*conda3/bin/wal -f ~/.nord.json
+exec_always bash ~/.start
