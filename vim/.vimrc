@@ -44,9 +44,9 @@ call plug#begin('~/.vim/plugged')
         nmap [a <ESC>:ALEPreviousWrap<CR>
         xmap ]a <ESC>:ALENextWrap<CR>
         xmap [a <ESC>:ALEPreviousWrap<CR>
-        let g:ale_linters = {'python': ['flake8'], 'tex': ['chktex', 'lacheck']}
+        let g:ale_linters = {'python': ['flake8'], 'tex': ['chktex', 'lacheck'], 'rust': ['cargo', 'rustc']}
         let g:ale_python_flake8_options = '--select=N,F,H,D,R, --ignore=D100'
-        let g:ale_fixers = {'python': ['black']}
+        let g:ale_fixers = {'python': ['black'], 'rust': ['rustfmt']}
         let g:ale_linters_explicit = 1
         let g:ale_set_loclist = 1
         let g:ale_set_quickfix = 0
@@ -55,18 +55,19 @@ call plug#begin('~/.vim/plugged')
         let g:ale_echo_msg_error_str = "E"
         let g:ale_echo_msg_format = '[%linter%, %severity%] %s'
     Plug 'lervag/vimtex', {'for': 'tex'}
+        let g:vimtex_compiler_progname = 'nvr'
         let g:vimtex_view_mode='zathura'
         let g:vimtex_view_method='zathura'
         let g:vimtex_viewer_general='zathura'
         let g:vimtex_compiler_latexmk = {'build_dir': 'build'}
         let g:vimtex_fold_enabled = 0
-        let g:vimtex_view_automatic = 1
+        let g:vimtex_view_automatic = 0
         let g:tex_flavor = 'latex'
-        let g:vimtex_quickfix_mode = 0
+        let g:vimtex_quickfix_mode = 1
         let g:vimtex_complete_close_braces = 1
         let g:vimtex_complete_recursive_bib = 1
         autocmd BufReadPre *.tex let b:vimtex_main = 'main.tex'
-    Plug   'KeitaNakamura/tex-conceal.vim', {'for': 'tex'}
+    Plug 'KeitaNakamura/tex-conceal.vim', {'for': 'tex'}
     Plug '907th/vim-auto-save'
         let g:auto_save_events = ['InsertLeave', 'TextChanged']
         autocmd Filetype tex let g:auto_save = 1
@@ -94,6 +95,19 @@ call plug#begin('~/.vim/plugged')
     Plug 'rust-lang/rust.vim', {'for': 'rust'}
     Plug 'cespare/vim-toml', {'for': 'toml'}
     Plug 'sedm0784/vim-you-autocorrect'
+    Plug 'plasticboy/vim-markdown', {'for': 'markdown'}
+        function! BuildComposer(info)
+          if a:info.status != 'unchanged' || a:info.force
+            if has('nvim')
+              !cargo build --release
+            else
+              !cargo build --release --no-default-features --features json-rpc
+            endif
+          endif
+        endfunction
+    Plug 'euclio/vim-markdown-composer', { 'do': function('BuildComposer') }
+        let g:markdown_composer_browser = 'surf'
+        let g:markdown_composer_autostart = 0
 call plug#end()
 
 let g:lightline = {
@@ -135,6 +149,9 @@ highlight Pmenu guibg=#FFFFFF ctermbg=7 guifg=#000000 ctermfg=0
 
 
 " -------------------------     basic vim stuff     ------------------------- "
+
+set splitright
+set splitbelow
 
 filetype plugin on
 set modeline
@@ -197,6 +214,7 @@ endfunction
 
 " -------------------------     key-remapping     --------------------------- "
 
+nnoremap gF <C-w>gf
 nnoremap <LEADER>m :call ReMake()<CR>
 " nnoremap j gj
 " nnoremap k gk
@@ -213,6 +231,7 @@ nnoremap <C-H> <C-W>h
 nnoremap <C-K> <C-W>k
 nnoremap <C-L> <C-W>l
 nnoremap <TAB> gt
+nnoremap <S-TAB> gT
 nnoremap <SPACE> @q
 let @q=''
 vnoremap <C-y> "+y
