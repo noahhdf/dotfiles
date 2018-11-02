@@ -281,11 +281,11 @@ workspace $ws3 output eDP1
 workspace $ws5 output eDP1
 workspace $ws7 output eDP1
 workspace $ws9 output eDP1
-workspace $ws2 output DP1
-workspace $ws4 output DP1
-workspace $ws6 output DP1
-workspace $ws8 output DP1
-workspace $ws10 output DP1
+workspace $ws2 output DP2
+workspace $ws4 output DP2
+workspace $ws6 output DP2
+workspace $ws8 output DP2
+workspace $ws10 output DP2
 
 #  -- bind programs to workspaces --  #
 # 1) run `xprop`
