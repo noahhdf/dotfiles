@@ -152,3 +152,4 @@ function chpwd() {
 }
 
 DEFAULT_USER="noah"
+source /home/noah/MAGIC/root-6.14.04/obj/bin/thisroot.sh
