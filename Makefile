@@ -3,7 +3,6 @@ all:
 		alacritty/ \
 		bash/ \
 		colorschemes/ \
-		fish/ \
 		git/ \
 		i3/ \
 		nvim/ \
@@ -13,5 +12,4 @@ all:
 		tmux/ \
 		vim/ \
 		wal/ \
-		zsh/ \
 		X/
