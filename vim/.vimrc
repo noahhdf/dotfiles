@@ -15,7 +15,14 @@ call plug#begin('~/.vim/plugged')
         set laststatus=2
         set noshowmode
     Plug 'arcticicestudio/nord-vim'
+      let g:nord_italic_comments=1
+      let g:nord_cursor_line_number_background=1
+    Plug 'morhetz/gruvbox'
+        let g:gruvbox_italics=1
+        let g:gruvbox_contrast_light="hard"
     Plug 'dylanaraps/wal.vim'
+    Plug 'xolox/vim-reload'
+    Plug 'xolox/vim-misc'
     Plug 'kien/rainbow_parentheses.vim'
         au VimEnter * RainbowParenthesesToggle
         au Syntax * RainbowParenthesesLoadRound
@@ -44,9 +51,9 @@ call plug#begin('~/.vim/plugged')
         nmap [a <ESC>:ALEPreviousWrap<CR>
         xmap ]a <ESC>:ALENextWrap<CR>
         xmap [a <ESC>:ALEPreviousWrap<CR>
-        let g:ale_linters = {'python': ['flake8'], 'tex': ['chktex', 'lacheck'], 'rust': ['cargo', 'rustc']}
+        let g:ale_linters = {'python': ['flake8'], 'tex': ['chktex', 'lacheck', 'vale'], 'rust': ['cargo', 'rustc']}
         let g:ale_python_flake8_options = '--select=N,F,H,D,R, --ignore=D100'
-        let g:ale_fixers = {'python': ['black'], 'rust': ['rustfmt']}
+        let g:ale_fixers = {'python': ['yapf'], 'rust': ['rustfmt']}
         let g:ale_linters_explicit = 1
         let g:ale_set_loclist = 1
         let g:ale_set_quickfix = 0
@@ -63,15 +70,16 @@ call plug#begin('~/.vim/plugged')
         let g:vimtex_fold_enabled = 0
         let g:vimtex_view_automatic = 0
         let g:tex_flavor = 'latex'
-        let g:vimtex_quickfix_mode = 1
+        let g:vimtex_quickfix_mode = 0
         let g:vimtex_complete_close_braces = 1
         let g:vimtex_complete_recursive_bib = 1
         autocmd BufReadPre *.tex let b:vimtex_main = 'main.tex'
     Plug 'KeitaNakamura/tex-conceal.vim', {'for': 'tex'}
+    Plug 'noahhdf/siunitx-conceal.vim', {'for': 'tex'}
     Plug '907th/vim-auto-save'
         let g:auto_save_events = ['InsertLeave', 'TextChanged']
-        autocmd Filetype tex let g:auto_save = 1
-        autocmd Filetype tex let g:auto_save_silent = 1
+        let g:auto_save = 1
+        let g:auto_save_silent = 1
     Plug 'scrooloose/nerdtree'
     Plug 'jistr/vim-nerdtree-tabs'
         map <Leader>\ <plug>NERDTreeTabsToggle<CR>
@@ -86,9 +94,9 @@ call plug#begin('~/.vim/plugged')
     Plug 'tpope/vim-commentary'
     Plug 'tpope/vim-dispatch'
     Plug 'ntpeters/vim-better-whitespace'
-        let g:strip_whitespace_on_save = 1
+        let g:strip_whitespace_on_save = 0
         let g:better_whitespace_enabled = 1
-        let g:strip_whitelines_at_eof = 1
+        let g:strip_whitelines_at_eof = 0
         let g:show_spaces_that_precede_tabs = 1
     Plug 'kshenoy/vim-signature'
     Plug 'airblade/vim-gitgutter'
@@ -141,7 +149,7 @@ let g:airline_powerline_fonts = 1
 " -------------------------     color scheme     ---------------------------- "
 
 syntax enable
-set background=dark
+set background=light
 colorscheme nord
 syntax on
 let g:limelight_conceal_ctermfg = '8'
@@ -186,7 +194,7 @@ set breakindent
 " set colorcolumn=+1
 set formatoptions=qrn1
 
-set mouse=  " no mouse use
+" set mouse=  " no mouse use
 
 set cole=0
 
@@ -254,14 +262,16 @@ autocmd Filetype tex
 \   set softtabstop=2                                                 |
 \   set expandtab                                                     |
 \   set conceallevel=0                                                |
-\   ab zb zum Beispiel|
-\   ab vll vielleicht|
-\   ab ** \cdot|
 \   set spelllang=de                                                  |
-\   set spell |
-\   set fo=nt1|
-\   let g:tex_conceal="amgb"|
-\   set cole=2
+\   set spell                                                         |
+\   set spellfile=~/.config/nvim/spell/de.utf-8.add                   |
+\   set spellfile+=~/.config/nvim/spell/physics.add                   |
+\   set fo=nt1                                                        |
+\   let g:tex_conceal="amgb"                                          |
+\   set cole=2                                                        |
+\   ab zb zum Beispiel                                                |
+\   ab vll vielleicht                                                 |
+\   ab ** \cdot
 
 " r
 au BufNewFile,BufRead *.R set ft=r
@@ -271,8 +281,8 @@ autocmd FileType r
 
 " python
 autocmd Filetype python
-\   noremap <buffer> <F5> :!python %<CR>                  |
-\   noremap <buffer> <F6> :silent !black %<CR>                   |
+\   noremap <buffer> <F5> :!python %<CR>       |
+\   noremap <buffer> <F6> :silent !black %<CR> |
 \   let b:dispatch = 'python %'
 
 " git commit message
@@ -286,7 +296,8 @@ autocmd Filetype gitcommit
 autocmd Filetype markdown
 \   nnoremap U1 yypVr=                       |
 \   nnoremap U2 yypVr-                       |
-\   noremap <buffer> <F5> :ComposerStart<CR>
+\   noremap <buffer> <F5> :ComposerStart<CR> |
+\   nnoremap <C-j> vip:EasyAlign*\|<CR>
 
 " rust
 autocmd Filetype rust
@@ -295,3 +306,9 @@ autocmd Filetype rust
 " html
 autocmd Filetype html
 \ set shiftwidth=2
+
+" reload vimrc
+augroup reload_vimrc
+    autocmd!
+    autocmd BufWritePost ~/.vimrc source ~/.vimrc
+augroup END
