@@ -9,9 +9,9 @@ command=~/.config/i3blocks/blocks/$BLOCK_NAME
 separator_block_width="|"
 markup=pango
 
-[backlight]
-command=xbacklight
-interval=1
+# [backlight]
+# command=xbacklight
+# interval=1
 
 [traffic]
 interval=60
