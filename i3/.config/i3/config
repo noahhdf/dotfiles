@@ -19,18 +19,18 @@ set_from_resource $boldcyan .color14
 set_from_resource $white .color7
 set_from_resource $boldwhite .color15
 
-workspace_layout tabbed # default|stacking|tabbed
-focus_follows_mouse false # true|false
+workspace_layout default # default|stacking|tabbed
+focus_follows_mouse true # true|false
 
 # -- variables -- #
-set $mod Mod1
+set $mod Mod4
 
 set $alt Mod1
-set $win Mod4
+# set $win Mod4
 
 set $fontsize 7
-set $bordersize 1
-set $gapsize 10
+set $bordersize 2
+set $gapsize 0
 
 font pango:SourceCodePro $fontsize
 # font pango:DejaVu Sans Mono 8
@@ -38,8 +38,8 @@ font pango:SourceCodePro $fontsize
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
-floating_minimum_size 24x80
-floating_maximum_size -1x-1
+floating_minimum_size 700x400
+floating_maximum_size 700x400
 
 # start a terminal
 # bindsym $mod+Return exec urxvt -e tmux
@@ -52,13 +52,13 @@ bindsym $mod+Shift+Return exec alacritty
 bindsym $mod+shift+w mode "web"
 mode "web" {
     bindsym f exec firefox, mode default
-    bindsym shift+f exec firefox, workspace $ws2, mode default
+    bindsym shift+f exec firefox, workspace $ws4, mode default
     bindsym q exec qutebrowser, mode default
-    bindsym shift+q exec qutebrowser, workspace $ws2, mode default
+    bindsym shift+q exec qutebrowser, workspace $ws4, mode default
     bindsym m exec midori, mode default
-    bindsym shift+m exec midori, workspace $ws2, mode default
+    bindsym shift+m exec midori, workspace $ws4, mode default
     bindsym t exec thunderbird, mode default
-    bindsym shift+t exec thunderbird, workspace $ws7, mode default
+    bindsym shift+t exec thunderbird, workspace $ws9, mode default
     # back to normal: Enter or Escape
     bindsym Return mode "default"
     bindsym Escape mode "default"
@@ -69,7 +69,7 @@ bindsym $mod+Shift+q kill
 
 # start .desktop applications
 # bindsym $mod+d exec --no-startup-id i3-dmenu-desktop #-nb "$fullblack" -nf "$boldblack" -sb "$black" -sf "$white"
-bindsym $mod+d exec --no-startup-id dmenu_run -nb "$fullblack" -nf "$boldblack" -sb "$black" -sf "$white"
+bindsym $mod+d exec --no-startup-id dmenu_run -nb "$black" -nf "$white" -sb "$black" -sf "$green"
 
 # start rofi
 bindsym $mod+space exec rofi -show run
@@ -107,10 +107,13 @@ bindsym $mod+shift+a focus child
 # bindsym $mod+s layout stacking
 bindsym $mod+t layout tabbed
 bindsym $mod+s layout toggle split
-for_window [workspace=$ws7] layout tabbed
-for_window [workspace=$ws2] layout tabbed
-for_window [workspace=$ws4] layout tabbed
+# for_window [workspace=$ws7] layout tabbed
+# for_window [workspace=$ws2] layout tabbed
+# for_window [workspace=$ws4] layout tabbed
 # for_window [class="URxvt"] floating enable
+for_window [class="VirtualBox"] floating enable
+for_window [class="Mars"] floating enable
+for_window [class="ROOT"] floating enable
 
 # toggle tiling / floating
 bindsym $mod+Shift+space floating toggle
@@ -118,7 +121,7 @@ bindsym $mod+Shift+space floating toggle
 set $ws1  "1:I"
 set $ws2  "2:II"
 set $ws3  "3:III"
-set $ws4  "4:IV"
+set $ws4  "4:&#xf269;"
 set $ws5  "5:V"
 set $ws6  "6:VI"
 set $ws7  "7:VII"
@@ -168,11 +171,14 @@ bindsym $mod+Shift+c reload
 bindsym $mod+Shift+r restart
 # lock i3
 # bindsym $mod+Shift+e exec betterlockscreen -l dim
-bindsym $mod+Shift+e exec bash ~/.config/i3lock/locking.sh
+# bindsym $mod+Shift+e exec bash ~/.config/i3lock/locking.sh
+bindsym $mod+Shift+e exec betterlockscreen -l
+bindsym $mod+Shift+Ctrl+e exec betterlockscreen -l & exec systemctl suspend
 # exit i3 (logs you out of your X session)
 # bindsym $mod+Shift+Delete exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 bindsym $mod+Ctrl+Delete exec ~/.config/i3blocks/blocks/shutdown_menu -c
 bindsym $mod+Ctrl+Escape exec ~/.config/i3blocks/blocks/shutdown_menu -c
+bindsym $mod+e exec ~/.config/i3blocks/blocks/shutdown_menu -c
 
 # resize windows
 mode "resize" {
@@ -186,11 +192,11 @@ mode "resize" {
 }
 bindsym $mod+r mode "resize"
 
-bindsym $mod+shift+t exec telegram-desktop, workspace $ws7
+bindsym $mod+shift+t exec franz, workspace $ws9
 bindsym $mod+z exec zathura
 
 # hide borders when fullscreen
-hide_edge_borders smart # none|vertical|horizontal|both|smart
+hide_edge_borders none # none|vertical|horizontal|both|smart
 
 # screen lock
 # bindsym $mod+Delete exec xautolock -locknow
@@ -207,11 +213,11 @@ bindsym XF86MonBrightnessUp exec xbacklight -inc 10
 bindsym XF86MonBrightnessDown exec xbacklight -dec 10
 
 # Display / Beamer Settings
-bindsym XF86Display exec xbacklight -set $(cat ~/.cache/xbacklight/xbacklight) & autorandr --change && feh --bg-fill ~/Pictures/background
+bindsym XF86LaunchA exec xbacklight -set $(cat ~/.cache/xbacklight/xbacklight) & autorandr --change && feh --bg-fill ~/Pictures/background
 
 #  -- color windows --  #
 #                       #border    #background #text      #indicator
-client.focused          $boldwhite $boldwhite  $black     $red
+client.focused          $green     $green      $black     $red
 client.unfocused        $black     $black      $boldwhite $red
 client.focused_inactive $black     $black      $boldwhite $red
 client.urgent           $red       $red        $black     $red
@@ -220,11 +226,10 @@ client.urgent           $red       $red        $black     $red
 #  -- i3blocks --  #
 bar {
     status_command i3blocks
-    # output edp-1
-    # output hmdi-1
+    output eDP1
     tray_output eDP1
     tray_padding 0
-    font                pango:SourceCodePro $fontsize
+    font                pango:SourceCodePro, Awesome $fontsize
     colors {
         #                  #color
         background         $black
@@ -237,9 +242,9 @@ bar {
         urgent_workspace   $black     $black      $red
         binding_mode       $black     $black      $red
     }
-    mode dock                   # dock|hide|invisible
+    mode hide                   # dock|hide|invisible
     hidden_state hide           # hide|show
-    modifier $win               # modifier
+    modifier $alt               # modifier
     strip_workspace_numbers yes # yes|no
     separator_symbol "|"        # any symbol
     position bottom             # top|bottom
@@ -281,23 +286,26 @@ workspace $ws3 output eDP1
 workspace $ws5 output eDP1
 workspace $ws7 output eDP1
 workspace $ws9 output eDP1
-workspace $ws2 output DP2
-workspace $ws4 output DP2
-workspace $ws6 output DP2
-workspace $ws8 output DP2
-workspace $ws10 output DP2
+workspace $ws2 output DP2 DP1 DP2-3
+workspace $ws4 output DP2 DP1 DP2-3
+workspace $ws6 output DP2 DP1 DP2-3
+workspace $ws8 output DP2 DP1 DP2-3
+workspace $ws10 output DP2 DP1 DP2-3
 
 #  -- bind programs to workspaces --  #
 # 1) run `xprop`
 # 2) click on program of choice
 # 3) find `WM_CLASS(STRING)`
 # 4) use second value to assign
-assign [class="Firefox-esr"] $ws2
-assign [class="Firefox"] $ws2
-assign [class="Midori"] $ws2
-assign [class="qutebrowser"] $ws2
-assign [class="Telegram"] $ws7
-assign [class="Thunderbird"] $ws7
+# Browser Workspace 4
+assign [class="Firefox-esr"] $ws4
+assign [class="Firefox"] $ws4
+assign [class="Midori"] $ws4
+assign [class="qutebrowser"] $ws4
+# Social Workspace 9
+assign [class="Telegram"] $ws9
+assign [class="Thunderbird"] $ws9
+assign [class="Franz"] $ws9
 
 # -- gaps -- #
 # gaps inner|outer current|all set|plus|minus <px>
@@ -353,4 +361,16 @@ mode "gaps" {
 #     bindsym Return mode "default"
 #     bindsym Escape mode "default"
 # }
+
+bindsym $mod+Shift+s mode "screen"
+mode "screen" {
+    bindsym d exec ~/*conda3/bin/wal -f base16-gruvbox-hard & sed -i 's/background=light/background=dark/' ~/.vimrc & source ~/.vim/plugged/gruvbox/gruvbox_256palette.sh, mode "default"
+    bindsym l exec ~/*conda3/bin/wal -f base16-gruvbox-hard -l & sed -i 's/background=dark/background=light/' ~/.vimrc & source ~/.vim/plugged/gruvbox/gruvbox_256palette.sh, mode "default"
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+
 exec_always bash ~/.start
+exec --no-startup-id /usr/lib/gnome-settings-daemon/gsd-xsettings
+# exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+# exec --no-startup-id gnome-flashback
