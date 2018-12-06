@@ -266,6 +266,7 @@ autocmd Filetype tex
 \   set spell                                                         |
 \   set spellfile=~/.config/nvim/spell/de.utf-8.add                   |
 \   set spellfile+=~/.config/nvim/spell/physics.add                   |
+\   set spellfile+=~/.config/nvim/spell/en.utf-8.add                  |
 \   set fo=nt1                                                        |
 \   let g:tex_conceal="amgb"                                          |
 \   set cole=2                                                        |
@@ -306,9 +307,3 @@ autocmd Filetype rust
 " html
 autocmd Filetype html
 \ set shiftwidth=2
-
-" reload vimrc
-augroup reload_vimrc
-    autocmd!
-    autocmd BufWritePost ~/.vimrc source ~/.vimrc
-augroup END
