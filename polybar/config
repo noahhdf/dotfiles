@@ -1,0 +1,240 @@
+; vim: ft=dosini
+[colors]
+background = ${xrdb:background:#2E3440}
+foreground = ${xrdb:foreground:#D8DEE9}
+black = ${xrdb:color0:#BF616A}
+red = ${xrdb:color1:#BF616A}
+green = ${xrdb:color2:#A3BE8C}
+yellow = ${xrdb:color3:#EBCB8B}
+blue = ${xrdb:color4:#81A1C1}
+purple = ${xrdb:color5:#B48EAD}
+cyan = ${xrdb:color6:#88C0D0}
+white = ${xrdb:color7:#E5E9F0}
+; black = ${xrdb:color8:#4C566A}
+; red = ${xrdb:color9:#BF616A}
+; green = ${xrdb:color10:#A3BE8C}
+; yellow = ${xrdb:color11:#EBCB8B}
+; blue = ${xrdb:color12:#81A1C1}
+; purple = ${xrdb:color13:#B48EAD}
+; cyan = ${xrdb:color14:#8FBCBB}
+; white = ${xrdb:color15:#ECEFF4}
+normal = ${colors.foreground}
+highlight = ${colors.green}
+warning = ${colors.yellow}
+alert = ${colors.red}
+
+[bar]
+width = 100%
+height = 20
+offset-x = 0
+offset-y = 0
+underline-size = 2
+fixed-center = true
+monitor = eDP1
+background = ${colors.background}
+line-color = ${colors.background}
+foreground = ${colors.foreground}
+font-0 = SourceCodePro:size=10;1
+font-1 = FontAwesome:size=10;1
+font-2 = DejaVu Sans:size=10;0
+fontsize = 7
+module-margin = 1
+
+[bar/top]
+inherit = bar
+line-size = 16
+label-active-font = 0
+modules-left = temperature cpu memory
+modules-center = date
+modules-right = backlight pulseaudio battery
+
+[bar/bottom]
+inherit = bar
+bottom = true
+line-size = 16
+modules-left = i3
+modules-right = traffic wireless wired
+
+[module/traffic]
+type = custom/script
+exec = ~/.config/i3blocks/blocks/traffic
+format = Traffic <label>
+interval = 60
+
+[module/backlight]
+type = internal/xbacklight
+format = <ramp> <bar>
+ramp-0 = 
+ramp-1 = 
+ramp-2 = 
+ramp-3 = 
+bar-width = 10
+bar-indicator = |
+bar-indicator-font = 2
+bar-indicator-foreground = #ff
+bar-fill = ─
+bar-fill-font = 2
+bar-fill-foreground = #c9665e
+bar-empty = ─
+bar-empty-font = 2
+bar-empty-foreground = #44
+
+[module/wired]
+type = internal/network
+interface = enp0s25
+format-connected =  <label-connected>
+format-disconnected = <label-disconnected>
+label-connected = %local_ip%
+label-disconnected =
+; format-connected-underline=${colors.green}
+; format-disconnected-underline=${colors.alert}
+label-connected-foreground = ${colors.green}
+label-disconnected-foreground = ${colors.alert}
+
+[module/wireless]
+type = internal/network
+interface = wlp3s0
+format-connected =  <label-connected>
+format-disconnected =  <label-disconnected>
+label-connected = %essid%
+label-disconnected = no wireless connection
+; format-connected-underline=${colors.green}
+; format-disconnected-underline=${colors.alert}
+label-connected-foreground = ${colors.green}
+label-disconnected-foreground = ${colors.alert}
+
+[module/battery]
+type = internal/battery
+battery-0 = BAT0
+battery-1 = BAT1
+adapter = AC
+full-at = 72
+time-format = %H:%M
+format-charging = <ramp-capacity> <label-charging>
+label-charging =  %percentage%%
+format-discharging = <ramp-capacity> <label-discharging>
+label-discharging = %percentage%% (%time%)
+format-full = <ramp-capacity> <label-full>
+label-full =
+ramp-capacity-0 = 
+ramp-capacity-0-foreground = ${colors.background}
+ramp-capacity-0-background = ${colors.alert}
+ramp-capacity-1 = 
+ramp-capacity-1-foreground = ${colors.alert}
+ramp-capacity-2 = 
+ramp-capacity-3 = 
+ramp-capacity-4 = 
+; bar-capacity-width = 10
+; bar-capacity-format = %{+u}%{+o}%fill%%empty%%{-u}%{-o}
+; bar-capacity-fill = 
+; bar-capacity-fill-foreground = #ddffffff
+; bar-capacity-fill-font = 1
+; bar-capacity-empty = 
+; bar-capacity-empty-font = 1
+; bar-capacity-empty-foreground = #44ffffff
+
+[module/date]
+type = internal/date
+date = %%{F#99}%Y-%m-%d%%{F-}  %%{F#fff}%H:%M%%{F-}
+date-alt = %%{F#fff}%A, %d %B %Y  %%{F#fff}%H:%M:%S%%{F-}
+
+[module/memory]
+type = internal/memory
+format = <label> <bar-used>
+label =
+bar-used-width = 10
+bar-used-foreground-0 = ${colors.highlight}
+bar-used-foreground-1 = ${colors.highlight}
+bar-used-foreground-2 = ${colors.warning}
+bar-used-foreground-3 = ${colors.alert}
+bar-used-indicator = |
+bar-used-indicator-foreground = ${colors.foreground}
+bar-used-fill = ─
+bar-used-empty = ─
+bar-used-empty-foreground = ${colors.black}
+
+[module/temperature]
+type = internal/temperature
+interval = 0.5
+
+[module/cpu]
+type = internal/cpu
+interval = 0.5
+format = <label> <ramp-coreload>
+label =
+ramp-coreload-spacing = 1
+ramp-coreload-0 = ▁
+ramp-coreload-1 = ▂
+ramp-coreload-2 = ▃
+ramp-coreload-3 = ▄
+ramp-coreload-4 = ▅
+ramp-coreload-5 = ▆
+ramp-coreload-6 = ▇
+ramp-coreload-7 = █
+ramp-coreload-0-foreground = ${colors.highlight}
+ramp-coreload-1-foreground = ${colors.highlight}
+ramp-coreload-2-foreground = ${colors.highlight}
+ramp-coreload-3-foreground = ${colors.highlight}
+ramp-coreload-4-foreground = ${colors.warning}
+ramp-coreload-5-foreground = ${colors.warning}
+ramp-coreload-6-foreground = ${colors.alert}
+ramp-coreload-7-foreground = ${colors.alert}
+
+[module/pulseaudio]
+type = internal/pulseaudio
+sink = alsa_output.pci-0000_00_1b.0.analog-stereo
+format-volume = <ramp-volume> <label-volume>
+label-muted =  muted
+label-muted-foreground = #666
+; Only applies if <ramp-volume> is used
+ramp-volume-0 = 
+ramp-volume-1 = 
+
+
+[module/i3]
+type=internal/i3
+pin-workspaces=false
+strip-wsnumbers=true
+index-sort=true
+format = <label-state> <label-mode>
+format-spacing = 0
+enable-click = true
+;
+label-separator=
+label-separator-padding=0
+label-separator-foreground=${colors.foreground}
+;
+label-focused = %index%
+label-focused-foreground=${colors.background}
+label-focused-background=${colors.foreground}
+; label-focused-underline=${colors.foreground}
+label-focused-padding=1
+label-focused-margin=0
+;
+label-unfocused = %index%
+label-unfocused-foreground=${colors.yellow}
+label-unfocused-background=${colors.background}
+label-unfocused-underline=${colors.background}
+label-unfocused-padding=1
+label-unfocused-margin=0
+;
+label-visible = %index%
+label-visible-foreground=${colors.green}
+label-visible-background=${colors.background}
+; label-visible-underline=${colors.background}
+label-visible-padding=1
+label-visible-margin=0
+;
+label-urgent = %index%
+label-urgent-foreground=${colors.red}
+label-urgent-background=${colors.background}
+; label-urgent-underline=${colors.background}
+label-urgent-padding=1
+label-urgent-margin=0
+;
+; label-mode = %name%
+label-mode-foreground=${colors.red}
+label-mode-background=${colors.background}
+; label-mode-underline=${colors.background}
+label-mode-padding=1
+label-mode-margin=0

@@ -6,6 +6,7 @@ all:
 		git/ \
 		i3/ \
 		nvim/ \
+		polybar/ \
 		rofi/ \
 		ranger/ \
 		redshift/ \

@@ -1,0 +1,146 @@
+; vim: ft=dosini
+[colors]
+background = ${xrdb:background:#2E3440}
+foreground = ${xrdb:foreground:#D8DEE9}
+black = ${xrdb:color0:#BF616A}
+red = ${xrdb:color1:#BF616A}
+green = ${xrdb:color2:#A3BE8C}
+yellow = ${xrdb:color3:#EBCB8B}
+blue = ${xrdb:color4:#81A1C1}
+purple = ${xrdb:color5:#B48EAD}
+cyan = ${xrdb:color6:#88C0D0}
+white = ${xrdb:color7:#E5E9F0}
+; black = ${xrdb:color8:#4C566A}
+; red = ${xrdb:color9:#BF616A}
+; green = ${xrdb:color10:#A3BE8C}
+; yellow = ${xrdb:color11:#EBCB8B}
+; blue = ${xrdb:color12:#81A1C1}
+; purple = ${xrdb:color13:#B48EAD}
+; cyan = ${xrdb:color14:#8FBCBB}
+; white = ${xrdb:color15:#ECEFF4}
+
+[global/wm]
+margin-bottom=0
+margin-top=0
+
+[settings]
+pseudo-transparence=true
+
+[bar]
+width=100%
+height=16
+offset-x=0
+offset-y=0
+underline-size=2
+fixed-center=true
+monitor=eDP1
+background=${colors.background}
+foreground=${colors.foreground}
+font-0=SourceCodePro:size=8;1
+fontsize=7
+module-margin=1
+
+[bar/top]
+inherit=bar
+bottom=false
+modules-left=battery
+modules-center=traffic
+modules-right=date
+
+[bar/bottom]
+inherit=bar
+bottom=true
+modules-left=i3
+modules-center=
+modules-right=wired wireless cpu memory
+
+[module/battery]
+type=custom/script
+exec=~/.config/i3blocks/blocks/battery
+tail=true
+interval=10
+
+[module/traffic]
+type=custom/script
+exec=~/.config/i3blocks/blocks/traffic
+format=Traffic <label>
+interval=60
+
+[module/wired]
+type = internal/network
+interface = enp0s25
+format-connected=<label-connected>
+format-disconnected=<label-disconnected>
+label-connected=%local_ip%
+label-disconnected=
+format-connected-underline=${colors.green}
+format-disconnected-underline=${colors.red}
+label-connected-foreground=${colors.green}
+label-disconnected-foreground=${colors.red}
+
+[module/wireless]
+type = internal/network
+interface = wlp3s0
+format-connected=<label-connected>
+format-disconnected=<label-disconnected>
+label-connected=%essid%
+label-disconnected=no wireless connection
+format-connected-underline=${colors.green}
+format-disconnected-underline=${colors.red}
+label-connected-foreground=${colors.green}
+label-disconnected-foreground=${colors.red}
+
+[module/pulseaudio]
+type=internal/pulseaudio
+use-ui-max=false
+sink=alsa_output.pci-0000_00_1b.0.analog-stereo
+format-underline=${colors.white}
+
+[module/cpu]
+type=internal/cpu
+label=cpu %percentage%%
+format-underline=${colors.white}
+
+[module/memory]
+type=internal/memory
+label=%gb_used% / %gb_free%
+format-underline=${colors.white}
+
+[module/date]
+type = internal/date
+label= %date% %time%
+interval = 1.0
+date = %d.%m
+time = %H:%M
+date-alt = %A, %d. %B %Y
+time-alt = %H:%M:%S
+format-underline=${colors.red}
+
+[module/i3]
+type=internal/i3
+pin-workspaces=false
+strip-wsnumbers=true
+index-sort=false
+label-mode-foreground=${colors.red}
+label-mode-background=${colors.background}
+label-mode-underline=${colors.background}
+label-mode-padding=1
+label-focused-foreground=${colors.foreground}
+label-focused-background=${colors.background}
+label-focused-underline=${colors.foreground}
+label-focused-padding=1
+label-unfocused-foreground=${colors.yellow}
+label-unfocused-background=${colors.background}
+label-unfocused-underline=${colors.background}
+label-unfocused-padding=1
+label-visible-foreground=${colors.green}
+label-visible-background=${colors.background}
+label-visible-underline=${colors.background}
+label-visible-padding=1
+label-urgent-foreground=${colors.red}
+label-urgent-background=${colors.background}
+label-urgent-underline=${colors.background}
+label-urgent-padding=1
+label-separator=
+label-separator-padding=0
+label-separator-foreground=${colors.foreground}
