@@ -15,8 +15,10 @@ call plug#begin('~/.vim/plugged')
         set laststatus=2
         set noshowmode
     Plug 'arcticicestudio/nord-vim'
+      let g:nord_italic=1
       let g:nord_italic_comments=1
       let g:nord_cursor_line_number_background=1
+      let g:nord_uniform_diff_background=1
     Plug 'morhetz/gruvbox'
         let g:gruvbox_italics=1
         let g:gruvbox_contrast_light="hard"
@@ -51,7 +53,7 @@ call plug#begin('~/.vim/plugged')
         nmap [a <ESC>:ALEPreviousWrap<CR>
         xmap ]a <ESC>:ALENextWrap<CR>
         xmap [a <ESC>:ALEPreviousWrap<CR>
-        let g:ale_linters = {'python': ['flake8'], 'tex': ['chktex', 'lacheck', 'vale'], 'rust': ['cargo', 'rustc']}
+        let g:ale_linters = {'python': ['flake8'], 'tex': ['alex', 'chktex', 'lacheck', 'vale', 'write-good --checks=schreib-gut'], 'rust': ['cargo', 'rustc'], 'text': ['alex', 'vale', 'write-good'], 'markdown': ['alex', 'vale', 'write-good'], 'gitcommit': ['write-good', 'vale', 'gitlint']}
         let g:ale_python_flake8_options = '--select=N,F,H,D,R, --ignore=D100'
         let g:ale_fixers = {'python': ['yapf'], 'rust': ['rustfmt']}
         let g:ale_linters_explicit = 1
@@ -94,7 +96,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'tpope/vim-commentary'
     Plug 'tpope/vim-dispatch'
     Plug 'ntpeters/vim-better-whitespace'
-        let g:strip_whitespace_on_save = 0
+        let g:strip_whitespace_on_save = 1
         let g:better_whitespace_enabled = 1
         let g:strip_whitelines_at_eof = 0
         let g:show_spaces_that_precede_tabs = 1
@@ -104,6 +106,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'cespare/vim-toml', {'for': 'toml'}
     Plug 'sedm0784/vim-you-autocorrect'
     Plug 'plasticboy/vim-markdown', {'for': 'markdown'}
+       let g:vim_markdown_folding_disabled=1
         function! BuildComposer(info)
           if a:info.status != 'unchanged' || a:info.force
             if has('nvim')
@@ -116,6 +119,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'euclio/vim-markdown-composer', { 'do': function('BuildComposer') }
         let g:markdown_composer_browser = 'surf'
         let g:markdown_composer_autostart = 0
+    Plug 'vim-scripts/vim-on-write'
 call plug#end()
 
 let g:lightline = {
@@ -126,7 +130,7 @@ let g:lightline = {
     \            ['readonly', 'filename', 'modified'],
     \           ],
     \   'right': [['linter_checking', 'linter_errors', 'linter_warnings'],
-    \             ['lineinfo'],
+    \             ['lineinfo', 'wordinfo'],
     \             ['percent'],
     \             ['fileencoding', 'filetype'],
     \            ],
@@ -298,7 +302,7 @@ autocmd Filetype markdown
 \   nnoremap U1 yypVr=                       |
 \   nnoremap U2 yypVr-                       |
 \   noremap <buffer> <F5> :ComposerStart<CR> |
-\   nnoremap <C-j> vip:EasyAlign*\|<CR>
+\   set cole=2
 
 " rust
 autocmd Filetype rust
