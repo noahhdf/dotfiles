@@ -31,7 +31,7 @@ window:
 
   # Window decorations
   # Setting this to false will result in window without borders and title bar.
-  decorations: true
+  decorations: none
 
 # Display tabs using this many cells (changes require restart)
 tabspaces: 4
@@ -101,10 +101,6 @@ font:
 # Should display the render timer
 render_timer: false
 
-# Use custom cursor colors. If true, display the cursor in the cursor.foreground
-# and cursor.background colors, otherwise invert the colors of the cursor.
-custom_cursor_colors: false
-
 # Colors (Tomorrow Night Bright)
 colors:
   # Default colors
@@ -114,6 +110,7 @@ colors:
 
   # Colors the cursor will use if `custom_cursor_colors` is true
   cursor:
+    style: Block
     text: '0x000000'
     cursor: '0xffffff'
 
@@ -198,6 +195,7 @@ mouse_bindings:
   - { mouse: Middle, action: PasteSelection }
 
 mouse:
+  hide_when_typing: false
   # Click settings
   #
   # The `double_click` and `triple_click` settings control the time
@@ -220,16 +218,6 @@ selection:
   semantic_escape_chars: ",│`|:\"' ()[]{}<>"
 
 dynamic_title: true
-
-hide_cursor_when_typing: false
-
-# Style of the cursor
-#
-# Values for 'cursor_style':
-# - Block
-# - Underline
-# - Beam
-cursor_style: Block
 
 # Live config reload (changes require restart)
 live_config_reload: true
