@@ -23,7 +23,7 @@ interval=3600
 # # command=dropbox-cli status
 # interval=10
 
-[memory]
+[free]
 interval=1
 
 [cpu_usage]

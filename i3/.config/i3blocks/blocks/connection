@@ -22,7 +22,7 @@
 #    echo "<span foreground='$color2'>$connection</span>"
 #fi
 
-nmcli | awk '/connected/ {printf $4}; /connecting/ {printf $2"..."}'
+nmcli | awk '/connected/ {printf " "$4" "}; /connecting/ {printf $2"..."}'
 # nmcli connection show | awk '
 #     NR!=1 && $4!="--"
 #     {printf $3": "$1}

@@ -19,8 +19,8 @@ set_from_resource $boldcyan .color14
 set_from_resource $white .color7
 set_from_resource $boldwhite .color15
 
-workspace_layout default # default|stacking|tabbed
-focus_follows_mouse true # true|false
+workspace_layout default  # default|stacking|tabbed
+focus_follows_mouse false # true|false
 
 # -- variables -- #
 set $mod Mod4
@@ -121,7 +121,7 @@ bindsym $mod+Shift+space floating toggle
 set $ws1  "1:I"
 set $ws2  "2:II"
 set $ws3  "3:III"
-set $ws4  "4:&#xf269;"
+set $ws4  "4:IV"
 set $ws5  "5:V"
 set $ws6  "6:VI"
 set $ws7  "7:VII"
@@ -223,33 +223,33 @@ client.focused_inactive $black     $black      $boldwhite $red
 client.urgent           $red       $red        $black     $red
 
 
-#  -- i3blocks --  #
-bar {
-    status_command i3blocks
-    # output eDP1
-    tray_output eDP1
-    tray_padding 0
-    font                pango:SourceCodePro, Awesome $fontsize
-    colors {
-        #                  #color
-        background         $black
-        statusline         $boldwhite
-        separator          $white
-        #                  #border    #background #text
-        focused_workspace  $boldwhite $boldwhite  $black
-        active_workspace   $black     $black      $white
-        inactive_workspace $black     $black      $boldblack
-        urgent_workspace   $black     $black      $red
-        binding_mode       $black     $black      $red
-    }
-    mode dock                   # dock|hide|invisible
-    hidden_state hide           # hide|show
-    modifier $alt               # modifier
-    strip_workspace_numbers yes # yes|no
-    separator_symbol "|"        # any symbol
-    position bottom             # top|bottom
-    workspace_buttons yes       # yes|no
-}
+# #  -- i3blocks --  #
+# bar {
+#     status_command i3blocks
+#     # output eDP1
+#     tray_output eDP1
+#     tray_padding 0
+#     font                pango:SourceCodePro, Awesome $fontsize
+#     colors {
+#         #                  #color
+#         background         $black
+#         statusline         $boldwhite
+#         separator          $white
+#         #                  #border    #background #text
+#         focused_workspace  $boldwhite $boldwhite  $black
+#         active_workspace   $black     $black      $white
+#         inactive_workspace $black     $black      $boldblack
+#         urgent_workspace   $black     $black      $red
+#         binding_mode       $black     $black      $red
+#     }
+#     mode dock                   # dock|hide|invisible
+#     hidden_state hide           # hide|show
+#     modifier $alt               # modifier
+#     strip_workspace_numbers yes # yes|no
+#     separator_symbol "|"        # any symbol
+#     position bottom             # top|bottom
+#     workspace_buttons yes       # yes|no
+# }
 
 
 # -- default borders -- #
@@ -374,4 +374,4 @@ exec_always bash ~/.start
 exec --no-startup-id /usr/lib/gnome-settings-daemon/gsd-xsettings
 # exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 # exec --no-startup-id gnome-flashback
-# exec_always --no-startup-id ~/.config/polybar/launch.sh
+exec_always --no-startup-id ~/.config/polybar/launch.sh
