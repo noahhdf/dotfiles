@@ -107,7 +107,7 @@ bindsym $mod+shift+a focus child
 # bindsym $mod+s layout stacking
 bindsym $mod+t layout tabbed
 bindsym $mod+s layout toggle split
-# for_window [workspace=$ws7] layout tabbed
+for_window [workspace=$ws9] layout tabbed
 # for_window [workspace=$ws2] layout tabbed
 # for_window [workspace=$ws4] layout tabbed
 # for_window [class="URxvt"] floating enable
