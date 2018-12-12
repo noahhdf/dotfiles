@@ -44,22 +44,28 @@ module-margin = 1
 inherit = bar
 line-size = 16
 label-active-font = 0
-modules-left = temperature cpu memory
+modules-left = temperature cpu ram
 modules-center = date
-modules-right = backlight pulseaudio battery
+modules-right = backlight pulseaudio battery_internal battery_external
 
 [bar/bottom]
 inherit = bar
 bottom = true
 line-size = 16
 modules-left = i3
-modules-right = traffic wireless wired
+modules-right = traffic filesystem wireless wired
 
 [module/traffic]
 type = custom/script
 exec = ~/.config/i3blocks/blocks/traffic
 format = Traffic <label>
 interval = 60
+
+[module/filesystem]
+type = internal/fs
+mount-0 = /
+interval = 10
+label-mounted = %mountpoint% %free%
 
 [module/backlight]
 type = internal/xbacklight
@@ -103,12 +109,18 @@ label-disconnected = no wireless connection
 label-connected-foreground = ${colors.green}
 label-disconnected-foreground = ${colors.alert}
 
-[module/battery]
+[module/battery_internal]
+inherit = battery
+battery = BAT0
+
+[module/battery_external]
+inherit = battery
+battery = BAT1
+
+[battery]
 type = internal/battery
-battery-0 = BAT0
-battery-1 = BAT1
 adapter = AC
-full-at = 72
+full-at = 98
 time-format = %H:%M
 format-charging = <ramp-capacity> <label-charging>
 label-charging =  %percentage%%
@@ -138,7 +150,23 @@ type = internal/date
 date = %%{F#99}%Y-%m-%d%%{F-}  %%{F#fff}%H:%M%%{F-}
 date-alt = %%{F#fff}%A, %d %B %Y  %%{F#fff}%H:%M:%S%%{F-}
 
-[module/memory]
+[module/swap]
+type = internal/memory
+format = <label> <bar-swap-used>
+label =
+bar-used-width = 10
+bar-used-foreground-0 = ${colors.highlight}
+bar-used-foreground-1 = ${colors.highlight}
+bar-used-foreground-2 = ${colors.warning}
+bar-used-foreground-3 = ${colors.alert}
+bar-used-indicator = |
+bar-used-indicator-foreground = ${colors.foreground}
+bar-used-fill = ─
+bar-used-empty = ─
+bar-used-empty-foreground = ${colors.black}
+
+
+[module/ram]
 type = internal/memory
 format = <label> <bar-used>
 label =
