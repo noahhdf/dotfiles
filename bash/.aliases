@@ -64,6 +64,8 @@ alias 'black'='black -l 79'
 # Correct wrong typed commands on the fly
 # alias 'vim'='echo "using nvim..." && nvim'
 alias 'vim'='nvim'
+alias 'vvim'='nvim -O'
+alias 'tvim'='nvim -p'
 alias 'gut'='echo "being an idiot?" && git'
 alias ':q'='echo "trapped in vim? go to bed!" && sleep 3 && exit'
 
