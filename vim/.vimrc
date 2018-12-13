@@ -1,3 +1,4 @@
+" vim: nospell
 " -------------------------     autoload    --------------------------------- "
 " load vim-plug
 if empty(glob("~/.vim/autoload/plug.vim"))
@@ -15,6 +16,7 @@ call plug#begin('~/.vim/plugged')
         set laststatus=2
         set noshowmode
     Plug 'arcticicestudio/nord-vim'
+      let g:nord_comment_brightness=20
       let g:nord_italic=1
       let g:nord_italic_comments=1
       let g:nord_cursor_line_number_background=1
@@ -53,7 +55,7 @@ call plug#begin('~/.vim/plugged')
         nmap [a <ESC>:ALEPreviousWrap<CR>
         xmap ]a <ESC>:ALENextWrap<CR>
         xmap [a <ESC>:ALEPreviousWrap<CR>
-        let g:ale_linters = {'python': ['flake8'], 'tex': ['alex', 'chktex', 'lacheck', 'vale', 'write-good --checks=schreib-gut'], 'rust': ['cargo', 'rustc'], 'text': ['alex', 'vale', 'write-good'], 'markdown': ['alex', 'vale', 'write-good'], 'gitcommit': ['write-good', 'vale', 'gitlint']}
+        let g:ale_linters = {'python': ['flake8'], 'tex': ['chktex', 'lacheck', 'write-good --checks=schreib-gut'], 'rust': ['cargo', 'rustc'], 'text': ['alex', 'vale', 'write-good'], 'markdown': ['alex', 'vale', 'write-good'], 'gitcommit': ['write-good', 'vale', 'gitlint']}
         let g:ale_python_flake8_options = '--select=N,F,H,D,R, --ignore=D100'
         let g:ale_fixers = {'python': ['yapf'], 'rust': ['rustfmt']}
         let g:ale_linters_explicit = 1
@@ -155,6 +157,7 @@ let g:airline_powerline_fonts = 1
 syntax enable
 set background=light
 colorscheme nord
+set termguicolors
 syntax on
 let g:limelight_conceal_ctermfg = '8'
 highlight Pmenu guibg=#FFFFFF ctermbg=7 guifg=#000000 ctermfg=0
@@ -206,7 +209,7 @@ set cursorline
 " highlight CursorLine cterm=underline ctermbg=none ctermfg=none
 highlight SpellBad ctermfg=red cterm=bold ctermbg=none
 highlight Visual cterm=bold
-highlight Conceal cterm=none ctermbg=none ctermfg=none
+highlight Conceal cterm=none ctermbg=none ctermfg=none guifg=none guibg=none gui=none
 
 
 " -------------------------  advanced vim stuff     ------------------------- "
