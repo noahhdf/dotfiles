@@ -34,7 +34,6 @@ set $gapsize 0
 
 font pango:SourceCodePro $fontsize
 # font pango:DejaVu Sans Mono 8
-# font pango:System San Francisco Display 8
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -42,11 +41,7 @@ floating_minimum_size 700x400
 floating_maximum_size 700x400
 
 # start a terminal
-# bindsym $mod+Return exec urxvt -e tmux
-# bindsym $mod+Ctrl+Return exec urxvt -e "tmux a"
-# bindsym $mod+Shift+Return exec urxvt -e ranger
 bindsym $mod+Return exec alacritty
-bindsym $mod+Shift+Return exec alacritty
 
 # start a webbrowser
 bindsym $mod+shift+w mode "web"
@@ -68,7 +63,6 @@ mode "web" {
 bindsym $mod+Shift+q kill
 
 # start .desktop applications
-# bindsym $mod+d exec --no-startup-id i3-dmenu-desktop #-nb "$fullblack" -nf "$boldblack" -sb "$black" -sf "$white"
 bindsym $mod+d exec --no-startup-id dmenu_run -nb "$black" -nf "$white" -sb "$black" -sf "$green"
 
 # start rofi
@@ -108,9 +102,6 @@ bindsym $mod+shift+a focus child
 bindsym $mod+t layout tabbed
 bindsym $mod+s layout toggle split
 for_window [workspace=$ws9] layout tabbed
-# for_window [workspace=$ws2] layout tabbed
-# for_window [workspace=$ws4] layout tabbed
-# for_window [class="URxvt"] floating enable
 for_window [class="VirtualBox"] floating enable
 for_window [class="Mars"] floating enable
 for_window [class="ROOT"] floating enable
@@ -170,15 +161,7 @@ bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
 # lock i3
-# bindsym $mod+Shift+e exec betterlockscreen -l dim
-# bindsym $mod+Shift+e exec bash ~/.config/i3lock/locking.sh
-bindsym $mod+Shift+e exec betterlockscreen -l
-bindsym $mod+Shift+Ctrl+e exec betterlockscreen -l & exec systemctl suspend
-# exit i3 (logs you out of your X session)
-# bindsym $mod+Shift+Delete exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
-bindsym $mod+Ctrl+Delete exec ~/.config/i3blocks/blocks/shutdown_menu -c
-bindsym $mod+Ctrl+Escape exec ~/.config/i3blocks/blocks/shutdown_menu -c
-bindsym $mod+e exec ~/.config/i3blocks/blocks/shutdown_menu -c
+bindsym $mod+e exec ~/.config/i3lock/exit_menu.sh
 
 # resize windows
 mode "resize" {
@@ -197,9 +180,6 @@ bindsym $mod+z exec zathura
 
 # hide borders when fullscreen
 hide_edge_borders none # none|vertical|horizontal|both|smart
-
-# screen lock
-# bindsym $mod+Delete exec xautolock -locknow
 
 bindsym $mod+Tab workspace back_and_forth
 
@@ -275,12 +255,7 @@ mode "borders" {
     bindsym Escape mode "default"
 }
 
-# # -- display workspaces through outputs -- #
-# workspace $ws1 output eDP-1   # default working screen laptop
-# workspace $ws2 output HDMI-1  # default web borwser on big screen
-# workspace $ws7 output eDP-1   # private chatting no one should see
-# workspace $ws10 output HDMI-1 # default presentations on beamer
-# -- even workspaces on hdmi -- #
+# -- odd workspaces on laptop screen -- #
 workspace $ws1 output eDP1
 workspace $ws3 output eDP1
 workspace $ws5 output eDP1
@@ -297,6 +272,7 @@ workspace $ws10 output DP2 DP1 DP2-3
 # 2) click on program of choice
 # 3) find `WM_CLASS(STRING)`
 # 4) use second value to assign
+
 # Browser Workspace 4
 assign [class="Firefox-esr"] $ws4
 assign [class="Firefox"] $ws4
@@ -329,39 +305,6 @@ mode "gaps" {
     bindsym Escape mode "default"
 }
 
-# bindsym $mod+shift+b mode "brightness"
-# mode "brightness" {
-#     bindsym 1 exec ~/shellScripts/high.sh, mode "default"
-#     bindsym 2 exec ~/shellScripts/normal.sh, mode "default"
-#     bindsym 3 exec ~/shellScripts/default.sh, mode "default"
-#     bindsym 4 exec ~/shellScripts/low.sh, mode "default"
-#     bindsym 0 exec ~/shellScripts/lowest.sh, mode "default"
-#     # back to normal: Enter or Escape
-#     bindsym Return mode "default"
-#     bindsym Escape mode "default"
-# }
-
-# bindsym $mod+shift+s mode "screens"
-# mode "screens" {
-#     bindsym h exec ~/.screenlayout/with_hdmi.sh, mode "default"
-#     bindsym n exec ~/.screenlayout/no_hdmi.sh, mode "default"
-#     bindsym c exec ~/.screenlayout/copy_screen_hdmi.sh, mode "default"
-#     # back to normal: Enter or Escape
-#     bindsym Return mode "default"
-#     bindsym Escape mode "default"
-# }
-
-# bindsym $mod+shift+o mode "redshift"
-# mode "redshift" {
-#     bindsym 1 exec redshift -O 6500, mode "default"
-#     bindsym 2 exec redshift -O 5500, mode "default"
-#     bindsym 3 exec redshift -O 3500, mode "default"
-#     bindsym 4 exec redshift -O 2500, mode "default"
-#     # back to normal: Enter or Escape
-#     bindsym Return mode "default"
-#     bindsym Escape mode "default"
-# }
-
 bindsym $mod+Shift+s mode "screen"
 mode "screen" {
     bindsym d exec ~/*conda3/bin/wal -f base16-gruvbox-hard & sed -i 's/background=light/background=dark/' ~/.vimrc & source ~/.vim/plugged/gruvbox/gruvbox_256palette.sh, mode "default"
@@ -371,7 +314,9 @@ mode "screen" {
 }
 
 exec_always bash ~/.start
+exec_always --no-startup-id ~/.config/polybar/launch.sh
+
+# GNOME integration
 exec --no-startup-id /usr/lib/gnome-settings-daemon/gsd-xsettings
 # exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 # exec --no-startup-id gnome-flashback
-exec_always --no-startup-id ~/.config/polybar/launch.sh
