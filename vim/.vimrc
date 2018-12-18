@@ -109,6 +109,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'sedm0784/vim-you-autocorrect'
     Plug 'plasticboy/vim-markdown', {'for': 'markdown'}
        let g:vim_markdown_folding_disabled=1
+    Plug 'vimwiki/vimwiki'
         function! BuildComposer(info)
           if a:info.status != 'unchanged' || a:info.force
             if has('nvim')
