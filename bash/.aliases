@@ -1,5 +1,8 @@
 # vim: ft=sh
+
+# cding
 alias 'aoc'='cd ~/Programming/AoC/2018'
+alias 'msc'='cd ~/Uni/MSc/thesis/code'
 
 # Arch, Pacman
 alias 'mirrorupdate'='echo "reflector -n 20 -p https -l 10 -c Germany --sort rate --score 5 | sudo tee /etc/pacman.d/mirrorlist" && reflector -n 20 -p https -l 10 -c Germany --sort rate --score 5 | sudo -k tee /etc/pacman.d/mirrorlist'
@@ -8,6 +11,7 @@ alias 'yyy'='yay -Syu --noconfirm'
 alias 'pbget'='pbget --dir ~/AUR/gits/ --pull'
 
 # Useful abbreviations
+alias 'up'='uptime --pretty'
 alias 'gits'='git status -s'
 alias 'pull'='echo "git pull --all --verbose --progress" && git pull --all --verbose --progress'
 alias 'push'='echo "git push --verbose --progress" && git push --verbose --progress'
@@ -64,8 +68,8 @@ alias 'black'='black -l 79'
 # Correct wrong typed commands on the fly
 # alias 'vim'='echo "using nvim..." && nvim'
 alias 'vim'='nvim'
-alias 'vvim'='nvim -O'
-alias 'tvim'='nvim -p'
+alias 'sim'='nvim -O'
+alias 'tim'='nvim -p'
 alias 'gut'='echo "being an idiot?" && git'
 alias ':q'='echo "trapped in vim? go to bed!" && sleep 3 && exit'
 
