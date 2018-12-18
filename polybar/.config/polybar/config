@@ -51,12 +51,12 @@ inherit = bar
 bottom = true
 line-size = 16
 modules-left = i3
-modules-center = uptime
+modules-center =
 modules-right = traffic filesystem wireless wired
 
 [module/uptime]
 type = custom/script
-exec = uptime --pretty
+exec = uptime --pretty | sed 's/ days*/d/;s/ hours*/h/;s/ minutes*/m/;s/,//g'
 interval = 60
 
 
@@ -74,6 +74,7 @@ label-mounted = %mountpoint% %free%
 
 [module/backlight]
 type = internal/xbacklight
+interval = 0.5
 format = <ramp> <bar>
 ramp-0 = 
 ramp-1 = 
