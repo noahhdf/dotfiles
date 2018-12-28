@@ -153,8 +153,8 @@ ramp-capacity-4 = 
 
 [module/date]
 type = internal/date
-date = %%{F#99}%Y-%m-%d%%{F-}  %%{F#fff}%H:%M%%{F-}
-date-alt = %%{F#fff}%A, %d %B %Y  %%{F#fff}%H:%M:%S%%{F-}
+date = %%{F#99}%d.%m.%Y %H:%M%%{F-}
+date-alt = %%{F#fff}%A, %d %B %Y %H:%M:%S%%{F-}
 
 [module/swap]
 type = internal/memory
