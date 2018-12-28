@@ -2,7 +2,8 @@
 
 # cding
 alias 'aoc'='cd ~/Programming/AoC/2018'
-alias 'msc'='cd ~/Uni/MSc/thesis/code'
+alias 'msc'='conda activate; cd ~/Uni/MSc/thesis/code'
+alias 'smd'='cd ~/Uni/SMD/smd_uebungen'
 
 # Arch, Pacman
 alias 'mirrorupdate'='echo "reflector -n 20 -p https -l 10 -c Germany --sort rate --score 5 | sudo tee /etc/pacman.d/mirrorlist" && reflector -n 20 -p https -l 10 -c Germany --sort rate --score 5 | sudo -k tee /etc/pacman.d/mirrorlist'
