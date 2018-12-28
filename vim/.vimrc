@@ -46,6 +46,8 @@ set cursorline
 let @q=''
 
 " undofiles
+let &undodir = expand("~/.config/nvim/undo/")
 if empty(glob("~/.config/nvim/undo/"))
-    silent execute '!mkdir -p ~/.config/nvim/undo'
+    silent execute '!mkdir -p ~/.config/nvim/undo/'
 endif
+set undofile
