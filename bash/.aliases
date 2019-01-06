@@ -28,6 +28,7 @@ alias '..'='cd ..'
 alias '...'='cd ../..'
 alias '....'='cd ../../..'
 alias 'calc'='bc -l; exit'
+alias 'now'='cal -m;date'
 
 # Useful optional arguments for commonly used commands
 # alias 'rm'='rm -vI'
