@@ -1,6 +1,11 @@
 " load plugins from separate file
 source ~/.config/nvim/plugin/plugins.vim
 
+set lazyredraw
+set notimeout
+set ttimeout
+set ttimeoutlen=10
+
 set splitright
 set splitbelow
 
@@ -11,17 +16,22 @@ set modelines=1
 set encoding=utf-8
 set fileencoding=utf-8
 
-set nu
+set number
 set relativenumber
-set scrolloff=3
+set scrolloff=2
 
 set ignorecase
 set smartcase
 set gdefault
 set incsearch
+
 set backspace=indent,eol,start
 set list
-set listchars=tab:>-,trail:~
+set listchars=tab:>-,trail:⌴ ",eol:¬
+set wrap
+set linebreak
+set breakindent
+let &showbreak="↪"
 
 set autoindent
 set tabstop=4
@@ -30,16 +40,12 @@ set softtabstop=4
 set expandtab
 
 set textwidth=79
-set wrap
-let &showbreak=">"
-set linebreak
-set breakindent
 " set colorcolumn=+1
 set formatoptions=qrn1
 
 set mouse=  " no mouse use
 
-set cole=0
+set conceallevel=0
 set cursorline
 
 " empty records
