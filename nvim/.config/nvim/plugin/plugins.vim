@@ -48,9 +48,6 @@ call plug#begin('~/.vim/plugged')
         nmap [a <ESC>:ALEPreviousWrap<CR>
         xmap ]a <ESC>:ALENextWrap<CR>
         xmap [a <ESC>:ALEPreviousWrap<CR>
-        let g:ale_linters = {'python': ['flake8'], 'tex': ['chktex', 'lacheck', 'write-good --checks=schreib-gut'], 'rust': ['cargo', 'rustc'], 'text': ['alex', 'vale', 'write-good'], 'markdown': ['alex', 'vale', 'write-good'], 'gitcommit': ['write-good', 'vale', 'gitlint']}
-        let g:ale_python_flake8_options = '--select=N,F,H,D,R, --ignore=D100'
-        let g:ale_fixers = {'python': ['yapf'], 'rust': ['rustfmt']}
         let g:ale_linters_explicit = 1
         let g:ale_set_loclist = 1
         let g:ale_set_quickfix = 0
@@ -93,16 +90,15 @@ call plug#begin('~/.vim/plugged')
     Plug 'ntpeters/vim-better-whitespace'
         let g:strip_whitespace_on_save = 1
         let g:better_whitespace_enabled = 1
-        let g:strip_whitelines_at_eof = 0
+        let g:strip_whitelines_at_eof = 1
         let g:show_spaces_that_precede_tabs = 1
     Plug 'kshenoy/vim-signature'
     Plug 'airblade/vim-gitgutter'
     Plug 'rust-lang/rust.vim', {'for': 'rust'}
     Plug 'cespare/vim-toml', {'for': 'toml'}
-    Plug 'sedm0784/vim-you-autocorrect'
     Plug 'plasticboy/vim-markdown', {'for': 'markdown'}
        let g:vim_markdown_folding_disabled=1
-    Plug 'vimwiki/vimwiki'
+    Plug 'vimwiki/vimwiki', {'for': 'vimwiki'}
         function! BuildComposer(info)
           if a:info.status != 'unchanged' || a:info.force
             if has('nvim')
@@ -112,7 +108,7 @@ call plug#begin('~/.vim/plugged')
             endif
           endif
         endfunction
-    Plug 'euclio/vim-markdown-composer', { 'do': function('BuildComposer') }
+    Plug 'euclio/vim-markdown-composer', {'for': 'markdown', 'do': function('BuildComposer') }
         let g:markdown_composer_browser = 'surf'
         let g:markdown_composer_autostart = 0
     Plug 'vim-scripts/vim-on-write'
