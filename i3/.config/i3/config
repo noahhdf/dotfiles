@@ -276,12 +276,14 @@ workspace $ws10 output DP2 DP1 DP2-3
 # Browser Workspace 4
 assign [class="Firefox-esr"] $ws4
 assign [class="Firefox"] $ws4
+for_window [class="Firefox" instance="Dialog"] move workspace current, focus
 assign [class="Midori"] $ws4
 assign [class="qutebrowser"] $ws4
 # Social Workspace 9
 assign [class="Telegram"] $ws9
 assign [class="Thunderbird"] $ws9
 assign [class="Franz"] $ws9
+assign [class="Whatsie"] $ws9
 
 # -- gaps -- #
 # gaps inner|outer current|all set|plus|minus <px>
