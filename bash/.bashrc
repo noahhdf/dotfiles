@@ -224,3 +224,5 @@ function _conda_auto_activate() {
 function chpwd() {
     _conda_auto_activate
 }
+
+source ~/.bash_functions
