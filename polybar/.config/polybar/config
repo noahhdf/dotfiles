@@ -53,6 +53,7 @@ line-size = 16
 modules-left = i3
 modules-center =
 modules-right = traffic filesystem wireless wired
+tray-position = right
 
 [module/uptime]
 type = custom/script
