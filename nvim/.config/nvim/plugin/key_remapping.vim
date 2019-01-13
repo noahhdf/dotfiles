@@ -4,8 +4,6 @@ inoremap jk <ESC>
 inoremap jjk <ESC>:w<CR>
 
 nnoremap ;w :w<CR>
-nnoremap F :%s/
-nnoremap f /
 
 vnoremap n <ESC>
 
