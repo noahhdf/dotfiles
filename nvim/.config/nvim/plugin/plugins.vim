@@ -33,7 +33,9 @@ call plug#begin('~/.vim/plugged')
         let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
     Plug 'honza/vim-snippets'
     Plug 'Shougo/deoplete.nvim', {'do': ':UpdateRemotePlugins'}
-        let g:deoplete#enable_at_startup = 1
+        if has('nvim')
+            let g:deoplete#enable_at_startup = 1
+        endif
     Plug 'zchee/deoplete-jedi', {'for': 'python'}
     Plug 'w0rp/ale'
         let g:ale_sign_error = '>>'

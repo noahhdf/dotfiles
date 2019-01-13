@@ -30,7 +30,9 @@ set list
 set listchars=tab:>-,trail:⌴ ",eol:¬
 set wrap
 set linebreak
-set breakindent
+if has('nvim')
+    set breakindent
+endif
 let &showbreak="↪"
 
 set autoindent
