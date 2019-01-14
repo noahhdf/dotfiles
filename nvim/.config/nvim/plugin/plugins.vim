@@ -18,6 +18,8 @@ call plug#begin('~/.vim/plugged')
       let g:nord_italic_comments=1
       let g:nord_cursor_line_number_background=1
       let g:nord_uniform_diff_background=1
+    Plug 'morhetz/gruvbox'
+      let g:gruvbox_contrast_light = 'hard'
     Plug 'xolox/vim-reload'
     Plug 'xolox/vim-misc'
     Plug 'kien/rainbow_parentheses.vim'
@@ -115,4 +117,7 @@ call plug#begin('~/.vim/plugged')
         let g:markdown_composer_autostart = 0
     Plug 'vim-scripts/vim-on-write'
     Plug 'junegunn/fzf.vim'
+    Plug 'leafgarland/typescript-vim', {'for': 'typescript'}
+    Plug 'HerringtonDarkholme/yats.vim', {'for': 'typescript'}
+    " Plug 'mhartington/nvim-typescript', {'do': './install.sh', 'for': 'typescript'}
 call plug#end()

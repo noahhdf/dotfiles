@@ -1,6 +1,6 @@
 syntax enable
 
-set background=dark
+set background=light
 colorscheme nord
 
 set termguicolors
