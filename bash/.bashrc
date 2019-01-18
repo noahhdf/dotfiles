@@ -187,7 +187,7 @@ export SCM_CHECK=true
 source "$BASH_IT"/bash_it.sh
 
 # MAGIC Software
-export PATH=$PATH:$HOME/.local/anaconda3/bin
+# export PATH=$PATH:$HOME/.local/anaconda3/bin
 export ROOTSYS=$HOME/.local/root-5-34-anaconda3
 export MARSSYS=$HOME/.local/Mars_V2-19-2
 export LD_LIBRARY_PATH=$ROOTSYS/lib:$MARSSYS:$LD_LIBRARY_PATH
