@@ -41,7 +41,7 @@ floating_minimum_size 700x400
 floating_maximum_size 700x400
 
 # start a terminal
-bindsym $mod+Return exec alacritty
+bindsym $mod+Return exec urxvt
 
 # start a webbrowser
 bindsym $mod+shift+w mode "web"

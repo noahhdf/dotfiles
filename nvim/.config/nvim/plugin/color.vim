@@ -3,7 +3,7 @@ syntax enable
 set background=light
 colorscheme nord
 
-set termguicolors
+" set termguicolors
 syntax on
 
 let g:limelight_conceal_ctermfg = '8'
