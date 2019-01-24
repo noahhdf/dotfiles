@@ -1,4 +1,4 @@
-nnoremap <LEADER>m :call ReMake()<CR>
+nnoremap <LEADER>m :Make<CR>
 
 inoremap jk <ESC>
 inoremap jjk <ESC>:w<CR>
