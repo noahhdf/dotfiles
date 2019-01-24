@@ -33,7 +33,9 @@ call plug#begin('~/.vim/plugged')
         let g:UltiSnipsExpandTrigger = "<tab>"
         let g:UltiSnipsJumpForwardTrigger = "<tab>"
         let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
+        let g:UltiSnipsSnippetDirectories = ["UltiSnips", "mysnippets"]
     Plug 'honza/vim-snippets'
+    Plug 'rbonvall/snipmate-snippets-bib', {'for': 'bib'}
     Plug 'Shougo/deoplete.nvim', {'do': ':UpdateRemotePlugins'}
         if has('nvim')
             let g:deoplete#enable_at_startup = 1
