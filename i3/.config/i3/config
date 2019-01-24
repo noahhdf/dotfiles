@@ -38,7 +38,7 @@ font pango:SourceCodePro $fontsize
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 floating_minimum_size 700x400
-floating_maximum_size 700x400
+floating_maximum_size -1x-1
 
 # start a terminal
 bindsym $mod+Return exec urxvt
@@ -281,6 +281,7 @@ assign [class="Midori"] $ws4
 assign [class="qutebrowser"] $ws4
 # Social Workspace 9
 assign [class="Telegram"] $ws9
+assign [class="TelegramDesktop"] $ws9
 assign [class="Thunderbird"] $ws9
 assign [class="Franz"] $ws9
 assign [class="Whatsie"] $ws9
