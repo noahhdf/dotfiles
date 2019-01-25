@@ -41,7 +41,7 @@ URxvt.scrollStyle:            plain
 URxvt.scrollColor:            #232629
 ! URxvt.letterSpace:            -0.0
 ! URxvt.rowSpace:               -2.0
-! URxvt.saveLines:              2048
+URxvt.saveLines:              8192
 ! URxvt.iso14755:               false
 ! URxvt.iso14755_52:            false
 ! URxvt.keysym.C-Down:          resize-font:smaller
@@ -50,10 +50,10 @@ URxvt.scrollColor:            #232629
 ! ! URxvt.keysym.Shift-Control-C: perl:clipboard:copy
 ! ! URxvt.secondaryScreen:        1
 ! ! URxvt.secondaryScroll:        1
-! URxvt.scrollTtyOutput:        true
-! URxvt.scrollWithBuffer:       true
-! URxvt.scrollTtyKeypress:      true
+URxvt.scrollTtyOutput:        true
+URxvt.scrollWithBuffer:       true
+URxvt.scrollTtyKeypress:      true
 ! ! URxvt.cursorBlink:            false
-! ! URxvt.transparent:            true
-! URxvt.shading:                12
-! URxvt.depth:                  80
+URxvt.transparent:            true
+URxvt.shading:                20
+URxvt.depth:                  32
