@@ -42,6 +42,7 @@ floating_maximum_size -1x-1
 
 # start a terminal
 bindsym $mod+Return exec urxvt
+bindsym $mod+Shift+Return exec urxvt -shading 100
 
 # start a webbrowser
 bindsym $mod+shift+w mode "web"
