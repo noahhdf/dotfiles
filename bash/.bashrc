@@ -119,7 +119,11 @@ fi
 
 . ~/.bash_profile
 
-. ~/anaconda3/etc/profile.d/conda.sh
+if ! [[ $CONDA_PATH ]]; then
+    export CONDA_PATH=$(find ~ -maxdepth 3 -type d -iname *conda3*)
+fi
+source $CONDA_PATH/etc/profile.d/conda.sh
+
 cat ~/.cache/wal/sequences
 
 export PATH="/home/linuxbrew/.linuxbrew/bin:$PATH"
@@ -130,7 +134,7 @@ export CPPFLAGS="-I/home/linuxbrew/.linuxbrew/opt/isl@0.18/include"
 export PATH="/home/linuxbrew/.linuxbrew/sbin:$PATH"
 
 # Path to the bash it configuration
-export BASH_IT="/home/noah/Git/bash-it"
+export BASH_IT="$HOME/.bash-it"
 
 # Lock and Load a custom theme file.
 # Leave empty to disable theming.
@@ -181,19 +185,19 @@ export SCM_CHECK=true
 # Uncomment this to make Bash-it create alias reload.
 # export BASH_IT_RELOAD_LEGACY=1
 
-# source /home/noah/MAGIC/root-6.14.04/obj/bin/thisroot.sh
 
 # Load Bash It
 source "$BASH_IT"/bash_it.sh
 
-# MAGIC Software
-# export PATH=$PATH:$HOME/.local/anaconda3/bin
-export ROOTSYS=$HOME/.local/root-5-34-anaconda3
-export MARSSYS=$HOME/.local/Mars_V2-19-2
-export LD_LIBRARY_PATH=$ROOTSYS/lib:$MARSSYS:$LD_LIBRARY_PATH
-export DYLD_LIBRARY_PATH=$LD_LIBRARY_PATH
-export PATH=$ROOTSYS/bin:$MARSSYS:$PATH
-export OSTYPE=$OSTYPE
+# # MAGIC Software
+# # export PATH=$PATH:$HOME/.local/anaconda3/bin
+# export ROOTSYS=$HOME/.local/root-5-34-anaconda3
+# export MARSSYS=$HOME/.local/Mars_V2-19-2
+# export LD_LIBRARY_PATH=$ROOTSYS/lib:$MARSSYS:$LD_LIBRARY_PATH
+# export DYLD_LIBRARY_PATH=$LD_LIBRARY_PATH
+# export PATH=$ROOTSYS/bin:$MARSSYS:$PATH
+# export OSTYPE=$OSTYPE
+# source /home/noah/MAGIC/root-6.14.04/obj/bin/thisroot.sh
 
 # SSH Agent
 if ! pgrep -u "$USER" ssh-agent > /dev/null; then
@@ -204,8 +208,8 @@ if [[ "$SSH_AGENT_PID" == "" ]]; then
 fi
 
 
-export PATH=$HOME/go/bin:$PATH
-export GOPATH=$HOME/go
+export GOPATH=$HOME/.go
+export PATH=$GOPATH/bin:$PATH
 export PATH=$HOME/.local/bin:$PATH
 
 function _conda_auto_activate() {
