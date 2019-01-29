@@ -119,10 +119,10 @@ fi
 
 . ~/.bash_profile
 
-if ! [[ $CONDA_PATH ]]; then
-    export CONDA_PATH=$(find ~ -maxdepth 3 -type d -iname *conda3*)
-fi
-source $CONDA_PATH/etc/profile.d/conda.sh
+# if ! [[ $CONDA_PATH ]]; then
+#     export CONDA_PATH=$(find ~ -maxdepth 3 -type d -iname *conda3*)
+# fi
+# source $CONDA_PATH/etc/profile.d/conda.sh  # commented out by conda initialize
 
 cat ~/.cache/wal/sequences
 
@@ -230,3 +230,19 @@ function chpwd() {
 }
 
 source ~/.bash_functions
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/home/noah/anaconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/home/noah/anaconda3/etc/profile.d/conda.sh" ]; then
+        . "/home/noah/anaconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="/home/noah/anaconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
+
