@@ -16,7 +16,7 @@ call plug#begin('~/.vim/plugged')
       let g:nord_comment_brightness=20
       let g:nord_italic=1
       let g:nord_italic_comments=1
-      let g:nord_cursor_line_number_background=1
+      let g:nord_cursor_line_number_background=0
       let g:nord_uniform_diff_background=1
     Plug 'morhetz/gruvbox'
       let g:gruvbox_contrast_light = 'hard'
@@ -50,6 +50,8 @@ call plug#begin('~/.vim/plugged')
         let g:ale_lint_on_enter = 1
         let g:ale_lint_on_save = 1
         let g:ale_fix_on_save = 1
+        let g:ale_warn_about_trailing_blank_lines = 0
+        let g:ale_warn_about_trailing_whitespace = 0
         nmap ]a <ESC>:ALENextWrap<CR>
         nmap [a <ESC>:ALEPreviousWrap<CR>
         xmap ]a <ESC>:ALENextWrap<CR>
@@ -98,6 +100,8 @@ call plug#begin('~/.vim/plugged')
         let g:better_whitespace_enabled = 1
         let g:strip_whitelines_at_eof = 1
         let g:show_spaces_that_precede_tabs = 1
+        let g:better_whitespace_verbosity = 0
+        let g:strip_whitespace_confirm = 0
     Plug 'kshenoy/vim-signature'
     Plug 'airblade/vim-gitgutter'
     Plug 'rust-lang/rust.vim', {'for': 'rust'}
