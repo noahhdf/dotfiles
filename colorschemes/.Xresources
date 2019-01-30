@@ -23,7 +23,7 @@
 *.color15:    #ECEFF4
 
 ! ! URXVT SETTINGS
-! URxvt.perl-ext-common:        default,clipboard,matcher,resize-font,url-select
+URxvt.perl-ext-common:        default,clipboard,matcher,resize-font,url-select
 URxvt.borderless:             true
 ! URxvt.geometry:               84x24
 URxvt.font:                   xft:SourceCodePro:regular:size=10
@@ -42,18 +42,18 @@ URxvt.scrollColor:            #232629
 ! URxvt.letterSpace:            -0.0
 ! URxvt.rowSpace:               -2.0
 URxvt.saveLines:              8192
-! URxvt.iso14755:               false
-! URxvt.iso14755_52:            false
-! URxvt.keysym.C-Down:          resize-font:smaller
-! URxvt.keysym.C-Up:            resize-font:bigger
+URxvt.iso14755:               false
+URxvt.iso14755_52:            false
+URxvt.keysym.C-Down:          resize-font:smaller
+URxvt.keysym.C-Up:            resize-font:bigger
 ! ! URxvt.keysym.Shift-Control-V: perl:clipboard:paste
 ! ! URxvt.keysym.Shift-Control-C: perl:clipboard:copy
-! ! URxvt.secondaryScreen:        1
-! ! URxvt.secondaryScroll:        1
+URxvt.secondaryScreen:        1
+URxvt.secondaryScroll:        1
 URxvt.scrollTtyOutput:        true
 URxvt.scrollWithBuffer:       true
 URxvt.scrollTtyKeypress:      true
-! ! URxvt.cursorBlink:            false
+URxvt.cursorBlink:            false
 URxvt.transparent:            true
 URxvt.shading:                20
 URxvt.depth:                  32
