@@ -213,20 +213,26 @@ export PATH=$GOPATH/bin:$PATH
 export PATH=$HOME/.local/bin:$PATH
 
 function _conda_auto_activate() {
-    case $(pwd) in
-        *praktikum*) ENV="base" ;;
-        *thesis*)    ENV="cta"  ;;
-        *cta*)       ENV="cta"  ;;
-        *)           ENV="none" ;;
+    case ${PWD##*/}  in
+        praktikum) ENV="base" ;;
+        thesis)    ENV="base" ;;
+        cta*)      ENV="cta"  ;;
+        *)         ENV="none" ;;
     esac
-    if [[ $ENV != "none" ]]; then
-        if ! [[ $(which python) =~ ".*conda.*" ]]; then
+    if ! [[ $ENV == "none" ]]; then
+        if ! [[ $CONDA_PREFIX == ${CONDA_PREFIX##*/} ]]; then
             conda activate $ENV
         fi
     fi
 }
 function chpwd() {
     _conda_auto_activate
+}
+
+function cd()
+{
+    builtin cd $@
+    chpwd
 }
 
 source ~/.bash_functions
@@ -245,4 +251,3 @@ else
 fi
 unset __conda_setup
 # <<< conda initialize <<<
-
