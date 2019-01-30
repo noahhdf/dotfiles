@@ -1,4 +1,5 @@
 # vim: commentstring=#%s
+xset r rate 300 50 &
 xmodmap ~/.Xmodmap &
 unclutter --timeout=5 --jitter=1 -b &
 if ! [[ $(pgrep redshift) ]]; then
