@@ -1,5 +1,5 @@
 " load plugins from separate file
-if hostname() == 'NoahsThinkpadX240'
+if matchstr(hostname(), 'berry') != 'berry'
     source ~/.config/nvim/plugin/plugins.vim
 endif
 
