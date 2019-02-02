@@ -41,6 +41,7 @@ call plug#begin('~/.vim/plugged')
             let g:deoplete#enable_at_startup = 1
         endif
     Plug 'zchee/deoplete-jedi', {'for': 'python'}
+    " Plug 'neomake/neomake'
     Plug 'w0rp/ale'
         let g:ale_sign_error = '>>'
         let g:ale_sign_warning = '--'
@@ -126,4 +127,5 @@ call plug#begin('~/.vim/plugged')
     Plug 'leafgarland/typescript-vim', {'for': 'typescript'}
     Plug 'HerringtonDarkholme/yats.vim', {'for': 'typescript'}
     " Plug 'mhartington/nvim-typescript', {'do': './install.sh', 'for': 'typescript'}
+    Plug 'rhysd/vim-grammarous'
 call plug#end()
