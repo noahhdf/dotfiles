@@ -37,7 +37,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'honza/vim-snippets'
     Plug 'rbonvall/snipmate-snippets-bib', {'for': 'bib'}
     Plug 'Shougo/deoplete.nvim', {'do': ':UpdateRemotePlugins'}
-        if has('nvim')
+        if has('nvim-0.3.0')
             let g:deoplete#enable_at_startup = 1
         endif
     Plug 'zchee/deoplete-jedi', {'for': 'python'}
