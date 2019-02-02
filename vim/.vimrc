@@ -1,5 +1,7 @@
 " load plugins from separate file
-source ~/.config/nvim/plugin/plugins.vim
+if hostname() == 'NoahsThinkpadX240'
+    source ~/.config/nvim/plugin/plugins.vim
+endif
 
 set lazyredraw
 set notimeout
