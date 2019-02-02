@@ -1,7 +1,5 @@
 " load plugins from separate file
-if matchstr(hostname(), 'berry') != 'berry'
-    source ~/.config/nvim/plugin/plugins.vim
-endif
+source ~/.config/nvim/plugin/plugins.vim
 
 set lazyredraw
 set notimeout
