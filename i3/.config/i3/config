@@ -26,6 +26,7 @@ focus_follows_mouse false # true|false
 set $mod Mod4
 
 set $alt Mod1
+set $mod Mod1
 # set $win Mod4
 
 set $fontsize 7
@@ -41,7 +42,7 @@ floating_minimum_size 700x400
 floating_maximum_size -1x-1
 
 # start a terminal
-bindsym $mod+Return exec urxvt
+bindsym $mod+Return exec urxvt -e ion
 bindsym $mod+Shift+Return exec urxvt -shading 100
 
 # start a webbrowser
