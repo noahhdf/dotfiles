@@ -5,6 +5,7 @@ all:
 		colorschemes/ \
 		git/ \
 		i3/ \
+		ion/ \
 		local_bin/ \
 		nvim/ \
 		polybar/ \
