@@ -4,4 +4,4 @@ noremap <buffer> <F5> :ComposerStart<CR>
 
 setlocal conceallevel=2
 
-let g:ale_linters = {'markdown': ['alex', 'vale', 'write-good']}
+let g:ale_linters = {'markdown': ['vale', 'write-good']}
