@@ -72,7 +72,6 @@ alias 'vim'='nvim'
 alias 'sim'='nvim -O'
 alias 'tim'='nvim -p'
 alias 'gut'='echo "being an idiot?" && git'
-alias ':q'='echo "trapped in vim? go to bed!" && sleep 3 && exit'
 
 # Misc
 # alias 'pdfpandoc'='pandoc -r markdown -w latex -o'
