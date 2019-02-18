@@ -189,7 +189,7 @@ export SCM_CHECK=true
 
 
 # Load Bash It
-source "$BASH_IT"/bash_it.sh
+# source "$BASH_IT"/bash_it.sh
 
 # # MAGIC Software
 # # export PATH=$PATH:$HOME/.local/anaconda3/bin
@@ -241,14 +241,14 @@ source ~/.bash_functions
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/home/noah/anaconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
+__conda_setup="$('/home/nbiederbeck/anaconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
 if [ $? -eq 0 ]; then
     eval "$__conda_setup"
 else
-    if [ -f "/home/noah/anaconda3/etc/profile.d/conda.sh" ]; then
-        . "/home/noah/anaconda3/etc/profile.d/conda.sh"
+    if [ -f "/home/nbiederbeck/anaconda3/etc/profile.d/conda.sh" ]; then
+        . "/home/nbiederbeck/anaconda3/etc/profile.d/conda.sh"
     else
-        export PATH="/home/noah/anaconda3/bin:$PATH"
+        export PATH="/home/nbiederbeck/anaconda3/bin:$PATH"
     fi
 fi
 unset __conda_setup
