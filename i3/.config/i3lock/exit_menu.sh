@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
 LOCKSCRIPT="~/.local/bin/betterlockscreen -l"
+GITSCRIPT="~/.local/bin/checkgit"
 
 ROFI_TEXT="?"
 ROFI_OPTIONS=(-width 10 -location 0 -hide-scrollbar -bw 1 -fullscreen -font "SourceCodePro 52" -padding 100)
@@ -12,10 +13,10 @@ typeset -A menu
 
 # Menu with keys/commands
 menu=(
-  [Shutdown]="systemctl poweroff"
+  [Shutdown]="${GITSCRIPT} && systemctl poweroff"
   [Reboot]="systemctl reboot"
   [Lock]="${LOCKSCRIPT}"
-  [Sleep]="${LOCKSCRIPT} & systemctl suspend"
+  [Sleep]="${GITSCRIPT} && ${LOCKSCRIPT} & systemctl suspend"
   [Logout]="i3-msg exit"
 )
 menu_nrows=${#menu[@]}
