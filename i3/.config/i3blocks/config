@@ -13,11 +13,11 @@ markup=pango
 # command=xbacklight
 # interval=1
 
-[traffic]
-interval=60
+# [traffic]
+# interval=60
 
-[updates]
-interval=3600
+# [updates]
+# interval=3600
 
 # [dropbox]
 # # command=dropbox-cli status
@@ -34,16 +34,16 @@ interval=1
 label=LOAD
 interval=1
 
-[disk]
-label=~
-interval=60
+# [disk]
+# label=~
+# interval=60
 
-[connection]
-interval=10
-full_text=No Connection
+# [connection]
+# interval=10
+# full_text=No Connection
 
-[battery]
-interval=10
+# [battery]
+# interval=10
 
 [time]
 # command=date '+%A, %d. %B %Y, %H:%M:%S'

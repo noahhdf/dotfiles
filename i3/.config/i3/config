@@ -205,33 +205,33 @@ client.focused_inactive $black     $black      $boldwhite $cyan
 client.urgent           $red       $red        $black     $cyan
 
 
-# #  -- i3blocks --  #
-# bar {
-#     status_command i3blocks
-#     # output eDP1
-#     tray_output eDP1
-#     tray_padding 0
-#     font                pango:SourceCodePro, Awesome $fontsize
-#     colors {
-#         #                  #color
-#         background         $black
-#         statusline         $boldwhite
-#         separator          $white
-#         #                  #border    #background #text
-#         focused_workspace  $boldwhite $boldwhite  $black
-#         active_workspace   $black     $black      $white
-#         inactive_workspace $black     $black      $boldblack
-#         urgent_workspace   $black     $black      $red
-#         binding_mode       $black     $black      $red
-#     }
-#     mode dock                   # dock|hide|invisible
-#     hidden_state hide           # hide|show
-#     modifier $alt               # modifier
-#     strip_workspace_numbers yes # yes|no
-#     separator_symbol "|"        # any symbol
-#     position bottom             # top|bottom
-#     workspace_buttons yes       # yes|no
-# }
+#  -- i3blocks --  #
+bar {
+    status_command i3blocks
+    # output eDP1
+    tray_output DP-1
+    tray_padding 0
+    font                pango:SourceCodeVariable, Awesome $fontsize
+    colors {
+        #                  #color
+        background         $black
+        statusline         $boldwhite
+        separator          $white
+        #                  #border    #background #text
+        focused_workspace  $boldwhite $boldwhite  $black
+        active_workspace   $black     $black      $white
+        inactive_workspace $black     $black      $boldblack
+        urgent_workspace   $black     $black      $red
+        binding_mode       $black     $black      $red
+    }
+    mode dock                   # dock|hide|invisible
+    hidden_state hide           # hide|show
+    modifier $alt               # modifier
+    strip_workspace_numbers yes # yes|no
+    separator_symbol "|"        # any symbol
+    position bottom             # top|bottom
+    workspace_buttons yes       # yes|no
+}
 
 
 # -- default borders -- #
@@ -263,11 +263,11 @@ workspace $ws3 output DP-1
 workspace $ws5 output DP-1
 workspace $ws7 output DP-1
 workspace $ws9 output DP-1
-workspace $ws2 output DP-2
-workspace $ws4 output DP-2
-workspace $ws6 output DP-2
-workspace $ws8 output DP-2
-workspace $ws10 output DP-2
+workspace $ws2 output HDMI-2
+workspace $ws4 output HDMI-2
+workspace $ws6 output HDMI-2
+workspace $ws8 output HDMI-2
+workspace $ws10 output HDMI-2
 
 #  -- bind programs to workspaces --  #
 # 1) run `xprop`
