@@ -42,7 +42,7 @@ floating_minimum_size 700x400
 floating_maximum_size -1x-1
 
 # start a terminal
-bindsym $mod+Return exec urxvt
+bindsym $mod+Return exec urxvt -e ion
 bindsym $mod+Shift+Return exec urxvt -shading 100
 
 # start a webbrowser
@@ -178,7 +178,14 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 bindsym $mod+shift+t exec franz, workspace $ws9
-bindsym $mod+z exec zathura
+
+mode "pdf" {
+        bindsym z exec zathura, mode default
+        bindsym e exec evince, mode default
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+bindsym $mod+p mode "pdf"
 
 # hide borders when fullscreen
 hide_edge_borders none # none|vertical|horizontal|both|smart
@@ -205,33 +212,33 @@ client.focused_inactive $black     $black      $boldwhite $cyan
 client.urgent           $red       $red        $black     $cyan
 
 
-#  -- i3blocks --  #
-bar {
-    status_command i3blocks
-    # output eDP1
-    tray_output DP-1
-    tray_padding 0
-    font                pango:SourceCodeVariable, Awesome $fontsize
-    colors {
-        #                  #color
-        background         $black
-        statusline         $boldwhite
-        separator          $white
-        #                  #border    #background #text
-        focused_workspace  $boldwhite $boldwhite  $black
-        active_workspace   $black     $black      $white
-        inactive_workspace $black     $black      $boldblack
-        urgent_workspace   $black     $black      $red
-        binding_mode       $black     $black      $red
-    }
-    mode dock                   # dock|hide|invisible
-    hidden_state hide           # hide|show
-    modifier $alt               # modifier
-    strip_workspace_numbers yes # yes|no
-    separator_symbol "|"        # any symbol
-    position bottom             # top|bottom
-    workspace_buttons yes       # yes|no
-}
+# #  -- i3blocks --  #
+# bar {
+#     status_command i3blocks
+#     # output eDP1
+#     tray_output eDP1
+#     tray_padding 0
+#     font                pango:SourceCodePro, Awesome $fontsize
+#     colors {
+#         #                  #color
+#         background         $black
+#         statusline         $boldwhite
+#         separator          $white
+#         #                  #border    #background #text
+#         focused_workspace  $boldwhite $boldwhite  $black
+#         active_workspace   $black     $black      $white
+#         inactive_workspace $black     $black      $boldblack
+#         urgent_workspace   $black     $black      $red
+#         binding_mode       $black     $black      $red
+#     }
+#     mode dock                   # dock|hide|invisible
+#     hidden_state hide           # hide|show
+#     modifier $alt               # modifier
+#     strip_workspace_numbers yes # yes|no
+#     separator_symbol "|"        # any symbol
+#     position bottom             # top|bottom
+#     workspace_buttons yes       # yes|no
+# }
 
 
 # -- default borders -- #
@@ -258,16 +265,16 @@ mode "borders" {
 }
 
 # -- odd workspaces on laptop screen -- #
-workspace $ws1 output DP-1
-workspace $ws3 output DP-1
-workspace $ws5 output DP-1
-workspace $ws7 output DP-1
-workspace $ws9 output DP-1
-workspace $ws2 output HDMI-2
-workspace $ws4 output HDMI-2
-workspace $ws6 output HDMI-2
-workspace $ws8 output HDMI-2
-workspace $ws10 output HDMI-2
+workspace $ws1 output eDP1
+workspace $ws3 output eDP1
+workspace $ws5 output eDP1
+workspace $ws7 output eDP1
+workspace $ws9 output eDP1
+workspace $ws2 output DP2 DP1 DP2-3 HDMI1
+workspace $ws4 output DP2 DP1 DP2-3 HDMI1
+workspace $ws6 output DP2 DP1 DP2-3 HDMI1
+workspace $ws8 output DP2 DP1 DP2-3 HDMI1
+workspace $ws10 output DP2 DP1 DP2-3 HDMI1
 
 #  -- bind programs to workspaces --  #
 # 1) run `xprop`
@@ -291,8 +298,8 @@ assign [class="Whatsie"] $ws9
 # -- gaps -- #
 # gaps inner|outer current|all set|plus|minus <px>
 # workspace <ws> gaps inner|outer <px>
-# gaps inner $gapsize
-# smart_gaps on
+gaps inner $gapsize
+smart_gaps on
 
 bindsym $mod+g mode "gaps"
 mode "gaps" {
