@@ -253,3 +253,10 @@ else
 fi
 unset __conda_setup
 # <<< conda initialize <<<
+MANPATH=/home/nbiederbeck/texlive/2018/texmf-dist/doc/man:/home/linuxbrew/.linuxbrew/share/man:
+INFOPATH=/home/nbiederbeck/texlive/2018/texmf-dist/doc/info:/home/linuxbrew/.linuxbrew/share/info:
+PATH=/home/nbiederbeck/texlive/2018/bin/x86_64-linux:/home/nbiederbeck/anaconda3/bin:/home/nbiederbeck/anaconda3/condabin:/home/nbiederbeck/.local/bin:/home/nbiederbeck/.go/bin:/home/linuxbrew/.linuxbrew/sbin:/home/linuxbrew/.linuxbrew/bin:/home/nbiederbeck/.cargo/bin:/home/nbiederbeck/.cargo/bin:/home/nbiederbeck/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
+
+
+alias 'rannor'='xrandr --output DP-1 --mode 1920x1200 --primary --output HDMI-2 --mode 1920x1200 --right-of DP-1'
+alias 'ranrot'='xrandr --output DP-1 --mode 1920x1200 --primary --rotate left --output HDMI-2 --mode 1920x1200 --right-of DP-1'
