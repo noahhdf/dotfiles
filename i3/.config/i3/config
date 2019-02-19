@@ -178,7 +178,14 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 bindsym $mod+shift+t exec franz, workspace $ws9
-bindsym $mod+z exec zathura
+
+mode "pdf" {
+        bindsym z exec zathura, mode default
+        bindsym e exec evince, mode default
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+bindsym $mod+p mode "pdf"
 
 # hide borders when fullscreen
 hide_edge_borders none # none|vertical|horizontal|both|smart
