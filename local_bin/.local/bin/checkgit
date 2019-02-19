@@ -1,0 +1,35 @@
+#!/bin/bash
+
+shell="bash"
+let exit_code=0
+
+for gr in $(find $HOME -maxdepth 5 -name '.git' 2> /dev/null); do
+	wd=$(dirname $gr)
+    if [[
+        $wd =~ '.cache' ||
+        $wd =~ '.vim' ||
+        $wd =~ '.cargo'
+    ]]; then
+        continue
+    fi
+	pushd $wd &> /dev/null
+	status=$(git status)
+	if [[ $status =~ "ntracked files" ]]; then
+		echo "Git repo   '$wd'   has untracked files"
+        urxvt +hold -cd $wd -e "$shell" &
+        let exit_code=1
+	elif [[ $status =~ "branch is ahead" ]]; then
+		echo "Git repo   '$wd'   has current branch not pushed"
+        urxvt +hold -cd $wd -e "$shell" &
+        let exit_code=1
+	elif [[ $status =~ "nothing to commit" ]]; then
+		true
+	else
+		echo "Git repo   '$wd'   needs attention"
+        urxvt +hold -cd $wd -e "$shell" &
+        let exit_code=1
+	fi
+	popd &> /dev/null
+done
+
+exit $exit_code
