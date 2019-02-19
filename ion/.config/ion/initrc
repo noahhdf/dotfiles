@@ -8,3 +8,4 @@ if matches $SSH_AGENT_PID ""
 end
 
 source ~/.aliases
+source ~/.paths
