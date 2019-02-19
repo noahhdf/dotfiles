@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-LOCKSCRIPT="~/.local/bin/betterlockscreen -l"
+LOCKSCRIPT="slock"
 GITSCRIPT="~/.local/bin/checkgit"
 
 ROFI_TEXT="?"
