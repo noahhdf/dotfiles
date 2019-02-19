@@ -128,12 +128,6 @@ if [[ -f ~/.cache/wal/sequences ]]; then
     cat ~/.cache/wal/sequences
 fi
 
-export PATH="/home/linuxbrew/.linuxbrew/bin:$PATH"
-export MANPATH="/home/linuxbrew/.linuxbrew/share/man:$MANPATH"
-export INFOPATH="/home/linuxbrew/.linuxbrew/share/info:$INFOPATH"
-export LDFLAGS="-L/home/linuxbrew/.linuxbrew/opt/isl@0.18/lib"
-export CPPFLAGS="-I/home/linuxbrew/.linuxbrew/opt/isl@0.18/include"
-export PATH="/home/linuxbrew/.linuxbrew/sbin:$PATH"
 
 # Path to the bash it configuration
 export BASH_IT="$HOME/.bash-it"
@@ -210,10 +204,6 @@ if [[ "$SSH_AGENT_PID" == "" ]]; then
 fi
 
 
-export GOPATH=$HOME/.go
-export PATH=$GOPATH/bin:$PATH
-export PATH=$HOME/.local/bin:$PATH
-
 function _conda_auto_activate() {
     case ${PWD##*/}  in
         praktikum) ENV="base" ;;
@@ -253,10 +243,8 @@ else
 fi
 unset __conda_setup
 # <<< conda initialize <<<
-MANPATH=/home/nbiederbeck/texlive/2018/texmf-dist/doc/man:/home/linuxbrew/.linuxbrew/share/man:
-INFOPATH=/home/nbiederbeck/texlive/2018/texmf-dist/doc/info:/home/linuxbrew/.linuxbrew/share/info:
-PATH=/home/nbiederbeck/texlive/2018/bin/x86_64-linux:/home/nbiederbeck/anaconda3/bin:/home/nbiederbeck/anaconda3/condabin:/home/nbiederbeck/.local/bin:/home/nbiederbeck/.go/bin:/home/linuxbrew/.linuxbrew/sbin:/home/linuxbrew/.linuxbrew/bin:/home/nbiederbeck/.cargo/bin:/home/nbiederbeck/.cargo/bin:/home/nbiederbeck/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
 
+source ~/.paths
 
 alias 'rannor'='xrandr --output DP-1 --mode 1920x1200 --primary --output HDMI-2 --mode 1920x1200 --right-of DP-1'
 alias 'ranrot'='xrandr --output DP-1 --mode 1920x1200 --primary --rotate left --output HDMI-2 --mode 1920x1200 --right-of DP-1'
