@@ -133,4 +133,8 @@ call plug#begin('~/.vim/plugged')
         let g:show_spaces_that_precede_tabs = 1
         let g:better_whitespace_verbosity = 0
         let g:strip_whitespace_confirm = 0
+    Plug 'floobits/floobits-neovim'
 call plug#end()
+
+let g:python_host_prog = '/usr/bin/python2'
+let g:python3_host_prog = '/home/noah/anaconda3/bin/python'
