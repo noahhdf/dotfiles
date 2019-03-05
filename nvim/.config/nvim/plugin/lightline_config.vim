@@ -6,9 +6,8 @@ let g:lightline = {
     \            ['readonly', 'filename', 'modified'],
     \           ],
     \   'right': [['linter_checking', 'linter_errors', 'linter_warnings'],
-    \             ['lineinfo', 'wordinfo'],
-    \             ['percent'],
-    \             ['fileencoding', 'filetype'],
+    \             ['percent', 'lineinfo', 'wordinfo'],
+    \             ['spell', 'fileencoding', 'filetype'],
     \            ],
     \},
 \}
