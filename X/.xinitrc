@@ -1,5 +1,4 @@
 # vim: commentstring=#%s
-xset r rate 250 80 &
 xmodmap ~/.Xmodmap &
 unclutter --timeout=5 --jitter=1 -b &
 if ! [[ $(pgrep redshift) ]]; then
@@ -7,6 +6,7 @@ if ! [[ $(pgrep redshift) ]]; then
 fi
 tresorit &
 xrdb $HOME/.Xresources &
+xset r rate 250 80 &
 
 
 # Start Window Manager
