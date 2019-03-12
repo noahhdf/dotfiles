@@ -33,6 +33,8 @@ call plug#begin('~/.vim/plugged')
             if has('nvim-0.3.0')
                 let g:deoplete#enable_at_startup = 1
             endif
+            let g:python_host_prog = "/usr/bin/python2"
+            let g:python3_host_prog = expand("~/anaconda3/bin/python")
         Plug 'zchee/deoplete-jedi', {'for': 'python'}
         " Plug 'neomake/neomake'
         Plug 'w0rp/ale'
@@ -135,6 +137,3 @@ call plug#begin('~/.vim/plugged')
         let g:strip_whitespace_confirm = 0
     Plug 'floobits/floobits-neovim'
 call plug#end()
-
-let g:python_host_prog = '/usr/bin/python2'
-let g:python3_host_prog = '/home/noah/anaconda3/bin/python'
