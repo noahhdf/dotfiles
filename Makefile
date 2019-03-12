@@ -7,6 +7,7 @@ all:
 		i3/ \
 		ion/ \
 		local_bin/ \
+		matplotlib/ \
 		nvim/ \
 		polybar/ \
 		rofi/ \
