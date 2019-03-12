@@ -18,5 +18,7 @@ all: i3/.config/i3/config
 		wal/ \
 		X/
 
-i3/.config/i3/config:
+i3/.config/i3/config: FORCE
 	cat i3/.config/i3/main.config i3/.config/i3/$$HOSTNAME.config > i3/.config/i3/config
+
+FORCE:
