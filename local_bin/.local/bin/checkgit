@@ -1,4 +1,4 @@
-#!/usr/bin/bash
+#!/bin/bash
 
 shell="ion"
 let exit_code=0

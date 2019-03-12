@@ -3,7 +3,7 @@ rofi.modi:                           run,ssh,window
 ! rofi.width:                          42
 rofi.lines:                          9
 rofi.columns:                        1
-rofi.font:                           SourceCodePro 12
+rofi.font:                           SourceCodeVariable 12
 
 
 rofi.color-enabled: true

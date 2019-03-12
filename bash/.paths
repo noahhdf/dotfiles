@@ -1,0 +1,14 @@
+export PATH="/home/linuxbrew/.linuxbrew/bin:$PATH"
+export MANPATH="/home/linuxbrew/.linuxbrew/share/man:$MANPATH"
+export INFOPATH="/home/linuxbrew/.linuxbrew/share/info:$INFOPATH"
+export LDFLAGS="-L/home/linuxbrew/.linuxbrew/opt/isl@0.18/lib"
+export CPPFLAGS="-I/home/linuxbrew/.linuxbrew/opt/isl@0.18/include"
+export PATH="/home/linuxbrew/.linuxbrew/sbin:$PATH"
+
+export GOPATH=$HOME/.go
+export PATH=$GOPATH/bin:$PATH
+export PATH=$HOME/.local/bin:$PATH
+
+export MANPATH=/home/nbiederbeck/texlive/2018/texmf-dist/doc/man:$PATH
+export INFOPATH=/home/nbiederbeck/texlive/2018/texmf-dist/doc/info:$PATH
+export PATH=/home/nbiederbeck/texlive/2018/bin/x86_64-linux:$PATH

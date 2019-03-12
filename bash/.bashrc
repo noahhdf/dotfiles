@@ -128,12 +128,6 @@ if [[ -f ~/.cache/wal/sequences ]]; then
     cat ~/.cache/wal/sequences
 fi
 
-export PATH="/home/linuxbrew/.linuxbrew/bin:$PATH"
-export MANPATH="/home/linuxbrew/.linuxbrew/share/man:$MANPATH"
-export INFOPATH="/home/linuxbrew/.linuxbrew/share/info:$INFOPATH"
-export LDFLAGS="-L/home/linuxbrew/.linuxbrew/opt/isl@0.18/lib"
-export CPPFLAGS="-I/home/linuxbrew/.linuxbrew/opt/isl@0.18/include"
-export PATH="/home/linuxbrew/.linuxbrew/sbin:$PATH"
 
 # Path to the bash it configuration
 export BASH_IT="$HOME/.bash-it"
@@ -189,7 +183,7 @@ export SCM_CHECK=true
 
 
 # Load Bash It
-source "$BASH_IT"/bash_it.sh
+# source "$BASH_IT"/bash_it.sh
 
 # # MAGIC Software
 # # export PATH=$PATH:$HOME/.local/anaconda3/bin
@@ -209,10 +203,6 @@ if [[ "$SSH_AGENT_PID" == "" ]]; then
     eval "$(<~/.ssh-agent-thing)" > /dev/null
 fi
 
-
-export GOPATH=$HOME/.go
-export PATH=$GOPATH/bin:$PATH
-export PATH=$HOME/.local/bin:$PATH
 
 function _conda_auto_activate() {
     case ${PWD##*/}  in
@@ -241,15 +231,20 @@ source ~/.bash_functions
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/home/noah/anaconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
+__conda_setup="$('/home/nbiederbeck/anaconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
 if [ $? -eq 0 ]; then
     eval "$__conda_setup"
 else
-    if [ -f "/home/noah/anaconda3/etc/profile.d/conda.sh" ]; then
-        . "/home/noah/anaconda3/etc/profile.d/conda.sh"
+    if [ -f "/home/nbiederbeck/anaconda3/etc/profile.d/conda.sh" ]; then
+        . "/home/nbiederbeck/anaconda3/etc/profile.d/conda.sh"
     else
-        export PATH="/home/noah/anaconda3/bin:$PATH"
+        export PATH="/home/nbiederbeck/anaconda3/bin:$PATH"
     fi
 fi
 unset __conda_setup
 # <<< conda initialize <<<
+
+source ~/.paths
+
+alias 'rannor'='xrandr --output DP-1 --mode 1920x1200 --primary --output HDMI-2 --mode 1920x1200 --right-of DP-1'
+alias 'ranrot'='xrandr --output DP-1 --mode 1920x1200 --primary --rotate left --output HDMI-2 --mode 1920x1200 --right-of DP-1'
