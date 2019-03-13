@@ -48,3 +48,5 @@ command! -bang WA wa<bang>
 command! -bang Wq wq<bang>
 command! -bang WQ wq<bang>
 command! -bang Wqa wqa<bang>
+
+tnoremap <ESC> <C-\><C-n>
