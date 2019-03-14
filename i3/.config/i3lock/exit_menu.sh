@@ -3,7 +3,7 @@
 if [[ $HOSTNAME == "NoahsThinkpadX240" ]]; then
     LOCKSCRIPT="~/.local/bin/betterlockscreen -l"
     GITSCRIPT="~/.local/bin/checkgit"
-elif [[ $HOSTNAME == "MacMini-E026E5b" ]]; then
+elif [[ $HOSTNAME == "MacMini-E5b026" ]]; then
     LOCKSCRIPT="slock"
     GITSCRIPT="~/.local/bin/checkgit"
 fi
