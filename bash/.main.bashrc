@@ -117,7 +117,7 @@ if ! shopt -oq posix; then
   fi
 fi
 
-. ~/.bash_profile
+# . ~/.bash_profile
 
 # if ! [[ $CONDA_PATH ]]; then
 #     export CONDA_PATH=$(find ~ -maxdepth 3 -type d -iname *conda3*)

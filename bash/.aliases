@@ -38,7 +38,9 @@ alias 'now'='cal -m;date'
 # alias 'mv'='mv -v'
 # alias 'cp'='cp -v'
 # alias 'mkdir'='mkdir -p'
-alias 'ls'='exa'
+if [[ $(command -v exa) ]]; then
+    alias 'ls'='exa'
+fi
 # alias 'ls'='ls -h --color="always"'
 alias 'll'='ls -al'
 alias 'la'='ls -a'
@@ -68,10 +70,11 @@ alias 'vollmondtunnelproxy'='ssh -N -f -L 2702:localhost:2702 proxy'
 
 # Correct wrong typed commands on the fly
 # alias 'vim'='echo "using nvim..." && nvim'
-alias 'vim'='nvim'
-alias 'sim'='nvim -O'
-alias 'tim'='nvim -p'
-alias 'gut'='echo "being an idiot?" && git'
+if [[ $(command -v nvim) ]]; then
+    alias 'vim'='nvim'
+    alias 'sim'='nvim -O'
+    alias 'tim'='nvim -p'
+fi
 
 # Misc
 # alias 'pdfpandoc'='pandoc -r markdown -w latex -o'
