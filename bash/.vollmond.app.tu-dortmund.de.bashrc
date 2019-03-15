@@ -38,3 +38,6 @@ export PATH=/opt/texlive/2017/bin/x86_64-linux:$PATH
 # Anaconda Python
 . /opt/anaconda/etc/profile.d/conda.sh
 conda activate /home/nbiederbeck/.conda/envs/conda
+
+source ~/.bash_colors
+PS1="$(clr_red '[vollmond]') $PS1"

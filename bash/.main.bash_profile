@@ -1,4 +1,5 @@
 # vim: ft=sh
+source ~/.bash_colors
 # source bashrc
 if [ -n "$BASH_VERSION" ]; then
     if [ -f "~/.bashrc" ]; then
@@ -22,10 +23,11 @@ source ~/.aliases
 # alias 'conda2'='/Users/nbiederbeck/anaconda2/bin/conda'
 
 parse_git_branch() {
-  git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
+  git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1) /'
   }
-# source ~/Git/bash_colors/bash_colors.sh
-export PS1='\[\033[0;31m\]$(parse_git_branch) \[\033[0;34m\]\w\n\[\033[1;32m\]\[\033[0m\]$ '
+
+# export PS1='\[\033[0;31m\]$(parse_git_branch) \[\033[0;34m\]\w\n\[\033[1;32m\]\[\033[0m\]$ '
+export PS1="$(clr_brown '$(parse_git_branch)')$(clr_green '\w')\n$ "
 
 # export PATH="$HOME/.cargo/bin:$PATH"
 # export DISABLE_AUTO_TITLE=true
