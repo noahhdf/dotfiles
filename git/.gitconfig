@@ -27,7 +27,7 @@
     s = status
     a = add
 [log]
-    date = default-local
+    date = iso
 [color "status"]
 	header = white bold
 [mergetool "nvim"]
