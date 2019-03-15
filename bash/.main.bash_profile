@@ -23,11 +23,19 @@ source ~/.aliases
 # alias 'conda2'='/Users/nbiederbeck/anaconda2/bin/conda'
 
 parse_git_branch() {
-  git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1) /'
-  }
+    git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1) /'
+}
+
+parse_git_repo() {
+    git remote -v 2> /dev/null | grep 'origin.*fetch' | sed 's/.*git.*\.com./(/;s/.git.*/: /'
+}
+
+print_git_info() {
+    echo "$(clr_brown '$(parse_git_repo)$(parse_git_branch)')"
+}
 
 # export PS1='\[\033[0;31m\]$(parse_git_branch) \[\033[0;34m\]\w\n\[\033[1;32m\]\[\033[0m\]$ '
-export PS1="$(clr_brown '$(parse_git_branch)')$(clr_green '\w')\n$ "
+export PS1="$(print_git_info)$(clr_green '\w')\n$ "
 
 # export PATH="$HOME/.cargo/bin:$PATH"
 # export DISABLE_AUTO_TITLE=true
