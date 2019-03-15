@@ -27,7 +27,7 @@ parse_git_branch() {
 }
 
 parse_git_repo() {
-    git remote -v 2> /dev/null | grep 'origin.*fetch' | sed 's/.*git.*\.com./(/;s/.git.*/: /'
+    git remote -v 2> /dev/null | grep 'origin.*fetch' | sed -E 's/.*git(hub|lab).(com|de)./(/;s/(.git)? .*/: /'
 }
 
 print_git_info() {
