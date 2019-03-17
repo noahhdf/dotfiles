@@ -11,5 +11,4 @@ xrdb $HOME/.Xresources &
 
 # Start Window Manager
 # gnome-session
-cat $HOME/.config/i3/main.config $HOME/.config/i3/$HOSTNAME.config > $HOME/.config/i3/config
 exec i3
