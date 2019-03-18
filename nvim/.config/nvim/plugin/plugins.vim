@@ -35,6 +35,9 @@ call plug#begin('~/.vim/plugged')
             endif
             let g:python_host_prog = "/usr/bin/python2"
             let g:python3_host_prog = expand("~/anaconda3/bin/python")
+            if matchstr(hostname(), 'vollmond') == 'vollmond'
+                let g:python3_host_prog = "/home/nbiederbeck/.conda/envs/conda/bin/python"
+            endif
         Plug 'zchee/deoplete-jedi', {'for': 'python'}
         " Plug 'neomake/neomake'
         Plug 'w0rp/ale'
