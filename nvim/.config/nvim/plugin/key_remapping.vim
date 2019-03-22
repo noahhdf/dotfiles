@@ -3,7 +3,7 @@ nnoremap <LEADER>m :Make<CR>
 inoremap jk <ESC>
 inoremap jjk <ESC>:w<CR>
 
-nnoremap ;w :w<CR>
+" nnoremap ;w :w<CR>
 
 vnoremap n <ESC>
 
