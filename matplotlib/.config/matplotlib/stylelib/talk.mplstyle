@@ -426,7 +426,7 @@ ytick.labelsize      : 12 # fontsize of the tick labels
 # See http://matplotlib.org/api/figure_api.html#matplotlib.figure.Figure
 #figure.titlesize : large      # size of the figure title (Figure.suptitle())
 #figure.titleweight : normal   # weight of the figure title
-figure.figsize   : 8.82, 5.51   # figure size in inches
+figure.figsize   : 7.05, 4.41   # figure size in inches
 #figure.dpi       : 100      # figure dots per inch
 #figure.facecolor : white   # figure facecolor; 0.75 is scalar gray
 #figure.edgecolor : white   # figure edgecolor
