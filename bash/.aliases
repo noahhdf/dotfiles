@@ -41,7 +41,7 @@ alias 'now'='cal -m;date'
 if [[ $(command -v exa) ]]; then
     alias 'ls'='exa'
 fi
-# alias 'ls'='ls -h --color="always"'
+alias 'ls'='ls --color="always"'
 alias 'll'='ls -al'
 alias 'la'='ls -a'
 # alias 'make'='time make'
