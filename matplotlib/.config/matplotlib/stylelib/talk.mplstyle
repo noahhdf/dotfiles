@@ -38,7 +38,7 @@
 #
 # If you omit this parameter, it will always default to "Agg", which is a
 # non-interactive backend.
-backend      : pdf
+# backend      : pdf
 
 # Note that this can be overridden by the environment variable
 # QT_API used by Enthought Tool Suite (ETS); valid values are
@@ -193,7 +193,7 @@ backend      : pdf
 font.family         : sans-serif
 #font.style          : normal
 #font.variant        : normal
-#font.weight         : medium
+# font.weight         : light
 #font.stretch        : normal
 # note that font.size controls default text sizes.  To configure
 # special text sizes tick labels, axes, labels, title, etc, see the rc
@@ -201,7 +201,7 @@ font.family         : sans-serif
 # relative to font.size, using the following values: xx-small, x-small,
 # small, medium, large, x-large, xx-large, larger, or smaller
 font.size           : 15.0
-font.sans-serif : Fira Mono Light
+font.sans-serif : Akkurat Light Office
 #font.serif          : DejaVu Serif, Bitstream Vera Serif, New Century Schoolbook, Century Schoolbook L, Utopia, ITC Bookman, Bookman, Nimbus Roman No9 L, Times New Roman, Times, Palatino, Charter, serif
 #font.sans-serif     : DejaVu Sans, Bitstream Vera Sans, Lucida Grande, Verdana, Geneva, Lucid, Arial, Helvetica, Avant Garde, sans-serif
 #font.cursive        : Apple Chancery, Textile, Zapf Chancery, Sand, Script MT, Felipa, cursive
@@ -213,7 +213,10 @@ font.sans-serif : Fira Mono Light
 # http://matplotlib.org/api/artist_api.html#module-matplotlib.text for more
 # information on text properties
 
-text.color          : A9A9A9
+# text.color          : A9A9A9
+
+pgf.texsystem: lualatex
+pgf.preamble: \input{header-matplotlib.tex}
 
 ### LaTeX customizations. See http://wiki.scipy.org/Cookbook/Matplotlib/UsingTex
 text.usetex         : True  # use latex for all text handling. The following fonts
@@ -266,14 +269,14 @@ text.usetex         : True  # use latex for all text handling. The following fon
 #mathtext.it  : serif:italic
 #mathtext.bf  : serif:bold
 #mathtext.sf  : sans
-#mathtext.fontset : dejavusans # Should be 'dejavusans' (default),
+# mathtext.fontset : custom # Should be 'dejavusans' (default),
                                # 'dejavuserif', 'cm' (Computer Modern), 'stix',
                                # 'stixsans' or 'custom'
 #mathtext.fallback_to_cm : True  # When True, use symbols from the Computer Modern
                                  # fonts when a symbol can not be found in one of
                                  # the custom math fonts.
 
-#mathtext.default : it # The default font to use for math.
+# mathtext.default : Fira Math # The default font to use for math.
                        # Can be any of the LaTeX font names, including
                        # the special name "regular" for the same font
                        # used in regular text.
@@ -291,7 +294,7 @@ text.usetex         : True  # use latex for all text handling. The following fon
 #axes.labelsize      : medium  # fontsize of the x any y labels
 #axes.labelpad       : 4.0     # space between label and axis
 #axes.labelweight    : normal  # weight of the x and y labels
-axes.labelcolor     : A9A9A9
+# axes.labelcolor     : A9A9A9
 #axes.axisbelow      : 'line'  # draw axis gridlines and ticks below
                                # patches (True); above patches but below
                                # lines ('line'); or above all (False)
