@@ -24,7 +24,7 @@ call plug#begin('~/.vim/plugged')
             au Syntax * RainbowParenthesesLoadBraces
         Plug 'ervandew/supertab'
             let g:SuperTabDefaultCompletionType = '<C-n>'
-        Plug 'sirver/ultisnips'
+        " Plug 'sirver/ultisnips'
             let g:UltiSnipsExpandTrigger = "<tab>"
             let g:UltiSnipsJumpForwardTrigger = "<tab>"
             let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
