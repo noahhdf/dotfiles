@@ -190,7 +190,7 @@ backend      : pdf
 # The font.size property is the default font size for text, given in pts.
 # 10 pt is the standard value.
 #
-#font.family         : sans-serif
+font.family         : sans-serif
 #font.style          : normal
 #font.variant        : normal
 #font.weight         : medium
@@ -200,7 +200,8 @@ backend      : pdf
 # settings for axes and ticks. Special text sizes can be defined
 # relative to font.size, using the following values: xx-small, x-small,
 # small, medium, large, x-large, xx-large, larger, or smaller
-#font.size           : 10.0
+font.size           : 15.0
+font.sans-serif : Fira Mono Light
 #font.serif          : DejaVu Serif, Bitstream Vera Serif, New Century Schoolbook, Century Schoolbook L, Utopia, ITC Bookman, Bookman, Nimbus Roman No9 L, Times New Roman, Times, Palatino, Charter, serif
 #font.sans-serif     : DejaVu Sans, Bitstream Vera Sans, Lucida Grande, Verdana, Geneva, Lucid, Arial, Helvetica, Avant Garde, sans-serif
 #font.cursive        : Apple Chancery, Textile, Zapf Chancery, Sand, Script MT, Felipa, cursive
@@ -212,7 +213,7 @@ backend      : pdf
 # http://matplotlib.org/api/artist_api.html#module-matplotlib.text for more
 # information on text properties
 
-#text.color          : black
+text.color          : A9A9A9
 
 ### LaTeX customizations. See http://wiki.scipy.org/Cookbook/Matplotlib/UsingTex
 text.usetex         : True  # use latex for all text handling. The following fonts
@@ -290,7 +291,7 @@ text.usetex         : True  # use latex for all text handling. The following fon
 #axes.labelsize      : medium  # fontsize of the x any y labels
 #axes.labelpad       : 4.0     # space between label and axis
 #axes.labelweight    : normal  # weight of the x and y labels
-#axes.labelcolor     : black
+axes.labelcolor     : A9A9A9
 #axes.axisbelow      : 'line'  # draw axis gridlines and ticks below
                                # patches (True); above patches but below
                                # lines ('line'); or above all (False)
@@ -364,7 +365,7 @@ text.usetex         : True  # use latex for all text handling. The following fon
 #xtick.major.pad      : 3.5      # distance to major tick label in points
 #xtick.minor.pad      : 3.4      # distance to the minor tick label in points
 #xtick.color          : k      # color of the tick labels
-#xtick.labelsize      : medium # fontsize of the tick labels
+xtick.labelsize      : 12 # fontsize of the tick labels
 #xtick.direction      : out    # direction: in, out, or inout
 #xtick.minor.visible  : False  # visibility of minor ticks on x-axis
 #xtick.major.top      : True   # draw x axis top major ticks
@@ -381,7 +382,7 @@ text.usetex         : True  # use latex for all text handling. The following fon
 #ytick.major.pad      : 3.5      # distance to major tick label in points
 #ytick.minor.pad      : 3.4      # distance to the minor tick label in points
 #ytick.color          : k      # color of the tick labels
-#ytick.labelsize      : medium # fontsize of the tick labels
+ytick.labelsize      : 12 # fontsize of the tick labels
 #ytick.direction      : out    # direction: in, out, or inout
 #ytick.minor.visible  : False  # visibility of minor ticks on y-axis
 #ytick.major.left     : True   # draw y axis left major ticks
