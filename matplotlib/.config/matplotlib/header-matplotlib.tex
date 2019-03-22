@@ -1,0 +1,26 @@
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{mathtools}
+\usepackage{fontspec}
+\usepackage{xcolor}
+\setmainfont[BoldFont=Akkurat Office]{Akkurat Light Office}
+\setsansfont[BoldFont=Akkurat Office]{Akkurat Light Office}
+\setmonofont[BoldFont=Fira Mono, Scale=MatchLowercase]{Fira Mono}
+\usepackage[
+  math-style=ISO,
+  bold-style=ISO,
+  sans-style=italic,
+  nabla=upright,
+  partial=upright,
+]{unicode-math}
+\setmathfont{Tex Gyre Pagella Math}
+\usepackage[
+  per-mode=reciprocal,
+  separate-uncertainty=true,
+]{siunitx}
+
+\AtBeginDocument{%
+  \sisetup{%
+    math-rm=\mathrm,
+  }
+}
