@@ -10,6 +10,8 @@ endif
 call plug#begin('~/.vim/plugged')
     " Plugins Only For Fast Computers == Not For Raspberry PIs
     if matchstr(hostname(), 'berry') != 'berry'
+        Plug 'Yggdroot/indentLine'
+            let g:indentLine_color_term = '8'
         Plug 'maximbaz/lightline-ale'
             set laststatus=2
             set noshowmode
