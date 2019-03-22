@@ -118,7 +118,6 @@ call plug#begin('~/.vim/plugged')
     " Plugins Also For Slow Computers == Raspberry PIs
     Plug 'itchyny/lightline.vim'
     Plug 'arcticicestudio/nord-vim'
-        let g:nord_comment_brightness=20
         let g:nord_italic=1
         let g:nord_italic_comments=1
         let g:nord_cursor_line_number_background=0

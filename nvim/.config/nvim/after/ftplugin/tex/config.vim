@@ -4,3 +4,4 @@ endif
 let g:deoplete#omni#input_patterns.tex = g:vimtex#re#deoplete
 
 let g:ale_linters = {'tex': ['chktex', 'lacheck', 'write-good --checks=schreib-gut']}
+let b:indentLine_enabled = 0
