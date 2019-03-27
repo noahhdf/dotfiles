@@ -7,8 +7,9 @@ if ! [[ $(pgrep redshift) ]]; then
 fi
 tresorit &
 xrdb $HOME/.Xresources &
+nm-applet &
 
 
 # Start Window Manager
-# gnome-session
-exec i3
+gnome-session
+# exec i3

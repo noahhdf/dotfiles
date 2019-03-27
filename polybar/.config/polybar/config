@@ -52,7 +52,7 @@ bottom = true
 line-size = 16
 modules-left = i3
 modules-center =
-modules-right = traffic filesystem wireless wired
+modules-right = traffic filesystem
 tray-position = right
 
 [module/uptime]
