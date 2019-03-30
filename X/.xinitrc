@@ -11,5 +11,5 @@ nm-applet &
 
 
 # Start Window Manager
-gnome-session
-# exec i3
+# gnome-session
+exec i3
