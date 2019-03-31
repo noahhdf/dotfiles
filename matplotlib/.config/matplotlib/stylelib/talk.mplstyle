@@ -38,7 +38,7 @@
 #
 # If you omit this parameter, it will always default to "Agg", which is a
 # non-interactive backend.
-# backend      : pdf
+# backend      : qt5agg
 
 # Note that this can be overridden by the environment variable
 # QT_API used by Enthought Tool Suite (ETS); valid values are
@@ -216,7 +216,7 @@ font.sans-serif : Akkurat Light Office
 # text.color          : A9A9A9
 
 pgf.texsystem: lualatex
-pgf.preamble: \input{header-matplotlib.tex}
+pgf.preamble: \input{header-matplotlib-talk.tex}
 
 ### LaTeX customizations. See http://wiki.scipy.org/Cookbook/Matplotlib/UsingTex
 text.usetex         : True  # use latex for all text handling. The following fonts
@@ -269,14 +269,14 @@ text.usetex         : True  # use latex for all text handling. The following fon
 #mathtext.it  : serif:italic
 #mathtext.bf  : serif:bold
 #mathtext.sf  : sans
-# mathtext.fontset : custom # Should be 'dejavusans' (default),
+#mathtext.fontset : dejavusans # Should be 'dejavusans' (default),
                                # 'dejavuserif', 'cm' (Computer Modern), 'stix',
                                # 'stixsans' or 'custom'
 #mathtext.fallback_to_cm : True  # When True, use symbols from the Computer Modern
                                  # fonts when a symbol can not be found in one of
                                  # the custom math fonts.
 
-# mathtext.default : Fira Math # The default font to use for math.
+#mathtext.default : it # The default font to use for math.
                        # Can be any of the LaTeX font names, including
                        # the special name "regular" for the same font
                        # used in regular text.
@@ -294,7 +294,7 @@ text.usetex         : True  # use latex for all text handling. The following fon
 #axes.labelsize      : medium  # fontsize of the x any y labels
 #axes.labelpad       : 4.0     # space between label and axis
 #axes.labelweight    : normal  # weight of the x and y labels
-# axes.labelcolor     : A9A9A9
+#axes.labelcolor     : black
 #axes.axisbelow      : 'line'  # draw axis gridlines and ticks below
                                # patches (True); above patches but below
                                # lines ('line'); or above all (False)
@@ -433,7 +433,7 @@ figure.figsize   : 7.05, 4.41   # figure size in inches
 #figure.autolayout : False  # When True, automatically adjust subplot
                             # parameters to make the plot fit the figure
                             # using `tight_layout`
-#figure.constrained_layout.use: False # When True, automatically make plot
+figure.constrained_layout.use: True # When True, automatically make plot
                                  # elements fit on the figure. (Not compatible
                                  # with `autolayout`, above).
 #figure.max_open_warning : 20  # The maximum number of figures to open through
