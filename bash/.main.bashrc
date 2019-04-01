@@ -217,15 +217,16 @@ function _conda_auto_activate() {
         fi
     fi
 }
+
 function chpwd() {
     _conda_auto_activate
 }
 
-function cd()
-{
-    builtin cd $@
-    chpwd
-}
+# function cd()
+# {
+#     builtin cd $@
+#     chpwd
+# }
 
 source ~/.bash_functions
 
