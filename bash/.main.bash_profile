@@ -31,7 +31,7 @@ parse_git_repo() {
 }
 
 print_git_info() {
-    echo "$(clr_brown '$(parse_git_repo)$(parse_git_branch)')"
+    echo "$(clr_cyan '$(parse_git_repo)$(parse_git_branch)')"
 }
 
 # export PS1='\[\033[0;31m\]$(parse_git_branch) \[\033[0;34m\]\w\n\[\033[1;32m\]\[\033[0m\]$ '
