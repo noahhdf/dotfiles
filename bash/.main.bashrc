@@ -246,5 +246,5 @@ unset __conda_setup
 
 source ~/.paths
 
-alias 'rannor'='xrandr --output DP-1 --mode 1920x1200 --primary --output HDMI-2 --mode 1920x1200 --right-of DP-1'
-alias 'ranrot'='xrandr --output DP-1 --mode 1920x1200 --primary --rotate left --output HDMI-2 --mode 1920x1200 --right-of DP-1'
+alias 'rannor'='xrandr --output HDMI2 --mode 1920x1200 --primary --output DP1 --mode 1920x1200 --right-of HDMI2'
+alias 'ranrot'='xrandr --output HDMI2 --mode 1920x1200 --primary --rotate left --output DP1 --mode 1920x1200 --right-of HDMI2'
