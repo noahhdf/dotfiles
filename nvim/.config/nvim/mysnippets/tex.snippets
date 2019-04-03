@@ -89,6 +89,12 @@ snippet () "parentheses" A
 \left($1\right)$0
 endsnippet
 
+context isMath()
+snippet [] "brackets" A
+\left[$1\right]$0
+endsnippet
+
+
 snippet "" "enquote" A
 \enquote{$1}$0
 endsnippet
@@ -117,7 +123,7 @@ snippet int "int" iAe
 endsnippet
 
 snippet $$ "$ $" iA
-$ $1 $$0
+\( $1 \)$0
 endsnippet
 
 context isMath()
