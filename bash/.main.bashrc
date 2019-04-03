@@ -251,3 +251,5 @@ alias 'rannor'='xrandr --output HDMI2 --mode 1920x1200 --primary --output DP1 --
 alias 'ranrot'='xrandr --output HDMI2 --mode 1920x1200 --primary --rotate left --output DP1 --mode 1920x1200 --right-of HDMI2'
 
 [[ -z $TMUX ]] || conda deactivate; conda activate
+
+export TERM=xterm-256color
