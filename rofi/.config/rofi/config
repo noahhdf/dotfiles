@@ -1,19 +1,22 @@
 ! vim: ft=xdefaults commentstring=!%s
 rofi.modi:                           run,ssh,window
-! rofi.width:                          42
-rofi.lines:                          9
-rofi.columns:                        1
-rofi.font:                           SourceCodeVariable 12
+rofi.width:                          100
+rofi.lines:                          2
+rofi.columns:                        9
+rofi.font:                           SourceCodeVariable 10
 
+rofi.theme: theme.rasi
 
 rofi.color-enabled: true
+!                  bg       fg       border
 rofi.color-window: #2a2e32, #cfcfc2, #232629
+!                  bg       fg       bgalt    hlbg     hlfg
 rofi.color-normal: #232629, #cfcfc2, #232629, #cfcfc2, #232629
 rofi.color-active: #232629, #218058, #232629, #218058, #232629
 rofi.color-urgent: #232629, #c0392b, #232629, #c0392b, #232629
 
-! rofi.bw:                             0
-! rofi.location:                       5
+rofi.bw:                             1
+rofi.location:                       1
 ! rofi.padding:                        5
 ! rofi.yoffset:                        0
 ! rofi.xoffset:                        0
