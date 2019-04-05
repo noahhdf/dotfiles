@@ -76,7 +76,7 @@ if [[ $(command -v nvim) ]]; then
     alias 'tim'='nvim -p'
 fi
 
-alias 'fim'='vim $(fzf --type f --preview "bat --color=always {} | head -100")'
+alias 'fim'='vim $(fd --type f | fzf --preview "bat --color=always {} | head -100")'
 alias 'fcd'='cd $(fd --type d --hidden --exclude *conda* | fzf --preview "ls {} -a --color=always")'
 alias 'cdf'='cd $(fd --type d | fzf --preview "ls {} -a --color=always")'
 
