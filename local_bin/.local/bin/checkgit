@@ -3,15 +3,8 @@
 shell="bash"
 let exit_code=0
 
-for gr in $(find $HOME -maxdepth 5 -name '.git' 2> /dev/null); do
+for gr in $(fd --type d --hidden --maxdepth 5 --exclude .vim --exclude .cache --exclude .cargo --exclude .fzf '.git$' $HOME); do
 	wd=$(dirname $gr)
-    if [[
-        $wd =~ '.cache' ||
-        $wd =~ '.vim' ||
-        $wd =~ '.cargo'
-    ]]; then
-        continue
-    fi
 	pushd $wd &> /dev/null
 	status=$(git status)
 	if [[ $status =~ "ntracked files" ]]; then
