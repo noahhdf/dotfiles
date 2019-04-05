@@ -1,6 +1,6 @@
 #!/bin/bash
 
-shell="ion"
+shell="bash"
 let exit_code=0
 
 for gr in $(find $HOME -maxdepth 5 -name '.git' 2> /dev/null); do
