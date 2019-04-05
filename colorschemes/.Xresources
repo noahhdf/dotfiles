@@ -64,7 +64,7 @@
 ! *.color15:    #ECEFF4
 
 ! ! URXVT SETTINGS
-URxvt.perl-ext-common:        default,clipboard,matcher,resize-font,url-select
+URxvt.perl-ext-common:        default,matcher,resize-font
 URxvt.borderless:             true
 ! URxvt.geometry:               84x24
 URxvt.font:                   xft:SourceCodeVariable:Regular:size=10
