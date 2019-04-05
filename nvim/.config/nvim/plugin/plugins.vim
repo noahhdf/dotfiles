@@ -108,7 +108,11 @@ call plug#begin('~/.vim/plugged')
             let g:markdown_composer_browser = 'surf'
             let g:markdown_composer_autostart = 0
         Plug 'vim-scripts/vim-on-write'
+        Plug 'junegunn/fzf', {'dir': '~/.fzf', 'do': './install --all'}
         Plug 'junegunn/fzf.vim'
+        Plug 'noahhdf/vim-agriculture'
+            vmap <Leader>/ <Plug>RgRawVisualSelection
+            nmap <Leader>/ <Plug>RgRawWordUnderCursor
         Plug 'leafgarland/typescript-vim', {'for': 'typescript'}
         Plug 'HerringtonDarkholme/yats.vim', {'for': 'typescript'}
         " Plug 'mhartington/nvim-typescript', {'do': './install.sh', 'for': 'typescript'}
