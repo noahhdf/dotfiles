@@ -8,8 +8,8 @@ elif [[ $HOSTNAME == "MacMini-E5b026" ]]; then
     GITSCRIPT="~/.local/bin/checkgit"
 fi
 
-ROFI_TEXT="?"
-ROFI_OPTIONS=(-width 10 -location 0 -hide-scrollbar -bw 1 -fullscreen -font "SourceCodePro 52" -padding 100)
+ROFI_TEXT="Exit"
+ROFI_OPTIONS=(-width 100 -location 1 -hide-scrollbar -bw 1 -font "SourceCodeVariable 10")
 
 enable_confirmation=false
 
@@ -30,14 +30,14 @@ menu_nrows=${#menu[@]}
 menu_confirm="Shutdown Reboot Logout"
 
 launcher_exe="rofi"
-launcher_options=(-dmenu -i -lines "${menu_nrows}" -p "${ROFI_TEXT}" "${ROFI_OPTIONS[@]}")
+launcher_options=(-dmenu -i -lines 1 -columns "${menu_nrows}" -p "${ROFI_TEXT}" "${ROFI_OPTIONS[@]}")
 launcher=(${launcher_exe} "${launcher_options[@]}")
 
 selection="$(printf '%s\n' "${!menu[@]}" | sort | "${launcher[@]}")"
 
 function ask_confirmation() {
   if [ "${launcher_exe}" == "rofi" ]; then
-    confirmed=$(echo -e "Yes\nNo" | rofi -dmenu -i -lines 2 -p "${selection}?" \
+    confirmed=$(echo -e "Yes\nNo" | rofi -dmenu -i -columns 2 -p "${selection}?" \
       "${ROFI_OPTIONS[@]}")
     [ "${confirmed}" == "Yes" ] && confirmed=0
   fi
