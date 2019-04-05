@@ -76,8 +76,9 @@ if [[ $(command -v nvim) ]]; then
     alias 'tim'='nvim -p'
 fi
 
-alias 'fim'='vim $(fzf)'
-alias 'fcd'='cd $(fd --type d | fzf)'
+alias 'fim'='vim $(fzf --type f --preview "bat --color=always {} | head -100")'
+alias 'fcd'='cd $(fd --type d --hidden --exclude *conda* | fzf --preview "ls {} -a --color=always")'
+alias 'cdf'='cd $(fd --type d | fzf --preview "ls {} -a --color=always")'
 
 # Misc
 # alias 'pdfpandoc'='pandoc -r markdown -w latex -o'
