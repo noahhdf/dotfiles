@@ -15,7 +15,7 @@ alias 'ls'='ls --color=no'
 # alias 'git'='~/.linuxbrew/bin/git'
 alias '..'='cd ..'
 alias 'gits'='git status --short'
-alias 'nb'='jupyter-notebook --port=2702 --no-browser'
+alias 'jn'='jupyter-notebook --port=2702 --no-browser'
 
 # Root with python3
 # source /opt/root/5.34.36-py3/bin/thisroot.sh
@@ -32,8 +32,6 @@ alias 'utopcpu'='top -o %CPU -u $USER'
 alias 'utopmem'='top -o %MEM -u $USER'
 alias 'topcpu'='top -o %CPU'
 alias 'topmem'='top -o %MEM'
-
-export PATH=/opt/texlive/2017/bin/x86_64-linux:$PATH
 
 # Anaconda Python
 . /opt/anaconda/etc/profile.d/conda.sh
