@@ -142,4 +142,5 @@ call plug#begin('~/.vim/plugged')
         let g:better_whitespace_verbosity = 0
         let g:strip_whitespace_confirm = 0
     Plug 'christoomey/vim-tmux-navigator'
+    Plug 'pest-parser/pest.vim'
 call plug#end()
