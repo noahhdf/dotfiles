@@ -59,10 +59,11 @@ except ZeroDivisionError:
 battery_time = battery_time_0 + battery_time_1
 
 ramp = {0: "▁", 1: "▂", 2: "▃", 3: "▄", 4: "▅", 5: "▆", 6: "▇", 7: "█"}
+ramp = {0: "", 1: "", 2: "", 3: "", 4: ""}
 
-for i in range(8):
-    if battery_percent / 100 > i / 8:
-        icon = ramp[i]
+for v, icon in ramp.items():
+    if battery_percent / 100 < v / len(ramp):
+        break
 
 
 print(f"{icon} {int(battery_percent)}% {int(battery_time)}m")
