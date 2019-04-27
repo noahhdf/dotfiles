@@ -38,7 +38,7 @@
 #
 # If you omit this parameter, it will always default to "Agg", which is a
 # non-interactive backend.
-backend      : pgf
+# backend      : pgf
 
 # Note that this can be overridden by the environment variable
 # QT_API used by Enthought Tool Suite (ETS); valid values are
@@ -423,7 +423,7 @@ backend      : pgf
 #figure.titlesize : large      # size of the figure title (Figure.suptitle())
 #figure.titleweight : normal   # weight of the figure title
 #figure.figsize   : 6.4, 4.8   # figure size in inches
-figure.dpi       : 80      # figure dots per inch
+# figure.dpi       : 80      # figure dots per inch
 #figure.facecolor : white   # figure facecolor; 0.75 is scalar gray
 #figure.edgecolor : white   # figure edgecolor
 #figure.autolayout : True  # When True, automatically adjust subplot
