@@ -14,8 +14,8 @@ export INFOPATH=/home/nbiederbeck/texlive/2018/texmf-dist/doc/info:$PATH
 export PATH=/home/nbiederbeck/texlive/2018/bin/x86_64-linux:$PATH
 
 export PATH=/opt/git/2.21.0/bin/:$PATH
-export PATH=/opt/texlive/2018/bin/x86_64-linux/:$PATH
 export PATH=/opt/texlive/2017/bin/x86_64-linux/:$PATH
+export PATH=/opt/texlive/2018/bin/x86_64-linux/:$PATH
 
 export TEXINPUTS=$HOME/.config/matplotlib:$TEXINPUTS
 
