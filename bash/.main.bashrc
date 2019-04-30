@@ -246,6 +246,7 @@ unset __conda_setup
 # <<< conda initialize <<<
 
 source ~/.paths
+source ~/.variables
 
 alias 'rannor'='xrandr --output HDMI2 --mode 1920x1200 --primary --output DP1 --mode 1920x1200 --right-of HDMI2'
 alias 'ranrot'='xrandr --output HDMI2 --mode 1920x1200 --primary --rotate left --output DP1 --mode 1920x1200 --right-of HDMI2'
