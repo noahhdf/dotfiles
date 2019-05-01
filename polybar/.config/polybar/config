@@ -129,7 +129,7 @@ label-disconnected-foreground = ${colors.alert}
 
 [module/battery]
 type = custom/script
-exec = ~/.config/i3blocks/blocks/battery_combined.py
+exec = ~/.config/i3blocks/blocks/battery_combined.lua
 format = <label>
 interval = 5
 
