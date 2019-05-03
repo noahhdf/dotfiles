@@ -8,20 +8,23 @@ trm="urxvt -e ${shell}"
 let exit_code=0
 
 pkill lemonbar
-for gr in $(fd --type d --hidden --maxdepth 5 --exclude .vim --exclude .cache --exclude .cargo --exclude .fzf '.git$' ~ ); do
+for gr in $(fd --type d --hidden --maxdepth 5 --exclude .vim --exclude .cache --exclude .cargo --exclude .fzf --exclude anaconda3 --exclude texlive '.git$' ~ ); do
 	wd=$(dirname $gr)
 	pushd $wd &> /dev/null
 	status=$(git status)
 	if [[ $status =~ "ntracked files" ]]; then
-		echo "%{A:urxvt:}$wd   has untracked files" | ${bar} &
+		# echo "%{A:urxvt:}$wd   has untracked files" | ${bar} &
+		notify-send -u critical "$wd   has untracked files"
         let exit_code=1
 	elif [[ $status =~ "branch is ahead" ]]; then
-		echo "%{A:urxvt:}$wd   has current branch not pushed" | ${bar} &
+		# echo "%{A:urxvt:}$wd   has current branch not pushed" | ${bar} &
+		notify-send -u critical "$wd   has current branch not pushed"
         let exit_code=1
 	elif [[ $status =~ "nothing to commit" ]]; then
 		true
 	else
-		(echo "%{A:urxvt:}$wd   needs attention%{A}" | ${bar}) | bash &
+		# (echo "%{A:urxvt:}$wd   needs attention%{A}" | ${bar}) | bash &
+		notify-send -u critical "$wd   needs attention"
         let exit_code=1
 	fi
 	popd &> /dev/null
