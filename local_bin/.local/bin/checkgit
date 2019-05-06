@@ -8,7 +8,22 @@ trm="urxvt -e ${shell}"
 let exit_code=0
 
 pkill lemonbar
-for gr in $(fd --type d --hidden --maxdepth 5 --exclude .vim --exclude .cache --exclude .cargo --exclude .fzf --exclude anaconda3 --exclude texlive '.git$' ~ ); do
+dirs=$( \
+    find ~ \
+        -maxdepth 5 \
+        -name '.git' \
+        -not -path '*/.cache/*' \
+        -not -path '*/.vim/*' \
+        -not -path '*/.cargo/*' \
+        -not -path '*/.fzf/*' \
+        -not -path '*/.tmux/*' \
+        -not -path '*/anaconda3/*' \
+        -not -path '*/texlive/*' \
+        -not -path '*/.texmf/*' \
+        -not -path '*/.bash-it/*' \
+)
+# for gr in $(fd --type d --hidden --maxdepth 5 --exclude .vim --exclude .cache --exclude .cargo --exclude .fzf --exclude anaconda3 --exclude texlive '.git$' ~ ); do
+for gr in ${dirs}; do
 	wd=$(dirname $gr)
 	pushd $wd &> /dev/null
 	status=$(git status)
