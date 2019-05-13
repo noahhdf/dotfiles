@@ -7,7 +7,11 @@ if empty(glob("~/.vim/autoload/plug.vim"))
     execute '!curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.github.com/junegunn/vim-plug/master/plug.vim'
 endif
 
-call plug#begin('~/.vim/plugged')
+if matchstr(hostname(), 'phobos') == 'phobos'
+    call plug#begin('/scratch/nbiederbeck/vim/plugged')
+else
+    call plug#begin('~/.vim/plugged')
+endif
     " Plugins Only For Fast Computers == Not For Raspberry PIs
     if matchstr(hostname(), 'berry') != 'berry'
         Plug 'maximbaz/lightline-ale'
@@ -36,7 +40,10 @@ call plug#begin('~/.vim/plugged')
             let g:python_host_prog = "/usr/bin/python2"
             let g:python3_host_prog = expand("~/anaconda3/bin/python")
             if matchstr(hostname(), 'vollmond') == 'vollmond'
-                let g:python3_host_prog = "/home/nbiederbeck/.conda/envs/conda/bin/python"
+                let g:python3_host_prog = "/scratch/nbiederbeck/conda/envs/py37/bin/python"
+            endif
+            if matchstr(hostname(), 'phobos') == 'phobos'
+                let g:python3_host_prog = "/scratch/nbiederbeck/conda/envs/py37/bin/python"
             endif
         Plug 'zchee/deoplete-jedi', {'for': 'python'}
         " Plug 'neomake/neomake'
