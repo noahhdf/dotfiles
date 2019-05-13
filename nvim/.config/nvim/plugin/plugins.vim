@@ -9,6 +9,8 @@ endif
 
 if matchstr(hostname(), 'phobos') == 'phobos'
     call plug#begin('/scratch/nbiederbeck/vim/plugged')
+elseif matchstr(hostname(), 'vollmond') == 'vollmond'
+    call plug#begin('/scratch/nbiederbeck/vim/plugged')
 else
     call plug#begin('~/.vim/plugged')
 endif
