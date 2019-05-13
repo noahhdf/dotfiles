@@ -35,7 +35,7 @@ alias 'topmem'='top -o %MEM'
 
 # Anaconda Python
 . /opt/anaconda/etc/profile.d/conda.sh
-conda activate /home/nbiederbeck/.conda/envs/conda
+conda activate py37
 
 source ~/.bash_colors
 PS1="$(clr_red '[vollmond]') $PS1"
