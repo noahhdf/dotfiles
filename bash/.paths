@@ -23,3 +23,5 @@ export PATH=/opt/texlive/2018/bin/x86_64-linux/:$PATH
 export TEXINPUTS=$HOME/.config/matplotlib:$TEXINPUTS
 
 export TEXMFHOME=$HOME/.texmf
+
+export PATH=/scratch/nbiederbeck/.local/bin/:$PATH
