@@ -10,7 +10,6 @@ fi
 
 # User specific aliases and functions
 # conda activate cta
-alias 'ls'='ls --color=no'
 # alias 'vim'='nvim'
 # alias 'git'='~/.linuxbrew/bin/git'
 alias '..'='cd ..'
