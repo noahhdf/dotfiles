@@ -8,3 +8,8 @@ let g:ale_python_flake8_options = '--select=N,F,H,D,R, --ignore=D100 --ignore=E5
 let g:ale_python_pydocstyle_options = '--ignore=D100,D211,D213,D301'
 let g:ale_fixers = {'python': ['black']}
 " let g:ale_python_black_options = '--line-length 79'
+
+
+fu! Noblack()
+    let g:ale_fix_on_save=0
+endfu!
