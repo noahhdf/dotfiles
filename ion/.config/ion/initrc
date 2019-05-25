@@ -1,13 +1,4 @@
 # SSH Agent
-let p=$(pgrep -u "$USER" ssh-agent)
-if matches p ""
-    ssh-agent | sed 's/^SSH/let SSH/;s/\; / \&\& /;s/\;$//' > ~/.ssh-agent-thing
-end
-if matches $SSH_AGENT_PID ""
-    eval "$(<~/.ssh-agent-thing)" > /dev/null
-end
-
-export PATH="$HOME/anaconda3/bin:$PATH"
 export GOPATH="$HOME/.go"
 export PATH="$GOPATH/bin:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
