@@ -12,4 +12,5 @@ nm-applet &
 
 # Start Window Manager
 # gnome-session
+# exec startkde
 exec i3
