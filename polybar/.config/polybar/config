@@ -39,6 +39,15 @@ font-1 = "FontAwesome:size=8;1"
 font-2 = "DejaVuSerifCondensed:size=6;1"
 module-margin = 1
 
+[bar/combined]
+inherit = bar
+line-size = 16
+label-active-font = 0
+modules-left = battery temperature cpu ram backlight performance
+modules-center = i3 traffic
+modules-right = date filesystem pulseaudio
+tray-position = right
+
 [bar/top]
 inherit = bar
 line-size = 16
