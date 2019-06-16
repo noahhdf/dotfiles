@@ -44,7 +44,7 @@ inherit = bar
 line-size = 16
 label-active-font = 0
 modules-left = battery temperature cpu ram backlight performance
-modules-center = i3 traffic
+modules-center = traffic i3
 modules-right = date filesystem pulseaudio
 tray-position = right
 
