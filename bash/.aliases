@@ -92,5 +92,3 @@ alias 'base'='source ~/venv/base/bin/activate'
 alias "listgit"="fd '\.git$' -HI -t d -E .vim -E .cache -E .oh-my-zsh -E .cargo"
 
 alias "cpu"="ps -e --user noah --format 'cmd pid %mem %cpu' --sort -%cpu,-%mem | head"
-
-alias 'tmux'='tmux a || tmux'
