@@ -45,7 +45,7 @@ line-size = 16
 label-active-font = 0
 modules-left = battery temperature cpu ram backlight performance
 modules-center = traffic i3
-modules-right = date filesystem pulseaudio
+modules-right = utc date filesystem pulseaudio
 tray-position = right
 
 [bar/top]
@@ -185,6 +185,11 @@ ramp-capacity-7 = █
 ; bar-capacity-empty = 
 ; bar-capacity-empty-font = 1
 ; bar-capacity-empty-foreground = #44ffffff
+
+[module/utc]
+type = custom/script
+exec = echo "$(date +%R --utc) utc"
+interval = 10
 
 [module/date]
 type = internal/date
