@@ -102,18 +102,6 @@ endif
         Plug 'plasticboy/vim-markdown', {'for': 'markdown'}
            let g:vim_markdown_folding_disabled=1
         Plug 'vimwiki/vimwiki', {'for': 'vimwiki'}
-            function! BuildComposer(info)
-              if a:info.status != 'unchanged' || a:info.force
-                if has('nvim')
-                  !cargo build --release
-                else
-                  !cargo build --release --no-default-features --features json-rpc
-                endif
-              endif
-            endfunction
-        Plug 'euclio/vim-markdown-composer', {'for': 'markdown', 'do': function('BuildComposer') }
-            let g:markdown_composer_browser = 'surf'
-            let g:markdown_composer_autostart = 0
         Plug 'vim-scripts/vim-on-write'
         Plug 'junegunn/fzf', {'dir': '~/.fzf', 'do': './install --all'}
         Plug 'junegunn/fzf.vim'
