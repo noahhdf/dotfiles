@@ -53,7 +53,7 @@ inherit = bar
 line-size = 16
 label-active-font = 0
 modules-left = temperature cpu ram backlight performance
-modules-center = date
+modules-center = date utc
 modules-right = pulseaudio
 tray-position = right
 
@@ -62,8 +62,8 @@ inherit = bar
 bottom = true
 line-size = 16
 modules-left = i3
-modules-center = battery
-modules-right = traffic filesystem
+modules-center =
+modules-right = traffic battery
 
 [module/performance]
 type = custom/script
@@ -188,7 +188,7 @@ ramp-capacity-7 = █
 
 [module/utc]
 type = custom/script
-exec = echo "$(date +%R --utc) utc"
+exec = echo "($(date +%R --utc) UTC)"
 interval = 10
 
 [module/date]
