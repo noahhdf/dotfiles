@@ -21,9 +21,9 @@ rofi.location:                       1
 ! rofi.yoffset:                        0
 ! rofi.xoffset:                        0
 ! rofi.fixed-num-lines:                true
-rofi.terminal:                       urxvt
+rofi.terminal:                       alacritty
 ! rofi.ssh-client:                     ssh
-rofi.ssh-command:                    urxvt -e {ssh-client} {host}
+rofi.ssh-command:                    alacritty -e {ssh-client} {host}
 ! rofi.run-command:                    {cmd}
 ! rofi.run-list-command:
 ! rofi.run-shell-command:              {terminal} -e {cmd}
