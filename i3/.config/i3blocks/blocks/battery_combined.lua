@@ -63,10 +63,15 @@ battery_time = battery_time_0 + battery_time_1
 
 ramp = {[0]= "", [1]= "", [2]= "", [3]= "", [4]= ""}
 
-for v, k in pairs(ramp) do
-    if battery_percent / 100 <= v / 4 then
-        icon = k
-        break
+
+if ac == "1" then
+    icon = ""
+else
+    for v, k in pairs(ramp) do
+        if battery_percent / 100 <= v / 4 then
+            icon = k
+            break
+        end
     end
 end
 
