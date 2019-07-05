@@ -37,4 +37,4 @@ alias 'topmem'='top -o %MEM'
 conda activate py37
 
 source ~/.bash_colors
-PS1="$(clr_red '[vollmond]') $PS1"
+PS1="$(clr_red '[$(echo $HOSTNAME | cut -d. -f1)]') $PS1"
