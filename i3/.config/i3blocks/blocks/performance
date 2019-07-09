@@ -4,3 +4,5 @@ with open('/sys/devices/system/cpu/intel_pstate/max_perf_pct', 'r') as f:
 
 if d < 100:
     print('Battery Power')
+else:
+    print('')
