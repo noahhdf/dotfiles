@@ -7,42 +7,62 @@ bar="lemonbar -F ${background} -B ${color1} -g 1366x20 -p"
 trm="urxvt -e ${shell}"
 let exit_code=0
 
+find_cmd=$(command -v fd || command -v find)
+find_cmd=$(echo ${find_cmd} | rev | cut -d/ -f1 | rev)
+
 pkill lemonbar
-dirs=$( \
-    find ~ \
-        -maxdepth 5 \
-        -name '.git' \
-        -not -path '*/.cache/*' \
-        -not -path '*/.vim/*' \
-        -not -path '*/.cargo/*' \
-        -not -path '*/.fzf/*' \
-        -not -path '*/.tmux/*' \
-        -not -path '*/anaconda3/*' \
-        -not -path '*/texlive/*' \
-        -not -path '*/.texmf/*' \
-        -not -path '*/.bash-it/*' \
-)
-# for gr in $(fd --type d --hidden --maxdepth 5 --exclude .vim --exclude .cache --exclude .cargo --exclude .fzf --exclude anaconda3 --exclude texlive '.git$' ~ ); do
+
+if [[ ${find_cmd} == "find" ]]; then
+    dirs=$( \
+        find ~ \
+            -maxdepth 5 \
+            -name '.git' \
+            -not -path '*/.cache/*' \
+            -not -path '*/.vim/*' \
+            -not -path '*/.cargo/*' \
+            -not -path '*/.fzf/*' \
+            -not -path '*/.tmux/*' \
+            -not -path '*/anaconda3/*' \
+            -not -path '*/texlive/*' \
+            -not -path '*/.texmf/*' \
+            -not -path '*/.bash-it/*' \
+    )
+elif [[ ${find_cmd} == "fd" ]]; then
+    dirs=$( \
+        fd '.git$' \
+            --maxdepth 5 \
+            --type d \
+            --hidden \
+            --exclude .vim \
+            --exclude .cache \
+            --exclude .cargo \
+            --exclude .fzf \
+            --exclude anaconda3 \
+            --exclude texlive \
+            ~ \
+    )
+fi
+
 for gr in ${dirs}; do
-	wd=$(dirname $gr)
-	pushd $wd &> /dev/null
-	status=$(git status)
-	if [[ $status =~ "ntracked files" ]]; then
-		# echo "%{A:urxvt:}$wd   has untracked files" | ${bar} &
-		notify-send -u critical "$wd   has untracked files"
+    wd=$(dirname $gr)
+    pushd $wd &> /dev/null
+    status=$(git status)
+    if [[ $status =~ "ntracked files" ]]; then
+        # echo "%{A:urxvt:}$wd   has untracked files" | ${bar} &
+        notify-send -u critical "$wd   has untracked files"
         let exit_code=1
-	elif [[ $status =~ "branch is ahead" ]]; then
-		# echo "%{A:urxvt:}$wd   has current branch not pushed" | ${bar} &
-		notify-send -u critical "$wd   has current branch not pushed"
+    elif [[ $status =~ "branch is ahead" ]]; then
+        # echo "%{A:urxvt:}$wd   has current branch not pushed" | ${bar} &
+        notify-send -u critical "$wd   has current branch not pushed"
         let exit_code=1
-	elif [[ $status =~ "nothing to commit" ]]; then
-		true
-	else
-		# (echo "%{A:urxvt:}$wd   needs attention%{A}" | ${bar}) | bash &
-		notify-send -u critical "$wd   needs attention"
+    elif [[ $status =~ "nothing to commit" ]]; then
+        true
+    else
+        # (echo "%{A:urxvt:}$wd   needs attention%{A}" | ${bar}) | bash &
+        notify-send -u critical "$wd   needs attention"
         let exit_code=1
-	fi
-	popd &> /dev/null
+    fi
+    popd &> /dev/null
 done
 
 exit $exit_code
