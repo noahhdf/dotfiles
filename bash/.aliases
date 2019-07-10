@@ -41,9 +41,10 @@ alias 'now'='cal -m;date'
 alias 'ls'='ls --color="always"'
 alias 'll'='ls -al'
 alias 'la'='ls -a'
-if [[ $(command -v exa) ]]; then
-    alias 'ls'='exa'
-fi
+# if [[ $(command -v exa) ]]; then
+#     alias 'ls'='exa'
+# fi
+alias ls=$(command -v exa || command -v ls)
 # alias 'make'='time make'
 # alias 'python'='time python'
 
@@ -72,11 +73,12 @@ alias 'vollmondtunnelproxy'='ssh -N -f -L 2702:localhost:2702 proxy'
 
 # Correct wrong typed commands on the fly
 # alias 'vim'='echo "using nvim..." && nvim'
-if [[ $(command -v nvim) ]]; then
-    alias 'vim'='nvim'
-    alias 'sim'='nvim -O'
-    alias 'tim'='nvim -p'
-fi
+alias vim=$(command -v nvim || command -v vim)
+# if [[ $(command -v nvim) ]]; then
+#     alias 'vim'='nvim'
+#     alias 'sim'='nvim -O'
+#     alias 'tim'='nvim -p'
+# fi
 
 alias 'fim'='vim $(fd --type f | fzf --preview "bat --color=always {} --theme OneHalfDark| head -100")'
 alias 'fcd'='cd $(fd --type d --hidden --exclude *conda* | fzf --preview "ls {} -a --color=always")'
