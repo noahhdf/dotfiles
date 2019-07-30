@@ -40,7 +40,7 @@ endif
                 let g:deoplete#enable_at_startup = 1
             endif
             let g:python_host_prog = "/usr/bin/python2"
-            let g:python3_host_prog = expand("~/anaconda3/bin/python")
+            let g:python3_host_prog = "/opt/anaconda/bin/python"
             if matchstr(hostname(), 'vollmond') == 'vollmond'
                 let g:python3_host_prog = "/scratch/nbiederbeck/conda/envs/py37/bin/python"
             endif
