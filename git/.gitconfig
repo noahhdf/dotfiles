@@ -18,7 +18,6 @@
     ll = log --color --graph --date=short --pretty=format:\"%Cblue%ad %Cgreen%an %C(yellow)%h %Creset%s %Cred%d %n%Creset%b\"
     # oneline log
     ol = log --oneline
-    last = log -1 HEAD
     c = commit
     d = diff
     cm = commit -m
@@ -26,6 +25,7 @@
     br = branch
     s = status
     a = add
+    puhs = push
 [log]
     date = iso
 [color "status"]
