@@ -1,3 +1,4 @@
+# vim: ft=sh
 # ~/.bashrc: executed by bash(1) for non-login shells.
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
@@ -239,7 +240,7 @@ else
     if [ -f "/opt/anaconda/etc/profile.d/conda.sh" ]; then
         . "/opt/anaconda/etc/profile.d/conda.sh"
     else
-        echo "well something wrong"
+        echo "well something wrong bashrc"
         # export PATH="$HOME/anaconda3/bin:$PATH"
     fi
 fi

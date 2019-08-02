@@ -72,7 +72,7 @@ else
     if [ -f "/opt/anaconda/etc/profile.d/conda.sh" ]; then
         . "/opt/anaconda/etc/profile.d/conda.sh"
     else
-        echo "well something wrong"
+        echo "well something wrong bash_profile"
         # export PATH="$HOME/anaconda3/bin:$PATH"
     fi
 fi
