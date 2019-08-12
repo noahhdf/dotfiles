@@ -30,7 +30,7 @@ offset-x = 0
 offset-y = 0
 underline-size = 2
 fixed-center = true
-monitor = eDP1
+; monitor = eDP1
 background = ${colors.background}
 line-color = ${colors.background}
 foreground = ${colors.foreground}
@@ -63,7 +63,7 @@ bottom = true
 line-size = 16
 modules-left = i3
 modules-center =
-modules-right = traffic battery
+; modules-right = traffic battery
 
 [module/weather]
 type = custom/script

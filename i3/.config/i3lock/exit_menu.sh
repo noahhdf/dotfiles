@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+LOCKSCRIPT="~/.local/bin/betterlockscreen -l blur -t $HOSTNAME"
+GITSCRIPT="~/.local/bin/checkgit"
 if [[ $HOSTNAME == "NoahsThinkpadX240" ]]; then
     LOCKSCRIPT="~/.local/bin/betterlockscreen -l blur -t $HOSTNAME"
     GITSCRIPT="~/.local/bin/checkgit"
