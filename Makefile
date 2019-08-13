@@ -1,7 +1,6 @@
 BUILD = \
 	bash/.bashrc \
-	bash/.bash_profile \
-	i3/.config/i3/config
+	bash/.bash_profile
 
 all: $(BUILD)
 	stow -t ~ \

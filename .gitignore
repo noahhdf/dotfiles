@@ -1,7 +1,6 @@
 nvim/.config/nvim/undo/
 nvim/.config/nvim/spell/*.spl
 nvim/.config/nvim/.netrwhist
-i3/.config/i3/config
 bash/.bashrc
 bash/.bash_profile
 ranger/.config/ranger/bookmarks
