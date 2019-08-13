@@ -25,11 +25,13 @@ echo "$load"
 echo "$load"
 
 # color if load is too high
-awk -v cpus=$cpus -v cpuload=$load -v color=$color2 '
+awk -v cpus=$cpus -v cpuload=$load -v colorr=$color2 colorg=$color1'
     BEGIN {
         if (cpus <= cpuload) {
-            print color;
+            print colorr;
             exit 33;
+        } else if (cpuload < 1) {
+            print colorg;
         }
     }
 '

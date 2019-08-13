@@ -1,45 +1,77 @@
 #!/bin/bash
+# Get colors
 source $HOME/.cache/wal/colors.sh
+# Fully loaded in mWh
+bat0_energy_full=$(cat /sys/class/power_supply/BAT0/energy_full)
+bat1_energy_full=$(cat /sys/class/power_supply/BAT1/energy_full)
 
-# battery = percentage% chr/dis (remaining time)
-BATTERY=$(acpi | sed 's/,//g; s/:[0-9]* / /g' | awk '{print $4" "$3" "$5""}')
+# Currently loaded in mWh
+bat0_energy_now=$(cat /sys/class/power_supply/BAT0/energy_now)
+bat1_energy_now=$(cat /sys/class/power_supply/BAT1/energy_now)
 
-# percentage = 0..100%
-PERCENTAGE=$(echo $BATTERY | grep '^[0-9]*' -o)
+# Charge/Discharge rate in mW
+bat0_power_now=$(cat /sys/class/power_supply/BAT0/power_now)
+bat1_power_now=$(cat /sys/class/power_supply/BAT1/power_now)
 
-sparks=$(spark 0 ${PERCENTAGE} 100)
-GRAPH=${sparks:1:1}
+# Charge/Discharge status placeholders
+bat0_status=$(cat /sys/class/power_supply/BAT0/status | \
+    awk '/Charging/ {printf "++"}; /Discharging/ {printf "--"}; /Unknown/ {printf ""}')
+bat1_status=$(cat /sys/class/power_supply/BAT1/status | \
+    awk '/Charging/ {printf "++"}; /Discharging/ {printf "--"}; /Unknown/ {printf ""}')
 
-# time = hh:mm
-TIME=$(echo $BATTERY | awk '{print $3}')
+# Current capacity in percent
+bat0_perc=$(echo "100 * ${bat0_energy_now} / ${bat0_energy_full}" | bc)
+bat1_perc=$(echo "100 * ${bat1_energy_now} / ${bat1_energy_full}" | bc)
 
-# status = Charging/Discharging
-STATUS=$(echo $BATTERY | awk '{print $2}')
-
-if [[ "$STATUS" == "Charging" ]]; then
-    OUTPUT="⚡$PERCENTAGE% $GRAPH ($TIME)"
-else  # discharging
-    OUTPUT="$PERCENTAGE% $GRAPH ($TIME)"
+# Time to full/empty
+if [[ ${bat0_status} == "++" ]]; then
+    bat0_time=$(echo "60 * (${bat0_energy_full} - ${bat0_energy_now}) / ${bat0_power_now}" | bc)
+else  # [[ ${bat0_status} == "--" ]]
+    bat0_time=$(echo "60 * ${bat0_energy_now} / ${bat0_power_now}" | bc)
+fi
+if [[ ${bat1_status} == "++" ]]; then
+    bat1_time=$(echo "60 * (${bat1_energy_full} - ${bat1_energy_now}) / ${bat1_power_now}" | bc)
+else  # [[ ${bat0_status} == "--" ]]
+    bat1_time=$(echo "60 * ${bat1_energy_now} / ${bat1_power_now}" | bc)
 fi
 
+# Generate output
+output_0="${bat0_perc}% (${bat0_time}m) ${bat0_status}"
+output_1="${bat1_perc}% (${bat1_time}m) ${bat1_status}"
 
-case $PERCENTAGE in
-    9[0-9] | 100)  # green
-        echo "<span color='$color2'>$OUTPUT</span>"
-        ;;
-    2[0-5])  # yellow
-        echo "<span color='$color3'>$OUTPUT</span>"
-        ;;
-    1[0-9])  # red
-        echo "<span color='$color1'>$OUTPUT</span>"
-        ;;
+# Colorize output
+case $bat0_perc in
+    9[0-9] | 100)
+        colored_0="<span color='$color2'>${output_0}</span>" ;;
+    2[0-5])
+        colored_0="<span color='$color3'>${output_0}</span>" ;;
+    1[0-9])
+        colored_0="<span color='$color1'>${output_0}</span>" ;;
     [0-9])
-        if [[ "$STATUS" == "Discharging" ]]; then  # red background
-            echo "<span bgcolor='red' color='black'>$OUTPUT</span>"
+        if [[ "$bat0_status" == "--" ]]; then
+            colored_0="<span bgcolor='red' color='black'>${output_0}</span>"
         else
-            echo "<span color='$color1'>$OUTPUT</span>"
-        fi
-        ;;
-    *)  # white
-        echo $OUTPUT
+            colored_0="<span color='$color1'>${output_0}</span>"
+        fi ;;
+    *)
+        colored_0=${output_0}
 esac
+case $bat1_perc in
+    9[0-9] | 100)
+        colored_1="<span color='$color2'>${output_1}</span>" ;;
+    2[0-5])
+        colored_1="<span color='$color3'>${output_1}</span>" ;;
+    1[0-9])
+        colored_1="<span color='$color1'>${output_1}</span>" ;;
+    [0-9])
+        if [[ "$bat1_status" == "--" ]]; then
+            colored_1="<span bgcolor='red' color='black'>${output_1}</span>"
+        else
+            colored_1="<span color='$color1'>${output_1}</span>"
+        fi ;;
+    *)
+        colored_1=${output_1}
+esac
+
+# Output information
+echo "${colored_0} ${colored_1}"

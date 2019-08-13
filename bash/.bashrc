@@ -1,3 +1,4 @@
+# vim: ft=sh
 # ~/.bashrc: executed by bash(1) for non-login shells.
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
@@ -16,8 +17,8 @@ HISTCONTROL=ignoreboth
 shopt -s histappend
 
 # for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
-HISTSIZE=1000
-HISTFILESIZE=2000
+HISTSIZE=10000
+HISTFILESIZE=20000
 
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
@@ -28,7 +29,7 @@ shopt -s checkwinsize
 #shopt -s globstar
 
 # make less more friendly for non-text input files, see lesspipe(1)
-#[ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
+[ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
 
 # set variable identifying the chroot you work in (used in the prompt below)
 if [ -z "${debian_chroot:-}" ] && [ -r /etc/debian_chroot ]; then
@@ -79,18 +80,23 @@ if [ -x /usr/bin/dircolors ]; then
     #alias dir='dir --color=auto'
     #alias vdir='vdir --color=auto'
 
-    #alias grep='grep --color=auto'
-    #alias fgrep='fgrep --color=auto'
-    #alias egrep='egrep --color=auto'
+    alias grep='grep --color=auto'
+    alias fgrep='fgrep --color=auto'
+    alias egrep='egrep --color=auto'
 fi
 
 # colored GCC warnings and errors
-#export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
+export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
 
 # some more ls aliases
 #alias ll='ls -l'
 #alias la='ls -A'
 #alias l='ls -CF'
+
+# Add an "alert" alias for long running commands.  Use like so:
+#   sleep 10; alert
+alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
+
 
 # Alias definitions.
 # You may want to put all your additions into a separate file like
@@ -111,14 +117,147 @@ if ! shopt -oq posix; then
     . /etc/bash_completion
   fi
 fi
-# setxkbmap us
 
+# . ~/.bash_profile
+
+# if ! [[ $CONDA_PATH ]]; then
+#     export CONDA_PATH=$(find ~ -maxdepth 3 -type d -iname *conda3*)
+# fi
+# source $CONDA_PATH/etc/profile.d/conda.sh  # commented out by conda initialize
+
+if [[ -f ~/.cache/wal/sequences ]]; then
+    cat ~/.cache/wal/sequences
+fi
+
+
+# Path to the bash it configuration
+export BASH_IT="$HOME/.bash-it"
+
+# Lock and Load a custom theme file.
+# Leave empty to disable theming.
+# location /.bash_it/themes/
+export BASH_IT_THEME='noahhdf'
+
+# (Advanced): Change this to the name of your remote repo if you
+# cloned bash-it with a remote other than origin such as `bash-it`.
+# export BASH_IT_REMOTE='bash-it'
+
+# Your place for hosting Git repos. I use this for private repos.
+export GIT_HOSTING='git@git.domain.com'
+
+# Don't check mail when opening terminal.
+unset MAILCHECK
+
+# Change this to your console based IRC client of choice.
+export IRC_CLIENT='irssi'
+
+# Set this to the command you use for todo.txt-cli
+export TODO="t"
+
+# Set this to false to turn off version control status checking within the prompt for all themes
+export SCM_CHECK=true
+
+# Set Xterm/screen/Tmux title with only a short hostname.
+# Uncomment this (or set SHORT_HOSTNAME to something else),
+# Will otherwise fall back on $HOSTNAME.
+#export SHORT_HOSTNAME=$(hostname -s)
+
+# Set Xterm/screen/Tmux title with only a short username.
+# Uncomment this (or set SHORT_USER to something else),
+# Will otherwise fall back on $USER.
+#export SHORT_USER=${USER:0:8}
+
+# Set Xterm/screen/Tmux title with shortened command and directory.
+# Uncomment this to set.
+#export SHORT_TERM_LINE=true
+
+# Set vcprompt executable path for scm advance info in prompt (demula theme)
+# https://github.com/djl/vcprompt
+#export VCPROMPT_EXECUTABLE=~/.vcprompt/bin/vcprompt
+
+# (Advanced): Uncomment this to make Bash-it reload itself automatically
+# after enabling or disabling aliases, plugins, and completions.
+# export BASH_IT_AUTOMATIC_RELOAD_AFTER_CONFIG_CHANGE=1
+
+# Uncomment this to make Bash-it create alias reload.
+# export BASH_IT_RELOAD_LEGACY=1
+
+
+# Load Bash It
+# source "$BASH_IT"/bash_it.sh
+
+# # MAGIC Software
+# # export PATH=$PATH:$HOME/.local/anaconda3/bin
+# export ROOTSYS=$HOME/.local/root-5-34-anaconda3
+# export MARSSYS=$HOME/.local/Mars_V2-19-2
+# export LD_LIBRARY_PATH=$ROOTSYS/lib:$MARSSYS:$LD_LIBRARY_PATH
+# export DYLD_LIBRARY_PATH=$LD_LIBRARY_PATH
+# export PATH=$ROOTSYS/bin:$MARSSYS:$PATH
+# export OSTYPE=$OSTYPE
+# source /home/noah/MAGIC/root-6.14.04/obj/bin/thisroot.sh
+
+# SSH Agent
+if ! pgrep -u "$USER" ssh-agent > /dev/null; then
+    ssh-agent > ~/.ssh-agent-thing
+fi
+if [[ "$SSH_AGENT_PID" == "" ]]; then
+    eval "$(<~/.ssh-agent-thing)" > /dev/null
+fi
+
+
+function _conda_auto_activate() {
+    case ${PWD##*/}  in
+        praktikum) ENV="base" ;;
+        thesis)    ENV="base" ;;
+        cta*)      ENV="cta-dev"  ;;
+        *)         ENV="none" ;;
+    esac
+    if ! [[ $ENV == "none" ]]; then
+        if ! [[ $CONDA_PREFIX == ${CONDA_PREFIX##*/} ]]; then
+            conda activate $ENV
+        fi
+    fi
+}
+
+function chpwd() {
+    _conda_auto_activate
+}
+
+# function cd()
+# {
+#     builtin cd $@
+#     chpwd
+# }
+
+source ~/.bash_functions
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('$HOME/anaconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/opt/anaconda/etc/profile.d/conda.sh" ]; then
+        . "/opt/anaconda/etc/profile.d/conda.sh"
+    else
+        echo "well something wrong bashrc"
+        # export PATH="$HOME/anaconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
+
+source ~/.paths
+source ~/.variables
+
+alias 'rannor'='xrandr --output HDMI2 --mode 1920x1200 --primary --output DP1 --mode 1920x1200 --right-of HDMI2'
+alias 'ranrot'='xrandr --output HDMI2 --mode 1920x1200 --primary --rotate left --output DP1 --mode 1920x1200 --right-of HDMI2'
+
+# [[ -z $TMUX ]] || conda deactivate; conda activate
+
+export TERM=xterm-256color
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+
+source ~/.aliases
 . ~/.bash_profile
-
-# exec fish
-
-# added by Miniconda3 installer
-# export PATH="/home/noah/miniconda3/bin:$PATH"
-
-. ~/miniconda3/etc/profile.d/conda.sh
-cat ~/.cache/wal/sequences

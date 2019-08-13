@@ -7,16 +7,22 @@ all: $(BUILD)
 		alacritty/ \
 		bash/ \
 		colorschemes/ \
-		fish/ \
 		git/ \
 		i3/ \
-		mutt/ \
+		ion/ \
+		local_bin/ \
+		matplotlib/ \
 		nvim/ \
+		polybar/ \
 		rofi/ \
 		ranger/ \
 		redshift/ \
 		tmux/ \
 		vim/ \
 		wal/ \
-		zsh/ \
 		X/
+
+$(BUILD): FORCE
+	./create
+
+FORCE:
