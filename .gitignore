@@ -1,5 +1,15 @@
+# nvim
 nvim/.config/nvim/spell/
 nvim/.config/nvim/undo/
+nvim/.config/nvim/.netrwhist
+
+# tmux
 tmux/.tmux/plugins/
+
+# bash
 bash/.bashrc
 bash/.bash_profile
+
+# ranger
+ranger/.config/ranger/bookmarks
+ranger/.config/ranger/history

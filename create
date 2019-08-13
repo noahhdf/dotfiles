@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+# bash
+cat bash/.main.bashrc bash/.$HOSTNAME.bashrc > bash/.bashrc
+cat bash/.main.bash_profile bash/.$HOSTNAME.bash_profile > bash/.bash_profile

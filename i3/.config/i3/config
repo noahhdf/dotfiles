@@ -19,68 +19,61 @@ set_from_resource $boldcyan .color14
 set_from_resource $white .color7
 set_from_resource $boldwhite .color15
 
-workspace_layout tabbed # default|stacking|tabbed
-focus_follows_mouse true # true|false
+workspace_layout default  # default|stacking|tabbed
+focus_follows_mouse false # true|false
 
 # -- variables -- #
-set $mod Mod1
+set $mod Mod4
 
 set $alt Mod1
-set $win Mod4
+set $mod Mod1
+# set $win Mod4
 
 set $fontsize 7
-set $bordersize 1
-set $gapsize 10
+set $bordersize 2
+set $gapsize 0
 
-font pango:SourceCodePro $fontsize
+font pango:SourceCodeVariable $fontsize
 # font pango:DejaVu Sans Mono 8
-# font pango:System San Francisco Display 8
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
-
-# save eyes
-bindsym $mod+Ctrl+r exec redshift -o
-bindsym $mod+c exec autorandr -c && feh --bg-fill ~/Pictures/background
+floating_minimum_size 20x20
+floating_maximum_size 1300x700
 
 # start a terminal
+bindsym $mod+Return exec alacritty
+bindsym $mod+Shift+Return exec urxvt -shading 100 -transparent -e ion
 
-bindsym $mod+Return exec urxvt
-bindsym $mod+Shift+Return exec urxvt -e ranger
-
-# bindsym $mod+Return exec alacritty
-# bindsym $mod+Shift+Return exec urxvt -e nnn
-
-bindsym $mod+<F6> bash ~/change_brightness 7000
-bindsym $mod+<F5> bash ~/change_brightness 1000
+# passmenu
+bindsym $mod+p exec ~/.local/bin/passmenu
 
 # start a webbrowser
-bindsym $mod+shift+w mode "web"
-mode "web" {
-    bindsym f exec firefox, mode default
-    bindsym shift+f exec firefox, workspace $ws2, mode default
-    bindsym q exec qutebrowser, mode default
-    bindsym shift+q exec qutebrowser, workspace $ws2, mode default
-    bindsym m exec midori, mode default
-    bindsym shift+m exec midori, workspace $ws2, mode default
-    bindsym s exec surf -i ddg.gg/lite, mode default
-    bindsym shift+s exec surf -i ddg.gg/lite, workspace $ws2, mode default
-    bindsym t exec thunderbird, mode default
-    bindsym shift+t exec thunderbird, workspace $ws7, mode default
-    # back to normal: Enter or Escape
-    bindsym Return mode "default"
-    bindsym Escape mode "default"
-}
+bindsym $mod+shift+w exec ~/.config/i3/bin/web
+# bindsym $mod+shift+w mode "web"
+# mode "web" {
+#     bindsym f exec firefox, mode default
+#     bindsym shift+f exec firefox, workspace $ws4, mode default
+#     bindsym q exec qutebrowser, mode default
+#     bindsym shift+q exec qutebrowser, workspace $ws4, mode default
+#     bindsym m exec midori, mode default
+#     bindsym shift+m exec midori, workspace $ws4, mode default
+#     bindsym t exec thunderbird, mode default
+#     bindsym shift+t exec thunderbird, workspace $ws9, mode default
+#     # back to normal: Enter or Escape
+#     bindsym Return mode "default"
+#     bindsym Escape mode "default"
+# }
 
 # kill focused window
 bindsym $mod+Shift+q kill
 
 # start .desktop applications
-# bindsym $mod+d exec --no-startup-id i3-dmenu-desktop #-nb "$fullblack" -nf "$boldblack" -sb "$black" -sf "$white"
-bindsym $mod+d exec --no-startup-id dmenu_run -nb "$fullblack" -nf "$boldblack" -sb "$black" -sf "$white"
+# bindsym $mod+d exec --no-startup-id dmenu_run -nb "$black" -nf "$white" -sb "$black" -sf "$green"
 
 # start rofi
-bindsym $mod+space exec rofi -show run
+bindsym $mod+d exec rofi -show drun -auto-select
+bindsym $mod+Shift+d exec rofi -show window
 
 # change focus
 bindsym $mod+h focus left
@@ -114,24 +107,28 @@ bindsym $mod+shift+a focus child
 # bindsym $mod+s layout stacking
 bindsym $mod+t layout tabbed
 bindsym $mod+s layout toggle split
-for_window [workspace=$ws7] layout tabbed
-for_window [workspace=$ws2] layout tabbed
-for_window [workspace=$ws4] layout tabbed
-# for_window [class="URxvt"] floating enable
+for_window [workspace=$ws9] layout tabbed
+for_window [class="VirtualBox"] floating enable
+for_window [class="Mars"] floating enable
+for_window [class="ROOT"] floating enable
+for_window [class="feh"] floating enable
 
 # toggle tiling / floating
 bindsym $mod+Shift+space floating toggle
 
-set $ws1  "1:I"
+set $ws1  "1:"
 set $ws2  "2:II"
 set $ws3  "3:III"
-set $ws4  "4:IV"
+set $ws4  "4:"
 set $ws5  "5:V"
 set $ws6  "6:VI"
 set $ws7  "7:VII"
 set $ws8  "8:VIII"
 set $ws9  "9:IX"
 set $ws10 "10:X"
+set $ws_slack "11:"
+set $ws_telegram "12:"
+set $ws_thunderbird "13:"
 
 # switch to workspace
 bindsym $mod+1 workspace $ws1
@@ -144,6 +141,8 @@ bindsym $mod+7 workspace $ws7
 bindsym $mod+8 workspace $ws8
 bindsym $mod+9 workspace $ws9
 bindsym $mod+0 workspace $ws10
+bindsym $mod+Left workspace prev
+bindsym $mod+Right workspace next
 
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace $ws1
@@ -174,14 +173,7 @@ bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
 # lock i3
-# bindsym $mod+Shift+e exec betterlockscreen -l dim
-# bindsym $mod+Shift+e exec ~/.config/i3lock/locknow.sh
-# bindsym $mod+Shift+e exec bash ~/.config/i3lock/locknow.sh
-bindsym $mod+Shift+e exec slock
-# exit i3 (logs you out of your X session)
-# bindsym $mod+Shift+Delete exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
-bindsym $mod+Ctrl+Delete exec ~/.config/i3blocks/blocks/shutdown_menu -c
-bindsym $mod+Ctrl+Escape exec ~/.config/i3blocks/blocks/shutdown_menu -c
+bindsym $mod+e exec ~/.config/i3lock/exit_menu.sh
 
 # resize windows
 mode "resize" {
@@ -195,53 +187,42 @@ mode "resize" {
 }
 bindsym $mod+r mode "resize"
 
-bindsym $mod+shift+t exec telegram-desktop, workspace $ws7
-bindsym $mod+z exec zathura
+bindsym $mod+shift+t exec franz, workspace $ws9
+
+# mode "pdf" {
+#         bindsym z exec zathura, mode default
+#         bindsym e exec evince, mode default
+#         bindsym Return mode "default"
+#         bindsym Escape mode "default"
+# }
+# bindsym $mod+p mode "pdf"
+bindsym $mod+Shift+p exec ~/.config/i3/bin/pdfs
 
 # hide borders when fullscreen
-hide_edge_borders smart # none|vertical|horizontal|both|smart
-
-# screen lock
-# bindsym $mod+Delete exec xautolock -locknow
+hide_edge_borders none # none|vertical|horizontal|both|smart
 
 bindsym $mod+Tab workspace back_and_forth
 
+# MultiMediaKeys
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5%
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5%
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle
+
+# Screen Brightness
+bindsym XF86MonBrightnessUp exec xbacklight -inc 10
+bindsym XF86MonBrightnessDown exec xbacklight -dec 10
+bindsym Ctrl+XF86MonBrightnessUp exec xbacklight -set 100
+bindsym Ctrl+XF86MonBrightnessDown exec xbacklight -set 1
+
+# Display / Beamer Settings
+bindsym XF86LaunchA exec xbacklight -set $(cat ~/.cache/xbacklight/xbacklight) & autorandr --change && feh --bg-fill ~/Pictures/background
+
 #  -- color windows --  #
 #                       #border    #background #text      #indicator
-client.focused          $boldwhite $boldwhite  $black     $red
-client.unfocused        $black     $black      $boldwhite $red
-client.focused_inactive $black     $black      $boldwhite $red
-client.urgent           $red       $red        $black     $red
-
-
-#  -- i3blocks --  #
-bar {
-    status_command i3blocks
-    # output edp-1
-    # output hmdi-1
-    tray_output edp-1
-    tray_padding 0
-    font                pango:SourceCodePro $fontsize
-    colors {
-        #                  #color
-        background         $black
-        statusline         $boldwhite
-        separator          $white
-        #                  #border    #background #text
-        focused_workspace  $boldwhite $boldwhite  $black
-        active_workspace   $black     $black      $white
-        inactive_workspace $black     $black      $bold_black
-        urgent_workspace   $black     $black      $red
-        binding_mode       $black     $black      $red
-    }
-    mode dock                   # dock|hide|invisible
-    hidden_state hide           # hide|show
-    modifier $win               # modifier
-    strip_workspace_numbers yes # yes|no
-    separator_symbol "|"        # any symbol
-    position bottom             # top|bottom
-    workspace_buttons yes       # yes|no
-}
+client.focused          $cyan      $cyan      $black     $green
+client.unfocused        $black     $black      $boldwhite $green
+client.focused_inactive $black     $black      $boldwhite $green
+client.urgent           $red       $red        $black     $green
 
 
 # -- default borders -- #
@@ -249,7 +230,7 @@ for_window [class=".*"] border pixel $bordersize
 for_window [workspace=$ws7 class="MuPDF"] floating enable, border normal $bordersize
 for_window [class="Surf"] border normal $bordersize
 for_window [class="Tk"] floating enable, border normal $bordersize
-for_window [class="Matplotlib"] floating enable, border normal $bordersize
+for_window [class="matplotlib"] floating enable, border normal $bordersize
 for_window [class=" "] floating enable, border pixel $bordersize
 
 bindsym $mod+b mode "borders"
@@ -267,34 +248,73 @@ mode "borders" {
     bindsym Escape mode "default"
 }
 
-# # -- display workspaces through outputs -- #
-# workspace $ws1 output eDP-1   # default working screen laptop
-# workspace $ws2 output HDMI-1  # default web borwser on big screen
-# workspace $ws7 output eDP-1   # private chatting no one should see
-# workspace $ws10 output HDMI-1 # default presentations on beamer
-# -- even workspaces on hdmi -- #
-workspace $ws1 output eDP1
-workspace $ws3 output eDP1
-workspace $ws5 output eDP1
-workspace $ws7 output eDP1
-workspace $ws9 output eDP1
-workspace $ws2 output HDMI1
-workspace $ws4 output HDMI1
-workspace $ws6 output HDMI1
-workspace $ws8 output HDMI1
-workspace $ws10 output HDMI1
-
 #  -- bind programs to workspaces --  #
 # 1) run `xprop`
 # 2) click on program of choice
 # 3) find `WM_CLASS(STRING)`
 # 4) use second value to assign
-assign [class="Firefox-esr"] $ws2
-assign [class="Firefox"] $ws2
-assign [class="Midori"] $ws2
-assign [class="qutebrowser"] $ws2
-assign [class="Telegram"] $ws7
-assign [class="Thunderbird"] $ws7
+
+# Browser Workspace 4
+assign [class="firefox-esr"] $ws4
+assign [class="firefox"] $ws4
+for_window [class="firefox" instance="Dialog"] move workspace current, focus
+assign [class="Firefox"] $ws4
+for_window [class="Firefox" instance="Dialog"] move workspace current, focus
+assign [class="Midori"] $ws4
+assign [class="qutebrowser"] $ws4
+# Social Workspace 9
+assign [class="Telegram"] $ws_telegram
+assign [class="Slack"] $ws_slack
+assign [class="TelegramDesktop"] $ws_telegram
+assign [class="Thunderbird"] $ws_thunderbird
+assign [class="Franz"] $ws9
+assign [class="Whatsie"] $ws9
+
+bindsym $mod+Shift+s exec ~/.config/i3/bin/colors
+# mode "screen" {
+#     bindsym d exec ~/*conda3/bin/wal -f ~/.nord.json -o ~/.config/i3/change_vim_colors.sh, mode "default"
+#     bindsym l exec ~/*conda3/bin/wal -f base16-gruvbox-hard -l -o ~/.config/i3/change_vim_colors.sh, mode "default"
+#     bindsym Return mode "default"
+#     bindsym Escape mode "default"
+# }
+
+exec_always bash ~/.start
+
+# GNOME integration
+exec --no-startup-id /usr/lib/gnome-settings-daemon/gsd-xsettings
+# exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+# exec --no-startup-id gnome-flashback
+
+## Plasma Integration
+# Try to kill the wallpaper set by Plasma (it takes up the entire workspace and hides everythiing)
+exec --no-startup-id wmctrl -c Plasma
+for_window [title="Desktop — Plasma"] kill, floating enable, border none
+
+## Avoid tiling popups, dropdown windows from plasma
+# for the first time, manually resize them, i3 will remember the setting for floating windows
+for_window [class="plasmashell"] floating enable
+for_window [class="Plasma"] floating enable, border none
+for_window [title="plasma-desktop"] floating enable, border none
+for_window [title="win7"] floating enable, border none
+for_window [class="krunner"] floating enable, border none
+for_window [class="Kmix"] floating enable, border none
+for_window [class="Klipper"] floating enable, border none
+for_window [class="Plasmoidviewer"] floating enable, border none
+
+# -- odd workspaces on laptop screen -- #
+workspace $ws1 output eDP1 DP1
+workspace $ws3 output eDP1 DP1
+workspace $ws5 output eDP1 DP1
+workspace $ws7 output eDP1 DP1
+workspace $ws9 output eDP1 DP1
+workspace $ws_slack output eDP1 DP1
+workspace $ws_telegram output eDP1 DP1
+workspace $ws_thunderbird output eDP1 DP1
+workspace $ws2 output DP2-3 DP2 HDMI2
+workspace $ws4 output DP2-3 DP2 HDMI2
+workspace $ws6 output DP2-3 DP2 HDMI2
+workspace $ws8 output DP2-3 DP2 HDMI2
+workspace $ws10 output DP2-3 DP2 HDMI2
 
 # -- gaps -- #
 # gaps inner|outer current|all set|plus|minus <px>
@@ -318,39 +338,4 @@ mode "gaps" {
     bindsym Escape mode "default"
 }
 
-# bindsym $mod+shift+b mode "brightness"
-# mode "brightness" {
-#     bindsym 1 exec ~/shellScripts/high.sh, mode "default"
-#     bindsym 2 exec ~/shellScripts/normal.sh, mode "default"
-#     bindsym 3 exec ~/shellScripts/default.sh, mode "default"
-#     bindsym 4 exec ~/shellScripts/low.sh, mode "default"
-#     bindsym 0 exec ~/shellScripts/lowest.sh, mode "default"
-#     # back to normal: Enter or Escape
-#     bindsym Return mode "default"
-#     bindsym Escape mode "default"
-# }
-
-# bindsym $mod+shift+s mode "screens"
-# mode "screens" {
-#     bindsym h exec ~/.screenlayout/with_hdmi.sh, mode "default"
-#     bindsym n exec ~/.screenlayout/no_hdmi.sh, mode "default"
-#     bindsym c exec ~/.screenlayout/copy_screen_hdmi.sh, mode "default"
-#     # back to normal: Enter or Escape
-#     bindsym Return mode "default"
-#     bindsym Escape mode "default"
-# }
-
-# bindsym $mod+shift+o mode "redshift"
-# mode "redshift" {
-#     bindsym 1 exec redshift -O 6500, mode "default"
-#     bindsym 2 exec redshift -O 5500, mode "default"
-#     bindsym 3 exec redshift -O 3500, mode "default"
-#     bindsym 4 exec redshift -O 2500, mode "default"
-#     # back to normal: Enter or Escape
-#     bindsym Return mode "default"
-#     bindsym Escape mode "default"
-# }
-exec_always ~/miniconda3/bin/wal -f ~/.nord.json
-exec_always unclutter --jitter 6 --timeout 3 --ignore-scrolling -b
-exec_always ~/.config/i3lock/i3lock.sh
-exec_always xset s 60
+exec_always --no-startup-id ~/.config/polybar/launch.sh
