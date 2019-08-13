@@ -1,1 +1,5 @@
 nvim/.config/nvim/spell/
+nvim/.config/nvim/undo/
+tmux/.tmux/plugins/
+bash/.bashrc
+bash/.bash_profile
