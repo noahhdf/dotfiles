@@ -37,6 +37,7 @@ foreground = ${colors.foreground}
 font-0 = "FiraCodeLight:size=8;1"
 font-1 = "FontAwesome:size=8;1"
 font-2 = "DejaVuSerifCondensed:size=6;1"
+font-3 = "NotoEmoji:scale=13"
 module-margin = 1
 
 [bar/combined]
