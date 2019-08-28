@@ -1,0 +1,4 @@
+# ft=bash
+alias ls=exa
+alias ll=exa -l
+alias lt=exa -l -snew
