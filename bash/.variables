@@ -3,3 +3,5 @@ export FZF_TMUX=1
 export FZF_TMUX_HEIGHT=10
 
 export EDITOR=nvim
+
+export GAMMAPY_DATA=~/Uni/MSc/gammapy-tutorials/datasets-0.12/
