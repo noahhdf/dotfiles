@@ -9,6 +9,12 @@ case $- in
       *) return;;
 esac
 
+# Source global definitions
+if [ -f /etc/bashrc ]; then
+	. /etc/bashrc
+fi
+
+
 # don't put duplicate lines or lines starting with space in the history.
 # See bash(1) for more options
 HISTCONTROL=ignoreboth
@@ -260,12 +266,119 @@ export TERM=xterm-256color
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
 source ~/.aliases
-. ~/.bash_profile
+# .bashrc
 
-PATH="/home/nbiederbeck/perl5/bin${PATH:+:${PATH}}"; export PATH;
-PERL5LIB="/home/nbiederbeck/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
-PERL_LOCAL_LIB_ROOT="/home/nbiederbeck/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
-PERL_MB_OPT="--install_base \"/home/nbiederbeck/perl5\""; export PERL_MB_OPT;
-PERL_MM_OPT="INSTALL_BASE=/home/nbiederbeck/perl5"; export PERL_MM_OPT;
+# Uncomment the following line if you don't like systemctl's auto-paging feature:
+# export SYSTEMD_PAGER=
 
-source ~/.git-completion.bash
+# User specific aliases and functions
+# conda activate cta
+# alias 'vim'='nvim'
+# alias 'git'='~/.linuxbrew/bin/git'
+alias '..'='cd ..'
+alias 'gits'='git status --short'
+alias 'jn'='jupyter-notebook --port=2702 --no-browser'
+
+# Root with python3
+# source /opt/root/5.34.36-py3/bin/thisroot.sh
+
+# Mars
+export MARSSYS=/opt/MAGIC/Mars_V2-18-4
+export LD_LIBRARY_PATH=$MARSSYS:$LD_LIBRARY_PATH
+export PATH=$MARSSYS:$PATH
+
+export LEHRSTUHLVERSUCH='/net/big-tank/POOL/projects/magic/lehrstuhlversuch'
+
+alias 'bigtank'='cd /net/big-tank/POOL/users/nbiederbeck'
+alias 'utopcpu'='top -o %CPU -u $USER'
+alias 'utopmem'='top -o %MEM -u $USER'
+alias 'topcpu'='top -o %CPU'
+alias 'topmem'='top -o %MEM'
+
+# Anaconda Python
+. /opt/anaconda/etc/profile.d/conda.sh
+# conda activate py37
+
+source ~/.bash_colors
+# PS1="$(clr_red '[$(echo $HOSTNAME | cut -d. -f1)]') $PS1"
+
+# vim: ft=sh
+source ~/.bash_colors
+# source bashrc
+if [ -n "$BASH_VERSION" ]; then
+    if [ -f "~/.bashrc" ]; then
+        source "~/.bashrc"
+    fi
+fi
+source ~/.aliases
+# link bash to /usr directory to retain path in tmux
+# if ! [ -f "/usr/bin/bash" ]; then
+    # echo "Linking /usr/bin/bash -> /bin/bash and need permission:"
+    # sudo ln -s /bin/bash /usr/bin/bash
+# fi
+
+# added by anaconda2 4.3.1 installer
+# export PATH="$HOME/anaconda2/bin:$PATH"
+# added by anaconda3 4.3.1 installer
+# export PATH="$HOME/anaconda3/bin:$PATH"
+# additional python2 behaviour
+# alias 'python2'='/Users/nbiederbeck/anaconda2/bin/python'
+# alias 'virtualenv2'='/Users/nbiederbeck/anaconda2/bin/virtualenv'
+# alias 'conda2'='/Users/nbiederbeck/anaconda2/bin/conda'
+
+parse_git_branch() {
+    git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/'
+}
+
+parse_git_repo() {
+    git remote -v 2> /dev/null | grep 'origin.*fetch' | \
+    sed -E 's#^origin.*(git@|https?://)##;s/(.git)? .*$//;s/gitlab.com/lab/;s/github.com/hub/'
+}
+
+print_git_info() {
+    echo "$(clr_brown '$(parse_git_branch)') $(clr_blue '$(parse_git_repo)')"
+}
+
+# export PS1='\[\033[0;31m\]$(parse_git_branch) \[\033[0;34m\]\w\n\[\033[1;32m\]\[\033[0m\]$ '
+export PS1="$(clr_green '\w') $(print_git_info)\n$ "
+
+# export PATH="$HOME/.cargo/bin:$PATH"
+# export DISABLE_AUTO_TITLE=true
+# export PATH="$HOME/.source/bin:$PATH"
+
+# path to alacritty github
+# export PATH="$HOME/Git/alacritty/target/release:$PATH"
+# export PATH="$HOME/Git/i3wm/polybar:$PATH"
+# export PATH="$HOME/shellScripts:$PATH"
+# firefox
+# export PATH="$HOME/Downloads/firefox-57.0/firefox:$PATH"
+
+# tex
+# export PATH="$(echo ~/.local/texlive/*/bin/*):$PATH"
+
+# sd card variable
+# export SD="/media/noah/23c4ddbc-85fa-4cea-b96b-edae0bb138c9"
+
+# xmodmap ~/.Xmodmap
+
+export PATH="$HOME/.cargo/bin:$PATH"
+
+if [[ ! $DISPLAY && $XDG_VTNR -eq 1 ]]; then
+    exec startx
+fi
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('$HOME/anaconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/opt/anaconda/etc/profile.d/conda.sh" ]; then
+        . "/opt/anaconda/etc/profile.d/conda.sh"
+    else
+        echo "well something wrong bash_profile"
+        # export PATH="$HOME/anaconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
