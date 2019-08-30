@@ -16,6 +16,7 @@ else
 endif
     " Plugins Only For Fast Computers == Not For Raspberry PIs
     if matchstr(hostname(), 'berry') != 'berry'
+        Plug 'neoclide/coc.nvim', {'branch': 'release'}
         Plug 'maximbaz/lightline-ale'
             set laststatus=2
             set noshowmode
